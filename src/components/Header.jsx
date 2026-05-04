@@ -252,7 +252,7 @@ export default function Header({ lang = "es" }) {
                             </a>
 
                             <div className="absolute left-1/2 top-full z-50 w-[min(760px,92vw)] -translate-x-1/2 pt-5 opacity-0 invisible translate-y-3 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                                <div className="overflow-hidden rounded-3xl border border-white/20 bg-background/55 p-3 shadow-2xl shadow-black/10 backdrop-blur-2xl dark:border-white/10 dark:bg-background/45">
+                                <div className="overflow-hidden rounded-3xl border border-border/70 bg-background p-3 shadow-2xl shadow-black/15 backdrop-blur-sm dark:bg-card">
                                     <div className="border-b border-border/60 px-4 pb-4 pt-2">
                                         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
                                             Servicios
@@ -270,7 +270,7 @@ export default function Header({ lang = "es" }) {
                                                 <a
                                                     key={service.href}
                                                     href={service.href}
-                                                    className="group/item relative flex min-h-[152px] flex-col overflow-hidden rounded-2xl border border-transparent bg-background/50 p-4 transition-all duration-200 hover:border-border hover:bg-muted/80 hover:shadow-lg hover:shadow-black/5"
+                                                    className="group/item relative flex min-h-[152px] flex-col overflow-hidden rounded-2xl border border-border/50 bg-card p-4 transition-all duration-200 hover:border-secondary/30 hover:bg-muted hover:shadow-lg hover:shadow-black/5"
                                                 >
                                                     <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${service.accent} opacity-80 transition-opacity duration-200 group-hover/item:opacity-100`} />
 
@@ -374,7 +374,7 @@ export default function Header({ lang = "es" }) {
                 {open && (
                     <div
                         id="mobile-navigation"
-                        className="mt-2 max-h-[calc(100vh-6.5rem)] overflow-y-auto rounded-2xl border border-white/20 bg-background/55 p-4 shadow-xl shadow-black/10 backdrop-blur-2xl transition-all duration-300 dark:border-white/10 dark:bg-background/45 sm:p-5 lg:hidden"
+                        className="mt-2 max-h-[calc(100vh-6.5rem)] overflow-y-auto rounded-2xl border border-border/70 bg-background p-4 shadow-xl shadow-black/10 backdrop-blur-sm transition-all duration-300 dark:bg-card sm:p-5 lg:hidden"
                     >
                         <div className="space-y-2">
                             {navLinks.map((link) => (
