@@ -1,13 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
-import Services from "../../components/Services.astro";
-import ProyectosGrid from "../../components/ProyectosGrid.astro";
-import Partners from "@/components/Partners.astro";
-import TestimonialCarousel from "@/components/TestimonialCarousel";
-import BlogGrid from "@/components/BlogGrid.astro";
-import FAQ from "../../components/FAQ";
-import ContactForm from "../../components/ContactForm.astro";
 
 type Lang = "es" | "en";
 
@@ -21,18 +14,12 @@ const { lang } = Astro.params as { lang: Lang };
 <BaseLayout
 	lang={lang}
 	title={lang === "es"
-		? "Desarrollo de software a medida en Perú para empresas | VelyonSoft"
-		: "Custom software development in Peru for businesses | VelyonSoft"}
+		? "Desarrollo de software a medida, automatizacion y SEO en Peru | VelyonSoft"
+		: "Custom software, automation and SEO in Peru | VelyonSoft"}
 	description={lang === "es"
-		? "Desarrollamos software a medida, sistemas web y automatizaciones para empresas en Perú. Soluciones escalables para optimizar procesos y vender más."
-		: "We build custom software, web systems and automations for businesses in Peru. Scalable solutions to optimize operations and grow faster."}
+		? "VelyonSoft desarrolla software a medida, webs corporativas, tiendas virtuales y automatizaciones para empresas en Peru con enfoque en SEO tecnico y conversion."
+		: "VelyonSoft builds custom software, corporate websites, online stores and automations in Peru with technical SEO and conversion in mind."}
+	image="/home.webp"
 >
 	<Hero lang={lang} />
-	<Services lang={lang} onlyFeatured />
-	<ProyectosGrid lang={lang} />
-	<Partners lang={lang} />
-	<TestimonialCarousel client:visible lang={lang} />
-	<BlogGrid lang={lang} />
-	<FAQ client:visible lang={lang} />
-	<ContactForm lang={lang} />
 </BaseLayout>

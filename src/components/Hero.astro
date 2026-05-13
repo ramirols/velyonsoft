@@ -1,139 +1,248 @@
 ---
-import { CheckCircle } from "lucide-astro";
+import { getWhatsAppLink } from "../lib/constants";
 
 type Lang = "es" | "en";
 
 interface Props {
-    lang?: Lang;
+  lang?: Lang;
 }
 
 const { lang = "es" } = Astro.props;
 
 const t = {
-    es: {
-        badge: "Empresa de desarrollo de software en Perú",
-        title: "Desarrollo de software a medida para empresas en Perú",
-        subtitle:
-            "Creamos sistemas web, automatizaciones y soluciones digitales para empresas que buscan optimizar procesos, ahorrar tiempo y crecer con tecnología.",
-        bullets: [
-            "Software a medida según tus procesos",
-            "Sistemas web para operaciones y ventas",
-            "Automatización de tareas y atención",
-            "Implementación para empresas en Perú",
-        ],
-        ctaPrimary: "Solicitar propuesta",
-        ctaSecondary: "Ver proyectos",
-        trust: "Soluciones para empresas, negocios y organizaciones que quieren digitalizarse",
-    },
-    en: {
-        badge: "Software development company in Peru",
-        title: "Custom software development for businesses in Peru",
-        subtitle:
-            "We build web systems, automations and digital solutions for companies that want to optimize operations, save time and grow with technology.",
-        bullets: [
-            "Custom software based on your processes",
-            "Web systems for operations and sales",
-            "Task and customer service automation",
-            "Implementation for businesses in Peru",
-        ],
-        ctaPrimary: "Request a proposal",
-        ctaSecondary: "View projects",
-        trust: "Solutions for companies and organizations looking to digitize operations",
-    },
+  es: {
+    badge: "Empresa de desarrollo de software en Perú",
+    title: "Desarrollo de software a medida para empresas en Perú",
+    subtitle:
+      "Creamos sistemas web, automatizaciones y soluciones digitales para empresas que buscan optimizar procesos, ahorrar tiempo y crecer con tecnología.",
+    tickerItems: [
+      "Software a medida según tus procesos",
+      "Sistemas web para operaciones y ventas",
+      "Automatización de tareas y atención",
+      "Implementación para empresas en Perú",
+      "Integraciones a medida con tus herramientas",
+      "Paneles para seguimiento de operaciones",
+      "Optimización de flujos internos",
+      "Soluciones digitales para crecer con orden",
+    ],
+    ctaPrimary: "Solicitar propuesta",
+    ctaSecondary: "Ver proyectos",
+    tickerLabel: "Soluciones clave",
+  },
+  en: {
+    badge: "Software development company in Peru",
+    title: "Custom software development for businesses in Peru",
+    subtitle:
+      "We build web systems, automations and digital solutions for companies that want to optimize operations, save time and grow with technology.",
+    tickerItems: [
+      "Custom software based on your processes",
+      "Web systems for operations and sales",
+      "Task and customer service automation",
+      "Implementation for businesses in Peru",
+      "Custom integrations with your tools",
+      "Dashboards for operational visibility",
+      "Internal workflow optimization",
+      "Digital solutions built to scale",
+    ],
+    ctaPrimary: "Request a proposal",
+    ctaSecondary: "View projects",
+    tickerLabel: "Core solutions",
+  },
 }[lang];
 
+const tickerLoop = [...t.tickerItems, ...t.tickerItems];
+const primaryCtaHref = getWhatsAppLink();
+
 const heroSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name:
-        lang === "es"
-            ? "Desarrollo de software a medida para empresas en Perú"
-            : "Custom software development for businesses in Peru",
-    provider: {
-        "@type": "Organization",
-        name: "VelyonSoft",
-        url: "https://www.velyonsoft.com",
-    },
-    areaServed: {
-        "@type": "Country",
-        name: "Peru",
-    },
-    serviceType:
-        lang === "es"
-            ? "Desarrollo de software a medida, sistemas web y automatización"
-            : "Custom software development, web systems and automation",
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name:
+    lang === "es"
+      ? "Desarrollo de software a medida para empresas en Perú"
+      : "Custom software development for businesses in Peru",
+  provider: {
+    "@type": "Organization",
+    name: "VelyonSoft",
+    url: "https://www.velyonsoft.com",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Peru",
+  },
+  serviceType:
+    lang === "es"
+      ? "Desarrollo de software a medida, sistemas web y automatización"
+      : "Custom software development, web systems and automation",
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(heroSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(heroSchema)}
+></script>
 
 <section
-    id="inicio"
-    class="relative overflow-hidden bg-zinc-950 text-white"
-    aria-label={lang === "es" ? "Hero principal" : "Main hero"}
+  id="inicio"
+  class="relative overflow-hidden bg-zinc-950 text-white"
+  aria-label={lang === "es" ? "Hero principal" : "Main hero"}
 >
-    <div
-        class="absolute inset-0 bg-cover bg-top"
-        style="background-image: url('/images/slider-font.webp');"
-    >
+  <div
+    class="absolute inset-0 bg-cover bg-center md:bg-right-top"
+    style="background-image: url('/home.webp');"
+  >
+  </div>
+  <div
+    class="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.78)_0%,rgba(0,0,0,0.64)_34%,rgba(0,0,0,0.42)_62%,rgba(0,0,0,0.52)_100%)]"
+  >
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto pt-32 pb-14 md:pt-40 md:pb-20">
+    <div class="max-w-3xl lg:max-w-[42rem]">
+      <div
+        class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md mb-10"
+      >
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span
+          class="text-[11px] md:text-xs uppercase tracking-[0.18em] font-semibold text-white/75"
+        >
+          {t.badge}
+        </span>
+      </div>
+
+      <h1
+        class="w-[95%] text-[2.2rem] font-black tracking-tight mb-8 sm:text-4xl md:text-[3.7rem]"
+      >
+        {t.title}
+      </h1>
+
+      <p
+        class="max-w-[30rem] text-base leading-relaxed text-white/85 mb-10 md:text-[1.15rem]"
+      >
+        {t.subtitle}
+      </p>
+
+      <div class="mt-12 flex flex-col gap-3 sm:flex-row sm:gap-4">
+        <a
+          href={primaryCtaHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-2xl bg-cyan-400 px-6 py-3.5 font-bold text-black transition hover:scale-[1.02] hover:bg-cyan-300 sm:px-7 sm:py-4"
+        >
+          {t.ctaPrimary}
+        </a>
+        <a
+          href={`/${lang}/proyectos`}
+          class="inline-flex items-center justify-center rounded-2xl border border-white/15 px-6 py-3.5 font-semibold text-white/90 transition hover:bg-white/5 sm:px-7 sm:py-4"
+        >
+          {t.ctaSecondary}
+        </a>
+      </div>
     </div>
-    <div class="absolute inset-0 bg-black/50"></div>
+  </div>
 
-    <div
-        class="relative z-10 max-w-6xl mx-auto px-4 pt-32 pb-16 sm:px-6 md:pt-40 md:pb-28"
-    >
-        <div class="max-w-3xl">
-            <div
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8"
-            >
-                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"
-                ></span>
-                <span
-                    class="text-[11px] md:text-xs uppercase tracking-[0.18em] font-semibold text-white/75"
-                >
-                    {t.badge}
-                </span>
-            </div>
+  <div
+    class="relative z-10 border-t border-secondary/20 bg-black/55 backdrop-blur-sm"
+  >
+    <div class="mx-auto flex max-w-7xl flex-col lg:flex-row lg:items-stretch">
+      <div
+        class="flex items-center border-b border-secondary/15 px-4 py-4 text-secondary sm:px-6 lg:w-[260px] lg:border-b-0 lg:border-r lg:border-r-secondary/15 lg:px-8"
+      >
+        <span
+          class="font-mono text-[0.78rem] font-medium uppercase tracking-[0.28em]"
+        >
+          {t.tickerLabel}
+        </span>
+      </div>
 
-            <h1
-                class="text-[2.35rem] sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-6"
-            >
-                {t.title}
-            </h1>
-
-            <p
-                class="text-base md:text-xl text-white/80 leading-relaxed max-w-2xl mb-8"
-            >
-                {t.subtitle}
-            </p>
-
-            <ul class="grid sm:grid-cols-2 gap-3 mb-10 list-none p-0">
-                {
-                    t.bullets.map((item) => (
-                        <li class="flex items-start gap-3 text-sm md:text-base text-white/90">
-                            <CheckCircle class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0" />
-                            <span>{item}</span>
-                        </li>
-                    ))
-                }
-            </ul>
-
-            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <a
-                    href={`/${lang}#contacto`}
-                    class="inline-flex items-center justify-center rounded-2xl bg-cyan-400 px-6 py-3.5 font-bold text-black transition hover:scale-[1.02] hover:bg-cyan-300 sm:px-7 sm:py-4"
-                >
-                    {t.ctaPrimary}
-                </a>
-                <a
-                    href={`/${lang}/proyectos`}
-                    class="inline-flex items-center justify-center rounded-2xl border border-white/15 px-6 py-3.5 font-semibold text-white/90 transition hover:bg-white/5 sm:px-7 sm:py-4"
-                >
-                    {t.ctaSecondary}
-                </a>
-            </div>
-
-            <p class="mt-8 text-sm text-white/60">{t.trust}</p>
+      <div class="ticker-mask flex-1 py-4">
+        <div class="ticker-track" aria-label={t.tickerLabel}>
+          {
+            tickerLoop.map((item, index) => (
+              <div
+                class="ticker-item"
+                aria-hidden={index >= t.tickerItems.length}
+              >
+                <span class="ticker-dot" />
+                <span>{item}</span>
+              </div>
+            ))
+          }
         </div>
+      </div>
     </div>
+  </div>
 </section>
+
+<style>
+  .ticker-mask {
+    overflow: hidden;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 4%,
+      black 96%,
+      transparent 100%
+    );
+  }
+
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 0;
+    animation: heroTicker 34s linear infinite;
+    will-change: transform;
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0 1.35rem;
+    white-space: nowrap;
+    color: var(--secondary);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    border-right: 1px solid
+      color-mix(in srgb, var(--secondary) 22%, transparent);
+  }
+
+  .ticker-dot {
+    width: 0.38rem;
+    height: 0.38rem;
+    border-radius: 9999px;
+    background: var(--secondary);
+    box-shadow: 0 0 14px color-mix(in srgb, var(--secondary) 70%, transparent);
+    flex-shrink: 0;
+  }
+
+  @keyframes heroTicker {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .ticker-track {
+      animation-duration: 28s;
+    }
+
+    .ticker-item {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      padding: 0 1rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+      animation: none;
+    }
+  }
+</style>
