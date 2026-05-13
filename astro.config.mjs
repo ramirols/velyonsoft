@@ -7,8 +7,6 @@ import react from '@astrojs/react';
 
 import sitemap from '@astrojs/sitemap';
 
-import mdx from '@astrojs/mdx';
-
 import path from 'path';
 
 import vercel from '@astrojs/vercel';
@@ -33,7 +31,7 @@ export default defineConfig({
     },
   },
 
-  integrations: [react(), sitemap(), mdx()],
+  integrations: [react(), sitemap()],
   site: 'https://www.velyonsoft.com',
 
   markdown: {
