@@ -1,7 +1,6 @@
 export const CONTACT_CONFIG = {
     whatsapp: {
         number: "+51997676432",
-        rawNumber: "997676432",
         message: "¡Hola VelyonSoft! 🚀\n\nHe visto su sitio web y me interesa llevar mi proyecto al siguiente nivel con su tecnología. 📈\n\n¿Podrían brindarme información sobre sus servicios de desarrollo? ¡Muchas gracias!"
     },
     email: "contacto@velyonsoft.com"
@@ -36,5 +35,10 @@ export const SOCIAL_LINKS = [
 
 export const getWhatsAppLink = () => {
     const encodedMessage = encodeURIComponent(CONTACT_CONFIG.whatsapp.message);
+    return `https://wa.me/${CONTACT_CONFIG.whatsapp.number.replace('+', '')}?text=${encodedMessage}`;
+};
+
+export const getWhatsAppLinkWithMessage = (message: string) => {
+    const encodedMessage = encodeURIComponent(message);
     return `https://wa.me/${CONTACT_CONFIG.whatsapp.number.replace('+', '')}?text=${encodedMessage}`;
 };

@@ -7,7 +7,10 @@ import {
     Mail,
     Moon,
     SunMedium,
-    ArrowUpRight,
+    Laptop,
+    Code,
+    Boxes,
+    Smartphone,
     ChevronDown,
     Scale,
     Brain,
@@ -17,6 +20,7 @@ import {
     Building2,
 } from "lucide-react";
 import { useState, useEffect } from "react";
+import { getWhatsAppLink, getWhatsAppLinkWithMessage } from "../lib/constants";
 
 function ThemeToggleIcon({ theme }) {
     const isDark = theme === "dark";
@@ -51,18 +55,24 @@ export default function Header({ lang = "es" }) {
             sobre_nosotros: "Sobre Nosotros",
             servicios: "Servicios",
             proyectos: "Proyectos",
-            blog: "Blog",
             contacto: "Contacto",
             toggleTheme: "Cambiar tema",
+            servicesEyebrow: "Servicios",
+            servicesTitle: "Soluciones para crecer y operar mejor",
+            servicesOverview: "Servicios principales",
+            servicesSpecialized: "Servicios especializados",
         },
         en: {
             inicio: "Home",
             sobre_nosotros: "About Us",
             servicios: "Services",
             proyectos: "Projects",
-            blog: "Blog",
             contacto: "Contact",
             toggleTheme: "Toggle theme",
+            servicesEyebrow: "Services",
+            servicesTitle: "Solutions to grow and operate better",
+            servicesOverview: "Core services",
+            servicesSpecialized: "Specialized services",
         },
     };
 
@@ -75,80 +85,103 @@ export default function Header({ lang = "es" }) {
             icon: <BookOpen size={18} />,
         },
         {
-            name: t.servicios,
-            href: `/${lang}/servicios`,
-            icon: <Grid3X3 size={18} />,
-        },
-        {
             name: t.proyectos,
             href: `/${lang}/proyectos`,
             icon: <Briefcase size={18} />,
         },
-        { name: t.blog, href: `/${lang}/blog`, icon: <BookOpen size={18} /> },
     ];
+
+    const primaryContactHref = getWhatsAppLink();
+
+const featuredServicePlans = {
+        es: [
+            { name: "Landing Page Profesional", description: "Diseño profesional, responsive y optimizado para convertir visitantes en clientes.", icon: Laptop },
+            { name: "Web Corporativa", description: "Sitio web completo para tu empresa con diseño profesional y estructura optimizada.", icon: Code },
+            { name: "Desarrollo en WordPress", description: "Sitios personalizados en el CMS más popular del mundo conPanel de gestión fácil.", icon: Code },
+            { name: "Aplicaciones Móviles", description: "Apps nativas e híbridas para iOS y Android con experiencia de usuario fluida.", icon: Smartphone },
+            { name: "Marketing Digital", description: "Estrategias de publicidad online, SEO y gestión de redes sociales para tu negocio.", icon: Boxes },
+            { name: "Automatizaciones de Procesos", description: "Optimiza tu operación con flujos automatizados que reducen tiempo y errores.", icon: Laptop },
+        ],
+        en: [
+            { name: "Professional Landing Page", description: "Professional, responsive design optimized to convert visitors into customers.", icon: Laptop },
+            { name: "Corporate Website", description: "Complete website for your business with professional design and optimized structure.", icon: Code },
+            { name: "WordPress Development", description: "Custom sites on the world's most popular CMS with an easy management panel.", icon: Code },
+            { name: "Mobile Applications", description: "Native and hybrid apps for iOS and Android with smooth user experience.", icon: Smartphone },
+            { name: "Digital Marketing", description: "Online advertising strategies, SEO and social media management for your business.", icon: Boxes },
+            { name: "Process Automations", description: "Optimize your operations with automated workflows that reduce time and errors.", icon: Laptop },
+        ],
+    }[lang];
 
     const servicesLinks = [
         {
-            name: "Software para abogados",
+            name: lang === "es" ? "Software para abogados" : "Software for law firms",
             href: `/${lang}/servicios/software-para-abogados`,
-            label: "Legal",
-            description: "Gestiona clientes, casos, documentos y agenda desde un solo sistema.",
+            label: lang === "es" ? "Legal" : "Legal",
+            description: lang === "es"
+                ? "Gestiona clientes, casos, documentos y agenda desde un solo sistema."
+                : "Manage clients, cases, documents and schedules in one place.",
             icon: Scale,
-            accent: "from-sky-500/20 via-sky-500/8 to-transparent",
             badgeClass: "bg-sky-500/12 text-sky-700 dark:text-sky-300",
             iconClass: "text-sky-700 dark:text-sky-300",
         },
         {
-            name: "Software para psicólogos",
+            name: lang === "es" ? "Software para psicólogos" : "Software for psychologists",
             href: `/${lang}/servicios/software-para-psicologos`,
-            label: "Salud",
-            description: "Organiza pacientes, sesiones, historial clínico y control de pagos.",
+            label: lang === "es" ? "Salud" : "Health",
+            description: lang === "es"
+                ? "Organiza pacientes, sesiones, historial clínico y control de pagos."
+                : "Organize patients, sessions, clinical records and payments.",
             icon: Brain,
-            accent: "from-violet-500/20 via-violet-500/8 to-transparent",
             badgeClass: "bg-violet-500/12 text-violet-700 dark:text-violet-300",
             iconClass: "text-violet-700 dark:text-violet-300",
         },
         {
-            name: "Software para restaurantes",
+            name: lang === "es" ? "Software para restaurantes" : "Software for restaurants",
             href: `/${lang}/servicios/software-para-restaurantes`,
-            label: "Gastronomía",
-            description: "Centraliza pedidos, reservas, menú digital, mesas e inventario.",
+            label: lang === "es" ? "Gastronomía" : "Food service",
+            description: lang === "es"
+                ? "Centraliza pedidos, reservas, menú digital, mesas e inventario."
+                : "Centralize orders, reservations, digital menus, tables and inventory.",
             icon: UtensilsCrossed,
-            accent: "from-amber-500/20 via-amber-500/8 to-transparent",
             badgeClass: "bg-amber-500/14 text-amber-700 dark:text-amber-300",
             iconClass: "text-amber-700 dark:text-amber-300",
         },
         {
-            name: "Tiendas virtuales",
+            name: lang === "es" ? "Tiendas virtuales" : "Online stores",
             href: `/${lang}/servicios/tiendas-virtuales`,
             label: "E-commerce",
-            description: "Vende online con catálogo, carrito, panel y optimización para convertir.",
+            description: lang === "es"
+                ? "Vende online con catálogo, carrito, panel y optimización para convertir."
+                : "Sell online with catalog, cart, dashboard and conversion-focused optimization.",
             icon: ShoppingBag,
-            accent: "from-emerald-500/20 via-emerald-500/8 to-transparent",
             badgeClass: "bg-emerald-500/12 text-emerald-700 dark:text-emerald-300",
             iconClass: "text-emerald-700 dark:text-emerald-300",
         },
         {
-            name: "Automatización de procesos",
+            name: lang === "es" ? "Automatización de procesos" : "Process automation",
             href: `/${lang}/servicios/automatizacion-de-procesos`,
-            label: "Operaciones",
-            description: "Reduce tareas manuales con flujos, alertas e integraciones a medida.",
+            label: lang === "es" ? "Operaciones" : "Operations",
+            description: lang === "es"
+                ? "Reduce tareas manuales con flujos, alertas e integraciones a medida."
+                : "Reduce manual work with workflows, alerts and tailored integrations.",
             icon: Workflow,
-            accent: "from-cyan-500/20 via-cyan-500/8 to-transparent",
             badgeClass: "bg-cyan-500/12 text-cyan-700 dark:text-cyan-300",
             iconClass: "text-cyan-700 dark:text-cyan-300",
         },
         {
-            name: "Desarrollo web empresas",
+            name: lang === "es" ? "Desarrollo web empresas" : "Business web development",
             href: `/${lang}/servicios/desarrollo-web-empresas`,
-            label: "Corporativo",
-            description: "Crea una web corporativa rápida, clara y orientada a captar clientes.",
+            label: lang === "es" ? "Corporativo" : "Corporate",
+            description: lang === "es"
+                ? "Crea una web corporativa rápida, clara y orientada a captar clientes."
+                : "Build a fast, clear corporate website designed to attract clients.",
             icon: Building2,
-            accent: "from-rose-500/20 via-rose-500/8 to-transparent",
             badgeClass: "bg-rose-500/12 text-rose-700 dark:text-rose-300",
             iconClass: "text-rose-700 dark:text-rose-300",
         },
     ];
+
+    const specializedDropdownLinks = servicesLinks;
 
     useEffect(() => {
         const syncTheme = () => {
@@ -238,9 +271,9 @@ export default function Header({ lang = "es" }) {
                             {t.sobre_nosotros}
                         </a>
 
-                        <div className="relative group">
-                            <a
-                                href={`/${lang}/servicios`}
+                        <div className="static group">
+                            <button
+                                type="button"
                                 className="flex items-center gap-2 transition-colors hover:text-secondary"
                             >
                                 <Grid3X3 size={18} />
@@ -249,58 +282,94 @@ export default function Header({ lang = "es" }) {
                                     size={16}
                                     className="transition-transform duration-200 group-hover:rotate-180"
                                 />
-                            </a>
+                            </button>
 
-                            <div className="absolute left-1/2 top-full z-50 w-[min(760px,92vw)] -translate-x-1/2 pt-5 opacity-0 invisible translate-y-3 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                                <div className="overflow-hidden rounded-3xl border border-border/70 bg-background p-3 shadow-2xl shadow-black/15 backdrop-blur-sm dark:bg-card">
-                                    <div className="border-b border-border/60 px-4 pb-4 pt-2">
-                                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
-                                            Servicios
-                                        </p>
-                                        <p className="mt-2 text-sm text-muted-foreground">
-                                            Soluciones digitales pensadas para necesidades concretas de negocio.
-                                        </p>
-                                    </div>
+                            <div className="absolute left-0 right-0 top-full z-50 pt-2 opacity-0 invisible translate-y-3 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                                <div className="overflow-hidden rounded-[2rem] border border-border/70 bg-background shadow-2xl shadow-black/15 dark:bg-card">
+                                    <div>
+                                        <div className="border-b border-border/60 px-6 pb-5 pt-6 lg:px-8">
+                                            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-secondary">
+                                                {t.servicesEyebrow}
+                                            </p>
+                                            <p className="mt-3 text-2xl font-semibold tracking-tight text-primary">
+                                                {t.servicesTitle}
+                                            </p>
+                                        </div>
 
-                                    <div className="grid grid-cols-2 gap-2 p-2">
-                                        {servicesLinks.map((service) => {
-                                            const Icon = service.icon;
+                                        <div className="grid gap-0 lg:grid-cols-2">
+                                            <div className="border-b border-border/60 px-6 py-6 lg:border-b-0 lg:border-r lg:px-8">
+                                                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-secondary">
+                                                    {t.servicesOverview}
+                                                </p>
+                                                <div className="mt-5 max-h-[300px] overflow-y-auto pr-2">
+<div className="grid gap-2.5">
+                                                    {featuredServicePlans.map((plan) => {
+                                                        const Icon = plan.icon;
+                                                        const message = lang === "es"
+                                                            ? `Hola VelyonSoft! Me interesa el servicio de "${plan.name}". ¿Podrían darme información y una cotización por favor?`
+                                                            : `Hello VelyonSoft! I'm interested in the "${plan.name}" service. Could you please give me information and a quote?`;
 
-                                            return (
-                                                <a
-                                                    key={service.href}
-                                                    href={service.href}
-                                                    className="group/item relative flex min-h-[152px] flex-col overflow-hidden rounded-2xl border border-border/50 bg-card p-4 transition-all duration-200 hover:border-secondary/30 hover:bg-muted hover:shadow-lg hover:shadow-black/5"
-                                                >
-                                                    <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${service.accent} opacity-80 transition-opacity duration-200 group-hover/item:opacity-100`} />
+                                                        return (
+                                                            <a
+                                                                key={plan.name}
+                                                                href={getWhatsAppLinkWithMessage(message)}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="group/item flex items-start gap-3 rounded-[1.35rem] border border-transparent px-3 py-3 transition-all duration-200 hover:border-border/70 hover:bg-muted/65"
+                                                            >
+                                                                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-border/70 bg-card text-secondary">
+                                                                    <Icon size={18} />
+                                                                </div>
 
-                                                    <div className="relative flex items-start justify-between gap-3">
-                                                        <div className="flex items-center gap-3">
-                                                            <div className={`flex h-11 w-11 items-center justify-center rounded-2xl border border-white/50 bg-background/80 shadow-sm dark:border-white/10 ${service.iconClass}`}>
-                                                                <Icon size={20} />
-                                                            </div>
-                                                            <span className={`rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] ${service.badgeClass}`}>
-                                                                {service.label}
-                                                            </span>
-                                                        </div>
-
-                                                        <ArrowUpRight
-                                                            size={16}
-                                                            className="mt-0.5 shrink-0 text-muted-foreground transition-transform duration-200 group-hover/item:translate-x-0.5 group-hover/item:-translate-y-0.5"
-                                                        />
+                                                                <div className="min-w-0 flex-1">
+                                                                    <p className="text-[1rem] font-semibold leading-tight text-primary transition-colors group-hover/item:text-secondary">
+                                                                        {plan.name}
+                                                                    </p>
+                                                                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                                                                        {plan.description}
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        );
+                                                    })}
                                                     </div>
+                                                </div>
+                                            </div>
 
-                                                    <div className="relative mt-5">
-                                                        <p className="font-semibold leading-snug text-primary transition-colors group-hover/item:text-secondary">
-                                                            {service.name}
-                                                        </p>
-                                                        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                                                            {service.description}
-                                                        </p>
+                                            <div className="px-6 py-6 lg:px-8">
+                                                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-secondary">
+                                                    {t.servicesSpecialized}
+                                                </p>
+                                                <div className="mt-5 max-h-[300px] overflow-y-auto pr-2">
+                                                    <div className="grid gap-2.5">
+                                                    {specializedDropdownLinks.map((service) => {
+                                                        const Icon = service.icon;
+
+                                                        return (
+                                                            <a
+                                                                key={service.href}
+                                                                href={service.href}
+                                                                className="group/item flex items-start gap-3 rounded-[1.35rem] border border-transparent px-3 py-3 transition-all duration-200 hover:border-border/70 hover:bg-muted/65"
+                                                            >
+                                                                <div className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-border/70 bg-card ${service.iconClass}`}>
+                                                                    <Icon size={18} />
+                                                                </div>
+
+                                                                <div className="min-w-0 flex-1">
+                                                                    <p className="text-[1rem] font-semibold leading-tight text-primary transition-colors group-hover/item:text-secondary">
+                                                                        {service.name}
+                                                                    </p>
+                                                                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                                                                        {service.description}
+                                                                    </p>
+                                                                </div>
+                                                                </a>
+                                                            );
+                                                        })}
                                                     </div>
-                                                </a>
-                                            );
-                                        })}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -311,10 +380,6 @@ export default function Header({ lang = "es" }) {
                             {t.proyectos}
                         </a>
 
-                        <a href={`/${lang}/blog`} className="flex items-center gap-2 hover:text-secondary">
-                            <BookOpen size={18} />
-                            {t.blog}
-                        </a>
                     </nav>
 
                     <div className="hidden lg:flex items-center gap-3">
@@ -352,7 +417,9 @@ export default function Header({ lang = "es" }) {
                         </div>
 
                         <a
-                            href={`/${lang}#contacto`}
+                            href={primaryContactHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center gap-2 rounded-xl bg-secondary px-5 py-2 font-semibold text-white transition-all hover:opacity-90"
                         >
                             <Mail size={18} />
@@ -456,7 +523,9 @@ export default function Header({ lang = "es" }) {
                         </div>
 
                         <a
-                            href={`/${lang}#contacto`}
+                            href={primaryContactHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             onClick={() => setOpen(false)}
                             className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-secondary py-3 font-semibold text-white transition hover:opacity-90"
                         >
