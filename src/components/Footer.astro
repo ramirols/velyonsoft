@@ -40,9 +40,7 @@ const i18n = {
         performance: "Optimizado para carga ultra-rápida.",
         links: {
             home: "Inicio",
-            services: "Servicios Especializados",
             projects: "Casos de Éxito",
-            blog: "Blog y Actualidades",
         },
     },
     en: {
@@ -59,9 +57,7 @@ const i18n = {
         performance: "Optimized for ultra-fast loading.",
         links: {
             home: "Home",
-            services: "Specialized Services",
             projects: "Success Stories",
-            blog: "Blog & News",
         },
     },
 }[lang];
@@ -141,14 +137,9 @@ const t = i18n;
                         [
                             { href: `/${lang}#inicio`, label: t.links.home },
                             {
-                                href: `/${lang}/servicios`,
-                                label: t.links.services,
-                            },
-                            {
                                 href: `/${lang}/proyectos`,
                                 label: t.links.projects,
                             },
-                            { href: `/${lang}/blog`, label: t.links.blog },
                         ].map((item) => (
                             <li>
                                 <a
