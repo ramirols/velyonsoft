@@ -1,7 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
 
 @custom-variant dark (&:is(.dark *));
 @plugin "@tailwindcss/typography";
@@ -16,7 +14,7 @@ h1,
 h2,
 h3 {
     text-wrap: balance;
-    font-family: 'Geist Variable', Georgia, serif;
+    font-family: 'Bricolage Grotesque', 'Instrument Sans', sans-serif;
 }
 
 strong {
@@ -109,8 +107,8 @@ select:-webkit-autofill {
 }
 
 @theme inline {
-    --font-sans: 'Geist Variable', sans-serif;
-    --font-display: 'Fraunces Variable', Georgia, serif;
+    --font-sans: 'Instrument Sans', sans-serif;
+    --font-display: 'Bricolage Grotesque', 'Instrument Sans', sans-serif;
 
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -169,6 +167,7 @@ select:-webkit-autofill {
 
     body {
         @apply bg-background text-foreground;
+        font-family: 'Instrument Sans', sans-serif;
         overflow-x: hidden;
         transition: background-color 0.25s ease, color 0.25s ease;
     }
