@@ -119,6 +119,8 @@ const ldData = {
 
         <script type="application/ld+json" set:html={JSON.stringify(ldData)} />
 
+        <slot name="head" />
+
         <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-D74ZW26T1V"
