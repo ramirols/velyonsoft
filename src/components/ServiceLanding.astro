@@ -19,7 +19,6 @@ interface Props {
     eyebrow?: string;
     title: string;
     description: string;
-    price: string;
     features: string[];
     benefits: string[];
     faq: { q: string; a: string }[];
@@ -30,7 +29,6 @@ const {
     eyebrow = "Servicio especializado",
     title,
     description,
-    price,
     features = [],
     benefits = [],
     faq = [],
@@ -762,7 +760,7 @@ const secondaryCta =
 
         <aside class={`service-offer-panel rounded-[1.5rem] border border-border/70 bg-card/70 p-5 shadow-2xl backdrop-blur-2xl sm:rounded-[2rem] sm:p-6 lg:sticky lg:top-28 ${theme.accentRing}`}>
             <div class={`inline-flex max-w-full rounded-full border px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] sm:text-[0.68rem] sm:tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
-                Oferta base
+                Resumen del servicio
             </div>
 
             {
@@ -829,9 +827,7 @@ const secondaryCta =
             }
 
             <div class="mt-6 border-b border-border/70 pb-6">
-                <p class="text-sm font-medium text-muted-foreground">Inversión referencial</p>
-                <p class="mt-2 text-3xl font-black tracking-tight text-primary sm:text-4xl">{price}</p>
-                <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
+                <p class="text-sm leading-relaxed text-muted-foreground">
                     {theme.audience}
                 </p>
             </div>
@@ -987,29 +983,8 @@ const secondaryCta =
     </div>
 </section>
 
-<section id="precio" class="service-pricing-section bg-card/20 py-16 md:py-20 lg:py-24">
-    <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[24rem_minmax(0,1fr)]">
-        <div class={`service-price-card rounded-[1.5rem] border border-border/70 bg-background/80 p-5 shadow-2xl backdrop-blur-xl sm:p-8 md:rounded-[2rem] ${theme.accentRing}`}>
-            <div class={`inline-flex rounded-full border px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] sm:text-[0.68rem] sm:tracking-[0.22em] ${theme.accentBorder} ${theme.accentSoft}`}>
-                Inversión estimada
-            </div>
-            <p class="mt-6 text-3xl font-black tracking-tight text-primary sm:text-4xl md:text-5xl">{price}</p>
-            <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
-                El valor final depende del alcance, integraciones, automatizaciones, paneles, roles y personalización requerida.
-            </p>
-
-            <div class="mt-8 space-y-3 border-t border-border/70 pt-6">
-                <p class="text-sm font-semibold text-primary">Incluye normalmente:</p>
-                <div class="space-y-2 text-sm text-muted-foreground">
-                    {
-                        theme.priceIncludes.map((item) => (
-                            <p class="flex items-start gap-2"><Check size={15} class={`mt-0.5 ${theme.accentText}`} />{item}</p>
-                        ))
-                    }
-                </div>
-            </div>
-        </div>
-
+<section class="service-faq-section bg-card/20 py-16 md:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
         <div class="service-faq-card rounded-[1.5rem] border border-border/70 bg-background/80 p-5 backdrop-blur-xl sm:p-8 md:rounded-[2rem] md:p-10">
             <div class="inline-flex rounded-full border border-border/70 bg-card/70 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-muted-foreground sm:text-[0.68rem] sm:tracking-[0.22em]">
                 Preguntas frecuentes
@@ -1124,7 +1099,6 @@ const secondaryCta =
     .service-benefits-panel,
     .service-process-panel,
     .service-process-card,
-    .service-price-card,
     .service-faq-card,
     .service-cta-card,
     .service-hero-detail > div,
@@ -1134,7 +1108,6 @@ const secondaryCta =
     }
 
     .service-offer-panel,
-    .service-price-card,
     .service-cta-card {
         background: var(--service-surface-strong);
         box-shadow: 0 24px 60px var(--service-shadow);
@@ -1190,7 +1163,7 @@ const secondaryCta =
         order: 3;
     }
 
-    .service-pricing-section {
+    .service-faq-section {
         order: 4;
     }
 
@@ -1260,7 +1233,6 @@ const secondaryCta =
     }
 
     .service-landing[data-service-variant="legal"] .service-focus-card,
-    .service-landing[data-service-variant="legal"] .service-price-card,
     .service-landing[data-service-variant="legal"] .service-faq-card {
         border-radius: 1.35rem;
     }
@@ -1282,7 +1254,6 @@ const secondaryCta =
     .service-landing[data-service-variant="therapy"] .service-module-card,
     .service-landing[data-service-variant="therapy"] .service-benefits-panel,
     .service-landing[data-service-variant="therapy"] .service-process-panel,
-    .service-landing[data-service-variant="therapy"] .service-price-card,
     .service-landing[data-service-variant="therapy"] .service-faq-card,
     .service-landing[data-service-variant="therapy"] .service-cta-card {
         border-radius: 2rem;
@@ -1320,14 +1291,13 @@ const secondaryCta =
     .service-landing[data-service-variant="automation"] .service-eyebrow,
     .service-landing[data-service-variant="automation"] .service-kpi-card p:last-child,
     .service-landing[data-service-variant="automation"] .service-focus-card span,
-    .service-landing[data-service-variant="automation"] .service-price-card div:first-child {
+    .service-landing[data-service-variant="automation"] .service-offer-panel div:first-child {
         font-family: Consolas, "Courier New", monospace;
     }
 
     .service-landing[data-service-variant="automation"] .service-offer-panel,
     .service-landing[data-service-variant="automation"] .service-module-card,
     .service-landing[data-service-variant="automation"] .service-process-card,
-    .service-landing[data-service-variant="automation"] .service-price-card,
     .service-landing[data-service-variant="automation"] .service-faq-card {
         border-style: dashed;
         border-radius: 1rem;
