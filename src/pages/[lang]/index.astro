@@ -1,25 +1,860 @@
 ---
+import { getCollection } from "astro:content";
+import {
+    ArrowRight,
+    Brain,
+    Building2,
+    CheckCircle2,
+    Gauge,
+    LineChart,
+    Scale,
+    SearchCheck,
+    ShoppingBag,
+    Sparkles,
+    UtensilsCrossed,
+    Workflow,
+} from "lucide-astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
+import { getWhatsAppLinkWithMessage } from "../../lib/constants";
 
 type Lang = "es" | "en";
 
 export async function getStaticPaths() {
-	return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+    return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
 }
 
 const { lang } = Astro.params as { lang: Lang };
+const site = "https://www.velyonsoft.com";
+const homeUrl = `${site}/${lang}`;
+const quoteHref = getWhatsAppLinkWithMessage(
+    lang === "es"
+        ? "Hola VelyonSoft! Quiero cotizar una solucion digital para mi empresa. ¿Podemos revisar mi caso?"
+        : "Hello VelyonSoft! I want to quote a digital solution for my company. Can we review my case?",
+);
+
+const projects = (await getCollection("proyectos"))
+    .filter((project) => project.data.featured)
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .slice(0, 4);
+
+const t = {
+    es: {
+        title: "Desarrollo de software a medida, automatizacion y SEO en Peru | VelyonSoft",
+        description:
+            "VelyonSoft desarrolla software a medida, webs corporativas, tiendas virtuales y automatizaciones para empresas en Peru con estrategia SEO, datos y foco en conversion.",
+        badge: "Nuestra Historia",
+        badgeAlt: "Icono de seccion",
+        introTitle: "Una home pensada para convertir visitas en conversaciones comerciales.",
+        introText:
+            "Combinamos estrategia, diseno, desarrollo y SEO tecnico para que tu web no sea solo una vitrina: debe explicar tu valor, filtrar oportunidades y abrir conversaciones por WhatsApp con clientes listos para avanzar.",
+        impactTitle: "El costo invisible de una web sin estrategia",
+        impactText:
+            "Muchas empresas ya reciben trafico, pero pierden ventas porque la pagina no aclara la propuesta, no responde dudas clave o no conecta con procesos internos. Nuestro trabajo es cerrar esa brecha.",
+        impactCards: [
+            { value: "40%", label: "mas conversiones", detail: "resultado registrado en e-commerce optimizado" },
+            { value: "+50", label: "casos digitales", detail: "webs, tiendas, sistemas y automatizaciones" },
+            { value: "<3s", label: "objetivo de carga", detail: "arquitectura liviana para mejor experiencia" },
+            { value: "100%", label: "enfoque SEO", detail: "estructura, contenido e indexacion desde el inicio" },
+        ],
+        split: {
+            eyebrow: "Diagnostico operativo",
+            title: "Construimos el mapa antes de escribir codigo.",
+            body: "La diferencia entre una pagina bonita y una pagina que vende esta en el diagnostico: que busca el cliente, que objeciones tiene, que ruta debe seguir y que datos necesita tu equipo para responder mejor.",
+            bullets: [
+                "Arquitectura SEO para posicionar servicios clave en Peru.",
+                "Mensajes comerciales claros para reducir friccion en la cotizacion.",
+                "Rutas internas hacia servicios, proyectos y WhatsApp.",
+                "Sistemas preparados para crecer con automatizaciones e integraciones.",
+            ],
+        },
+        servicesTitle: "Servicios conectados a objetivos de negocio",
+        servicesText:
+            "Cada servicio interno del sitio funciona como una puerta de entrada a una necesidad concreta: captar clientes, ordenar operaciones, vender online o automatizar procesos.",
+        services: [
+            { icon: Building2, title: "Desarrollo web para empresas", text: "Webs corporativas rapidas, claras y optimizadas para captar clientes.", href: `/${lang}/servicios/desarrollo-web-empresas` },
+            { icon: Workflow, title: "Automatizacion de procesos", text: "Flujos, alertas e integraciones para reducir tareas repetitivas.", href: `/${lang}/servicios/automatizacion-de-procesos` },
+            { icon: ShoppingBag, title: "Tiendas virtuales", text: "E-commerce con catalogo, carrito y experiencia enfocada en conversion.", href: `/${lang}/servicios/tiendas-virtuales` },
+            { icon: Scale, title: "Software para abogados", text: "Gestion de casos, clientes, documentos y agenda para estudios legales.", href: `/${lang}/servicios/software-para-abogados` },
+            { icon: Brain, title: "Software para psicologos", text: "Organizacion de pacientes, sesiones, historial y pagos en un solo lugar.", href: `/${lang}/servicios/software-para-psicologos` },
+            { icon: UtensilsCrossed, title: "Software para restaurantes", text: "Pedidos, reservas, menu digital e inventario para operar con mas control.", href: `/${lang}/servicios/software-para-restaurantes` },
+        ],
+        methodTitle: "Metodo de crecimiento digital",
+        methodText:
+            "Unimos analisis, ejecucion y mejora continua para que la inversion digital tenga una ruta medible.",
+        method: [
+            { step: "01", title: "Analisis", text: "Detectamos busquedas, objeciones, rutas de conversion y prioridades tecnicas." },
+            { step: "02", title: "Construccion", text: "Disenamos interfaces, contenido y arquitectura con Astro, React y buenas practicas SEO." },
+            { step: "03", title: "Activacion", text: "Conectamos CTAs, WhatsApp, formularios, tracking y flujos de seguimiento." },
+            { step: "04", title: "Escala", text: "Medimos comportamiento y dejamos lista la base para automatizaciones futuras." },
+        ],
+        projectsTitle: "Prueba real: proyectos con contexto, no solo pantallas bonitas",
+        projectsText:
+            "Usamos casos internos para demostrar experiencia en sectores distintos: legal, salud, e-commerce, comunicacion, educacion, operaciones y servicios profesionales.",
+        ctaTitle: "Si tu web actual no explica, no mide y no convierte, esta perdiendo ventas.",
+        ctaText:
+            "Cuéntanos tu caso y te ayudamos a definir una ruta: web, software, tienda virtual, automatizacion o una combinacion de todo.",
+        cta: "Cotizar mi solucion",
+        projectsCta: "Ver casos de exito",
+        learnMore: "Ver detalle",
+        faqTitle: "Preguntas clave antes de cotizar",
+        faq: [
+            { q: "¿VelyonSoft solo disena paginas web?", a: "No. Desarrollamos webs, software a medida, tiendas virtuales y automatizaciones, siempre conectando diseno, SEO tecnico y objetivos de negocio." },
+            { q: "¿La home esta preparada para SEO?", a: "Si. La estructura incluye un H1 en el Hero, secciones semanticas, enlaces internos descriptivos, contenido orientado a busquedas y datos estructurados." },
+            { q: "¿Pueden trabajar con negocios que ya tienen una web?", a: "Si. Podemos diagnosticar la web actual, detectar puntos de fuga y redisenar solo lo necesario para mejorar captacion y conversion." },
+        ],
+    },
+    en: {
+        title: "Custom software, automation and SEO in Peru | VelyonSoft",
+        description:
+            "VelyonSoft builds custom software, corporate websites, online stores and automations in Peru with SEO strategy, data and conversion focus.",
+        badge: "Our Story",
+        badgeAlt: "Section icon",
+        introTitle: "A homepage built to turn visits into business conversations.",
+        introText:
+            "We combine strategy, design, development and technical SEO so your website is not just a showcase: it must explain your value, filter opportunities and open WhatsApp conversations with ready-to-move clients.",
+        impactTitle: "The hidden cost of a website without strategy",
+        impactText:
+            "Many companies already get traffic, but lose sales because the page does not clarify the offer, answer key objections or connect with internal processes. Our work closes that gap.",
+        impactCards: [
+            { value: "40%", label: "more conversions", detail: "registered result in optimized e-commerce" },
+            { value: "+50", label: "digital cases", detail: "websites, stores, systems and automations" },
+            { value: "<3s", label: "loading goal", detail: "light architecture for better experience" },
+            { value: "100%", label: "SEO approach", detail: "structure, content and indexing from day one" },
+        ],
+        split: {
+            eyebrow: "Operational diagnosis",
+            title: "We build the map before writing code.",
+            body: "The difference between a pretty page and a page that sells is the diagnosis: what the client searches for, what objections they have, what path they should follow and what data your team needs to respond better.",
+            bullets: [
+                "SEO architecture to position key services in Peru.",
+                "Clear commercial messages to reduce quote friction.",
+                "Internal paths to services, projects and WhatsApp.",
+                "Systems ready to grow with automations and integrations.",
+            ],
+        },
+        servicesTitle: "Services connected to business goals",
+        servicesText:
+            "Each internal service works as an entry point to a concrete need: generate leads, organize operations, sell online or automate processes.",
+        services: [
+            { icon: Building2, title: "Business web development", text: "Fast, clear corporate websites optimized to attract clients.", href: `/${lang}/servicios/desarrollo-web-empresas` },
+            { icon: Workflow, title: "Process automation", text: "Workflows, alerts and integrations to reduce repetitive tasks.", href: `/${lang}/servicios/automatizacion-de-procesos` },
+            { icon: ShoppingBag, title: "Online stores", text: "E-commerce with catalog, cart and conversion-focused experience.", href: `/${lang}/servicios/tiendas-virtuales` },
+            { icon: Scale, title: "Software for law firms", text: "Case, client, document and schedule management for legal teams.", href: `/${lang}/servicios/software-para-abogados` },
+            { icon: Brain, title: "Software for psychologists", text: "Patients, sessions, records and payments organized in one place.", href: `/${lang}/servicios/software-para-psicologos` },
+            { icon: UtensilsCrossed, title: "Software for restaurants", text: "Orders, reservations, digital menu and inventory for more control.", href: `/${lang}/servicios/software-para-restaurantes` },
+        ],
+        methodTitle: "Digital growth method",
+        methodText:
+            "We combine analysis, execution and continuous improvement so digital investment has a measurable path.",
+        method: [
+            { step: "01", title: "Analysis", text: "We detect searches, objections, conversion paths and technical priorities." },
+            { step: "02", title: "Build", text: "We design interfaces, content and architecture with Astro, React and SEO best practices." },
+            { step: "03", title: "Activation", text: "We connect CTAs, WhatsApp, forms, tracking and follow-up flows." },
+            { step: "04", title: "Scale", text: "We measure behavior and leave the base ready for future automations." },
+        ],
+        projectsTitle: "Real proof: projects with context, not just pretty screens",
+        projectsText:
+            "We use internal cases to demonstrate experience across legal, health, e-commerce, communications, education, operations and professional services.",
+        ctaTitle: "If your current website does not explain, measure and convert, it is losing sales.",
+        ctaText:
+            "Tell us your case and we will help define a route: website, software, online store, automation or a combination of all.",
+        cta: "Quote my solution",
+        projectsCta: "View success cases",
+        learnMore: "View detail",
+        faqTitle: "Key questions before quoting",
+        faq: [
+            { q: "Does VelyonSoft only design websites?", a: "No. We build websites, custom software, online stores and automations, always connecting design, technical SEO and business goals." },
+            { q: "Is the homepage prepared for SEO?", a: "Yes. The structure includes one H1 in the Hero, semantic sections, descriptive internal links, search-oriented content and structured data." },
+            { q: "Can you work with businesses that already have a website?", a: "Yes. We can diagnose the current site, detect leakage points and redesign only what is necessary to improve acquisition and conversion." },
+        ],
+    },
+}[lang];
+
+const sectionIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l1.8 6.1L20 10l-6.2 1.9L12 18l-1.8-6.1L4 10l6.2-1.9L12 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M19 15l.8 2.7L22.5 18l-2.7.8L19 21.5l-.8-2.7-2.7-.8 2.7-.8L19 15Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
+const automationFallbackSvg = `<svg class="lottie-fallback-svg" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle class="fallback-ring" cx="160" cy="160" r="94" stroke="currentColor" stroke-width="10" opacity="0.3"/><path class="fallback-orbit" d="M82 138L160 230L244 132Z" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/><circle cx="82" cy="138" r="24" fill="currentColor"/><circle cx="160" cy="230" r="30" fill="var(--background)" stroke="currentColor" stroke-width="9"/><circle cx="244" cy="132" r="24" fill="currentColor"/></svg>`;
+const growthFallbackSvg = `<svg class="lottie-fallback-svg" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect class="fallback-bar fallback-bar-1" x="60" y="162" width="48" height="98" rx="16" fill="currentColor" opacity="0.9"/><rect class="fallback-bar fallback-bar-2" x="136" y="116" width="48" height="144" rx="16" fill="var(--primary)" opacity="0.88"/><rect class="fallback-bar fallback-bar-3" x="212" y="68" width="48" height="192" rx="16" fill="currentColor" opacity="0.9"/><path class="fallback-line" d="M70 134C112 128 130 90 160 94C194 98 204 56 252 50" stroke="currentColor" stroke-width="8" stroke-linecap="round"/></svg>`;
+const seoFallbackSvg = `<svg class="lottie-fallback-svg" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle class="fallback-ring" cx="160" cy="160" r="104" stroke="currentColor" stroke-width="13" opacity="0.35"/><path class="fallback-check" d="M104 162L144 204L224 112" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="160" cy="160" r="124" stroke="currentColor" stroke-width="2" opacity="0.16" stroke-dasharray="10 12"/></svg>`;
+
+const schemaData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebPage",
+            "@id": `${homeUrl}#webpage`,
+            url: homeUrl,
+            name: t.title,
+            description: t.description,
+            inLanguage: lang,
+            isPartOf: { "@id": `${site}/#website` },
+            about: [
+                "desarrollo de software a medida",
+                "automatizacion de procesos",
+                "desarrollo web para empresas",
+                "SEO tecnico",
+            ],
+        },
+        {
+            "@type": "ItemList",
+            "@id": `${homeUrl}#services`,
+            name: lang === "es" ? "Servicios digitales de VelyonSoft" : "VelyonSoft digital services",
+            itemListElement: t.services.map((service, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                name: service.title,
+                url: `${site}${service.href}`,
+            })),
+        },
+        {
+            "@type": "FAQPage",
+            "@id": `${homeUrl}#faq`,
+            mainEntity: t.faq.map((item) => ({
+                "@type": "Question",
+                name: item.q,
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: item.a,
+                },
+            })),
+        },
+    ],
+};
 ---
 
-<BaseLayout
-	lang={lang}
-	title={lang === "es"
-		? "Desarrollo de software a medida, automatizacion y SEO en Peru | VelyonSoft"
-		: "Custom software, automation and SEO in Peru | VelyonSoft"}
-	description={lang === "es"
-		? "VelyonSoft desarrolla software a medida, webs corporativas, tiendas virtuales y automatizaciones para empresas en Peru con enfoque en SEO tecnico y conversion."
-		: "VelyonSoft builds custom software, corporate websites, online stores and automations in Peru with technical SEO and conversion in mind."}
-	image="/home.webp"
->
-	<Hero lang={lang} />
+<BaseLayout lang={lang} title={t.title} description={t.description} image="/home.webp">
+    <Fragment slot="head">
+        <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+    </Fragment>
+
+    <Hero lang={lang} />
+
+    <section class="home-shell relative overflow-hidden bg-background py-16 sm:py-20 lg:py-28" aria-labelledby="home-intro-title">
+        <div class="pointer-events-none absolute inset-0 home-grid"></div>
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+                <div>
+                    <div class="home-badge">
+                        <span set:html={sectionIcon}></span>
+                        {t.badge}
+                    </div>
+                    <h2 id="home-intro-title" class="mt-6 max-w-3xl text-3xl font-black leading-[1.02] tracking-tight text-primary sm:text-5xl lg:text-6xl">
+                        {t.introTitle}
+                    </h2>
+                </div>
+                <div class="rounded-[2rem] border border-border/70 bg-card/70 p-6 shadow-2xl shadow-black/5 backdrop-blur-xl sm:p-8">
+                    <p class="text-base leading-8 text-muted-foreground sm:text-lg">
+                        {t.introText}
+                    </p>
+                    <div class="mt-7 grid gap-3 sm:grid-cols-3">
+                        <div class="mini-proof"><SearchCheck size={18} /><span>SEO tecnico</span></div>
+                        <div class="mini-proof"><Gauge size={18} /><span>Performance</span></div>
+                        <div class="mini-proof"><LineChart size={18} /><span>Conversion</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {t.impactCards.map((card) => (
+                    <article class="metric-card">
+                        <p class="text-4xl font-black tracking-tight text-primary sm:text-5xl">{card.value}</p>
+                        <h3 class="mt-3 text-sm font-bold uppercase tracking-[0.18em] text-secondary">{card.label}</h3>
+                        <p class="mt-3 text-sm leading-6 text-muted-foreground">{card.detail}</p>
+                    </article>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="relative overflow-hidden bg-card/30 py-16 sm:py-20 lg:py-28" aria-labelledby="diagnosis-title">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
+            <div class="order-2 lg:order-1">
+                <div class="home-badge">
+                    <span set:html={sectionIcon}></span>
+                    {t.split.eyebrow}
+                </div>
+                <h2 id="diagnosis-title" class="mt-6 text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl">
+                    {t.split.title}
+                </h2>
+                <p class="mt-6 text-base leading-8 text-muted-foreground sm:text-lg">
+                    {t.split.body}
+                </p>
+                <div class="mt-8 space-y-4">
+                    {t.split.bullets.map((item) => (
+                        <p class="flex gap-3 text-sm leading-6 text-foreground/80 sm:text-base">
+                            <CheckCircle2 class="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
+                            <span>{item}</span>
+                        </p>
+                    ))}
+                </div>
+            </div>
+
+            <div class="order-1 lg:order-2">
+                <div class="conversion-panel relative rounded-[2rem] border p-5 shadow-2xl sm:p-8">
+                    <div class="conversion-glow absolute -right-10 -top-10 h-36 w-36 rounded-full blur-3xl"></div>
+                    <div class="relative grid gap-5 sm:grid-cols-[0.85fr_1.15fr] sm:items-center">
+                        <div class="lottie-card rounded-[1.5rem] border p-4">
+                            <div class="home-lottie-frame" data-lottie-frame role="img" aria-label="Animacion de automatizacion">
+                                <div class="home-lottie" data-lottie-src="/lotties/automation.json"></div>
+                                <div class="lottie-fallback" set:html={automationFallbackSvg}></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-[0.24em] text-secondary">
+                                {lang === "es" ? "Mapa de conversion" : "Conversion map"}
+                            </p>
+                            <div class="mt-6 space-y-3">
+                                {(lang === "es"
+                                    ? ["Busqueda", "Mensaje claro", "Prueba social", "Cotizacion"]
+                                    : ["Search", "Clear message", "Social proof", "Quote"]
+                                ).map((item, index) => (
+                                    <div class="conversion-step flex items-center gap-3 rounded-2xl border p-3">
+                                        <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-secondary text-xs font-black text-black">{index + 1}</span>
+                                        <span class="text-sm font-semibold">{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-background py-16 sm:py-20 lg:py-28" aria-labelledby="services-title">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="mx-auto max-w-3xl text-center">
+                <div class="home-badge mx-auto">
+                    <span set:html={sectionIcon}></span>
+                    {lang === "es" ? "Servicios principales" : "Core services"}
+                </div>
+                <h2 id="services-title" class="mt-6 text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl">
+                    {t.servicesTitle}
+                </h2>
+                <p class="mt-5 text-base leading-8 text-muted-foreground sm:text-lg">{t.servicesText}</p>
+            </div>
+
+            <div class="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {t.services.map((service) => {
+                    const Icon = service.icon;
+                    return (
+                        <a href={service.href} class="service-tile group" aria-label={service.title}>
+                            <span class="service-icon"><Icon size={22} /></span>
+                            <h3 class="mt-5 text-xl font-black tracking-tight text-primary group-hover:text-secondary">{service.title}</h3>
+                            <p class="mt-3 text-sm leading-7 text-muted-foreground">{service.text}</p>
+                            <span class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-secondary">
+                                {t.learnMore}
+                                <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </span>
+                        </a>
+                    );
+                })}
+            </div>
+        </div>
+    </section>
+
+    <section class="method-section relative overflow-hidden py-16 sm:py-20 lg:py-28" aria-labelledby="method-title">
+        <div class="method-glow absolute inset-0"></div>
+        <div class="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+            <div>
+                <div class="home-badge dark-badge">
+                    <span set:html={sectionIcon}></span>
+                    {lang === "es" ? "Sistema VelyonSoft" : "VelyonSoft system"}
+                </div>
+                <h2 id="method-title" class="mt-6 text-3xl font-black leading-tight tracking-tight sm:text-5xl">
+                    {t.methodTitle}
+                </h2>
+                <p class="mt-5 text-base leading-8 text-muted-foreground sm:text-lg">{t.methodText}</p>
+                <div class="lottie-card mt-8 max-w-xs rounded-[1.5rem] border p-4">
+                    <div class="home-lottie-frame" data-lottie-frame role="img" aria-label="Animacion de crecimiento digital">
+                        <div class="home-lottie" data-lottie-src="/lotties/growth.json"></div>
+                        <div class="lottie-fallback" set:html={growthFallbackSvg}></div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+                {t.method.map((item) => (
+                    <article class="method-card">
+                        <span>{item.step}</span>
+                        <h3>{item.title}</h3>
+                        <p>{item.text}</p>
+                    </article>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-card/25 py-16 sm:py-20 lg:py-28" aria-labelledby="projects-title">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6">
+            <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+                <div>
+                    <div class="home-badge">
+                        <span set:html={sectionIcon}></span>
+                        {lang === "es" ? "Casos de exito" : "Success cases"}
+                    </div>
+                    <h2 id="projects-title" class="mt-6 text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl">
+                        {t.projectsTitle}
+                    </h2>
+                </div>
+                <p class="text-base leading-8 text-muted-foreground sm:text-lg">{t.projectsText}</p>
+            </div>
+
+            <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+                {projects.map((project) => (
+                    <a href={`/${lang}/proyectos/${project.id}`} class="project-card group">
+                        <img src={project.data.cover} alt={project.data.title} loading="lazy" decoding="async" class="h-48 w-full object-cover" />
+                        <div class="p-5">
+                            <h3 class="line-clamp-2 text-lg font-black leading-tight text-primary group-hover:text-secondary">{project.data.title}</h3>
+                            <p class="mt-3 text-sm font-bold text-secondary">{project.data.result}</p>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-background py-16 sm:py-20 lg:py-28" aria-labelledby="faq-title">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+                <div class="home-badge">
+                    <span set:html={sectionIcon}></span>
+                    {lang === "es" ? "SEO & Cotizacion" : "SEO & Quote"}
+                </div>
+                <h2 id="faq-title" class="mt-6 text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl">{t.faqTitle}</h2>
+                <div class="lottie-card mt-8 max-w-xs rounded-[1.5rem] border p-4">
+                    <div class="home-lottie-frame" data-lottie-frame role="img" aria-label="Animacion de SEO tecnico">
+                        <div class="home-lottie" data-lottie-src="/lotties/seo.json"></div>
+                        <div class="lottie-fallback" set:html={seoFallbackSvg}></div>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-4">
+                {t.faq.map((item) => (
+                    <details class="faq-item">
+                        <summary>{item.q}</summary>
+                        <p>{item.a}</p>
+                    </details>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="px-4 pb-16 sm:px-6 sm:pb-20 lg:pb-28">
+        <div class="home-cta-panel mx-auto max-w-7xl overflow-hidden rounded-[2rem] border shadow-2xl shadow-black/10">
+            <div class="grid gap-8 p-6 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center lg:p-12">
+                <div>
+                    <div class="home-cta-eyebrow inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.2em]">
+                        <Sparkles size={15} /> {lang === "es" ? "Siguiente paso" : "Next step"}
+                    </div>
+                    <h2 class="mt-6 max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl">{t.ctaTitle}</h2>
+                    <p class="mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg">{t.ctaText}</p>
+                </div>
+                <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+                    <a href={quoteHref} target="_blank" rel="noopener noreferrer" class="cta-main">{t.cta}</a>
+                    <a href={`/${lang}/proyectos`} class="cta-secondary">{t.projectsCta}</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </BaseLayout>
+
+<script>
+    import lottie from "lottie-web/build/player/lottie_light";
+
+    const mountHomeLotties = () => {
+        document.querySelectorAll("[data-lottie-src]").forEach((element) => {
+            if (!(element instanceof HTMLElement) || element.dataset.lottieMounted === "true") {
+                return;
+            }
+
+            const src = element.dataset.lottieSrc;
+            const frame = element.closest("[data-lottie-frame]");
+
+            if (!src || !(frame instanceof HTMLElement)) {
+                return;
+            }
+
+            element.dataset.lottieMounted = "true";
+
+            try {
+                const animation = lottie.loadAnimation({
+                    container: element,
+                    renderer: "svg",
+                    loop: true,
+                    autoplay: true,
+                    path: src,
+                    rendererSettings: {
+                        preserveAspectRatio: "xMidYMid meet",
+                        progressiveLoad: true,
+                    },
+                });
+
+                animation.addEventListener("DOMLoaded", () => {
+                    frame.classList.add("is-lottie-loaded");
+                });
+
+                animation.addEventListener("data_failed", () => {
+                    frame.classList.add("is-lottie-fallback");
+                    element.dataset.lottieMounted = "failed";
+                });
+            } catch {
+                frame.classList.add("is-lottie-fallback");
+                element.dataset.lottieMounted = "failed";
+            }
+        });
+    };
+
+    mountHomeLotties();
+    document.addEventListener("astro:page-load", mountHomeLotties);
+</script>
+
+<style>
+    .home-grid {
+        background-image: linear-gradient(to right, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px), linear-gradient(to bottom, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: radial-gradient(circle at 50% 20%, black, transparent 72%);
+        opacity: 0.55;
+    }
+
+    .home-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        width: fit-content;
+        border: 1px solid color-mix(in srgb, var(--secondary) 30%, transparent);
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--secondary) 10%, transparent);
+        color: var(--secondary);
+        padding: 0.45rem 0.8rem;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+    }
+
+    .home-badge svg {
+        height: 1rem;
+        width: 1rem;
+    }
+
+    .dark-badge {
+        border-color: color-mix(in srgb, var(--secondary) 28%, var(--border));
+        background: color-mix(in srgb, var(--secondary) 9%, var(--card));
+        color: var(--secondary);
+    }
+
+    .conversion-panel {
+        border-color: color-mix(in srgb, var(--secondary) 20%, var(--border));
+        background: color-mix(in srgb, var(--card) 88%, var(--secondary) 5%);
+        color: var(--primary);
+        box-shadow: 0 24px 70px color-mix(in srgb, var(--secondary) 10%, transparent);
+    }
+
+    .conversion-glow {
+        background: color-mix(in srgb, var(--secondary) 18%, transparent);
+    }
+
+    .lottie-card {
+        border-color: var(--border);
+        background: color-mix(in srgb, var(--background) 70%, var(--card));
+    }
+
+    .conversion-step {
+        border-color: var(--border);
+        background: color-mix(in srgb, var(--background) 70%, var(--card));
+        color: var(--primary);
+    }
+
+    .method-section {
+        background: color-mix(in srgb, var(--card) 86%, var(--secondary) 5%);
+        color: var(--primary);
+    }
+
+    .method-glow {
+        background:
+            radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--secondary) 18%, transparent), transparent 35%),
+            radial-gradient(circle at 80% 60%, color-mix(in srgb, var(--primary) 7%, transparent), transparent 30%);
+    }
+
+    .mini-proof {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-radius: 1rem;
+        border: 1px solid var(--border);
+        background: var(--background);
+        padding: 0.75rem 0.85rem;
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: var(--primary);
+    }
+
+    .mini-proof svg,
+    .service-icon svg {
+        color: var(--secondary);
+    }
+
+    .metric-card,
+    .service-tile,
+    .project-card,
+    .faq-item {
+        border: 1px solid var(--border);
+        background: color-mix(in srgb, var(--card) 82%, transparent);
+        backdrop-filter: blur(18px);
+    }
+
+    .metric-card {
+        border-radius: 1.5rem;
+        padding: 1.4rem;
+        box-shadow: 0 18px 44px rgb(0 0 0 / 0.04);
+    }
+
+    .service-tile {
+        min-height: 17rem;
+        border-radius: 1.6rem;
+        padding: 1.45rem;
+        transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .service-tile:hover {
+        transform: translateY(-6px);
+        border-color: color-mix(in srgb, var(--secondary) 45%, var(--border));
+        box-shadow: 0 24px 60px color-mix(in srgb, var(--secondary) 14%, transparent);
+    }
+
+    .service-icon {
+        display: inline-flex;
+        height: 3rem;
+        width: 3rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        border: 1px solid var(--border);
+        background: var(--background);
+    }
+
+    .method-card {
+        border: 1px solid var(--border);
+        border-radius: 1.5rem;
+        background: color-mix(in srgb, var(--background) 68%, transparent);
+        padding: 1.5rem;
+        min-height: 14rem;
+    }
+
+    .method-card span {
+        color: var(--secondary);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.2em;
+    }
+
+    .method-card h3 {
+        margin-top: 1.75rem;
+        font-size: 1.35rem;
+        font-weight: 900;
+        color: var(--primary);
+    }
+
+    .method-card p {
+        margin-top: 0.8rem;
+        color: var(--muted-foreground);
+        line-height: 1.7;
+        font-size: 0.95rem;
+    }
+
+    .project-card {
+        overflow: hidden;
+        border-radius: 1.5rem;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 60px rgb(0 0 0 / 0.08);
+    }
+
+    .project-card img {
+        transition: transform 0.4s ease;
+    }
+
+    .project-card:hover img {
+        transform: scale(1.05);
+    }
+
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .faq-item {
+        border-radius: 1.35rem;
+        padding: 1.2rem 1.35rem;
+    }
+
+    .faq-item summary {
+        cursor: pointer;
+        font-weight: 900;
+        color: var(--primary);
+        list-style: none;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .faq-item p {
+        margin-top: 1rem;
+        color: var(--muted-foreground);
+        line-height: 1.75;
+    }
+
+    .cta-main,
+    .cta-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        padding: 0.9rem 1.25rem;
+        font-weight: 900;
+        white-space: nowrap;
+    }
+
+    .cta-main {
+        background: var(--secondary);
+        color: black;
+    }
+
+    .cta-secondary {
+        border: 1px solid var(--border);
+        background: var(--background);
+        color: var(--primary);
+    }
+
+    .home-cta-panel {
+        border-color: var(--border);
+        background: color-mix(in srgb, var(--card) 88%, var(--secondary) 4%);
+        color: var(--primary);
+    }
+
+    .home-cta-eyebrow {
+        border-color: color-mix(in srgb, var(--secondary) 28%, var(--border));
+        background: color-mix(in srgb, var(--secondary) 9%, var(--card));
+        color: var(--secondary);
+    }
+
+    .home-lottie-frame {
+        position: relative;
+        display: grid;
+        min-height: 220px;
+        place-items: center;
+        overflow: hidden;
+        color: var(--secondary);
+    }
+
+    .home-lottie,
+    .lottie-fallback {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+    }
+
+    .home-lottie {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .is-lottie-loaded .home-lottie {
+        opacity: 1;
+    }
+
+    .lottie-fallback {
+        opacity: 1;
+        transition: opacity 0.2s ease;
+    }
+
+    .is-lottie-loaded .lottie-fallback {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .home-lottie svg {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .lottie-fallback-svg {
+        width: 100%;
+        max-width: 260px;
+        height: auto;
+        overflow: visible;
+    }
+
+    .fallback-ring,
+    .fallback-orbit {
+        transform-origin: 160px 160px;
+        animation: fallback-spin 7s linear infinite;
+    }
+
+    .fallback-orbit {
+        animation-duration: 11s;
+        animation-direction: reverse;
+    }
+
+    .fallback-bar {
+        transform-origin: center bottom;
+        animation: fallback-grow 1.8s ease-in-out infinite alternate;
+    }
+
+    .fallback-bar-2 {
+        animation-delay: 0.18s;
+    }
+
+    .fallback-bar-3 {
+        animation-delay: 0.34s;
+    }
+
+    .fallback-line,
+    .fallback-check {
+        stroke-dasharray: 260;
+        stroke-dashoffset: 260;
+        animation: fallback-draw 2.4s ease-in-out infinite;
+    }
+
+    @keyframes fallback-spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes fallback-grow {
+        from {
+            transform: scaleY(0.55);
+            opacity: 0.55;
+        }
+
+        to {
+            transform: scaleY(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fallback-draw {
+        0% {
+            stroke-dashoffset: 260;
+            opacity: 0.35;
+        }
+
+        45%,
+        75% {
+            stroke-dashoffset: 0;
+            opacity: 1;
+        }
+
+        100% {
+            stroke-dashoffset: -260;
+            opacity: 0.35;
+        }
+    }
+</style>
