@@ -36,6 +36,7 @@ const i18n = {
         ssl: "Seguridad SSL",
         vitals: "Core Web Vitals",
         waSub: "Chatea con nosotros",
+        emailSub: "Escríbenos",
         partner: "Socio tecnológico de confianza",
         performance: "Optimizado para carga ultra-rápida.",
         links: {
@@ -53,6 +54,7 @@ const i18n = {
         ssl: "SSL Security",
         vitals: "Core Web Vitals",
         waSub: "Chat with us",
+        emailSub: "Send us an email",
         partner: "Trusted technology partner",
         performance: "Optimized for ultra-fast loading.",
         links: {
@@ -63,6 +65,7 @@ const i18n = {
 }[lang];
 
 const t = i18n;
+const [emailUser, emailDomain] = CONTACT_CONFIG.email.split("@");
 ---
 
 <footer
@@ -168,7 +171,10 @@ const t = i18n;
                 </h4>
                 <div class="space-y-5">
                     <a
-                        href={`mailto:${CONTACT_CONFIG.email}`}
+                        href="#"
+                        data-email-link
+                        data-email-user={emailUser}
+                        data-email-domain={emailDomain}
                         class="flex min-w-0 items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-400/50 transition-all group"
                     >
                         <div
@@ -183,7 +189,7 @@ const t = i18n;
                                 Email
                             </p>
                             <p class="truncate text-sm text-white/80">
-                                {CONTACT_CONFIG.email}
+                                {t.emailSub}
                             </p>
                         </div>
                     </a>
@@ -287,3 +293,21 @@ const t = i18n;
         </div>
     </div>
 </footer>
+
+<script is:inline>
+    (() => {
+        const hydrateEmailLinks = () => {
+            document.querySelectorAll("[data-email-link]").forEach((link) => {
+                const user = link.dataset.emailUser;
+                const domain = link.dataset.emailDomain;
+
+                if (!user || !domain) return;
+
+                link.setAttribute("href", `mailto:${user}@${domain}`);
+            });
+        };
+
+        hydrateEmailLinks();
+        document.addEventListener("astro:page-load", hydrateEmailLinks);
+    })();
+</script>
