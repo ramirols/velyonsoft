@@ -53,6 +53,8 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 			href="/apple-touch-icon.png"
 		/>
 		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="preload" as="image" href="/velyon-logo-mc.webp" />
+		<link rel="preload" as="image" href="/velyon-logo-mo.webp" />
 
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
@@ -95,13 +97,29 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 		<script is:inline>
 			(() => {
 				const media = window.matchMedia("(prefers-color-scheme: dark)");
+				let themeTransitionTimeout;
 
 				const getSystemTheme = () => (media.matches ? "dark" : "light");
 
-				const applyTheme = (theme) => {
+				const startThemeTransition = () => {
+					const root = document.documentElement;
+
+					window.clearTimeout(themeTransitionTimeout);
+					root.dataset.themeTransition = "active";
+					themeTransitionTimeout = window.setTimeout(() => {
+						delete root.dataset.themeTransition;
+					}, 190);
+				};
+
+				const applyTheme = (theme, transition = false) => {
 					const root = document.documentElement;
 					const meta = document.querySelector('meta[name="theme-color"]');
 					const isDark = theme === "dark";
+
+					if (transition) {
+						startThemeTransition();
+					}
+
 					root.classList.toggle("dark", isDark);
 					root.dataset.theme = theme;
 					meta?.setAttribute("content", isDark ? "#091017" : "#ffffff");
@@ -114,12 +132,12 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 
 				window.__setTheme = (theme) => {
 					window.__themeOverride = theme;
-					applyTheme(theme);
+					applyTheme(theme, true);
 				};
 
 				window.__resetTheme = () => {
 					delete window.__themeOverride;
-					applyTheme(getSystemTheme());
+					applyTheme(getSystemTheme(), true);
 				};
 
 				window.__setThemePreference = window.__setTheme;
@@ -127,7 +145,7 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 				window.__getThemePreference = getTheme;
 				window.__applyTheme = (theme) => {
 					window.__themeOverride = theme;
-					applyTheme(theme);
+					applyTheme(theme, true);
 				};
 
 				applyTheme(getTheme());
@@ -151,7 +169,7 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 					media.addEventListener("change", syncSystemTheme);
 				} else {
 					media.addListener(syncSystemTheme);
-				}6
+				}
 			})();
 		</script>
 
@@ -159,6 +177,81 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 	</head>
 	<body>
 		<slot />
+		<script is:inline>
+			(() => {
+				if (window.__velyonHeaderScrollBound) return;
+				window.__velyonHeaderScrollBound = true;
+
+				const getScrollY = () =>
+					window.scrollY ||
+					window.pageYOffset ||
+					document.documentElement.scrollTop ||
+					document.body.scrollTop ||
+					0;
+
+				let lastScrollY = getScrollY();
+				let ticking = false;
+
+				const getHeader = () => document.querySelector("[data-site-header]");
+
+				const setHeaderHidden = (hidden) => {
+					const header = getHeader();
+
+					if (!header) return;
+
+					const mobileMenuOpen = header.dataset.mobileNavOpen === "true";
+					header.classList.toggle("is-hidden", hidden && !mobileMenuOpen);
+				};
+
+				const updateHeaderVisibility = () => {
+					const currentScrollY = getScrollY();
+					const delta = currentScrollY - lastScrollY;
+					const header = getHeader();
+
+					if (!header) {
+						lastScrollY = currentScrollY;
+						ticking = false;
+						return;
+					}
+
+					if (currentScrollY <= 24 || header.dataset.mobileNavOpen === "true") {
+						setHeaderHidden(false);
+						lastScrollY = currentScrollY;
+						ticking = false;
+						return;
+					}
+
+					if (delta > 8) {
+						setHeaderHidden(true);
+						lastScrollY = currentScrollY;
+					} else if (delta < -8) {
+						setHeaderHidden(false);
+						lastScrollY = currentScrollY;
+					}
+
+					ticking = false;
+				};
+
+				const onScroll = () => {
+					if (ticking) return;
+
+					ticking = true;
+					window.requestAnimationFrame(updateHeaderVisibility);
+				};
+
+				const resetHeaderVisibility = () => {
+					lastScrollY = getScrollY();
+					setHeaderHidden(false);
+				};
+
+				window.addEventListener("scroll", onScroll, { passive: true });
+				document.addEventListener("scroll", onScroll, { passive: true, capture: true });
+				document.addEventListener("astro:after-swap", resetHeaderVisibility);
+				document.addEventListener("astro:page-load", resetHeaderVisibility);
+
+				resetHeaderVisibility();
+			})();
+		</script>
 	</body>
 </html>
 
@@ -175,5 +268,43 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 		scrollbar-width: thin;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
+	}
+
+	[data-site-header] {
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+		will-change: transform, opacity;
+		view-transition-name: none;
+	}
+
+	[data-site-header] * {
+		view-transition-name: none;
+	}
+
+	[data-theme-transition="active"] [data-site-header],
+	[data-theme-transition="active"] [data-site-header] :where(a, button, div, span, nav, p) {
+		transition-duration: 160ms;
+		transition-property: background-color, border-color, box-shadow, color, opacity, transform;
+		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	[data-site-header] img {
+		aspect-ratio: 106 / 24;
+		contain: paint;
+	}
+
+	[data-site-header] .header-nav-link {
+		color: var(--primary);
+		transition: color 150ms ease, opacity 150ms ease;
+	}
+
+	[data-site-header] .header-nav-link:hover {
+		color: var(--secondary);
+	}
+
+	[data-site-header].is-hidden {
+		transform: translate3d(0, calc(-100% - 2rem), 0);
+		opacity: 0;
+		pointer-events: none;
 	}
 </style>
