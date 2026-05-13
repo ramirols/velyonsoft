@@ -19,27 +19,19 @@ import {
     Workflow,
     Building2,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getWhatsAppLink, getWhatsAppLinkWithMessage } from "../lib/constants";
 
-function ThemeToggleIcon({ theme }) {
-    const isDark = theme === "dark";
-
+function ThemeToggleIcon() {
     return (
         <span className="relative block h-[18px] w-[18px]">
             <SunMedium
                 size={18}
-                className={`absolute inset-0 transition-all duration-500 ease-out motion-reduce:transition-none ${isDark
-                    ? "rotate-0 scale-100 opacity-100"
-                    : "rotate-90 scale-0 opacity-0"
-                    }`}
+                className="absolute inset-0 rotate-90 scale-0 opacity-0 transition-all duration-500 ease-out dark:rotate-0 dark:scale-100 dark:opacity-100 motion-reduce:transition-none"
             />
             <Moon
                 size={18}
-                className={`absolute inset-0 transition-all duration-500 ease-out motion-reduce:transition-none ${isDark
-                    ? "-rotate-90 scale-0 opacity-0"
-                    : "rotate-0 scale-100 opacity-100"
-                    }`}
+                className="absolute inset-0 rotate-0 scale-100 opacity-100 transition-all duration-500 ease-out dark:-rotate-90 dark:scale-0 dark:opacity-0 motion-reduce:transition-none"
             />
         </span>
     );
@@ -47,7 +39,6 @@ function ThemeToggleIcon({ theme }) {
 
 export default function Header({ lang = "es" }) {
     const [open, setOpen] = useState(false);
-    const [theme, setTheme] = useState("light");
 
     const translations = {
         es: {
@@ -184,19 +175,6 @@ const featuredServicePlans = {
     const specializedDropdownLinks = servicesLinks;
 
     useEffect(() => {
-        const syncTheme = () => {
-            setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
-        };
-
-        syncTheme();
-        document.addEventListener("themechange", syncTheme);
-
-        return () => {
-            document.removeEventListener("themechange", syncTheme);
-        };
-    }, []);
-
-    useEffect(() => {
         const syncHeaderState = () => {
             setOpen(false);
         };
@@ -223,6 +201,7 @@ const featuredServicePlans = {
     };
 
     const toggleTheme = () => {
+        const theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
         const nextTheme = theme === "dark" ? "light" : "dark";
 
         if (typeof window.__setTheme === "function") {
@@ -234,39 +213,61 @@ const featuredServicePlans = {
                 new CustomEvent("themechange", { detail: { theme: nextTheme } }),
             );
         }
-
-        setTheme(nextTheme);
     };
 
     const themeButtonClass = "border border-border/70 bg-card/80 text-primary hover:bg-muted hover:scale-105 active:scale-95";
 
-    const headerLogoSrc = theme === "dark" ? "/velyon-logo-mo.webp" : "/velyon-logo-mc.webp";
-
     return (
-        <header className="fixed top-3 left-0 w-full z-50 px-3 transition-all duration-500 sm:top-4 sm:px-4 lg:top-6 lg:px-6">
+        <header
+            className="fixed top-3 left-0 z-50 w-full px-3 transition-[transform,opacity] duration-500 sm:top-4 sm:px-4 lg:top-6 lg:px-6"
+            data-site-header
+            data-mobile-nav-open={open ? "true" : "false"}
+        >
             <div className="max-w-7xl mx-auto">
                 <div
-                    className="relative flex items-center justify-between rounded-2xl border border-white/25 bg-background/45 px-3 py-2.5 shadow-lg shadow-black/5 backdrop-blur-2xl transition-all duration-500 ease-out dark:border-white/10 dark:bg-background/35 sm:px-4 lg:px-6 lg:py-3"
+                    className="relative flex items-center justify-between rounded-2xl border border-secondary/25 bg-background/92 px-3 py-2.5 text-primary shadow-xl shadow-primary/10 ring-1 ring-secondary/10 backdrop-blur-2xl transition-colors duration-150 ease-out dark:border-secondary/20 dark:bg-card/92 dark:shadow-black/25 sm:px-4 lg:px-6 lg:py-3"
                 >
                     <div className="flex items-center">
                         <a
                             href={`/${lang}#inicio`}
-                            className="inline-flex items-center py-1 transition-all duration-500 ease-in-out lg:ml-2"
+                            aria-label="VelyonSoft"
+                            className="inline-flex items-center py-1 lg:ml-2"
                         >
-                            <div className="rounded-xl border border-white/20 bg-white/10 p-2 shadow-lg shadow-black/20 backdrop-blur-sm dark:border-white/10 dark:bg-white/5">
-                                <img
-                                    src={headerLogoSrc}
-                                    alt="VelyonSoft Logo"
-                                    className="h-6 w-auto object-cover"
-                                />
+                            <div className="rounded-xl border border-secondary/20 bg-card/90 p-2 shadow-lg shadow-primary/10 ring-1 ring-secondary/10 backdrop-blur-sm transition-colors duration-150 dark:bg-background/70 dark:shadow-black/25">
+                                <span className="grid h-6 w-[106px] shrink-0 place-items-center overflow-hidden">
+                                    <img
+                                        src="/velyon-logo-mc.webp"
+                                        alt=""
+                                        aria-hidden="true"
+                                        width="106"
+                                        height="24"
+                                        loading="eager"
+                                        decoding="async"
+                                        fetchPriority="high"
+                                        draggable={false}
+                                        className="col-start-1 row-start-1 h-6 w-[106px] select-none object-contain opacity-100 transition-opacity duration-150 dark:opacity-0"
+                                    />
+                                    <img
+                                        src="/velyon-logo-mo.webp"
+                                        alt=""
+                                        aria-hidden="true"
+                                        width="106"
+                                        height="24"
+                                        loading="eager"
+                                        decoding="async"
+                                        fetchPriority="high"
+                                        draggable={false}
+                                        className="col-start-1 row-start-1 h-6 w-[106px] select-none object-contain opacity-0 transition-opacity duration-150 dark:opacity-100"
+                                    />
+                                </span>
                             </div>
                         </a>
                     </div>
 
                     <nav
-                        className="hidden items-center gap-4 text-sm font-medium text-primary transition-colors duration-300 lg:flex xl:gap-8"
+                        className="hidden items-center gap-4 text-sm font-medium text-primary lg:flex xl:gap-8"
                     >
-                        <a href={`/${lang}/sobre-nosotros`} className="flex items-center gap-2 hover:text-secondary">
+                        <a href={`/${lang}/sobre-nosotros`} className="header-nav-link flex items-center gap-2">
                             <BookOpen size={18} />
                             {t.sobre_nosotros}
                         </a>
@@ -274,17 +275,17 @@ const featuredServicePlans = {
                         <div className="static group">
                             <button
                                 type="button"
-                                className="flex items-center gap-2 transition-colors hover:text-secondary"
+                                className="header-nav-link flex items-center gap-2 bg-transparent"
                             >
                                 <Grid3X3 size={18} />
                                 {t.servicios}
                                 <ChevronDown
                                     size={16}
-                                    className="transition-transform duration-200 group-hover:rotate-180"
+                                    className="transition-transform duration-150 group-hover:rotate-180"
                                 />
                             </button>
 
-                            <div className="absolute left-0 right-0 top-full z-50 pt-2 opacity-0 invisible translate-y-3 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                            <div className="absolute left-0 right-0 top-full z-50 pt-2 opacity-0 invisible translate-y-3 transition-[opacity,visibility,transform] duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                                 <div className="overflow-hidden rounded-[2rem] border border-border/70 bg-background shadow-2xl shadow-black/15 dark:bg-card">
                                     <div>
                                         <div className="border-b border-border/60 px-6 pb-5 pt-6 lg:px-8">
@@ -315,7 +316,7 @@ const featuredServicePlans = {
                                                                 href={getWhatsAppLinkWithMessage(message)}
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
-                                                                className="group/item flex items-start gap-3 rounded-[1.35rem] border border-transparent px-3 py-3 transition-all duration-200 hover:border-border/70 hover:bg-muted/65"
+                                                                className="group/item flex items-start gap-3 rounded-[1.35rem] border border-transparent px-3 py-3 text-primary transition-colors duration-150 hover:border-border/70 hover:bg-muted/65"
                                                             >
                                                                 <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-border/70 bg-card text-secondary">
                                                                     <Icon size={18} />
@@ -349,7 +350,7 @@ const featuredServicePlans = {
                                                             <a
                                                                 key={service.href}
                                                                 href={service.href}
-                                                                className="group/item flex items-start gap-3 rounded-[1.35rem] border border-transparent px-3 py-3 transition-all duration-200 hover:border-border/70 hover:bg-muted/65"
+                                                                className="group/item flex items-start gap-3 rounded-[1.35rem] border border-transparent px-3 py-3 text-primary transition-colors duration-150 hover:border-border/70 hover:bg-muted/65"
                                                             >
                                                                 <div className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-border/70 bg-card ${service.iconClass}`}>
                                                                     <Icon size={18} />
@@ -375,7 +376,7 @@ const featuredServicePlans = {
                             </div>
                         </div>
 
-                        <a href={`/${lang}/proyectos`} className="flex items-center gap-2 hover:text-secondary">
+                        <a href={`/${lang}/proyectos`} className="header-nav-link flex items-center gap-2">
                             <Briefcase size={18} />
                             {t.proyectos}
                         </a>
@@ -387,18 +388,18 @@ const featuredServicePlans = {
                             type="button"
                             onClick={toggleTheme}
                             aria-label={t.toggleTheme}
-                            className={`group flex h-10 w-10 items-center justify-center rounded-xl transition duration-300 ${themeButtonClass}`}
+                            className={`group flex h-10 w-10 items-center justify-center rounded-xl transition duration-150 ${themeButtonClass}`}
                         >
-                            <ThemeToggleIcon theme={theme} />
+                            <ThemeToggleIcon />
                         </button>
 
                         <div className="flex gap-2">
                             <button
                                 type="button"
                                 onClick={() => switchLang("es")}
-                                className={`cursor-pointer rounded-lg px-3 py-1 text-sm font-bold transition ${lang === "es"
-                                    ? "bg-secondary text-white"
-                                    : "text-muted-foreground hover:text-primary"
+                                className={`cursor-pointer rounded-lg px-3 py-1 text-sm font-bold transition-colors duration-150 ${lang === "es"
+                                    ? "bg-secondary text-white shadow-sm shadow-secondary/25"
+                                    : "bg-transparent text-primary hover:text-secondary"
                                     }`}
                             >
                                 ES
@@ -407,9 +408,9 @@ const featuredServicePlans = {
                             <button
                                 type="button"
                                 onClick={() => switchLang("en")}
-                                className={`cursor-pointer rounded-lg px-3 py-1 text-sm font-bold transition ${lang === "en"
-                                    ? "bg-secondary text-white"
-                                    : "text-muted-foreground hover:text-primary"
+                                className={`cursor-pointer rounded-lg px-3 py-1 text-sm font-bold transition-colors duration-150 ${lang === "en"
+                                    ? "bg-secondary text-white shadow-sm shadow-secondary/25"
+                                    : "bg-transparent text-primary hover:text-secondary"
                                     }`}
                             >
                                 EN
@@ -420,7 +421,7 @@ const featuredServicePlans = {
                             href={primaryContactHref}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 rounded-xl bg-secondary px-5 py-2 font-semibold text-white transition-all hover:opacity-90"
+                            className="flex items-center gap-2 rounded-xl bg-secondary px-5 py-2 font-semibold text-white transition-opacity duration-150 hover:opacity-90"
                         >
                             <Mail size={18} />
                             {t.contacto}
@@ -432,7 +433,7 @@ const featuredServicePlans = {
                         onClick={() => setOpen(!open)}
                         aria-expanded={open}
                         aria-controls="mobile-navigation"
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border/70 bg-card/80 text-primary transition-colors hover:bg-muted lg:hidden"
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border/70 bg-card/80 text-primary transition-colors duration-150 hover:bg-muted lg:hidden"
                     >
                         {open ? <X size={22} /> : <Menu size={22} />}
                     </button>
@@ -441,7 +442,7 @@ const featuredServicePlans = {
                 {open && (
                     <div
                         id="mobile-navigation"
-                        className="mt-2 max-h-[calc(100vh-6.5rem)] overflow-y-auto rounded-2xl border border-border/70 bg-background p-4 shadow-xl shadow-black/10 backdrop-blur-sm transition-all duration-300 dark:bg-card sm:p-5 lg:hidden"
+                        className="mt-2 max-h-[calc(100vh-6.5rem)] overflow-y-auto rounded-2xl border border-border/70 bg-background p-4 text-primary shadow-xl shadow-black/10 backdrop-blur-sm transition-colors duration-150 dark:bg-card sm:p-5 lg:hidden"
                     >
                         <div className="space-y-2">
                             {navLinks.map((link) => (
@@ -449,7 +450,7 @@ const featuredServicePlans = {
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setOpen(false)}
-                                    className="flex items-center gap-3 rounded-xl px-3 py-3 text-base font-semibold text-primary transition hover:bg-muted hover:text-secondary"
+                                    className="flex items-center gap-3 rounded-xl px-3 py-3 text-base font-semibold text-primary transition-colors duration-150 hover:bg-muted hover:text-secondary"
                                 >
                                     {link.icon}
                                     {link.name}
@@ -470,7 +471,7 @@ const featuredServicePlans = {
                                             key={service.href}
                                             href={service.href}
                                             onClick={() => setOpen(false)}
-                                            className="flex min-w-0 items-start gap-3 rounded-2xl border border-border/60 bg-card/70 p-3 transition hover:border-secondary/30 hover:bg-muted/70"
+                                            className="flex min-w-0 items-start gap-3 rounded-2xl border border-border/60 bg-card/70 p-3 text-primary transition-colors duration-150 hover:border-secondary/30 hover:bg-muted/70"
                                         >
                                             <span className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background ${service.iconClass}`}>
                                                 <Icon size={18} />
@@ -494,17 +495,17 @@ const featuredServicePlans = {
                                 type="button"
                                 onClick={toggleTheme}
                                 aria-label={t.toggleTheme}
-                                className={`group flex h-10 w-10 items-center justify-center rounded-xl transition duration-300 ${themeButtonClass}`}
+                                className={`group flex h-10 w-10 items-center justify-center rounded-xl transition duration-150 ${themeButtonClass}`}
                             >
-                                <ThemeToggleIcon theme={theme} />
+                                <ThemeToggleIcon />
                             </button>
 
                             <button
                                 type="button"
                                 onClick={() => switchLang("es")}
-                                className={`font-bold ${lang === "es"
-                                    ? "text-secondary"
-                                    : "text-muted-foreground"
+                                className={`rounded-lg px-3 py-1 font-bold transition-colors duration-150 ${lang === "es"
+                                    ? "bg-secondary text-white shadow-sm shadow-secondary/25"
+                                    : "bg-transparent text-primary hover:text-secondary"
                                     }`}
                             >
                                 ES
@@ -513,9 +514,9 @@ const featuredServicePlans = {
                             <button
                                 type="button"
                                 onClick={() => switchLang("en")}
-                                className={`font-bold ${lang === "en"
-                                    ? "text-secondary"
-                                    : "text-muted-foreground"
+                                className={`rounded-lg px-3 py-1 font-bold transition-colors duration-150 ${lang === "en"
+                                    ? "bg-secondary text-white shadow-sm shadow-secondary/25"
+                                    : "bg-transparent text-primary hover:text-secondary"
                                     }`}
                             >
                                 EN
@@ -527,7 +528,7 @@ const featuredServicePlans = {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setOpen(false)}
-                            className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-secondary py-3 font-semibold text-white transition hover:opacity-90"
+                            className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-secondary py-3 font-semibold text-white transition-opacity duration-150 hover:opacity-90"
                         >
                             <Mail size={18} />
                             {t.contacto}
