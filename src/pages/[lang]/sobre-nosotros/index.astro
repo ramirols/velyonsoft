@@ -1,484 +1,1264 @@
 ---
+import {
+  ArrowRight,
+  Building2,
+  CheckCircle2,
+  Gauge,
+  LineChart,
+  SearchCheck,
+  Sparkles,
+  Workflow,
+} from "lucide-astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Rocket, Eye, Target, ArrowDown } from "lucide-astro";
+import { getWhatsAppLinkWithMessage } from "@/lib/constants";
 
 export function getStaticPaths() {
-    return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
 }
 
 type Language = "es" | "en";
+
 const { lang } = Astro.params as { lang: Language };
 
-const i18n = {
-    es: {
-        title: "Sobre Nosotros | Agencia de Desarrollo Web VelyonSoft",
-        description:
-            "En VelyonSoft combinamos años de experiencia en ingeniería de software y SEO para crear productos digitales que dominan el mercado.",
-        hero: {
-            tag: "Nuestra Historia",
-            h1: "Transformamos código en valor de negocio",
-            subtitle:
-                "Más que una agencia, somos tu socio tecnológico estratégico.",
-            experience: "Años de Innovación",
-            projects: "Casos de Éxito",
-        },
-        mission: {
-            title: "Misión",
-            desc: "Democratizar el acceso a tecnología de alto rendimiento, permitiendo que empresas escalen mediante software optimizado.",
-        },
-        vision: {
-            title: "Visión",
-            desc: "Ser el referente global en desarrollo web donde el diseño minimalista se encuentra con el SEO.",
-        },
-        motto: "Construimos hoy el internet del mañana.",
-        howWeWork: {
-            title: "Metodología",
-            steps: [
-                {
-                    t: "Análisis Estratégico",
-                    d: "Entendemos tu negocio antes de tocar una sola línea de código.",
-                },
-                {
-                    t: "Desarrollo Ágil",
-                    d: "Iteraciones rápidas con Astro y React para máxima velocidad.",
-                },
-                {
-                    t: "Optimización Core",
-                    d: "SEO técnico integrado desde el día uno.",
-                },
-            ],
-        },
-    },
-    en: {
-        title: "About Us | VelyonSoft Web Development Agency",
-        description:
-            "At VelyonSoft we combine years of software engineering and SEO experience.",
-        hero: {
-            tag: "Our Story",
-            h1: "Turning code into business value",
-            subtitle:
-                "More than an agency, we are your strategic technology partner.",
-            experience: "Years of Innovation",
-            projects: "Success Stories",
-        },
-        mission: {
-            title: "Mission",
-            desc: "Democratizing access to high-performance technology.",
-        },
-        vision: {
-            title: "Vision",
-            desc: "To be the global benchmark in web development.",
-        },
-        motto: "Building tomorrow's internet today.",
-        howWeWork: {
-            title: "Methodology",
-            steps: [
-                {
-                    t: "Strategic Analysis",
-                    d: "We understand your business first.",
-                },
-                {
-                    t: "Agile Development",
-                    d: "Fast iterations with Astro and React.",
-                },
-                { t: "Core Optimization", d: "Technical SEO from day one." },
-            ],
-        },
-    },
-};
+const site = "https://www.velyonsoft.com";
+const pageUrl = `${site}/${lang}/sobre-nosotros`;
+const quoteHref = getWhatsAppLinkWithMessage(
+  lang === "es"
+    ? "Hola VelyonSoft, quiero conversar sobre una solución digital para mi empresa."
+    : "Hello VelyonSoft, I want to talk about a digital solution for my company.",
+);
+const projectsHref = `/${lang}/proyectos`;
 
-const t = i18n[lang];
+const philosophyIcons = [Sparkles, Workflow, CheckCircle2];
+const reasonIcons = [SearchCheck, Sparkles, LineChart, Gauge];
+const valueIcons = [Workflow, SearchCheck, Building2];
+
+const t = {
+  es: {
+    title: "Sobre Nosotros | Desarrollo web, SEO y software | VelyonSoft",
+    description:
+      "Conoce a VelyonSoft: desarrollo web, SEO técnico y software optimizado para empresas que quieren vender mejor y escalar con claridad.",
+    breadcrumbHome: "Inicio",
+    breadcrumbCurrent: "Sobre nosotros",
+    hero: {
+      badge: "Quiénes somos",
+      titleLines: [
+        { text: "Dirigido por ingeniería.", accent: false },
+        { text: "Centrado en la ejecución.", accent: true },
+      ],
+      body:
+        "VelyonSoft es un estudio de desarrollo web, software a medida y SEO técnico. Diseñamos, construimos y optimizamos plataformas digitales para empresas que quieren vender mejor, operar con más claridad y escalar con una base sólida.",
+      primary: "Contáctanos",
+      secondary: "Ver proyectos",
+      stats: [
+        {
+          value: "+5",
+          label: "Años de Innovación",
+          detail: "Soluciones digitales construidas con foco real de negocio",
+        },
+        {
+          value: "+50",
+          label: "Casos de Éxito",
+          detail: "Proyectos lanzados para marcas y empresas que necesitaban claridad",
+        },
+        {
+          value: "100%",
+          label: "SEO",
+          detail: "Arquitectura técnica, velocidad y semántica alineadas",
+        },
+        {
+          value: "24/7",
+          label: "Soporte",
+          detail: "Acompañamiento continuo antes y después del lanzamiento",
+        },
+      ],
+    },
+    mission: {
+      badge: "Nuestra misión",
+      headlineLines: [
+        { text: "Democratizar el acceso a", accent: false },
+        { text: "tecnología de alto rendimiento", accent: true },
+        { text: "para que más empresas escalen", accent: false },
+        { text: "con software optimizado.", accent: true },
+      ],
+      columns: [
+        {
+          title: "Ingeniería experta, resultados reales",
+          body:
+            "Existimos para cerrar la brecha entre las decisiones tecnológicas y los resultados del negocio. No entregamos una recomendación aislada: construimos soluciones concretas que se pueden usar, medir y escalar.",
+        },
+        {
+          title: "Rendimiento, no solo presencia",
+          body:
+            "Nuestro equipo trabaja diseño, desarrollo y SEO como un mismo sistema. La meta es que tu plataforma no solo se vea mejor, sino que cargue rápido, comunique con claridad y ayude a convertir más oportunidades.",
+        },
+      ],
+    },
+    philosophy: {
+      badge: "Nuestra filosofía",
+      title: "Los valores detrás de cada compromiso",
+      cards: [
+        {
+          title: "Ejecución sobre retórica",
+          body:
+            "Nos miden por resultados, no por promesas. Cuando VelyonSoft se compromete con un proyecto, el foco está en entregar una solución clara, funcional y lista para operar.",
+        },
+        {
+          title: "Diseño minimalista con intención",
+          body:
+            "Reducimos ruido visual para que el mensaje sea más fuerte. Cada sección, cada jerarquía y cada interacción están pensadas para orientar, explicar y convertir.",
+        },
+        {
+          title: "Entrega centrada en el cliente",
+          body:
+            "Alineamos estrategia, SEO y desarrollo con tu contexto real. No trabajamos desde una plantilla cerrada, sino desde lo que tu operación necesita para crecer.",
+        },
+      ],
+    },
+    vision: {
+      badge: "Nuestra visión",
+      headlineLines: [
+        { text: "Ser el referente global", accent: false },
+        { text: "en desarrollo web donde", accent: true },
+        { text: "el diseño minimalista", accent: true },
+        { text: "se encuentra con el SEO.", accent: false },
+      ],
+    },
+    reasons: {
+      badge: "Por qué elegirnos",
+      titleLines: [
+        "Experiencia demostrada.",
+        "Compromiso inquebrantable.",
+      ],
+      items: [
+        {
+          title: "100% SEO",
+          body:
+            "Arquitectura técnica, velocidad y semántica listas para posicionar mejor desde el inicio.",
+        },
+        {
+          title: "Diseño minimalista",
+          body:
+            "Interfaces limpias para comunicar rápido, generar confianza y convertir con menos fricción.",
+        },
+        {
+          title: "+50 casos de éxito",
+          body:
+            "Experiencia aplicada en proyectos reales para empresas que necesitaban orden, visibilidad y crecimiento.",
+        },
+        {
+          title: "Soporte 24/7",
+          body:
+            "Acompañamiento continuo para mantener tu plataforma estable, clara y optimizada.",
+        },
+      ],
+    },
+    profile: {
+      badge: "Perfil de la empresa",
+      title: "El socio de implementación digital que las empresas eligen para crecer.",
+      paragraphs: [
+        "Desde Lima, VelyonSoft combina desarrollo web, SEO técnico y software a medida para construir plataformas que ayudan a vender mejor y operar con más claridad.",
+        "Trabajamos con empresas que necesitan una presencia digital sólida, una estructura escalable y una ejecución que no se quede en ideas, sino que llegue a producción con criterio técnico.",
+      ],
+      terminalTitle: "VelyonSoft - Perfil de la empresa",
+      terminalLoading: "Cargando perfil...",
+      terminalEntries: [
+        { label: "Nombre", value: "VelyonSoft" },
+        { label: "Base", value: "Lima, Perú" },
+        { label: "Enfoque", value: "Desarrollo web, SEO y automatización" },
+        { label: "Especialidad", value: "Diseño minimalista con rendimiento" },
+        { label: "Resultados", value: "+50 casos · 100% SEO" },
+      ],
+      terminalFooter: "Cultura: Claridad · Rendimiento · Ejecución",
+    },
+    values: {
+      badge: "Nuestros valores",
+      title: "Qué hace diferente a VelyonSoft",
+      cards: [
+        {
+          title: "Construimos, no solo asesoramos",
+          body:
+            "La mayoría de equipos propone mejoras. Nosotros aterrizamos la estrategia en una web, un sistema o una automatización que se pueda usar y hacer crecer.",
+        },
+        {
+          title: "SEO desde la arquitectura",
+          body:
+            "La visibilidad orgánica no se agrega al final. Se define desde la estructura, el contenido, la velocidad y la intención comercial de cada página.",
+        },
+        {
+          title: "Preparado para escalar",
+          body:
+            "Diseñamos soluciones que hoy se ven limpias y mañana pueden integrar más procesos, más contenido y más oportunidades sin perder claridad.",
+        },
+      ],
+    },
+    cta: {
+      titleLines: [
+        { text: "¿Listo para pasar de la estrategia", accent: false },
+        { text: "a la ejecución?", accent: true },
+      ],
+      body:
+        "Ponte en contacto con nuestro equipo y empieza una implementación digital basada en claridad, SEO y rendimiento real para tu empresa.",
+      primary: "Contáctanos",
+      secondary: "Ver proyectos",
+    },
+  },
+  en: {
+    title: "About Us | Web development, SEO and software | VelyonSoft",
+    description:
+      "Meet VelyonSoft: web development, technical SEO and optimized software for companies that want to sell better and scale with clarity.",
+    breadcrumbHome: "Home",
+    breadcrumbCurrent: "About us",
+    hero: {
+      badge: "About us",
+      titleLines: [
+        { text: "Engineering-led.", accent: false },
+        { text: "Execution-focused.", accent: true },
+      ],
+      body:
+        "VelyonSoft is a web development, custom software and technical SEO studio. We design, build and optimize digital platforms for companies that want to sell better, operate with more clarity and scale on a solid foundation.",
+      primary: "Contact us",
+      secondary: "View projects",
+      stats: [
+        {
+          value: "+5",
+          label: "Years of Innovation",
+          detail: "Digital solutions built with real business focus",
+        },
+        {
+          value: "+50",
+          label: "Success Cases",
+          detail: "Projects launched for brands and companies seeking clarity",
+        },
+        {
+          value: "100%",
+          label: "SEO",
+          detail: "Technical architecture, speed and semantics aligned",
+        },
+        {
+          value: "24/7",
+          label: "Support",
+          detail: "Continuous guidance before and after launch",
+        },
+      ],
+    },
+    mission: {
+      badge: "Our mission",
+      headlineLines: [
+        { text: "Democratize access to", accent: false },
+        { text: "high-performance technology", accent: true },
+        { text: "so more companies can scale", accent: false },
+        { text: "through optimized software.", accent: true },
+      ],
+      columns: [
+        {
+          title: "Expert engineering, real outcomes",
+          body:
+            "We exist to close the gap between technology decisions and business outcomes. We do not hand off isolated recommendations: we build practical solutions that can be used, measured and scaled.",
+        },
+        {
+          title: "Performance, not just presence",
+          body:
+            "Our team treats design, development and SEO as one system. The goal is for your platform to do more than look better: it should load fast, communicate clearly and convert more opportunities.",
+        },
+      ],
+    },
+    philosophy: {
+      badge: "Our philosophy",
+      title: "The values behind every commitment",
+      cards: [
+        {
+          title: "Execution over rhetoric",
+          body:
+            "We are measured by results, not promises. When VelyonSoft commits to a project, the focus is on delivering a clear, functional solution that is ready to operate.",
+        },
+        {
+          title: "Minimal design with intention",
+          body:
+            "We reduce visual noise so the message becomes stronger. Every section, hierarchy and interaction is designed to guide, explain and convert.",
+        },
+        {
+          title: "Client-centered delivery",
+          body:
+            "We align strategy, SEO and development with your real context. We do not work from a closed template, but from what your operation needs in order to grow.",
+        },
+      ],
+    },
+    vision: {
+      badge: "Our vision",
+      headlineLines: [
+        { text: "Become the global reference", accent: false },
+        { text: "in web development where", accent: true },
+        { text: "minimalist design", accent: true },
+        { text: "meets SEO.", accent: false },
+      ],
+    },
+    reasons: {
+      badge: "Why choose us",
+      titleLines: ["Proven experience.", "Unwavering commitment."],
+      items: [
+        {
+          title: "100% SEO",
+          body:
+            "Technical architecture, speed and semantics prepared to rank better from day one.",
+        },
+        {
+          title: "Minimal design",
+          body:
+            "Clean interfaces that communicate fast, build trust and convert with less friction.",
+        },
+        {
+          title: "50+ success cases",
+          body:
+            "Practical experience across real projects for companies seeking structure, visibility and growth.",
+        },
+        {
+          title: "24/7 support",
+          body:
+            "Continuous guidance to keep your platform stable, clear and optimized.",
+        },
+      ],
+    },
+    profile: {
+      badge: "Company profile",
+      title: "The digital implementation partner companies choose to grow with.",
+      paragraphs: [
+        "From Lima, VelyonSoft combines web development, technical SEO and custom software to build platforms that help companies sell better and operate with more clarity.",
+        "We work with businesses that need a strong digital presence, a scalable foundation and execution that does not stop at ideas, but reaches production with technical judgment.",
+      ],
+      terminalTitle: "VelyonSoft - Company profile",
+      terminalLoading: "Loading profile...",
+      terminalEntries: [
+        { label: "Name", value: "VelyonSoft" },
+        { label: "Base", value: "Lima, Peru" },
+        { label: "Focus", value: "Web development, SEO and automation" },
+        { label: "Specialty", value: "Minimal design with performance" },
+        { label: "Results", value: "50+ cases · 100% SEO" },
+      ],
+      terminalFooter: "Culture: Clarity · Performance · Execution",
+    },
+    values: {
+      badge: "Our values",
+      title: "What makes VelyonSoft different",
+      cards: [
+        {
+          title: "We build, not only advise",
+          body:
+            "Most teams suggest improvements. We turn strategy into a website, a system or an automation that can be used and expanded.",
+        },
+        {
+          title: "SEO from the architecture",
+          body:
+            "Organic visibility is not added at the end. It is defined by the structure, content, speed and commercial intent of every page.",
+        },
+        {
+          title: "Prepared to scale",
+          body:
+            "We design solutions that look clean today and can support more processes, more content and more opportunities tomorrow without losing clarity.",
+        },
+      ],
+    },
+    cta: {
+      titleLines: [
+        { text: "Ready to move from strategy", accent: false },
+        { text: "to execution?", accent: true },
+      ],
+      body:
+        "Get in touch with our team and start a digital implementation shaped by clarity, SEO and real performance for your business.",
+      primary: "Contact us",
+      secondary: "View projects",
+    },
+  },
+}[lang];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: t.title,
+      description: t.description,
+      inLanguage: lang,
+      isPartOf: { "@id": `${site}/#website` },
+      about: { "@id": `${site}/#organization` },
+      mainEntity: {
+        "@type": "Organization",
+        "@id": `${site}/#organization`,
+        name: "VelyonSoft",
+        url: site,
+        slogan:
+          lang === "es"
+            ? "Diseño minimalista, SEO técnico y software optimizado para escalar."
+            : "Minimal design, technical SEO and optimized software built to scale.",
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumbs`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: t.breadcrumbHome,
+          item: `${site}/${lang}`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: t.breadcrumbCurrent,
+          item: pageUrl,
+        },
+      ],
+    },
+  ],
+};
 ---
 
 <BaseLayout
-    lang={lang}
-    title={t.title}
-    description={t.description}
-    type="website"
+  lang={lang}
+  title={t.title}
+  description={t.description}
+  image="/home.webp"
+  type="website"
 >
-    <section
-        class="relative overflow-hidden bg-background pt-32 pb-16 sm:pt-36 md:pt-40 md:pb-24"
-        id="hero-about"
-    >
-        <div class="absolute inset-0 z-0">
-            <div
-                class="absolute top-0 left-1/2 h-[520px] w-[130vw] -translate-x-1/2 opacity-60 md:h-[1000px] md:w-[140%]"
-            >
-                <div
-                    class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(30,172,204,0.40)_0%,rgba(30,172,204,0.1)_35%,transparent_70%)]"
-                >
-                </div>
-            </div>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  </Fragment>
+
+  <div class="about-page">
+    <section class="about-ink about-hero" aria-labelledby="about-title">
+      <div class="about-glow about-glow-left" aria-hidden="true"></div>
+      <div class="about-glow about-glow-top" aria-hidden="true"></div>
+      <div class="about-glow about-glow-center" aria-hidden="true"></div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="about-hero__inner">
+          <div class="about-kicker about-kicker--dark mx-auto">
+            <span class="about-kicker__dot"></span>
+            {t.hero.badge}
+          </div>
+
+          <h1 id="about-title" class="about-display about-display--hero">
+            {
+              t.hero.titleLines.map((line) => (
+                <span class:list={{ "about-accent": line.accent }}>
+                  {line.text}
+                </span>
+              ))
+            }
+          </h1>
+
+          <p class="about-hero__body">{t.hero.body}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-surface about-surface--lift">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="about-stats-grid">
+        {
+          t.hero.stats.map((item) => (
+              <article class="about-stat-card">
+                <p class="about-stat-card__value">{item.value}</p>
+                <p class="about-stat-card__label">{item.label}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="about-surface about-section" aria-labelledby="mission-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="about-divider-eyebrow">{t.mission.badge}</div>
+
+        <h2 id="mission-title" class="about-display about-display--center about-display--light">
+          {
+            t.mission.headlineLines.map((line) => (
+              <span class:list={{ "about-accent": line.accent }}>
+                {line.text}
+              </span>
+            ))
+          }
+        </h2>
+
+        <div class="about-copy-grid mt-16">
+          {
+            t.mission.columns.map((item) => (
+              <article>
+                <h3 class="about-copy-title">{item.title}</h3>
+                <p class="about-copy-body">{item.body}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="about-surface about-section" aria-labelledby="philosophy-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="about-kicker">
+          <span class="about-kicker__dot"></span>
+          {t.philosophy.badge}
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-            <span
-                class="reveal inline-block px-4 py-1.5 mb-6 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase bg-secondary/10 text-secondary border border-secondary/20 rounded-full"
-            >
-                {t.hero.tag}
-            </span>
-            <h1
-                class="reveal text-[clamp(2.75rem,14vw,7.5rem)] font-bold text-primary tracking-tighter leading-[0.95] md:leading-[0.85] mb-8 md:mb-10"
-            >
-                {t.hero.h1}
-            </h1>
-            <p
-                class="reveal text-base sm:text-lg md:text-2xl text-foreground/60 max-w-3xl mx-auto mb-10 md:mb-16 leading-relaxed sm:px-4"
-            >
-                {t.hero.subtitle}
-            </p>
+        <h2 id="philosophy-title" class="about-heading mt-10 max-w-3xl">
+          {t.philosophy.title}
+        </h2>
 
-            <div
-                class="reveal grid grid-cols-2 gap-5 md:grid-cols-4 md:gap-8 max-w-4xl mx-auto border-t border-border pt-8 md:pt-12"
-            >
+        <div class="about-card-grid mt-14">
+          {
+            t.philosophy.cards.map((card, index) => {
+              const Icon = philosophyIcons[index];
+              return (
+                <article class="about-card">
+                  <span class="about-card__icon"><Icon size={20} /></span>
+                  <h3 class="about-card__title">{card.title}</h3>
+                  <p class="about-card__body">{card.body}</p>
+                </article>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="about-ink about-section about-section--compact" aria-labelledby="vision-title">
+      <div class="about-glow about-glow-center about-glow-center--soft" aria-hidden="true"></div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="about-divider-eyebrow about-divider-eyebrow--dark">{t.vision.badge}</div>
+
+        <h2 id="vision-title" class="about-display about-display--center about-display--dark mt-10">
+          {
+            t.vision.headlineLines.map((line) => (
+              <span class:list={{ "about-accent": line.accent }}>
+                {line.text}
+              </span>
+            ))
+          }
+        </h2>
+      </div>
+    </section>
+
+    <section class="about-surface about-section" aria-labelledby="reasons-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="about-kicker">
+          <span class="about-kicker__dot"></span>
+          {t.reasons.badge}
+        </div>
+
+        <h2 id="reasons-title" class="about-heading mt-10 max-w-3xl">
+          {
+            t.reasons.titleLines.map((line) => (
+              <span>{line}</span>
+            ))
+          }
+        </h2>
+
+        <div class="about-reason-grid mt-16">
+          {
+            t.reasons.items.map((item, index) => {
+              const Icon = reasonIcons[index];
+              return (
+                <article class="about-reason-item">
+                  <span class="about-card__icon"><Icon size={20} /></span>
+                  <h3 class="about-reason-item__title">{item.title}</h3>
+                  <p class="about-reason-item__body">{item.body}</p>
+                </article>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="about-surface about-section" aria-labelledby="profile-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="about-split-grid">
+          <div>
+            <div class="about-kicker">
+              <span class="about-kicker__dot"></span>
+              {t.profile.badge}
+            </div>
+
+            <h2 id="profile-title" class="about-heading mt-10 max-w-2xl">
+              {t.profile.title}
+            </h2>
+
+            <div class="mt-8 space-y-6">
+              {
+                t.profile.paragraphs.map((paragraph) => (
+                  <p class="about-copy-body max-w-xl">{paragraph}</p>
+                ))
+              }
+            </div>
+          </div>
+
+          <div class="about-terminal">
+            <div class="about-terminal__topbar">
+              <span class="about-terminal__window about-terminal__window--red"></span>
+              <span class="about-terminal__window about-terminal__window--amber"></span>
+              <span class="about-terminal__window about-terminal__window--green"></span>
+              <span class="about-terminal__label">{t.profile.terminalTitle}</span>
+            </div>
+
+            <div class="about-terminal__body" aria-label={t.profile.terminalTitle}>
+              <p><span class="about-terminal__prompt">$</span> velyonsoft info --company</p>
+              <p class="about-terminal__muted">{t.profile.terminalLoading}</p>
+              <div class="mt-8 space-y-3">
                 {
-                    [
-                        { v: "+5", l: t.hero.experience },
-                        { v: "+50", l: t.hero.projects },
-                        { v: "100%", l: "SEO" },
-                        { v: "24/7", l: "Support" },
-                    ].map((s) => (
-                        <div class="stat-item">
-                            <p class="text-2xl md:text-4xl font-bold text-primary tracking-tighter">
-                                {s.v}
-                            </p>
-                            <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-muted-foreground font-medium">
-                                {s.l}
-                            </p>
-                        </div>
-                    ))
+                  t.profile.terminalEntries.map((entry) => (
+                    <p>
+                      <span class="about-terminal__check">✓</span> {entry.label}: {entry.value}
+                    </p>
+                  ))
                 }
+              </div>
+              <p class="about-terminal__footer">{t.profile.terminalFooter}</p>
+              <p class="mt-6"><span class="about-terminal__prompt">$</span> <span class="about-terminal__cursor"></span></p>
             </div>
-
-            <div
-                class="mt-14 md:mt-16 flex justify-center animate-bounce text-secondary/40 hidden sm:flex"
-            >
-                <ArrowDown size={24} />
-            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section
-        class="py-16 md:py-20 lg:py-24 bg-background relative z-10"
-        id="mission-vision"
-    >
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8"
-        >
-            {
-                [t.mission, t.vision].map((item, i) => (
-                    <div class="mission-card group p-6 sm:p-8 md:p-12 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[2.5rem] bg-muted/30 border border-border hover:border-secondary/30 transition-colors duration-500">
-                        <div
-                            class={`w-12 h-12 md:w-14 md:h-14 ${i === 0 ? "bg-secondary text-white" : "bg-primary text-primary-foreground"} rounded-xl md:rounded-2xl flex items-center justify-center mb-5 md:mb-8 shadow-lg`}
-                        >
-                            {i === 0 ? <Target size={26} /> : <Eye size={26} />}
-                        </div>
-                        <h2 class="text-2xl md:text-4xl font-bold text-primary mb-4 md:mb-6">
-                            {item.title}
-                        </h2>
-                        <p class="text-base md:text-lg text-foreground/80 leading-relaxed pl-4 md:pl-5 border-l-2 border-secondary/20">
-                            {item.desc}
-                        </p>
-                    </div>
-                ))
-            }
+    <section class="about-surface about-section" aria-labelledby="values-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="about-kicker">
+          <span class="about-kicker__dot"></span>
+          {t.values.badge}
         </div>
+
+        <h2 id="values-title" class="about-heading mt-10 max-w-4xl">
+          {t.values.title}
+        </h2>
+
+        <div class="about-card-grid mt-14">
+          {
+            t.values.cards.map((card, index) => {
+              const Icon = valueIcons[index];
+              return (
+                <article class="about-card about-card--tall">
+                  <span class="about-card__icon"><Icon size={20} /></span>
+                  <h3 class="about-card__title">{card.title}</h3>
+                  <p class="about-card__body">{card.body}</p>
+                </article>
+              );
+            })
+          }
+        </div>
+      </div>
     </section>
 
-    <section
-        class="method-wrapper bg-background relative overflow-hidden border-y border-border"
-        id="method-pin"
-    >
-        <div
-            class="absolute right-10 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20 hidden lg:flex"
-        >
-            {
-                t.howWeWork.steps.map((_, i) => (
-                    <div class="group flex items-center gap-4">
-                        <span class="text-[10px] font-bold text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
-                            PASO 0{i + 1}
-                        </span>
-                        <div
-                            class="progress-dot w-2 h-2 rounded-full border border-secondary transition-all duration-300"
-                            data-index={i}
-                        />
-                    </div>
-                ))
-            }
+    <section class="about-ink about-section about-cta" aria-labelledby="about-cta-title">
+      <div class="about-glow about-glow-center" aria-hidden="true"></div>
+
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 text-center">
+        <h2 id="about-cta-title" class="about-display about-display--center about-display--dark">
+          {
+            t.cta.titleLines.map((line) => (
+              <span class:list={{ "about-accent": line.accent }}>
+                {line.text}
+              </span>
+            ))
+          }
+        </h2>
+
+        <p class="about-cta__body">{t.cta.body}</p>
+
+        <div class="about-actions justify-center">
+          <a
+            href={quoteHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="about-button about-button--solid"
+          >
+            {t.cta.primary}
+          </a>
+          <a href={projectsHref} class="about-button about-button--ghost">
+            {t.cta.secondary}
+            <ArrowRight class="h-4 w-4" />
+          </a>
         </div>
-
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-28"
-        >
-            <div
-                class="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-24 xl:gap-32"
-            >
-                <div class="method-intro space-y-6 md:space-y-8">
-                    <div>
-                        <span
-                            class="text-secondary font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs block mb-4"
-                        >
-                            // {t.howWeWork.title}
-                        </span>
-                        <h2
-                            class="text-[2.25rem] md:text-6xl lg:text-7xl font-bold text-primary tracking-tighter leading-[1.1] lg:leading-[1] mb-6"
-                        >
-                            Ingeniería <br class="hidden md:block" />
-                            <span class="text-secondary">sin fricción.</span>
-                        </h2>
-                        <p
-                            class="text-base md:text-xl text-foreground/70 leading-relaxed max-w-md"
-                        >
-                            Nuestra metodología está diseñada para eliminar
-                            cuellos de botella técnicos, asegurando
-                            escalabilidad y rendimiento.
-                        </p>
-                    </div>
-
-                    <div
-                        class="flex flex-wrap gap-6 md:gap-10 border-t border-border pt-8"
-                    >
-                        <div>
-                            <p
-                                class="text-xl md:text-2xl font-bold text-primary"
-                            >
-                                Agile
-                            </p>
-                            <p
-                                class="text-[10px] uppercase text-muted-foreground tracking-widest font-bold"
-                            >
-                                Mindset
-                            </p>
-                        </div>
-                        <div>
-                            <p
-                                class="text-xl md:text-2xl font-bold text-primary"
-                            >
-                                SEO
-                            </p>
-                            <p
-                                class="text-[10px] uppercase text-muted-foreground tracking-widest font-bold"
-                            >
-                                Driven
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="method-cards-column relative flex h-auto w-full flex-col justify-start lg:min-h-[620px]"
-                >
-                    {
-                        t.howWeWork.steps.map((step, idx) => (
-                            <div class="method-step-card relative lg:absolute inset-0 flex flex-col justify-center p-6 sm:p-8 md:p-12 rounded-[1.5rem] sm:rounded-[2rem] md:rounded-[3rem] bg-muted/40 border border-border opacity-100 lg:opacity-0 translate-y-0 lg:translate-y-12 backdrop-blur-sm mb-6 lg:mb-0 last:mb-0">
-                                <div class="flex flex-wrap justify-between items-start gap-4 mb-6">
-                                    <span class="text-4xl md:text-7xl font-black text-secondary/30 lg:text-secondary">
-                                        0{idx + 1}
-                                    </span>
-                                    <span class="px-3 py-1 rounded-full border border-secondary/20 text-secondary text-[9px] font-bold uppercase tracking-widest mt-2">
-                                        Fase de Ejecución
-                                    </span>
-                                </div>
-                                <h3 class="text-xl md:text-3xl font-bold text-primary mb-4">
-                                    {step.t}
-                                </h3>
-                                <p class="text-foreground/80 text-base md:text-lg leading-relaxed">
-                                    {step.d}
-                                    <span class="block mt-4 text-xs md:text-sm font-medium text-primary/60 italic">
-                                        Garantizamos transparencia y control
-                                        total.
-                                    </span>
-                                </p>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
+  </div>
 
-    <section class="py-16 md:py-24 lg:py-32 bg-background text-center">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6">
-            <div class="cta-reveal border-t border-border pt-12 md:pt-20">
-                <p
-                    class="text-secondary font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs mb-8"
-                >
-                    {t.motto}
-                </p>
-                <h2
-                    class="text-[2.35rem] md:text-7xl lg:text-[6rem] font-bold text-primary leading-[1] md:leading-[0.85] mb-10 md:mb-12 tracking-tighter"
-                >
-                    Hablemos de <br class="hidden md:block" /> tu próximo éxito.
-                </h2>
-                <a
-                    href={`/${lang}/proyectos`}
-                    class="inline-flex w-full items-center justify-center gap-3 px-6 py-4 sm:w-auto sm:gap-4 sm:px-8 sm:py-5 md:px-12 md:py-6 bg-primary text-primary-foreground font-bold rounded-xl md:rounded-2xl hover:bg-secondary hover:text-white transition-all duration-500 group shadow-xl shadow-primary/20"
-                >
-                    Ver Proyectos
-                    <Rocket
-                        size={20}
-                        class="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"
-                    />
-                </a>
-            </div>
-        </div>
-    </section>
+  <style>
+    .about-page {
+      --about-accent: var(--secondary);
+      --about-accent-strong: var(--secondary);
+      --about-ink: var(--primary);
+      --about-ink-soft: var(--muted-foreground);
+      --about-surface: var(--background);
+      --about-surface-strong: color-mix(in srgb, var(--card) 96%, var(--background));
+      --about-border: color-mix(in srgb, var(--border) 92%, transparent);
+      --about-shadow: 0 24px 80px color-mix(in srgb, var(--primary) 8%, transparent);
+      --about-hero-surface: #091017;
+      --about-hero-surface-deep: #050b10;
+      --about-hero-text: #eef4f8;
+      --about-hero-muted: rgb(238 244 248 / 0.62);
+      background: var(--about-surface);
+      color: var(--about-ink);
+    }
+
+    .dark .about-page {
+      --about-surface-strong: color-mix(in srgb, var(--card) 98%, var(--background));
+      --about-border: color-mix(in srgb, var(--border) 96%, transparent);
+      --about-shadow: 0 24px 80px rgb(0 0 0 / 0.28);
+      --about-hero-muted: rgb(238 244 248 / 0.7);
+    }
+
+    .about-ink {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 80%, color-mix(in srgb, var(--secondary) 26%, transparent), transparent 35%),
+        radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--secondary) 18%, transparent), transparent 28%),
+        radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--ring) 16%, transparent), transparent 24%),
+        linear-gradient(180deg, var(--about-hero-surface) 0%, color-mix(in srgb, var(--about-hero-surface) 86%, black) 44%, var(--about-hero-surface-deep) 100%);
+      color: var(--about-hero-text);
+    }
+
+    .about-glow {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .about-glow-left {
+      left: -8rem;
+      top: -6rem;
+      width: 20rem;
+      height: 20rem;
+      background: color-mix(in srgb, var(--secondary) 18%, transparent);
+    }
+
+    .about-glow-top {
+      right: -7rem;
+      top: -8rem;
+      width: 18rem;
+      height: 18rem;
+      background: color-mix(in srgb, var(--ring) 14%, transparent);
+    }
+
+    .about-glow-center {
+      left: 50%;
+      bottom: -10rem;
+      width: min(70rem, 90vw);
+      height: 20rem;
+      transform: translateX(-50%);
+      background: color-mix(in srgb, var(--secondary) 22%, transparent);
+    }
+
+    .about-glow-center--soft {
+      bottom: -7rem;
+      height: 16rem;
+      background: color-mix(in srgb, var(--secondary) 14%, transparent);
+    }
+
+    .about-surface {
+      background: var(--about-surface);
+    }
+
+    .about-section {
+      padding: 7rem 0;
+    }
+
+    .about-section--compact {
+      padding: 6rem 0;
+    }
+
+    .about-hero {
+      padding: 9rem 0 10.5rem;
+    }
+
+    .about-hero__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 64rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-hero__body,
+    .about-cta__body {
+      max-width: 44rem;
+      margin: 2rem auto 0;
+      color: var(--about-hero-muted);
+      font-size: 17px;
+      line-height: 1.95;
+    }
+
+    .about-kicker,
+    .about-divider-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .about-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.72rem;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--secondary) 28%, var(--border));
+      background: color-mix(in srgb, var(--secondary) 8%, transparent);
+      color: var(--secondary);
+      padding: 0.72rem 1rem;
+    }
+
+    .about-kicker--dark {
+      border-color: rgb(238 244 248 / 0.14);
+      background: rgb(238 244 248 / 0.06);
+      color: rgb(238 244 248 / 0.72);
+    }
+
+    .about-kicker__dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 999px;
+      background: var(--about-accent);
+      box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--secondary) 18%, transparent);
+    }
+
+    .about-divider-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 0 auto;
+      color: var(--muted-foreground);
+    }
+
+    .about-divider-eyebrow::before,
+    .about-divider-eyebrow::after {
+      content: "";
+      display: block;
+      width: 4.5rem;
+      height: 1px;
+      background: color-mix(in srgb, var(--border) 90%, transparent);
+    }
+
+    .about-divider-eyebrow--dark {
+      color: color-mix(in srgb, var(--secondary) 80%, white 20%);
+    }
+
+    .about-divider-eyebrow--dark::before,
+    .about-divider-eyebrow--dark::after {
+      background: color-mix(in srgb, var(--secondary) 28%, transparent);
+    }
+
+    .about-display {
+      font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 0.94;
+      text-wrap: balance;
+    }
+
+    .about-display span {
+      display: block;
+    }
+
+    .about-display--hero {
+      margin-top: 2.2rem;
+      font-size: 88px;
+    }
+
+    .about-display--center {
+      text-align: center;
+      max-width: 74rem;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 53.76px;
+      line-height: 1.04;
+    }
+
+    .about-display--light {
+      color: var(--about-ink);
+    }
+
+    .about-display--dark {
+      color: var(--about-hero-text);
+    }
+
+    .about-accent {
+      color: var(--about-accent-strong);
+    }
+
+    .about-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.4rem;
+    }
+
+    .about-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-width: 12rem;
+      min-height: 3.5rem;
+      border-radius: 999px;
+      padding: 0.9rem 1.55rem;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .about-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .about-button--solid {
+      background: var(--secondary);
+      color: #091017;
+      box-shadow: 0 18px 42px color-mix(in srgb, var(--secondary) 28%, transparent);
+    }
+
+    .about-button--ghost {
+      border: 1px solid color-mix(in srgb, var(--secondary) 24%, rgb(238 244 248 / 0.12));
+      color: rgb(238 244 248 / 0.84);
+      background: transparent;
+    }
+
+    .about-button--ghost:hover {
+      border-color: color-mix(in srgb, var(--secondary) 38%, rgb(238 244 248 / 0.16));
+      background: color-mix(in srgb, var(--secondary) 8%, transparent);
+    }
+
+    .about-surface--lift {
+      padding: 0 0 2.5rem;
+      margin-top: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-stats-grid,
+    .about-card-grid,
+    .about-copy-grid,
+    .about-reason-grid,
+    .about-split-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .about-stats-grid {
+      position: relative;
+      z-index: 3;
+      margin-top: -88px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .about-stat-card,
+    .about-card,
+    .about-terminal {
+      border: 1px solid var(--about-border);
+      background: var(--about-surface-strong);
+      border-radius: 1.9rem;
+      box-shadow: var(--about-shadow);
+    }
+
+    .about-stat-card {
+      min-height: 0;
+      padding: 40px;
+    }
+
+    .about-stat-card__value {
+      color: var(--about-accent-strong);
+      font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .about-stat-card__label {
+      margin-top: 14px;
+      color: var(--muted-foreground);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .about-stat-card__detail,
+    .about-card__body,
+    .about-reason-item__body,
+    .about-copy-body {
+      margin-top: 0.85rem;
+      color: var(--about-ink-soft);
+      font-size: 15px;
+      line-height: 1.95;
+    }
+
+    .about-heading {
+      color: var(--about-ink);
+      font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+      font-size: 53.76px;
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.05em;
+      text-wrap: balance;
+    }
+
+    .about-heading span {
+      display: block;
+    }
+
+    .about-copy-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 62rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .about-copy-title,
+    .about-card__title,
+    .about-reason-item__title {
+      color: var(--about-ink);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+
+    .about-card-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .about-card {
+      min-height: 23rem;
+      padding: 2.2rem;
+    }
+
+    .about-card--tall {
+      min-height: 24rem;
+    }
+
+    .about-card__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 1rem;
+      border: 1px solid color-mix(in srgb, var(--secondary) 28%, var(--border));
+      background: color-mix(in srgb, var(--secondary) 8%, transparent);
+      color: var(--about-accent-strong);
+    }
+
+    .about-card__title,
+    .about-reason-item__title {
+      margin-top: 2rem;
+    }
+
+    .about-reason-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    .about-reason-item {
+      text-align: center;
+      max-width: 18rem;
+      margin: 0 auto;
+    }
+
+    .about-reason-item .about-card__icon {
+      margin: 0 auto;
+    }
+
+    .about-split-grid {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      align-items: start;
+      gap: 3rem;
+    }
+
+    .about-terminal {
+      overflow: hidden;
+    }
+
+    .about-terminal__topbar {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--about-border);
+      background: color-mix(in srgb, var(--card) 86%, var(--background));
+    }
+
+    .about-terminal__window {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 999px;
+    }
+
+    .about-terminal__window--red {
+      background: #ff625a;
+    }
+
+    .about-terminal__window--amber {
+      background: #ffbd2d;
+    }
+
+    .about-terminal__window--green {
+      background: #28c840;
+    }
+
+    .about-terminal__label {
+      margin-left: 0.35rem;
+      color: var(--muted-foreground);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+    }
+
+    .about-terminal__body {
+      padding: 2.2rem 2rem 2rem;
+      color: var(--primary);
+      font-family: var(--font-mono);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .about-terminal__prompt,
+    .about-terminal__check,
+    .about-terminal__cursor {
+      color: var(--about-accent-strong);
+    }
+
+    .about-terminal__muted {
+      color: var(--muted-foreground);
+    }
+
+    .about-terminal__footer {
+      margin-top: 2rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .about-terminal__cursor {
+      display: inline-block;
+      width: 0.7rem;
+      height: 1.2rem;
+      background: var(--about-accent-strong);
+      vertical-align: middle;
+      animation: terminal-blink 1s steps(2, start) infinite;
+    }
+
+    .about-cta {
+      padding-top: 7rem;
+      padding-bottom: 8rem;
+      text-align: center;
+    }
+
+    @keyframes terminal-blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .about-stats-grid,
+      .about-reason-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-card-grid,
+      .about-split-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .about-copy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-hero {
+        padding-top: 7.6rem;
+        padding-bottom: 10.5rem;
+      }
+
+      .about-heading {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .about-section {
+        padding: 5rem 0;
+      }
+
+      .about-section--compact,
+      .about-cta {
+        padding: 4.8rem 0;
+      }
+
+      .about-surface--lift {
+        margin-top: 0;
+      }
+
+      .about-stats-grid {
+        margin-top: -64px;
+      }
+
+      .about-stats-grid,
+      .about-reason-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-stat-card,
+      .about-card,
+      .about-terminal__body {
+        padding-left: 1.4rem;
+        padding-right: 1.4rem;
+      }
+
+      .about-stat-card,
+      .about-card {
+        min-height: auto;
+      }
+
+      .about-button {
+        width: 100%;
+      }
+
+      .about-display--hero {
+        font-size: clamp(3rem, 13vw, 4.6rem);
+      }
+
+      .about-display--center {
+        font-size: clamp(2.2rem, 10vw, 3.8rem);
+      }
+
+      .about-heading {
+        font-size: clamp(2.4rem, 12vw, 3.6rem);
+      }
+
+      .about-kicker,
+      .about-divider-eyebrow {
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+      }
+
+      .about-divider-eyebrow::before,
+      .about-divider-eyebrow::after {
+        width: 2.4rem;
+      }
+    }
+  </style>
 </BaseLayout>
-
-<script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    const introTl = gsap.timeline({ defaults: { ease: "expo.out" } });
-
-    introTl
-        .from(".reveal", {
-            y: 80,
-            autoAlpha: 0,
-            duration: 1.5,
-            stagger: 0.1,
-            delay: 0.2,
-        })
-        .from(
-            ".stat-item",
-            { y: 20, autoAlpha: 0, stagger: 0.1, duration: 1 },
-            "-=1",
-        );
-
-    gsap.from(".mission-card", {
-        scrollTrigger: { trigger: "#mission-vision", start: "top 85%" },
-        y: 60,
-        autoAlpha: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power3.out",
-    });
-
-    gsap.from(".cta-reveal", {
-        scrollTrigger: { trigger: ".cta-reveal", start: "top 90%" },
-        y: 50,
-        autoAlpha: 0,
-        duration: 1.5,
-        ease: "expo.out",
-    });
-
-    let mm = gsap.matchMedia();
-
-    mm.add("(min-width: 1024px)", () => {
-        const cards = gsap.utils.toArray(".method-step-card") as HTMLElement[];
-        const dots = document.querySelectorAll(".progress-dot");
-        const cardsColumn = document.querySelector(".method-cards-column") as HTMLElement | null;
-
-        const syncCardsColumnHeight = () => {
-            if (!cardsColumn || cards.length === 0) {
-                return;
-            }
-
-            const tallestCard = Math.max(
-                ...cards.map((card) => card.offsetHeight),
-            );
-
-            cardsColumn.style.minHeight = `${Math.max(tallestCard, 620)}px`;
-            ScrollTrigger.refresh();
-        };
-
-        syncCardsColumnHeight();
-        window.addEventListener("resize", syncCardsColumnHeight);
-
-        const pinTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#method-pin",
-                start: "top top",
-                end: "+=3000",
-                pin: true,
-                scrub: 1.2,
-                invalidateOnRefresh: true,
-                onUpdate: (self) => {
-                    const progress = self.progress;
-                    const activeIndex = Math.min(
-                        Math.floor(progress * cards.length),
-                        cards.length - 1,
-                    );
-                    dots.forEach((dot, i) => {
-                        if (i === activeIndex) {
-                            dot.classList.add("bg-secondary", "scale-150");
-                        } else {
-                            dot.classList.remove("bg-secondary", "scale-150");
-                        }
-                    });
-                },
-            },
-        });
-
-        cards.forEach((card, i) => {
-            pinTl.to(card, {
-                autoAlpha: 1,
-                y: 0,
-                duration: 1.5,
-                ease: "power2.inOut",
-            });
-
-            pinTl.to({}, { duration: 0.8 });
-
-            if (i < cards.length - 1) {
-                pinTl.to(card, {
-                    autoAlpha: 0,
-                    y: -60,
-                    scale: 0.95,
-                    duration: 1.5,
-                    ease: "power2.inOut",
-                });
-            }
-        });
-
-        return () => {
-            window.removeEventListener("resize", syncCardsColumnHeight);
-
-            if (cardsColumn) {
-                cardsColumn.style.minHeight = "";
-            }
-
-            dots.forEach((dot) =>
-                dot.classList.remove("bg-secondary", "scale-150"),
-            );
-        };
-    });
-
-    mm.add("(max-width: 1023px)", () => {
-        const cards = gsap.utils.toArray(".method-step-card") as HTMLElement[];
-
-        cards.forEach((card) => {
-            gsap.fromTo(
-                card,
-                { autoAlpha: 0, y: 40 },
-                {
-                    autoAlpha: 1,
-                    y: 0,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 80%",
-                        toggleActions: "play none none reverse",
-                    },
-                },
-            );
-        });
-    });
-</script>
-
-<style>
-    #method-pin {
-        will-change: transform;
-        background: linear-gradient(
-            to bottom,
-            color-mix(in srgb, var(--background) 96%, white 4%),
-            var(--background)
-        );
-    }
-
-    .method-step-card {
-        box-shadow: 0 20px 40px color-mix(in srgb, var(--foreground) 10%, transparent);
-    }
-</style>
