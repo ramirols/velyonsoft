@@ -67,7 +67,7 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap"
 			media="print"
 			onload="this.media='all'"
 		/>
@@ -178,43 +178,29 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 				}
 			})();
 		</script>
-	</head><div id="page-loader" class="page-loader" aria-hidden="true">
-		<div class="page-loader__inner">
-			<div class="page-loader__logo" aria-label="VelyonSoft cargando">
-				<img
-					class="page-loader__logo-gray"
-					src="/velyon-logo-mc.webp"
-					alt=""
-					loading="eager"
-					decoding="async"
-				/>
 
-				<img
-					class="page-loader__logo-color page-loader__logo-color--light"
-					src="/velyon-logo-mc.webp"
-					alt=""
-					loading="eager"
-					decoding="async"
-				/>
+		<slot name="head" />
+	</head>
+	<body>
+		<div id="page-loader" class="page-loader" aria-hidden="true">
+			<div class="page-loader__inner">
+				<div class="page-loader__logo" aria-label="VelyonSoft cargando">
+					<img
+						id="page-loader-logo"
+						class="page-loader__logo-image"
+						src="/velyon-logo-mc.webp"
+						alt=""
+						loading="eager"
+						decoding="async"
+					/>
+				</div>
 
-				<img
-					class="page-loader__logo-color page-loader__logo-color--dark"
-					src="/velyon-logo-mo.webp"
-					alt=""
-					loading="eager"
-					decoding="async"
-				/>
-			</div>
-
-			<div class="page-loader__line" aria-hidden="true">
-				<span></span>
+				<div class="page-loader__line" aria-hidden="true">
+					<span></span>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<slot name="head" />
-
-	<body>
 		<slot />
 		<script is:inline>
 			(() => {
@@ -312,41 +298,183 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 				if (window.__velyonPageLoaderBound) return;
 				window.__velyonPageLoaderBound = true;
 
+				const SHOW_DELAY_MS = 120;
+				const MIN_VISIBLE_MS = 220;
+				const COMPLETE_DELAY_MS = 120;
+				const PROGRESS_START = 0.08;
+				const PROGRESS_PREPARED = 0.68;
+				const PROGRESS_SWAP = 0.9;
+
 				const getLoader = () => document.getElementById("page-loader");
+				const getLoaderLogo = () =>
+					document.getElementById("page-loader-logo");
+
+				const loaderState = {
+					active: false,
+					visible: false,
+					progress: 0,
+					startedAt: 0,
+					visibleAt: 0,
+					progressFrame: 0,
+					showTimeout: 0,
+					hideTimeout: 0,
+				};
+
+				const clearLoaderTimers = () => {
+					window.clearTimeout(loaderState.showTimeout);
+					window.clearTimeout(loaderState.hideTimeout);
+					window.cancelAnimationFrame(loaderState.progressFrame);
+					loaderState.showTimeout = 0;
+					loaderState.hideTimeout = 0;
+					loaderState.progressFrame = 0;
+				};
+
+				const syncLoaderLogo = () => {
+					const logo = getLoaderLogo();
+					if (!(logo instanceof HTMLImageElement)) return;
+
+					logo.src = document.documentElement.classList.contains("dark")
+						? "/velyon-logo-mo.webp"
+						: "/velyon-logo-mc.webp";
+				};
+
+				const setLoaderProgress = (value, force = false) => {
+					const loader = getLoader();
+					if (!loader) return;
+
+					const nextValue = Math.min(Math.max(value, 0), 1);
+					loaderState.progress = force
+						? nextValue
+						: Math.max(loaderState.progress, nextValue);
+					loader.style.setProperty(
+						"--page-loader-progress",
+						loaderState.progress.toFixed(3),
+					);
+				};
+
+				const resetLoader = () => {
+					const loader = getLoader();
+					if (!loader) return;
+
+					clearLoaderTimers();
+					loaderState.active = false;
+					loaderState.visible = false;
+					loaderState.progress = 0;
+					loader.classList.remove("is-active");
+					loader.setAttribute("aria-hidden", "true");
+					loader.style.setProperty("--page-loader-progress", "0");
+					delete document.documentElement.dataset.pageLoading;
+				};
+
+				const updateLoaderProgress = () => {
+					if (!loaderState.active) {
+						return;
+					}
+
+					const elapsed = performance.now() - loaderState.startedAt;
+					const easedProgress =
+						PROGRESS_START +
+						(0.84 - PROGRESS_START) * (1 - Math.exp(-elapsed / 700));
+
+					setLoaderProgress(easedProgress);
+					loaderState.progressFrame =
+						window.requestAnimationFrame(updateLoaderProgress);
+				};
+
+				const revealLoader = () => {
+					const loader = getLoader();
+					if (!loader || !loaderState.active || loaderState.visible) return;
+
+					loaderState.visible = true;
+					loaderState.visibleAt = performance.now();
+					loader.classList.add("is-active");
+					loader.setAttribute("aria-hidden", "false");
+					document.documentElement.dataset.pageLoading = "true";
+				};
 
 				const showLoader = () => {
 					const loader = getLoader();
 					if (!loader) return;
 
+					syncLoaderLogo();
+					clearLoaderTimers();
+					loaderState.active = true;
+					loaderState.visible = false;
+					loaderState.startedAt = performance.now();
 					loader.classList.remove("is-active");
+					loader.setAttribute("aria-hidden", "true");
+					setLoaderProgress(PROGRESS_START, true);
 
-					window.requestAnimationFrame(() => {
-						window.requestAnimationFrame(() => {
-							loader.classList.add("is-active");
-							loader.setAttribute("aria-hidden", "false");
-							document.documentElement.dataset.pageLoading =
-								"true";
-						});
-					});
+					loaderState.showTimeout = window.setTimeout(
+						revealLoader,
+						SHOW_DELAY_MS,
+					);
+					loaderState.progressFrame =
+						window.requestAnimationFrame(updateLoaderProgress);
+				};
+
+				const advanceLoader = (value) => {
+					if (!loaderState.active) return;
+					setLoaderProgress(value);
 				};
 
 				const hideLoader = () => {
 					const loader = getLoader();
 					if (!loader) return;
 
-					loader.classList.remove("is-active");
-					loader.setAttribute("aria-hidden", "true");
-					delete document.documentElement.dataset.pageLoading;
+					window.clearTimeout(loaderState.showTimeout);
+					window.cancelAnimationFrame(loaderState.progressFrame);
+					loaderState.showTimeout = 0;
+					loaderState.progressFrame = 0;
+
+					if (!loaderState.active) {
+						resetLoader();
+						return;
+					}
+
+					loaderState.active = false;
+					setLoaderProgress(1, true);
+
+					if (!loaderState.visible) {
+						resetLoader();
+						return;
+					}
+
+					const visibleElapsed =
+						performance.now() - loaderState.visibleAt;
+					const hideDelay = Math.max(
+						0,
+						MIN_VISIBLE_MS - visibleElapsed,
+					);
+
+					loaderState.hideTimeout = window.setTimeout(() => {
+						loader.classList.remove("is-active");
+						loader.setAttribute("aria-hidden", "true");
+						delete document.documentElement.dataset.pageLoading;
+						loaderState.visible = false;
+					}, hideDelay + COMPLETE_DELAY_MS);
 				};
 
 				document.addEventListener(
 					"astro:before-preparation",
 					showLoader,
 				);
+				document.addEventListener("astro:after-preparation", () => {
+					advanceLoader(PROGRESS_PREPARED);
+				});
+				document.addEventListener("astro:before-swap", () => {
+					advanceLoader(PROGRESS_SWAP);
+				});
+				document.addEventListener("astro:after-swap", () => {
+					advanceLoader(0.96);
+				});
 				document.addEventListener("astro:page-load", hideLoader);
-				document.addEventListener("astro:after-swap", hideLoader);
 
-				window.addEventListener("pageshow", hideLoader);
+				window.addEventListener("pageshow", resetLoader);
+				document.addEventListener("themechange", syncLoaderLogo);
+				document.addEventListener("astro:page-load", syncLoaderLogo);
+				syncLoaderLogo();
+				resetLoader();
 			})();
 		</script>
 	</body>
