@@ -1,19 +1,19 @@
 ---
 import {
-  ArrowRight,
-  Building2,
-  CheckCircle2,
-  Gauge,
-  LineChart,
-  SearchCheck,
-  Sparkles,
-  Workflow,
+    ArrowRight,
+    Building2,
+    CheckCircle2,
+    Gauge,
+    LineChart,
+    SearchCheck,
+    Sparkles,
+    Workflow,
 } from "lucide-astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getWhatsAppLinkWithMessage } from "@/lib/constants";
 
 export function getStaticPaths() {
-  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+    return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
 }
 
 type Language = "es" | "en";
@@ -23,9 +23,9 @@ const { lang } = Astro.params as { lang: Language };
 const site = "https://www.velyonsoft.com";
 const pageUrl = `${site}/${lang}/sobre-nosotros`;
 const quoteHref = getWhatsAppLinkWithMessage(
-  lang === "es"
-    ? "Hola VelyonSoft, quiero conversar sobre una solución digital para mi empresa."
-    : "Hello VelyonSoft, I want to talk about a digital solution for my company.",
+    lang === "es"
+        ? "Hola VelyonSoft, quiero conversar sobre una solución digital para mi empresa."
+        : "Hello VelyonSoft, I want to talk about a digital solution for my company.",
 );
 const projectsHref = `/${lang}/proyectos`;
 
@@ -34,1231 +34,1342 @@ const reasonIcons = [SearchCheck, Sparkles, LineChart, Gauge];
 const valueIcons = [Workflow, SearchCheck, Building2];
 
 const t = {
-  es: {
-    title: "Sobre Nosotros | Desarrollo web, SEO y software | VelyonSoft",
-    description:
-      "Conoce a VelyonSoft: desarrollo web, SEO técnico y software optimizado para empresas que quieren vender mejor y escalar con claridad.",
-    breadcrumbHome: "Inicio",
-    breadcrumbCurrent: "Sobre nosotros",
-    hero: {
-      badge: "Quiénes somos",
-      titleLines: [
-        { text: "Dirigido por ingeniería.", accent: false },
-        { text: "Centrado en la ejecución.", accent: true },
-      ],
-      body:
-        "VelyonSoft es un estudio de desarrollo web, software a medida y SEO técnico. Diseñamos, construimos y optimizamos plataformas digitales para empresas que quieren vender mejor, operar con más claridad y escalar con una base sólida.",
-      primary: "Contáctanos",
-      secondary: "Ver proyectos",
-      stats: [
-        {
-          value: "+5",
-          label: "Años de Innovación",
-          detail: "Soluciones digitales construidas con foco real de negocio",
+    es: {
+        title: "Sobre Nosotros | Desarrollo web, SEO y software | VelyonSoft",
+        description:
+            "Conoce a VelyonSoft: desarrollo web, SEO técnico y software optimizado para empresas que quieren vender mejor y escalar con claridad.",
+        breadcrumbHome: "Inicio",
+        breadcrumbCurrent: "Sobre nosotros",
+        hero: {
+            badge: "Quiénes somos",
+            titleLines: [
+                { text: "Dirigido por ingeniería.", accent: false },
+                { text: "Centrado en la ejecución.", accent: true },
+            ],
+            body: "VelyonSoft es un estudio de desarrollo web, software a medida y SEO técnico. Diseñamos, construimos y optimizamos plataformas digitales para empresas que quieren vender mejor, operar con más claridad y escalar con una base sólida.",
+            primary: "Contáctanos",
+            secondary: "Ver proyectos",
+            stats: [
+                {
+                    value: "+5",
+                    label: "Años de Innovación",
+                    detail: "Soluciones digitales construidas con foco real de negocio",
+                },
+                {
+                    value: "+50",
+                    label: "Casos de Éxito",
+                    detail: "Proyectos lanzados para marcas y empresas que necesitaban claridad",
+                },
+                {
+                    value: "100%",
+                    label: "SEO",
+                    detail: "Arquitectura técnica, velocidad y semántica alineadas",
+                },
+                {
+                    value: "24/7",
+                    label: "Soporte",
+                    detail: "Acompañamiento continuo antes y después del lanzamiento",
+                },
+            ],
         },
-        {
-          value: "+50",
-          label: "Casos de Éxito",
-          detail: "Proyectos lanzados para marcas y empresas que necesitaban claridad",
+        mission: {
+            badge: "Nuestra misión",
+            headlineLines: [
+                { text: "Democratizar el acceso a", accent: false },
+                { text: "tecnología de alto rendimiento", accent: true },
+                { text: "para que más empresas escalen", accent: false },
+                { text: "con software optimizado.", accent: true },
+            ],
+            columns: [
+                {
+                    title: "Ingeniería experta, resultados reales",
+                    body: "Existimos para cerrar la brecha entre las decisiones tecnológicas y los resultados del negocio. No entregamos una recomendación aislada: construimos soluciones concretas que se pueden usar, medir y escalar.",
+                },
+                {
+                    title: "Rendimiento, no solo presencia",
+                    body: "Nuestro equipo trabaja diseño, desarrollo y SEO como un mismo sistema. La meta es que tu plataforma no solo se vea mejor, sino que cargue rápido, comunique con claridad y ayude a convertir más oportunidades.",
+                },
+            ],
         },
-        {
-          value: "100%",
-          label: "SEO",
-          detail: "Arquitectura técnica, velocidad y semántica alineadas",
+        philosophy: {
+            badge: "Nuestra filosofía",
+            title: "Los valores detrás de cada compromiso",
+            cards: [
+                {
+                    title: "Ejecución sobre retórica",
+                    body: "Nos miden por resultados, no por promesas. Cuando VelyonSoft se compromete con un proyecto, el foco está en entregar una solución clara, funcional y lista para operar.",
+                },
+                {
+                    title: "Diseño minimalista con intención",
+                    body: "Reducimos ruido visual para que el mensaje sea más fuerte. Cada sección, cada jerarquía y cada interacción están pensadas para orientar, explicar y convertir.",
+                },
+                {
+                    title: "Entrega centrada en el cliente",
+                    body: "Alineamos estrategia, SEO y desarrollo con tu contexto real. No trabajamos desde una plantilla cerrada, sino desde lo que tu operación necesita para crecer.",
+                },
+            ],
         },
-        {
-          value: "24/7",
-          label: "Soporte",
-          detail: "Acompañamiento continuo antes y después del lanzamiento",
+        vision: {
+            badge: "Nuestra visión",
+            headlineLines: [
+                { text: "Ser el referente global", accent: false },
+                { text: "en desarrollo web donde", accent: true },
+                { text: "el diseño minimalista", accent: true },
+                { text: "se encuentra con el SEO.", accent: false },
+            ],
         },
-      ],
+        reasons: {
+            badge: "Por qué elegirnos",
+            titleLines: [
+                "Experiencia demostrada.",
+                "Compromiso inquebrantable.",
+            ],
+            items: [
+                {
+                    title: "100% SEO",
+                    body: "Arquitectura técnica, velocidad y semántica listas para posicionar mejor desde el inicio.",
+                },
+                {
+                    title: "Diseño minimalista",
+                    body: "Interfaces limpias para comunicar rápido, generar confianza y convertir con menos fricción.",
+                },
+                {
+                    title: "+50 casos de éxito",
+                    body: "Experiencia aplicada en proyectos reales para empresas que necesitaban orden, visibilidad y crecimiento.",
+                },
+                {
+                    title: "Soporte 24/7",
+                    body: "Acompañamiento continuo para mantener tu plataforma estable, clara y optimizada.",
+                },
+            ],
+        },
+        profile: {
+            badge: "Perfil de la empresa",
+            title: "El socio de implementación digital que las empresas eligen para crecer.",
+            paragraphs: [
+                "Desde Lima, VelyonSoft combina desarrollo web, SEO técnico y software a medida para construir plataformas que ayudan a vender mejor y operar con más claridad.",
+                "Trabajamos con empresas que necesitan una presencia digital sólida, una estructura escalable y una ejecución que no se quede en ideas, sino que llegue a producción con criterio técnico.",
+            ],
+            terminalTitle: "VelyonSoft - Perfil de la empresa",
+            terminalLoading: "Cargando perfil...",
+            terminalEntries: [
+                { label: "Nombre", value: "VelyonSoft" },
+                { label: "Base", value: "Lima, Perú" },
+                {
+                    label: "Enfoque",
+                    value: "Desarrollo web, SEO y automatización",
+                },
+                {
+                    label: "Especialidad",
+                    value: "Diseño minimalista con rendimiento",
+                },
+                { label: "Resultados", value: "+50 casos · 100% SEO" },
+            ],
+            terminalFooter: "Cultura: Claridad · Rendimiento · Ejecución",
+        },
+        values: {
+            badge: "Nuestros valores",
+            title: "Qué hace diferente a VelyonSoft",
+            cards: [
+                {
+                    title: "Construimos, no solo asesoramos",
+                    body: "La mayoría de equipos propone mejoras. Nosotros aterrizamos la estrategia en una web, un sistema o una automatización que se pueda usar y hacer crecer.",
+                },
+                {
+                    title: "SEO desde la arquitectura",
+                    body: "La visibilidad orgánica no se agrega al final. Se define desde la estructura, el contenido, la velocidad y la intención comercial de cada página.",
+                },
+                {
+                    title: "Preparado para escalar",
+                    body: "Diseñamos soluciones que hoy se ven limpias y mañana pueden integrar más procesos, más contenido y más oportunidades sin perder claridad.",
+                },
+            ],
+        },
+        cta: {
+            titleLines: [
+                { text: "¿Listo para pasar de la estrategia", accent: false },
+                { text: "a la ejecución?", accent: true },
+            ],
+            body: "Ponte en contacto con nuestro equipo y empieza una implementación digital basada en claridad, SEO y rendimiento real para tu empresa.",
+            primary: "Contáctanos",
+            secondary: "Ver proyectos",
+        },
     },
-    mission: {
-      badge: "Nuestra misión",
-      headlineLines: [
-        { text: "Democratizar el acceso a", accent: false },
-        { text: "tecnología de alto rendimiento", accent: true },
-        { text: "para que más empresas escalen", accent: false },
-        { text: "con software optimizado.", accent: true },
-      ],
-      columns: [
-        {
-          title: "Ingeniería experta, resultados reales",
-          body:
-            "Existimos para cerrar la brecha entre las decisiones tecnológicas y los resultados del negocio. No entregamos una recomendación aislada: construimos soluciones concretas que se pueden usar, medir y escalar.",
+    en: {
+        title: "About Us | Web development, SEO and software | VelyonSoft",
+        description:
+            "Meet VelyonSoft: web development, technical SEO and optimized software for companies that want to sell better and scale with clarity.",
+        breadcrumbHome: "Home",
+        breadcrumbCurrent: "About us",
+        hero: {
+            badge: "About us",
+            titleLines: [
+                { text: "Engineering-led.", accent: false },
+                { text: "Execution-focused.", accent: true },
+            ],
+            body: "VelyonSoft is a web development, custom software and technical SEO studio. We design, build and optimize digital platforms for companies that want to sell better, operate with more clarity and scale on a solid foundation.",
+            primary: "Contact us",
+            secondary: "View projects",
+            stats: [
+                {
+                    value: "+5",
+                    label: "Years of Innovation",
+                    detail: "Digital solutions built with real business focus",
+                },
+                {
+                    value: "+50",
+                    label: "Success Cases",
+                    detail: "Projects launched for brands and companies seeking clarity",
+                },
+                {
+                    value: "100%",
+                    label: "SEO",
+                    detail: "Technical architecture, speed and semantics aligned",
+                },
+                {
+                    value: "24/7",
+                    label: "Support",
+                    detail: "Continuous guidance before and after launch",
+                },
+            ],
         },
-        {
-          title: "Rendimiento, no solo presencia",
-          body:
-            "Nuestro equipo trabaja diseño, desarrollo y SEO como un mismo sistema. La meta es que tu plataforma no solo se vea mejor, sino que cargue rápido, comunique con claridad y ayude a convertir más oportunidades.",
+        mission: {
+            badge: "Our mission",
+            headlineLines: [
+                { text: "Democratize access to", accent: false },
+                { text: "high-performance technology", accent: true },
+                { text: "so more companies can scale", accent: false },
+                { text: "through optimized software.", accent: true },
+            ],
+            columns: [
+                {
+                    title: "Expert engineering, real outcomes",
+                    body: "We exist to close the gap between technology decisions and business outcomes. We do not hand off isolated recommendations: we build practical solutions that can be used, measured and scaled.",
+                },
+                {
+                    title: "Performance, not just presence",
+                    body: "Our team treats design, development and SEO as one system. The goal is for your platform to do more than look better: it should load fast, communicate clearly and convert more opportunities.",
+                },
+            ],
         },
-      ],
+        philosophy: {
+            badge: "Our philosophy",
+            title: "The values behind every commitment",
+            cards: [
+                {
+                    title: "Execution over rhetoric",
+                    body: "We are measured by results, not promises. When VelyonSoft commits to a project, the focus is on delivering a clear, functional solution that is ready to operate.",
+                },
+                {
+                    title: "Minimal design with intention",
+                    body: "We reduce visual noise so the message becomes stronger. Every section, hierarchy and interaction is designed to guide, explain and convert.",
+                },
+                {
+                    title: "Client-centered delivery",
+                    body: "We align strategy, SEO and development with your real context. We do not work from a closed template, but from what your operation needs in order to grow.",
+                },
+            ],
+        },
+        vision: {
+            badge: "Our vision",
+            headlineLines: [
+                { text: "Become the global reference", accent: false },
+                { text: "in web development where", accent: true },
+                { text: "minimalist design", accent: true },
+                { text: "meets SEO.", accent: false },
+            ],
+        },
+        reasons: {
+            badge: "Why choose us",
+            titleLines: ["Proven experience.", "Unwavering commitment."],
+            items: [
+                {
+                    title: "100% SEO",
+                    body: "Technical architecture, speed and semantics prepared to rank better from day one.",
+                },
+                {
+                    title: "Minimal design",
+                    body: "Clean interfaces that communicate fast, build trust and convert with less friction.",
+                },
+                {
+                    title: "50+ success cases",
+                    body: "Practical experience across real projects for companies seeking structure, visibility and growth.",
+                },
+                {
+                    title: "24/7 support",
+                    body: "Continuous guidance to keep your platform stable, clear and optimized.",
+                },
+            ],
+        },
+        profile: {
+            badge: "Company profile",
+            title: "The digital implementation partner companies choose to grow with.",
+            paragraphs: [
+                "From Lima, VelyonSoft combines web development, technical SEO and custom software to build platforms that help companies sell better and operate with more clarity.",
+                "We work with businesses that need a strong digital presence, a scalable foundation and execution that does not stop at ideas, but reaches production with technical judgment.",
+            ],
+            terminalTitle: "VelyonSoft - Company profile",
+            terminalLoading: "Loading profile...",
+            terminalEntries: [
+                { label: "Name", value: "VelyonSoft" },
+                { label: "Base", value: "Lima, Peru" },
+                {
+                    label: "Focus",
+                    value: "Web development, SEO and automation",
+                },
+                {
+                    label: "Specialty",
+                    value: "Minimal design with performance",
+                },
+                { label: "Results", value: "50+ cases · 100% SEO" },
+            ],
+            terminalFooter: "Culture: Clarity · Performance · Execution",
+        },
+        values: {
+            badge: "Our values",
+            title: "What makes VelyonSoft different",
+            cards: [
+                {
+                    title: "We build, not only advise",
+                    body: "Most teams suggest improvements. We turn strategy into a website, a system or an automation that can be used and expanded.",
+                },
+                {
+                    title: "SEO from the architecture",
+                    body: "Organic visibility is not added at the end. It is defined by the structure, content, speed and commercial intent of every page.",
+                },
+                {
+                    title: "Prepared to scale",
+                    body: "We design solutions that look clean today and can support more processes, more content and more opportunities tomorrow without losing clarity.",
+                },
+            ],
+        },
+        cta: {
+            titleLines: [
+                { text: "Ready to move from strategy", accent: false },
+                { text: "to execution?", accent: true },
+            ],
+            body: "Get in touch with our team and start a digital implementation shaped by clarity, SEO and real performance for your business.",
+            primary: "Contact us",
+            secondary: "View projects",
+        },
     },
-    philosophy: {
-      badge: "Nuestra filosofía",
-      title: "Los valores detrás de cada compromiso",
-      cards: [
-        {
-          title: "Ejecución sobre retórica",
-          body:
-            "Nos miden por resultados, no por promesas. Cuando VelyonSoft se compromete con un proyecto, el foco está en entregar una solución clara, funcional y lista para operar.",
-        },
-        {
-          title: "Diseño minimalista con intención",
-          body:
-            "Reducimos ruido visual para que el mensaje sea más fuerte. Cada sección, cada jerarquía y cada interacción están pensadas para orientar, explicar y convertir.",
-        },
-        {
-          title: "Entrega centrada en el cliente",
-          body:
-            "Alineamos estrategia, SEO y desarrollo con tu contexto real. No trabajamos desde una plantilla cerrada, sino desde lo que tu operación necesita para crecer.",
-        },
-      ],
-    },
-    vision: {
-      badge: "Nuestra visión",
-      headlineLines: [
-        { text: "Ser el referente global", accent: false },
-        { text: "en desarrollo web donde", accent: true },
-        { text: "el diseño minimalista", accent: true },
-        { text: "se encuentra con el SEO.", accent: false },
-      ],
-    },
-    reasons: {
-      badge: "Por qué elegirnos",
-      titleLines: [
-        "Experiencia demostrada.",
-        "Compromiso inquebrantable.",
-      ],
-      items: [
-        {
-          title: "100% SEO",
-          body:
-            "Arquitectura técnica, velocidad y semántica listas para posicionar mejor desde el inicio.",
-        },
-        {
-          title: "Diseño minimalista",
-          body:
-            "Interfaces limpias para comunicar rápido, generar confianza y convertir con menos fricción.",
-        },
-        {
-          title: "+50 casos de éxito",
-          body:
-            "Experiencia aplicada en proyectos reales para empresas que necesitaban orden, visibilidad y crecimiento.",
-        },
-        {
-          title: "Soporte 24/7",
-          body:
-            "Acompañamiento continuo para mantener tu plataforma estable, clara y optimizada.",
-        },
-      ],
-    },
-    profile: {
-      badge: "Perfil de la empresa",
-      title: "El socio de implementación digital que las empresas eligen para crecer.",
-      paragraphs: [
-        "Desde Lima, VelyonSoft combina desarrollo web, SEO técnico y software a medida para construir plataformas que ayudan a vender mejor y operar con más claridad.",
-        "Trabajamos con empresas que necesitan una presencia digital sólida, una estructura escalable y una ejecución que no se quede en ideas, sino que llegue a producción con criterio técnico.",
-      ],
-      terminalTitle: "VelyonSoft - Perfil de la empresa",
-      terminalLoading: "Cargando perfil...",
-      terminalEntries: [
-        { label: "Nombre", value: "VelyonSoft" },
-        { label: "Base", value: "Lima, Perú" },
-        { label: "Enfoque", value: "Desarrollo web, SEO y automatización" },
-        { label: "Especialidad", value: "Diseño minimalista con rendimiento" },
-        { label: "Resultados", value: "+50 casos · 100% SEO" },
-      ],
-      terminalFooter: "Cultura: Claridad · Rendimiento · Ejecución",
-    },
-    values: {
-      badge: "Nuestros valores",
-      title: "Qué hace diferente a VelyonSoft",
-      cards: [
-        {
-          title: "Construimos, no solo asesoramos",
-          body:
-            "La mayoría de equipos propone mejoras. Nosotros aterrizamos la estrategia en una web, un sistema o una automatización que se pueda usar y hacer crecer.",
-        },
-        {
-          title: "SEO desde la arquitectura",
-          body:
-            "La visibilidad orgánica no se agrega al final. Se define desde la estructura, el contenido, la velocidad y la intención comercial de cada página.",
-        },
-        {
-          title: "Preparado para escalar",
-          body:
-            "Diseñamos soluciones que hoy se ven limpias y mañana pueden integrar más procesos, más contenido y más oportunidades sin perder claridad.",
-        },
-      ],
-    },
-    cta: {
-      titleLines: [
-        { text: "¿Listo para pasar de la estrategia", accent: false },
-        { text: "a la ejecución?", accent: true },
-      ],
-      body:
-        "Ponte en contacto con nuestro equipo y empieza una implementación digital basada en claridad, SEO y rendimiento real para tu empresa.",
-      primary: "Contáctanos",
-      secondary: "Ver proyectos",
-    },
-  },
-  en: {
-    title: "About Us | Web development, SEO and software | VelyonSoft",
-    description:
-      "Meet VelyonSoft: web development, technical SEO and optimized software for companies that want to sell better and scale with clarity.",
-    breadcrumbHome: "Home",
-    breadcrumbCurrent: "About us",
-    hero: {
-      badge: "About us",
-      titleLines: [
-        { text: "Engineering-led.", accent: false },
-        { text: "Execution-focused.", accent: true },
-      ],
-      body:
-        "VelyonSoft is a web development, custom software and technical SEO studio. We design, build and optimize digital platforms for companies that want to sell better, operate with more clarity and scale on a solid foundation.",
-      primary: "Contact us",
-      secondary: "View projects",
-      stats: [
-        {
-          value: "+5",
-          label: "Years of Innovation",
-          detail: "Digital solutions built with real business focus",
-        },
-        {
-          value: "+50",
-          label: "Success Cases",
-          detail: "Projects launched for brands and companies seeking clarity",
-        },
-        {
-          value: "100%",
-          label: "SEO",
-          detail: "Technical architecture, speed and semantics aligned",
-        },
-        {
-          value: "24/7",
-          label: "Support",
-          detail: "Continuous guidance before and after launch",
-        },
-      ],
-    },
-    mission: {
-      badge: "Our mission",
-      headlineLines: [
-        { text: "Democratize access to", accent: false },
-        { text: "high-performance technology", accent: true },
-        { text: "so more companies can scale", accent: false },
-        { text: "through optimized software.", accent: true },
-      ],
-      columns: [
-        {
-          title: "Expert engineering, real outcomes",
-          body:
-            "We exist to close the gap between technology decisions and business outcomes. We do not hand off isolated recommendations: we build practical solutions that can be used, measured and scaled.",
-        },
-        {
-          title: "Performance, not just presence",
-          body:
-            "Our team treats design, development and SEO as one system. The goal is for your platform to do more than look better: it should load fast, communicate clearly and convert more opportunities.",
-        },
-      ],
-    },
-    philosophy: {
-      badge: "Our philosophy",
-      title: "The values behind every commitment",
-      cards: [
-        {
-          title: "Execution over rhetoric",
-          body:
-            "We are measured by results, not promises. When VelyonSoft commits to a project, the focus is on delivering a clear, functional solution that is ready to operate.",
-        },
-        {
-          title: "Minimal design with intention",
-          body:
-            "We reduce visual noise so the message becomes stronger. Every section, hierarchy and interaction is designed to guide, explain and convert.",
-        },
-        {
-          title: "Client-centered delivery",
-          body:
-            "We align strategy, SEO and development with your real context. We do not work from a closed template, but from what your operation needs in order to grow.",
-        },
-      ],
-    },
-    vision: {
-      badge: "Our vision",
-      headlineLines: [
-        { text: "Become the global reference", accent: false },
-        { text: "in web development where", accent: true },
-        { text: "minimalist design", accent: true },
-        { text: "meets SEO.", accent: false },
-      ],
-    },
-    reasons: {
-      badge: "Why choose us",
-      titleLines: ["Proven experience.", "Unwavering commitment."],
-      items: [
-        {
-          title: "100% SEO",
-          body:
-            "Technical architecture, speed and semantics prepared to rank better from day one.",
-        },
-        {
-          title: "Minimal design",
-          body:
-            "Clean interfaces that communicate fast, build trust and convert with less friction.",
-        },
-        {
-          title: "50+ success cases",
-          body:
-            "Practical experience across real projects for companies seeking structure, visibility and growth.",
-        },
-        {
-          title: "24/7 support",
-          body:
-            "Continuous guidance to keep your platform stable, clear and optimized.",
-        },
-      ],
-    },
-    profile: {
-      badge: "Company profile",
-      title: "The digital implementation partner companies choose to grow with.",
-      paragraphs: [
-        "From Lima, VelyonSoft combines web development, technical SEO and custom software to build platforms that help companies sell better and operate with more clarity.",
-        "We work with businesses that need a strong digital presence, a scalable foundation and execution that does not stop at ideas, but reaches production with technical judgment.",
-      ],
-      terminalTitle: "VelyonSoft - Company profile",
-      terminalLoading: "Loading profile...",
-      terminalEntries: [
-        { label: "Name", value: "VelyonSoft" },
-        { label: "Base", value: "Lima, Peru" },
-        { label: "Focus", value: "Web development, SEO and automation" },
-        { label: "Specialty", value: "Minimal design with performance" },
-        { label: "Results", value: "50+ cases · 100% SEO" },
-      ],
-      terminalFooter: "Culture: Clarity · Performance · Execution",
-    },
-    values: {
-      badge: "Our values",
-      title: "What makes VelyonSoft different",
-      cards: [
-        {
-          title: "We build, not only advise",
-          body:
-            "Most teams suggest improvements. We turn strategy into a website, a system or an automation that can be used and expanded.",
-        },
-        {
-          title: "SEO from the architecture",
-          body:
-            "Organic visibility is not added at the end. It is defined by the structure, content, speed and commercial intent of every page.",
-        },
-        {
-          title: "Prepared to scale",
-          body:
-            "We design solutions that look clean today and can support more processes, more content and more opportunities tomorrow without losing clarity.",
-        },
-      ],
-    },
-    cta: {
-      titleLines: [
-        { text: "Ready to move from strategy", accent: false },
-        { text: "to execution?", accent: true },
-      ],
-      body:
-        "Get in touch with our team and start a digital implementation shaped by clarity, SEO and real performance for your business.",
-      primary: "Contact us",
-      secondary: "View projects",
-    },
-  },
 }[lang];
 
 const schemaData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "AboutPage",
-      "@id": `${pageUrl}#webpage`,
-      url: pageUrl,
-      name: t.title,
-      description: t.description,
-      inLanguage: lang,
-      isPartOf: { "@id": `${site}/#website` },
-      about: { "@id": `${site}/#organization` },
-      mainEntity: {
-        "@type": "Organization",
-        "@id": `${site}/#organization`,
-        name: "VelyonSoft",
-        url: site,
-        slogan:
-          lang === "es"
-            ? "Diseño minimalista, SEO técnico y software optimizado para escalar."
-            : "Minimal design, technical SEO and optimized software built to scale.",
-      },
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${pageUrl}#breadcrumbs`,
-      itemListElement: [
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "ListItem",
-          position: 1,
-          name: t.breadcrumbHome,
-          item: `${site}/${lang}`,
+            "@type": "AboutPage",
+            "@id": `${pageUrl}#webpage`,
+            url: pageUrl,
+            name: t.title,
+            description: t.description,
+            inLanguage: lang,
+            isPartOf: { "@id": `${site}/#website` },
+            about: { "@id": `${site}/#organization` },
+            mainEntity: {
+                "@type": "Organization",
+                "@id": `${site}/#organization`,
+                name: "VelyonSoft",
+                url: site,
+                slogan:
+                    lang === "es"
+                        ? "Diseño minimalista, SEO técnico y software optimizado para escalar."
+                        : "Minimal design, technical SEO and optimized software built to scale.",
+            },
         },
         {
-          "@type": "ListItem",
-          position: 2,
-          name: t.breadcrumbCurrent,
-          item: pageUrl,
+            "@type": "BreadcrumbList",
+            "@id": `${pageUrl}#breadcrumbs`,
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: t.breadcrumbHome,
+                    item: `${site}/${lang}`,
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: t.breadcrumbCurrent,
+                    item: pageUrl,
+                },
+            ],
         },
-      ],
-    },
-  ],
+    ],
 };
 ---
 
 <BaseLayout
-  lang={lang}
-  title={t.title}
-  description={t.description}
-  image="/home.webp"
-  type="website"
+    lang={lang}
+    title={t.title}
+    description={t.description}
+    image="/home.webp"
+    type="website"
 >
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
-  </Fragment>
+    <Fragment slot="head">
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(schemaData)}
+        />
+    </Fragment>
 
-  <div class="about-page">
-    <section class="about-ink about-hero" aria-labelledby="about-title">
-      <div class="about-glow about-glow-left" aria-hidden="true"></div>
-      <div class="about-glow about-glow-top" aria-hidden="true"></div>
-      <div class="about-glow about-glow-center" aria-hidden="true"></div>
+    <div class="about-page">
+        <section class="about-ink about-hero" aria-labelledby="about-title">
+            <div class="about-glow about-glow-left" aria-hidden="true"></div>
+            <div class="about-glow about-glow-top" aria-hidden="true"></div>
+            <div class="about-glow about-glow-center" aria-hidden="true"></div>
 
-      <div class="mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="about-hero__inner">
-          <div class="about-kicker about-kicker--dark mx-auto">
-            <span class="about-kicker__dot"></span>
-            {t.hero.badge}
-          </div>
+            <div class="mx-auto max-w-7xl px-4 sm:px-6">
+                <div class="about-hero__inner">
+                    <div class="about-kicker about-kicker--dark mx-auto">
+                        <span class="about-kicker__dot"></span>
+                        {t.hero.badge}
+                    </div>
 
-          <h1 id="about-title" class="about-display about-display--hero">
-            {
-              t.hero.titleLines.map((line) => (
-                <span class:list={{ "about-accent": line.accent }}>
-                  {line.text}
-                </span>
-              ))
+                    <h1
+                        id="about-title"
+                        class="about-display about-display--hero"
+                    >
+                        {
+                            t.hero.titleLines.map((line) => (
+                                <span
+                                    class:list={{ "about-accent": line.accent }}
+                                >
+                                    {line.text}
+                                </span>
+                            ))
+                        }
+                    </h1>
+
+                    <p class="about-hero__body">{t.hero.body}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-surface about-surface--lift pt-40">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6">
+                <div class="about-stats-grid">
+                    {
+                        t.hero.stats.map((item) => (
+                            <article class="about-stat-card">
+                                <p class="about-stat-card__value">
+                                    {item.value}
+                                </p>
+                                <p class="about-stat-card__label">
+                                    {item.label}
+                                </p>
+                            </article>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="about-surface about-section"
+            aria-labelledby="mission-title"
+        >
+            <div class="mx-auto max-w-7xl px-4 sm:px-6">
+                <div class="about-divider-eyebrow">{t.mission.badge}</div>
+
+                <h2
+                    id="mission-title"
+                    class="about-display about-display--center about-display--light"
+                >
+                    {
+                        t.mission.headlineLines.map((line) => (
+                            <span class:list={{ "about-accent": line.accent }}>
+                                {line.text}
+                            </span>
+                        ))
+                    }
+                </h2>
+
+                <div class="about-copy-grid mt-16">
+                    {
+                        t.mission.columns.map((item) => (
+                            <article>
+                                <h3 class="about-copy-title">{item.title}</h3>
+                                <p class="about-copy-body">{item.body}</p>
+                            </article>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="about-surface about-section"
+            aria-labelledby="philosophy-title"
+        >
+            <div class="mx-auto max-w-7xl px-4 sm:px-6">
+                <div class="about-kicker">
+                    <span class="about-kicker__dot"></span>
+                    {t.philosophy.badge}
+                </div>
+
+                <h2 id="philosophy-title" class="about-heading mt-10 max-w-3xl">
+                    {t.philosophy.title}
+                </h2>
+
+                <div class="about-card-grid mt-14">
+                    {
+                        t.philosophy.cards.map((card, index) => {
+                            const Icon = philosophyIcons[index];
+                            return (
+                                <article class="about-card">
+                                    <span class="about-card__icon">
+                                        <Icon size={20} />
+                                    </span>
+                                    <h3 class="about-card__title">
+                                        {card.title}
+                                    </h3>
+                                    <p class="about-card__body">{card.body}</p>
+                                </article>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="about-ink about-section about-section--compact"
+            aria-labelledby="vision-title"
+        >
+            <div
+                class="about-glow about-glow-center about-glow-center--soft"
+                aria-hidden="true"
+            >
+            </div>
+
+            <div class="mx-auto max-w-7xl px-4 sm:px-6">
+                <div class="about-divider-eyebrow about-divider-eyebrow--dark">
+                    {t.vision.badge}
+                </div>
+
+                <h2
+                    id="vision-title"
+                    class="about-display about-display--center about-display--dark mt-10"
+                >
+                    {
+                        t.vision.headlineLines.map((line) => (
+                            <span class:list={{ "about-accent": line.accent }}>
+                                {line.text}
+                            </span>
+                        ))
+                    }
+                </h2>
+            </div>
+        </section>
+
+        <section
+            class="about-surface about-section"
+            aria-labelledby="reasons-title"
+        >
+            <div class="mx-auto max-w-7xl px-4 sm:px-6">
+                <div class="about-kicker">
+                    <span class="about-kicker__dot"></span>
+                    {t.reasons.badge}
+                </div>
+
+                <h2 id="reasons-title" class="about-heading mt-10 max-w-3xl">
+                    {t.reasons.titleLines.map((line) => <span>{line}</span>)}
+                </h2>
+
+                <div class="about-reason-grid mt-16">
+                    {
+                        t.reasons.items.map((item, index) => {
+                            const Icon = reasonIcons[index];
+                            return (
+                                <article class="about-reason-item">
+                                    <span class="about-card__icon">
+                                        <Icon size={20} />
+                                    </span>
+                                    <h3 class="about-reason-item__title">
+                                        {item.title}
+                                    </h3>
+                                    <p class="about-reason-item__body">
+                                        {item.body}
+                                    </p>
+                                </article>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="about-surface about-section"
+            aria-labelledby="profile-title"
+        >
+            <div class="mx-auto max-w-7xl px-4 sm:px-6">
+                <div class="about-split-grid">
+                    <div>
+                        <div class="about-kicker">
+                            <span class="about-kicker__dot"></span>
+                            {t.profile.badge}
+                        </div>
+
+                        <h2
+                            id="profile-title"
+                            class="about-heading mt-10 max-w-2xl"
+                        >
+                            {t.profile.title}
+                        </h2>
+
+                        <div class="mt-8 space-y-6">
+                            {
+                                t.profile.paragraphs.map((paragraph) => (
+                                    <p class="about-copy-body max-w-xl">
+                                        {paragraph}
+                                    </p>
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <div class="about-terminal">
+                        <div class="about-terminal__topbar">
+                            <span
+                                class="about-terminal__window about-terminal__window--red"
+                            ></span>
+                            <span
+                                class="about-terminal__window about-terminal__window--amber"
+                            ></span>
+                            <span
+                                class="about-terminal__window about-terminal__window--green"
+                            ></span>
+                            <span class="about-terminal__label"
+                                >{t.profile.terminalTitle}</span
+                            >
+                        </div>
+
+                        <div
+                            class="about-terminal__body"
+                            aria-label={t.profile.terminalTitle}
+                        >
+                            <p>
+                                <span class="about-terminal__prompt">$</span> velyonsoft
+                                info --company
+                            </p>
+                            <p class="about-terminal__muted">
+                                {t.profile.terminalLoading}
+                            </p>
+                            <div class="mt-8 space-y-3">
+                                {
+                                    t.profile.terminalEntries.map((entry) => (
+                                        <p>
+                                            <span class="about-terminal__check">
+                                                ✓
+                                            </span>{" "}
+                                            {entry.label}: {entry.value}
+                                        </p>
+                                    ))
+                                }
+                            </div>
+                            <p class="about-terminal__footer">
+                                {t.profile.terminalFooter}
+                            </p>
+                            <p class="mt-6">
+                                <span class="about-terminal__prompt">$</span>
+                                <span class="about-terminal__cursor"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="about-surface about-section"
+            aria-labelledby="values-title"
+        >
+            <div class="mx-auto max-w-7xl px-4 sm:px-6">
+                <div class="about-kicker">
+                    <span class="about-kicker__dot"></span>
+                    {t.values.badge}
+                </div>
+
+                <h2 id="values-title" class="about-heading mt-10 max-w-4xl">
+                    {t.values.title}
+                </h2>
+
+                <div class="about-card-grid mt-14">
+                    {
+                        t.values.cards.map((card, index) => {
+                            const Icon = valueIcons[index];
+                            return (
+                                <article class="about-card about-card--tall">
+                                    <span class="about-card__icon">
+                                        <Icon size={20} />
+                                    </span>
+                                    <h3 class="about-card__title">
+                                        {card.title}
+                                    </h3>
+                                    <p class="about-card__body">{card.body}</p>
+                                </article>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="about-ink about-section about-cta"
+            aria-labelledby="about-cta-title"
+        >
+            <div class="about-glow about-glow-center" aria-hidden="true"></div>
+
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 text-center">
+                <h2
+                    id="about-cta-title"
+                    class="about-display about-display--center about-display--dark"
+                >
+                    {
+                        t.cta.titleLines.map((line) => (
+                            <span class:list={{ "about-accent": line.accent }}>
+                                {line.text}
+                            </span>
+                        ))
+                    }
+                </h2>
+
+                <p class="about-cta__body">{t.cta.body}</p>
+
+                <div class="about-actions justify-center">
+                    <a
+                        href={quoteHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="about-button about-button--solid"
+                    >
+                        {t.cta.primary}
+                    </a>
+                    <a
+                        href={projectsHref}
+                        class="about-button about-button--ghost"
+                    >
+                        {t.cta.secondary}
+                        <ArrowRight class="h-4 w-4" />
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <style>
+        .about-page {
+            --about-accent: var(--secondary);
+            --about-accent-strong: var(--secondary);
+            --about-ink: var(--primary);
+            --about-ink-soft: var(--muted-foreground);
+            --about-surface: var(--background);
+            --about-surface-strong: color-mix(
+                in srgb,
+                var(--card) 96%,
+                var(--background)
+            );
+            --about-border: color-mix(in srgb, var(--border) 92%, transparent);
+            --about-shadow: 0 24px 80px
+                color-mix(in srgb, var(--primary) 8%, transparent);
+            --about-hero-surface: #091017;
+            --about-hero-surface-deep: #050b10;
+            --about-hero-text: #eef4f8;
+            --about-hero-muted: rgb(238 244 248 / 0.62);
+            background: var(--about-surface);
+            color: var(--about-ink);
+        }
+
+        .dark .about-page {
+            --about-surface-strong: color-mix(
+                in srgb,
+                var(--card) 98%,
+                var(--background)
+            );
+            --about-border: color-mix(in srgb, var(--border) 96%, transparent);
+            --about-shadow: 0 24px 80px rgb(0 0 0 / 0.28);
+            --about-hero-muted: rgb(238 244 248 / 0.7);
+        }
+
+        .about-ink {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 50% 80%,
+                    color-mix(in srgb, var(--secondary) 26%, transparent),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 0% 0%,
+                    color-mix(in srgb, var(--secondary) 18%, transparent),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 100% 0%,
+                    color-mix(in srgb, var(--ring) 16%, transparent),
+                    transparent 24%
+                ),
+                linear-gradient(
+                    180deg,
+                    var(--about-hero-surface) 0%,
+                    color-mix(in srgb, var(--about-hero-surface) 86%, black) 44%,
+                    var(--about-hero-surface-deep) 100%
+                );
+            color: var(--about-hero-text);
+        }
+
+        .about-glow {
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .about-glow-left {
+            left: -8rem;
+            top: -6rem;
+            width: 20rem;
+            height: 20rem;
+            background: color-mix(in srgb, var(--secondary) 18%, transparent);
+        }
+
+        .about-glow-top {
+            right: -7rem;
+            top: -8rem;
+            width: 18rem;
+            height: 18rem;
+            background: color-mix(in srgb, var(--ring) 14%, transparent);
+        }
+
+        .about-glow-center {
+            left: 50%;
+            bottom: -10rem;
+            width: min(70rem, 90vw);
+            height: 20rem;
+            transform: translateX(-50%);
+            background: color-mix(in srgb, var(--secondary) 22%, transparent);
+        }
+
+        .about-glow-center--soft {
+            bottom: -7rem;
+            height: 16rem;
+            background: color-mix(in srgb, var(--secondary) 14%, transparent);
+        }
+
+        .about-surface {
+            background: var(--about-surface);
+        }
+
+        .about-section {
+            padding: 7rem 0;
+        }
+
+        .about-section--compact {
+            padding: 6rem 0;
+        }
+
+        .about-hero {
+            padding: 10rem 0 4rem 0;
+        }
+
+        .about-hero__inner {
+            position: relative;
+            z-index: 1;
+            max-width: 64rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-hero__body,
+        .about-cta__body {
+            max-width: 44rem;
+            margin: 2rem auto 0;
+            color: var(--about-hero-muted);
+            font-size: 17px;
+            line-height: 1.95;
+        }
+
+        .about-kicker,
+        .about-divider-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .about-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.72rem;
+            border-radius: 999px;
+            border: 1px solid
+                color-mix(in srgb, var(--secondary) 28%, var(--border));
+            background: color-mix(in srgb, var(--secondary) 8%, transparent);
+            color: var(--secondary);
+            padding: 0.72rem 1rem;
+        }
+
+        .about-kicker--dark {
+            border-color: rgb(238 244 248 / 0.14);
+            background: rgb(238 244 248 / 0.06);
+            color: rgb(238 244 248 / 0.72);
+        }
+
+        .about-kicker__dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 999px;
+            background: var(--about-accent);
+            box-shadow: 0 0 0 0.3rem
+                color-mix(in srgb, var(--secondary) 18%, transparent);
+        }
+
+        .about-divider-eyebrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 0 auto;
+            color: var(--muted-foreground);
+        }
+
+        .about-divider-eyebrow::before,
+        .about-divider-eyebrow::after {
+            content: "";
+            display: block;
+            width: 4.5rem;
+            height: 1px;
+            background: color-mix(in srgb, var(--border) 90%, transparent);
+        }
+
+        .about-divider-eyebrow--dark {
+            color: color-mix(in srgb, var(--secondary) 80%, white 20%);
+        }
+
+        .about-divider-eyebrow--dark::before,
+        .about-divider-eyebrow--dark::after {
+            background: color-mix(in srgb, var(--secondary) 28%, transparent);
+        }
+
+        .about-display {
+            font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 0.94;
+            text-wrap: balance;
+        }
+
+        .about-display span {
+            display: block;
+        }
+
+        .about-display--hero {
+            margin-top: 2.2rem;
+            font-size: 88px;
+        }
+
+        .about-display--center {
+            text-align: center;
+            max-width: 74rem;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 53.76px;
+            line-height: 1.04;
+        }
+
+        .about-display--light {
+            color: var(--about-ink);
+        }
+
+        .about-display--dark {
+            color: var(--about-hero-text);
+        }
+
+        .about-accent {
+            color: var(--about-accent-strong);
+        }
+
+        .about-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2.4rem;
+        }
+
+        .about-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            min-width: 12rem;
+            min-height: 3.5rem;
+            border-radius: 999px;
+            padding: 0.9rem 1.55rem;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition:
+                transform 0.2s ease,
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .about-button:hover {
+            transform: translateY(-1px);
+        }
+
+        .about-button--solid {
+            background: var(--secondary);
+            color: #091017;
+            box-shadow: 0 18px 42px
+                color-mix(in srgb, var(--secondary) 28%, transparent);
+        }
+
+        .about-button--ghost {
+            border: 1px solid
+                color-mix(
+                    in srgb,
+                    var(--secondary) 24%,
+                    rgb(238 244 248 / 0.12)
+                );
+            color: rgb(238 244 248 / 0.84);
+            background: transparent;
+        }
+
+        .about-button--ghost:hover {
+            border-color: color-mix(
+                in srgb,
+                var(--secondary) 38%,
+                rgb(238 244 248 / 0.16)
+            );
+            background: color-mix(in srgb, var(--secondary) 8%, transparent);
+        }
+
+        .about-surface--lift {
+            margin-top: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-stats-grid,
+        .about-card-grid,
+        .about-copy-grid,
+        .about-reason-grid,
+        .about-split-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .about-stats-grid {
+            position: relative;
+            z-index: 3;
+            margin-top: -88px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .about-stat-card,
+        .about-card,
+        .about-terminal {
+            border: 1px solid var(--about-border);
+            background: var(--about-surface-strong);
+            border-radius: 1.9rem;
+            box-shadow: var(--about-shadow);
+        }
+
+        .about-stat-card {
+            min-height: 0;
+            padding: 40px;
+        }
+
+        .about-stat-card__value {
+            color: var(--about-accent-strong);
+            font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+
+        .about-stat-card__label {
+            margin-top: 14px;
+            color: var(--muted-foreground);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
+        .about-stat-card__detail,
+        .about-card__body,
+        .about-reason-item__body,
+        .about-copy-body {
+            margin-top: 0.85rem;
+            color: var(--about-ink-soft);
+            font-size: 15px;
+            line-height: 1.95;
+        }
+
+        .about-heading {
+            color: var(--about-ink);
+            font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+            font-size: 53.76px;
+            font-weight: 800;
+            line-height: 1.04;
+            letter-spacing: -0.05em;
+            text-wrap: balance;
+        }
+
+        .about-heading span {
+            display: block;
+        }
+
+        .about-copy-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            max-width: 62rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-copy-title,
+        .about-card__title,
+        .about-reason-item__title {
+            color: var(--about-ink);
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.04em;
+        }
+
+        .about-card-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .about-card {
+            min-height: 23rem;
+            padding: 2.2rem;
+        }
+
+        .about-card--tall {
+            min-height: 24rem;
+        }
+
+        .about-card__icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.2rem;
+            height: 3.2rem;
+            border-radius: 1rem;
+            border: 1px solid
+                color-mix(in srgb, var(--secondary) 28%, var(--border));
+            background: color-mix(in srgb, var(--secondary) 8%, transparent);
+            color: var(--about-accent-strong);
+        }
+
+        .about-card__title,
+        .about-reason-item__title {
+            margin-top: 2rem;
+        }
+
+        .about-reason-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 2rem;
+        }
+
+        .about-reason-item {
+            text-align: center;
+            max-width: 18rem;
+            margin: 0 auto;
+        }
+
+        .about-reason-item .about-card__icon {
+            margin: 0 auto;
+        }
+
+        .about-split-grid {
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+            align-items: start;
+            gap: 3rem;
+        }
+
+        .about-terminal {
+            overflow: hidden;
+        }
+
+        .about-terminal__topbar {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--about-border);
+            background: color-mix(in srgb, var(--card) 86%, var(--background));
+        }
+
+        .about-terminal__window {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 999px;
+        }
+
+        .about-terminal__window--red {
+            background: #ff625a;
+        }
+
+        .about-terminal__window--amber {
+            background: #ffbd2d;
+        }
+
+        .about-terminal__window--green {
+            background: #28c840;
+        }
+
+        .about-terminal__label {
+            margin-left: 0.35rem;
+            color: var(--muted-foreground);
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+        }
+
+        .about-terminal__body {
+            padding: 2.2rem 2rem 2rem;
+            color: var(--primary);
+            font-family: var(--font-mono);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .about-terminal__prompt,
+        .about-terminal__check,
+        .about-terminal__cursor {
+            color: var(--about-accent-strong);
+        }
+
+        .about-terminal__muted {
+            color: var(--muted-foreground);
+        }
+
+        .about-terminal__footer {
+            margin-top: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .about-terminal__cursor {
+            display: inline-block;
+            width: 0.7rem;
+            height: 1.2rem;
+            background: var(--about-accent-strong);
+            vertical-align: middle;
+            animation: terminal-blink 1s steps(2, start) infinite;
+        }
+
+        .about-cta {
+            padding-top: 7rem;
+            padding-bottom: 8rem;
+            text-align: center;
+        }
+
+        @keyframes terminal-blink {
+            50% {
+                opacity: 0;
             }
-          </h1>
-
-          <p class="about-hero__body">{t.hero.body}</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-surface about-surface--lift">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="about-stats-grid">
-        {
-          t.hero.stats.map((item) => (
-              <article class="about-stat-card">
-                <p class="about-stat-card__value">{item.value}</p>
-                <p class="about-stat-card__label">{item.label}</p>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <section class="about-surface about-section" aria-labelledby="mission-title">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="about-divider-eyebrow">{t.mission.badge}</div>
-
-        <h2 id="mission-title" class="about-display about-display--center about-display--light">
-          {
-            t.mission.headlineLines.map((line) => (
-              <span class:list={{ "about-accent": line.accent }}>
-                {line.text}
-              </span>
-            ))
-          }
-        </h2>
-
-        <div class="about-copy-grid mt-16">
-          {
-            t.mission.columns.map((item) => (
-              <article>
-                <h3 class="about-copy-title">{item.title}</h3>
-                <p class="about-copy-body">{item.body}</p>
-              </article>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
-    <section class="about-surface about-section" aria-labelledby="philosophy-title">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="about-kicker">
-          <span class="about-kicker__dot"></span>
-          {t.philosophy.badge}
-        </div>
-
-        <h2 id="philosophy-title" class="about-heading mt-10 max-w-3xl">
-          {t.philosophy.title}
-        </h2>
-
-        <div class="about-card-grid mt-14">
-          {
-            t.philosophy.cards.map((card, index) => {
-              const Icon = philosophyIcons[index];
-              return (
-                <article class="about-card">
-                  <span class="about-card__icon"><Icon size={20} /></span>
-                  <h3 class="about-card__title">{card.title}</h3>
-                  <p class="about-card__body">{card.body}</p>
-                </article>
-              );
-            })
-          }
-        </div>
-      </div>
-    </section>
-
-    <section class="about-ink about-section about-section--compact" aria-labelledby="vision-title">
-      <div class="about-glow about-glow-center about-glow-center--soft" aria-hidden="true"></div>
-
-      <div class="mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="about-divider-eyebrow about-divider-eyebrow--dark">{t.vision.badge}</div>
-
-        <h2 id="vision-title" class="about-display about-display--center about-display--dark mt-10">
-          {
-            t.vision.headlineLines.map((line) => (
-              <span class:list={{ "about-accent": line.accent }}>
-                {line.text}
-              </span>
-            ))
-          }
-        </h2>
-      </div>
-    </section>
-
-    <section class="about-surface about-section" aria-labelledby="reasons-title">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="about-kicker">
-          <span class="about-kicker__dot"></span>
-          {t.reasons.badge}
-        </div>
-
-        <h2 id="reasons-title" class="about-heading mt-10 max-w-3xl">
-          {
-            t.reasons.titleLines.map((line) => (
-              <span>{line}</span>
-            ))
-          }
-        </h2>
-
-        <div class="about-reason-grid mt-16">
-          {
-            t.reasons.items.map((item, index) => {
-              const Icon = reasonIcons[index];
-              return (
-                <article class="about-reason-item">
-                  <span class="about-card__icon"><Icon size={20} /></span>
-                  <h3 class="about-reason-item__title">{item.title}</h3>
-                  <p class="about-reason-item__body">{item.body}</p>
-                </article>
-              );
-            })
-          }
-        </div>
-      </div>
-    </section>
-
-    <section class="about-surface about-section" aria-labelledby="profile-title">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="about-split-grid">
-          <div>
-            <div class="about-kicker">
-              <span class="about-kicker__dot"></span>
-              {t.profile.badge}
-            </div>
-
-            <h2 id="profile-title" class="about-heading mt-10 max-w-2xl">
-              {t.profile.title}
-            </h2>
-
-            <div class="mt-8 space-y-6">
-              {
-                t.profile.paragraphs.map((paragraph) => (
-                  <p class="about-copy-body max-w-xl">{paragraph}</p>
-                ))
-              }
-            </div>
-          </div>
-
-          <div class="about-terminal">
-            <div class="about-terminal__topbar">
-              <span class="about-terminal__window about-terminal__window--red"></span>
-              <span class="about-terminal__window about-terminal__window--amber"></span>
-              <span class="about-terminal__window about-terminal__window--green"></span>
-              <span class="about-terminal__label">{t.profile.terminalTitle}</span>
-            </div>
-
-            <div class="about-terminal__body" aria-label={t.profile.terminalTitle}>
-              <p><span class="about-terminal__prompt">$</span> velyonsoft info --company</p>
-              <p class="about-terminal__muted">{t.profile.terminalLoading}</p>
-              <div class="mt-8 space-y-3">
-                {
-                  t.profile.terminalEntries.map((entry) => (
-                    <p>
-                      <span class="about-terminal__check">✓</span> {entry.label}: {entry.value}
-                    </p>
-                  ))
-                }
-              </div>
-              <p class="about-terminal__footer">{t.profile.terminalFooter}</p>
-              <p class="mt-6"><span class="about-terminal__prompt">$</span> <span class="about-terminal__cursor"></span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-surface about-section" aria-labelledby="values-title">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6">
-        <div class="about-kicker">
-          <span class="about-kicker__dot"></span>
-          {t.values.badge}
-        </div>
-
-        <h2 id="values-title" class="about-heading mt-10 max-w-4xl">
-          {t.values.title}
-        </h2>
-
-        <div class="about-card-grid mt-14">
-          {
-            t.values.cards.map((card, index) => {
-              const Icon = valueIcons[index];
-              return (
-                <article class="about-card about-card--tall">
-                  <span class="about-card__icon"><Icon size={20} /></span>
-                  <h3 class="about-card__title">{card.title}</h3>
-                  <p class="about-card__body">{card.body}</p>
-                </article>
-              );
-            })
-          }
-        </div>
-      </div>
-    </section>
-
-    <section class="about-ink about-section about-cta" aria-labelledby="about-cta-title">
-      <div class="about-glow about-glow-center" aria-hidden="true"></div>
-
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-        <h2 id="about-cta-title" class="about-display about-display--center about-display--dark">
-          {
-            t.cta.titleLines.map((line) => (
-              <span class:list={{ "about-accent": line.accent }}>
-                {line.text}
-              </span>
-            ))
-          }
-        </h2>
-
-        <p class="about-cta__body">{t.cta.body}</p>
-
-        <div class="about-actions justify-center">
-          <a
-            href={quoteHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="about-button about-button--solid"
-          >
-            {t.cta.primary}
-          </a>
-          <a href={projectsHref} class="about-button about-button--ghost">
-            {t.cta.secondary}
-            <ArrowRight class="h-4 w-4" />
-          </a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <style>
-    .about-page {
-      --about-accent: var(--secondary);
-      --about-accent-strong: var(--secondary);
-      --about-ink: var(--primary);
-      --about-ink-soft: var(--muted-foreground);
-      --about-surface: var(--background);
-      --about-surface-strong: color-mix(in srgb, var(--card) 96%, var(--background));
-      --about-border: color-mix(in srgb, var(--border) 92%, transparent);
-      --about-shadow: 0 24px 80px color-mix(in srgb, var(--primary) 8%, transparent);
-      --about-hero-surface: #091017;
-      --about-hero-surface-deep: #050b10;
-      --about-hero-text: #eef4f8;
-      --about-hero-muted: rgb(238 244 248 / 0.62);
-      background: var(--about-surface);
-      color: var(--about-ink);
-    }
-
-    .dark .about-page {
-      --about-surface-strong: color-mix(in srgb, var(--card) 98%, var(--background));
-      --about-border: color-mix(in srgb, var(--border) 96%, transparent);
-      --about-shadow: 0 24px 80px rgb(0 0 0 / 0.28);
-      --about-hero-muted: rgb(238 244 248 / 0.7);
-    }
-
-    .about-ink {
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 80%, color-mix(in srgb, var(--secondary) 26%, transparent), transparent 35%),
-        radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--secondary) 18%, transparent), transparent 28%),
-        radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--ring) 16%, transparent), transparent 24%),
-        linear-gradient(180deg, var(--about-hero-surface) 0%, color-mix(in srgb, var(--about-hero-surface) 86%, black) 44%, var(--about-hero-surface-deep) 100%);
-      color: var(--about-hero-text);
-    }
-
-    .about-glow {
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(80px);
-      pointer-events: none;
-    }
-
-    .about-glow-left {
-      left: -8rem;
-      top: -6rem;
-      width: 20rem;
-      height: 20rem;
-      background: color-mix(in srgb, var(--secondary) 18%, transparent);
-    }
-
-    .about-glow-top {
-      right: -7rem;
-      top: -8rem;
-      width: 18rem;
-      height: 18rem;
-      background: color-mix(in srgb, var(--ring) 14%, transparent);
-    }
-
-    .about-glow-center {
-      left: 50%;
-      bottom: -10rem;
-      width: min(70rem, 90vw);
-      height: 20rem;
-      transform: translateX(-50%);
-      background: color-mix(in srgb, var(--secondary) 22%, transparent);
-    }
-
-    .about-glow-center--soft {
-      bottom: -7rem;
-      height: 16rem;
-      background: color-mix(in srgb, var(--secondary) 14%, transparent);
-    }
-
-    .about-surface {
-      background: var(--about-surface);
-    }
-
-    .about-section {
-      padding: 7rem 0;
-    }
-
-    .about-section--compact {
-      padding: 6rem 0;
-    }
-
-    .about-hero {
-      padding: 9rem 0 10.5rem;
-    }
-
-    .about-hero__inner {
-      position: relative;
-      z-index: 1;
-      max-width: 64rem;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .about-hero__body,
-    .about-cta__body {
-      max-width: 44rem;
-      margin: 2rem auto 0;
-      color: var(--about-hero-muted);
-      font-size: 17px;
-      line-height: 1.95;
-    }
-
-    .about-kicker,
-    .about-divider-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .about-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.72rem;
-      border-radius: 999px;
-      border: 1px solid color-mix(in srgb, var(--secondary) 28%, var(--border));
-      background: color-mix(in srgb, var(--secondary) 8%, transparent);
-      color: var(--secondary);
-      padding: 0.72rem 1rem;
-    }
-
-    .about-kicker--dark {
-      border-color: rgb(238 244 248 / 0.14);
-      background: rgb(238 244 248 / 0.06);
-      color: rgb(238 244 248 / 0.72);
-    }
-
-    .about-kicker__dot {
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 999px;
-      background: var(--about-accent);
-      box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--secondary) 18%, transparent);
-    }
-
-    .about-divider-eyebrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      margin: 0 auto;
-      color: var(--muted-foreground);
-    }
-
-    .about-divider-eyebrow::before,
-    .about-divider-eyebrow::after {
-      content: "";
-      display: block;
-      width: 4.5rem;
-      height: 1px;
-      background: color-mix(in srgb, var(--border) 90%, transparent);
-    }
-
-    .about-divider-eyebrow--dark {
-      color: color-mix(in srgb, var(--secondary) 80%, white 20%);
-    }
-
-    .about-divider-eyebrow--dark::before,
-    .about-divider-eyebrow--dark::after {
-      background: color-mix(in srgb, var(--secondary) 28%, transparent);
-    }
-
-    .about-display {
-      font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.05em;
-      line-height: 0.94;
-      text-wrap: balance;
-    }
-
-    .about-display span {
-      display: block;
-    }
-
-    .about-display--hero {
-      margin-top: 2.2rem;
-      font-size: 88px;
-    }
-
-    .about-display--center {
-      text-align: center;
-      max-width: 74rem;
-      margin-left: auto;
-      margin-right: auto;
-      font-size: 53.76px;
-      line-height: 1.04;
-    }
-
-    .about-display--light {
-      color: var(--about-ink);
-    }
-
-    .about-display--dark {
-      color: var(--about-hero-text);
-    }
-
-    .about-accent {
-      color: var(--about-accent-strong);
-    }
-
-    .about-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2.4rem;
-    }
-
-    .about-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      min-width: 12rem;
-      min-height: 3.5rem;
-      border-radius: 999px;
-      padding: 0.9rem 1.55rem;
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition:
-        transform 0.2s ease,
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease;
-    }
-
-    .about-button:hover {
-      transform: translateY(-1px);
-    }
-
-    .about-button--solid {
-      background: var(--secondary);
-      color: #091017;
-      box-shadow: 0 18px 42px color-mix(in srgb, var(--secondary) 28%, transparent);
-    }
-
-    .about-button--ghost {
-      border: 1px solid color-mix(in srgb, var(--secondary) 24%, rgb(238 244 248 / 0.12));
-      color: rgb(238 244 248 / 0.84);
-      background: transparent;
-    }
-
-    .about-button--ghost:hover {
-      border-color: color-mix(in srgb, var(--secondary) 38%, rgb(238 244 248 / 0.16));
-      background: color-mix(in srgb, var(--secondary) 8%, transparent);
-    }
-
-    .about-surface--lift {
-      padding: 0 0 2.5rem;
-      margin-top: 0;
-      position: relative;
-      z-index: 2;
-    }
-
-    .about-stats-grid,
-    .about-card-grid,
-    .about-copy-grid,
-    .about-reason-grid,
-    .about-split-grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    .about-stats-grid {
-      position: relative;
-      z-index: 3;
-      margin-top: -88px;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .about-stat-card,
-    .about-card,
-    .about-terminal {
-      border: 1px solid var(--about-border);
-      background: var(--about-surface-strong);
-      border-radius: 1.9rem;
-      box-shadow: var(--about-shadow);
-    }
-
-    .about-stat-card {
-      min-height: 0;
-      padding: 40px;
-    }
-
-    .about-stat-card__value {
-      color: var(--about-accent-strong);
-      font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
-      font-size: 40px;
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.04em;
-    }
-
-    .about-stat-card__label {
-      margin-top: 14px;
-      color: var(--muted-foreground);
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.7;
-    }
-
-    .about-stat-card__detail,
-    .about-card__body,
-    .about-reason-item__body,
-    .about-copy-body {
-      margin-top: 0.85rem;
-      color: var(--about-ink-soft);
-      font-size: 15px;
-      line-height: 1.95;
-    }
-
-    .about-heading {
-      color: var(--about-ink);
-      font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
-      font-size: 53.76px;
-      font-weight: 800;
-      line-height: 1.04;
-      letter-spacing: -0.05em;
-      text-wrap: balance;
-    }
-
-    .about-heading span {
-      display: block;
-    }
-
-    .about-copy-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      max-width: 62rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .about-copy-title,
-    .about-card__title,
-    .about-reason-item__title {
-      color: var(--about-ink);
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.04em;
-    }
-
-    .about-card-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .about-card {
-      min-height: 23rem;
-      padding: 2.2rem;
-    }
-
-    .about-card--tall {
-      min-height: 24rem;
-    }
-
-    .about-card__icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 3.2rem;
-      height: 3.2rem;
-      border-radius: 1rem;
-      border: 1px solid color-mix(in srgb, var(--secondary) 28%, var(--border));
-      background: color-mix(in srgb, var(--secondary) 8%, transparent);
-      color: var(--about-accent-strong);
-    }
-
-    .about-card__title,
-    .about-reason-item__title {
-      margin-top: 2rem;
-    }
-
-    .about-reason-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 2rem;
-    }
-
-    .about-reason-item {
-      text-align: center;
-      max-width: 18rem;
-      margin: 0 auto;
-    }
-
-    .about-reason-item .about-card__icon {
-      margin: 0 auto;
-    }
-
-    .about-split-grid {
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      align-items: start;
-      gap: 3rem;
-    }
-
-    .about-terminal {
-      overflow: hidden;
-    }
-
-    .about-terminal__topbar {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 1rem 1.25rem;
-      border-bottom: 1px solid var(--about-border);
-      background: color-mix(in srgb, var(--card) 86%, var(--background));
-    }
-
-    .about-terminal__window {
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 999px;
-    }
-
-    .about-terminal__window--red {
-      background: #ff625a;
-    }
-
-    .about-terminal__window--amber {
-      background: #ffbd2d;
-    }
-
-    .about-terminal__window--green {
-      background: #28c840;
-    }
-
-    .about-terminal__label {
-      margin-left: 0.35rem;
-      color: var(--muted-foreground);
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      letter-spacing: 0.03em;
-    }
-
-    .about-terminal__body {
-      padding: 2.2rem 2rem 2rem;
-      color: var(--primary);
-      font-family: var(--font-mono);
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .about-terminal__prompt,
-    .about-terminal__check,
-    .about-terminal__cursor {
-      color: var(--about-accent-strong);
-    }
-
-    .about-terminal__muted {
-      color: var(--muted-foreground);
-    }
-
-    .about-terminal__footer {
-      margin-top: 2rem;
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    .about-terminal__cursor {
-      display: inline-block;
-      width: 0.7rem;
-      height: 1.2rem;
-      background: var(--about-accent-strong);
-      vertical-align: middle;
-      animation: terminal-blink 1s steps(2, start) infinite;
-    }
-
-    .about-cta {
-      padding-top: 7rem;
-      padding-bottom: 8rem;
-      text-align: center;
-    }
-
-    @keyframes terminal-blink {
-      50% {
-        opacity: 0;
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .about-stats-grid,
-      .about-reason-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .about-card-grid,
-      .about-split-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .about-copy-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-hero {
-        padding-top: 7.6rem;
-        padding-bottom: 10.5rem;
-      }
-
-      .about-heading {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .about-section {
-        padding: 5rem 0;
-      }
-
-      .about-section--compact,
-      .about-cta {
-        padding: 4.8rem 0;
-      }
-
-      .about-surface--lift {
-        margin-top: 0;
-      }
-
-      .about-stats-grid {
-        margin-top: -64px;
-      }
-
-      .about-stats-grid,
-      .about-reason-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-stat-card,
-      .about-card,
-      .about-terminal__body {
-        padding-left: 1.4rem;
-        padding-right: 1.4rem;
-      }
-
-      .about-stat-card,
-      .about-card {
-        min-height: auto;
-      }
-
-      .about-button {
-        width: 100%;
-      }
-
-      .about-display--hero {
-        font-size: clamp(3rem, 13vw, 4.6rem);
-      }
-
-      .about-display--center {
-        font-size: clamp(2.2rem, 10vw, 3.8rem);
-      }
-
-      .about-heading {
-        font-size: clamp(2.4rem, 12vw, 3.6rem);
-      }
-
-      .about-kicker,
-      .about-divider-eyebrow {
-        font-size: 0.72rem;
-        letter-spacing: 0.18em;
-      }
-
-      .about-divider-eyebrow::before,
-      .about-divider-eyebrow::after {
-        width: 2.4rem;
-      }
-    }
-  </style>
+        }
+
+        @media (max-width: 1200px) {
+            .about-stats-grid,
+            .about-reason-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .about-card-grid,
+            .about-split-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .about-copy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-hero {
+                padding-top: 7.6rem;
+            }
+
+            .about-heading {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .about-section {
+                padding: 5rem 0;
+            }
+
+            .about-section--compact,
+            .about-cta {
+                padding: 4.8rem 0;
+            }
+
+            .about-surface--lift {
+                margin-top: 0;
+            }
+
+            .about-stats-grid {
+                margin-top: -64px;
+            }
+
+            .about-stats-grid,
+            .about-reason-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stat-card,
+            .about-card,
+            .about-terminal__body {
+                padding-left: 1.4rem;
+                padding-right: 1.4rem;
+            }
+
+            .about-stat-card,
+            .about-card {
+                min-height: auto;
+            }
+
+            .about-button {
+                width: 100%;
+            }
+
+            .about-display--hero {
+                font-size: clamp(3rem, 13vw, 4.6rem);
+            }
+
+            .about-display--center {
+                font-size: clamp(2.2rem, 10vw, 3.8rem);
+            }
+
+            .about-heading {
+                font-size: clamp(2.4rem, 12vw, 3.6rem);
+            }
+
+            .about-kicker,
+            .about-divider-eyebrow {
+                font-size: 0.72rem;
+                letter-spacing: 0.18em;
+            }
+
+            .about-divider-eyebrow::before,
+            .about-divider-eyebrow::after {
+                width: 2.4rem;
+            }
+        }
+    </style>
 </BaseLayout>
