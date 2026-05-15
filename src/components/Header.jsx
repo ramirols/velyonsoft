@@ -19,8 +19,15 @@ import {
     Workflow,
     Building2,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getWhatsAppLink, getWhatsAppLinkWithMessage } from "../lib/constants";
+
+function normalizePathname(pathname = "/") {
+    const pathWithoutLocale = pathname.replace(/^\/(es|en)(\/|$)/, "/");
+    const normalizedPath = pathWithoutLocale.replace(/\/+$/, "");
+
+    return normalizedPath === "" ? "/" : normalizedPath;
+}
 
 function ThemeToggleIcon() {
     return (
@@ -37,8 +44,11 @@ function ThemeToggleIcon() {
     );
 }
 
-export default function Header({ lang = "es" }) {
+export default function Header({ lang = "es", pathname = "/" }) {
     const [open, setOpen] = useState(false);
+    const [currentPathname, setCurrentPathname] = useState(pathname);
+    const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+    const servicesMenuCloseTimeoutRef = useRef(null);
 
     const translations = {
         es: {
@@ -69,16 +79,24 @@ export default function Header({ lang = "es" }) {
 
     const t = translations[lang] || translations.es;
 
+    const normalizedPathname = normalizePathname(currentPathname);
+    const isAboutActive = normalizedPathname === "/sobre-nosotros";
+    const isProjectsActive = normalizedPathname === "/proyectos" || normalizedPathname.startsWith("/proyectos/");
+    const isServicesRoute = normalizedPathname === "/servicios" || normalizedPathname.startsWith("/servicios/");
+    const isServicesActive = servicesMenuOpen || isServicesRoute;
+
     const navLinks = [
         {
             name: t.sobre_nosotros,
             href: `/${lang}/sobre-nosotros`,
             icon: <BookOpen size={18} />,
+            isActive: isAboutActive,
         },
         {
             name: t.proyectos,
             href: `/${lang}/proyectos`,
             icon: <Briefcase size={18} />,
+            isActive: isProjectsActive,
         },
     ];
 
@@ -174,15 +192,49 @@ const featuredServicePlans = {
 
     const specializedDropdownLinks = servicesLinks;
 
+    const clearServicesMenuCloseTimeout = () => {
+        if (servicesMenuCloseTimeoutRef.current !== null) {
+            window.clearTimeout(servicesMenuCloseTimeoutRef.current);
+            servicesMenuCloseTimeoutRef.current = null;
+        }
+    };
+
+    const openServicesMenu = () => {
+        clearServicesMenuCloseTimeout();
+        setServicesMenuOpen(true);
+    };
+
+    const closeServicesMenu = () => {
+        clearServicesMenuCloseTimeout();
+        servicesMenuCloseTimeoutRef.current = window.setTimeout(() => {
+            setServicesMenuOpen(false);
+            servicesMenuCloseTimeoutRef.current = null;
+        }, 180);
+    };
+
+    const handleServicesMenuBlur = (event) => {
+        if (event.currentTarget.contains(event.relatedTarget)) {
+            return;
+        }
+
+        clearServicesMenuCloseTimeout();
+        setServicesMenuOpen(false);
+    };
+
     useEffect(() => {
         const syncHeaderState = () => {
             setOpen(false);
+            clearServicesMenuCloseTimeout();
+            setServicesMenuOpen(false);
+            setCurrentPathname(window.location.pathname);
         };
 
+        syncHeaderState();
         document.addEventListener("astro:page-load", syncHeaderState);
 
         return () => {
             document.removeEventListener("astro:page-load", syncHeaderState);
+            clearServicesMenuCloseTimeout();
         };
     }, []);
 
@@ -267,25 +319,51 @@ const featuredServicePlans = {
                     <nav
                         className="hidden items-center gap-4 text-sm font-medium text-primary lg:flex xl:gap-8"
                     >
-                        <a href={`/${lang}/sobre-nosotros`} className="header-nav-link flex items-center gap-2">
+                        <a
+                            href={`/${lang}/sobre-nosotros`}
+                            className="header-nav-link flex items-center gap-2"
+                            data-active={isAboutActive ? "true" : "false"}
+                            aria-current={isAboutActive ? "page" : undefined}
+                        >
                             <BookOpen size={18} />
                             {t.sobre_nosotros}
                         </a>
 
-                        <div className="static group">
+                        <div
+                            className="static py-4 -my-4"
+                            onMouseEnter={openServicesMenu}
+                            onMouseLeave={closeServicesMenu}
+                            onFocus={openServicesMenu}
+                            onBlur={handleServicesMenuBlur}
+                        >
                             <button
                                 type="button"
                                 className="header-nav-link flex items-center gap-2 bg-transparent"
+                                aria-expanded={servicesMenuOpen}
+                                aria-controls="services-menu"
+                                aria-haspopup="true"
+                                data-active={isServicesActive ? "true" : "false"}
                             >
                                 <Grid3X3 size={18} />
                                 {t.servicios}
                                 <ChevronDown
                                     size={16}
-                                    className="transition-transform duration-150 group-hover:rotate-180"
+                                    className={`transition-transform duration-150 ${servicesMenuOpen ? "rotate-180" : ""}`}
                                 />
                             </button>
 
-                            <div className="absolute left-0 right-0 top-full z-50 pt-2 opacity-0 invisible translate-y-3 transition-[opacity,visibility,transform] duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                            <div
+                                aria-hidden="true"
+                                className={`absolute left-0 right-0 top-full h-6 ${servicesMenuOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+                            />
+
+                            <div
+                                id="services-menu"
+                                className={`absolute left-0 right-0 top-full z-50 pt-2 transition-[opacity,visibility,transform] duration-150 ${servicesMenuOpen
+                                    ? "visible translate-y-0 opacity-100 pointer-events-auto"
+                                    : "invisible translate-y-3 opacity-0 pointer-events-none"
+                                    }`}
+                            >
                                 <div className="overflow-hidden rounded-[2rem] border border-border/70 bg-background shadow-2xl shadow-black/15 dark:bg-card">
                                     <div>
                                         <div className="border-b border-border/60 px-6 pb-5 pt-6 lg:px-8">
@@ -376,7 +454,12 @@ const featuredServicePlans = {
                             </div>
                         </div>
 
-                        <a href={`/${lang}/proyectos`} className="header-nav-link flex items-center gap-2">
+                        <a
+                            href={`/${lang}/proyectos`}
+                            className="header-nav-link flex items-center gap-2"
+                            data-active={isProjectsActive ? "true" : "false"}
+                            aria-current={isProjectsActive ? "page" : undefined}
+                        >
                             <Briefcase size={18} />
                             {t.proyectos}
                         </a>
@@ -450,7 +533,11 @@ const featuredServicePlans = {
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setOpen(false)}
-                                    className="flex items-center gap-3 rounded-xl px-3 py-3 text-base font-semibold text-primary transition-colors duration-150 hover:bg-muted hover:text-secondary"
+                                    aria-current={link.isActive ? "page" : undefined}
+                                    className={`flex items-center gap-3 rounded-xl px-3 py-3 text-base font-semibold transition-colors duration-150 ${link.isActive
+                                        ? "bg-muted text-secondary"
+                                        : "text-primary hover:bg-muted hover:text-secondary"
+                                        }`}
                                 >
                                     {link.icon}
                                     {link.name}
@@ -471,7 +558,11 @@ const featuredServicePlans = {
                                             key={service.href}
                                             href={service.href}
                                             onClick={() => setOpen(false)}
-                                            className="flex min-w-0 items-start gap-3 rounded-2xl border border-border/60 bg-card/70 p-3 text-primary transition-colors duration-150 hover:border-secondary/30 hover:bg-muted/70"
+                                            aria-current={normalizePathname(currentPathname) === normalizePathname(service.href) ? "page" : undefined}
+                                            className={`flex min-w-0 items-start gap-3 rounded-2xl border bg-card/70 p-3 transition-colors duration-150 ${normalizePathname(currentPathname) === normalizePathname(service.href)
+                                                ? "border-secondary/35 bg-muted/75 text-secondary"
+                                                : "border-border/60 text-primary hover:border-secondary/30 hover:bg-muted/70"
+                                                }`}
                                         >
                                             <span className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background ${service.iconClass}`}>
                                                 <Icon size={18} />

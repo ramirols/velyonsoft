@@ -405,6 +405,10 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 		color: var(--secondary);
 	}
 
+	[data-site-header] .header-nav-link[data-active="true"] {
+		color: var(--secondary);
+	}
+
 	[data-site-header].is-hidden {
 		transform: translate3d(0, calc(-100% - 2rem), 0);
 		opacity: 0;
