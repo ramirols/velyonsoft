@@ -113,7 +113,9 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 
 				const applyTheme = (theme, transition = false) => {
 					const root = document.documentElement;
-					const meta = document.querySelector('meta[name="theme-color"]');
+					const meta = document.querySelector(
+						'meta[name="theme-color"]',
+					);
 					const isDark = theme === "dark";
 
 					if (transition) {
@@ -122,13 +124,17 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 
 					root.classList.toggle("dark", isDark);
 					root.dataset.theme = theme;
-					meta?.setAttribute("content", isDark ? "#091017" : "#ffffff");
+					meta?.setAttribute(
+						"content",
+						isDark ? "#091017" : "#ffffff",
+					);
 					document.dispatchEvent(
 						new CustomEvent("themechange", { detail: { theme } }),
 					);
 				};
 
-				const getTheme = () => window.__themeOverride || getSystemTheme();
+				const getTheme = () =>
+					window.__themeOverride || getSystemTheme();
 
 				window.__setTheme = (theme) => {
 					window.__themeOverride = theme;
@@ -172,9 +178,42 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 				}
 			})();
 		</script>
+	</head><div id="page-loader" class="page-loader" aria-hidden="true">
+		<div class="page-loader__inner">
+			<div class="page-loader__logo" aria-label="VelyonSoft cargando">
+				<img
+					class="page-loader__logo-gray"
+					src="/velyon-logo-mc.webp"
+					alt=""
+					loading="eager"
+					decoding="async"
+				/>
 
-		<slot name="head" />
-	</head>
+				<img
+					class="page-loader__logo-color page-loader__logo-color--light"
+					src="/velyon-logo-mc.webp"
+					alt=""
+					loading="eager"
+					decoding="async"
+				/>
+
+				<img
+					class="page-loader__logo-color page-loader__logo-color--dark"
+					src="/velyon-logo-mo.webp"
+					alt=""
+					loading="eager"
+					decoding="async"
+				/>
+			</div>
+
+			<div class="page-loader__line" aria-hidden="true">
+				<span></span>
+			</div>
+		</div>
+	</div>
+
+	<slot name="head" />
+
 	<body>
 		<slot />
 		<script is:inline>
@@ -192,15 +231,20 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 				let lastScrollY = getScrollY();
 				let ticking = false;
 
-				const getHeader = () => document.querySelector("[data-site-header]");
+				const getHeader = () =>
+					document.querySelector("[data-site-header]");
 
 				const setHeaderHidden = (hidden) => {
 					const header = getHeader();
 
 					if (!header) return;
 
-					const mobileMenuOpen = header.dataset.mobileNavOpen === "true";
-					header.classList.toggle("is-hidden", hidden && !mobileMenuOpen);
+					const mobileMenuOpen =
+						header.dataset.mobileNavOpen === "true";
+					header.classList.toggle(
+						"is-hidden",
+						hidden && !mobileMenuOpen,
+					);
 				};
 
 				const updateHeaderVisibility = () => {
@@ -214,7 +258,10 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 						return;
 					}
 
-					if (currentScrollY <= 24 || header.dataset.mobileNavOpen === "true") {
+					if (
+						currentScrollY <= 24 ||
+						header.dataset.mobileNavOpen === "true"
+					) {
 						setHeaderHidden(false);
 						lastScrollY = currentScrollY;
 						ticking = false;
@@ -245,11 +292,61 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 				};
 
 				window.addEventListener("scroll", onScroll, { passive: true });
-				document.addEventListener("scroll", onScroll, { passive: true, capture: true });
-				document.addEventListener("astro:after-swap", resetHeaderVisibility);
-				document.addEventListener("astro:page-load", resetHeaderVisibility);
+				document.addEventListener("scroll", onScroll, {
+					passive: true,
+					capture: true,
+				});
+				document.addEventListener(
+					"astro:after-swap",
+					resetHeaderVisibility,
+				);
+				document.addEventListener(
+					"astro:page-load",
+					resetHeaderVisibility,
+				);
 
 				resetHeaderVisibility();
+			})();
+
+			(() => {
+				if (window.__velyonPageLoaderBound) return;
+				window.__velyonPageLoaderBound = true;
+
+				const getLoader = () => document.getElementById("page-loader");
+
+				const showLoader = () => {
+					const loader = getLoader();
+					if (!loader) return;
+
+					loader.classList.remove("is-active");
+
+					window.requestAnimationFrame(() => {
+						window.requestAnimationFrame(() => {
+							loader.classList.add("is-active");
+							loader.setAttribute("aria-hidden", "false");
+							document.documentElement.dataset.pageLoading =
+								"true";
+						});
+					});
+				};
+
+				const hideLoader = () => {
+					const loader = getLoader();
+					if (!loader) return;
+
+					loader.classList.remove("is-active");
+					loader.setAttribute("aria-hidden", "true");
+					delete document.documentElement.dataset.pageLoading;
+				};
+
+				document.addEventListener(
+					"astro:before-preparation",
+					showLoader,
+				);
+				document.addEventListener("astro:page-load", hideLoader);
+				document.addEventListener("astro:after-swap", hideLoader);
+
+				window.addEventListener("pageshow", hideLoader);
 			})();
 		</script>
 	</body>
@@ -282,9 +379,13 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 	}
 
 	[data-theme-transition="active"] [data-site-header],
-	[data-theme-transition="active"] [data-site-header] :where(a, button, div, span, nav, p) {
+	[data-theme-transition="active"]
+		[data-site-header]
+		:where(a, button, div, span, nav, p) {
 		transition-duration: 160ms;
-		transition-property: background-color, border-color, box-shadow, color, opacity, transform;
+		transition-property:
+			background-color, border-color, box-shadow, color, opacity,
+			transform;
 		transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 	}
 
@@ -295,7 +396,9 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 
 	[data-site-header] .header-nav-link {
 		color: var(--primary);
-		transition: color 150ms ease, opacity 150ms ease;
+		transition:
+			color 150ms ease,
+			opacity 150ms ease;
 	}
 
 	[data-site-header] .header-nav-link:hover {

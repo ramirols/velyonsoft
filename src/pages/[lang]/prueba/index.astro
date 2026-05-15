@@ -1,0 +1,27 @@
+<div id="test-lottie" style="width:300px;height:300px;background:#020617"></div>
+
+<script>
+    import lottie from "lottie-web";
+
+    const container = document.getElementById("test-lottie");
+
+    if (container) {
+        const animation = lottie.loadAnimation({
+            container,
+            renderer: "svg",
+            loop: true,
+            autoplay: true,
+            path: "/lotties/seo.json",
+            rendererSettings: {
+                preserveAspectRatio: "xMidYMid meet",
+                progressiveLoad: false,
+            },
+        });
+
+        animation.addEventListener("DOMLoaded", () => {
+            animation.setSpeed(1);
+            animation.goToAndPlay(0, true);
+            console.log("Duration frames:", animation.getDuration(true));
+        });
+    }
+</script>
