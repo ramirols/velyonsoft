@@ -87,7 +87,7 @@ const schemaData = {
                         <em class="not-italic italic text-secondary">{t.titleAccent}</em>
                     </h1>
                     <div class="max-w-sm md:max-w-xs md:pb-2">
-                        <p class="text-sm font-light text-muted-foreground leading-relaxed">{t.subtitle}</p>
+                        <p class="text-[15px] font-light leading-[1.9] text-muted-foreground">{t.subtitle}</p>
                         <p class="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-muted-foreground/40 mt-3">{t.count(projects.length)}</p>
                     </div>
                 </div>
@@ -136,12 +136,12 @@ const schemaData = {
                                 <div class="flex flex-col flex-1 px-5 pt-4 pb-5">
 
                                     <!-- Title: medium weight, not bold -->
-                                    <h2 class="card-title text-[1rem] font-medium text-primary leading-snug mb-1.5 tracking-tight break-words">
+                                    <h2 class="card-title mb-1.5 break-words text-[18px] font-medium leading-[1.2] tracking-tight text-primary">
                                         {project.data.title}
                                     </h2>
 
                                     <!-- Description: the real content -->
-                                    <p class="text-[0.8rem] text-muted-foreground font-light leading-relaxed line-clamp-2 flex-1">
+                                    <p class="line-clamp-2 flex-1 text-[15px] font-light leading-[1.9] text-muted-foreground">
                                         {project.data.description}
                                     </p>
 
@@ -166,7 +166,7 @@ const schemaData = {
 
 <style>
     .font-display {
-        font-family: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+        font-family: var(--font-display);
     }
 
     @keyframes fade-up {

@@ -404,7 +404,7 @@ const featuredServicePlans = {
                                                                     <p className="text-[1rem] font-semibold leading-tight text-primary transition-colors group-hover/item:text-secondary">
                                                                         {plan.name}
                                                                     </p>
-                                                                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                                                                    <p className="mt-1 text-[15px] leading-[1.9] text-muted-foreground">
                                                                         {plan.description}
                                                                     </p>
                                                                 </div>
@@ -438,7 +438,7 @@ const featuredServicePlans = {
                                                                     <p className="text-[1rem] font-semibold leading-tight text-primary transition-colors group-hover/item:text-secondary">
                                                                         {service.name}
                                                                     </p>
-                                                                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                                                                    <p className="mt-1 text-[15px] leading-[1.9] text-muted-foreground">
                                                                         {service.description}
                                                                     </p>
                                                                 </div>

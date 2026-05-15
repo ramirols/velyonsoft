@@ -1,18 +1,18 @@
 ---
 import { getCollection } from "astro:content";
 import {
-    ArrowRight,
-    Brain,
-    Building2,
-    CheckCircle2,
-    Gauge,
-    LineChart,
-    Scale,
-    SearchCheck,
-    ShoppingBag,
-    Sparkles,
-    UtensilsCrossed,
-    Workflow,
+  ArrowRight,
+  Brain,
+  Building2,
+  CheckCircle2,
+  Gauge,
+  LineChart,
+  Scale,
+  SearchCheck,
+  ShoppingBag,
+  Sparkles,
+  UtensilsCrossed,
+  Workflow,
 } from "lucide-astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
@@ -21,358 +21,367 @@ import { getWhatsAppLinkWithMessage } from "../../lib/constants";
 type Lang = "es" | "en";
 
 export async function getStaticPaths() {
-    return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
 }
 
 const { lang } = Astro.params as { lang: Lang };
 const site = "https://www.velyonsoft.com";
 const homeUrl = `${site}/${lang}`;
 const quoteHref = getWhatsAppLinkWithMessage(
-    lang === "es"
-        ? "Hola VelyonSoft! Quiero cotizar una solucion digital para mi empresa. ¿Podemos revisar mi caso?"
-        : "Hello VelyonSoft! I want to quote a digital solution for my company. Can we review my case?",
+  lang === "es"
+    ? "Hola VelyonSoft! Quiero cotizar una solucion digital para mi empresa. ¿Podemos revisar mi caso?"
+    : "Hello VelyonSoft! I want to quote a digital solution for my company. Can we review my case?",
 );
 
 const projects = (await getCollection("proyectos"))
-    .filter((project) => project.data.featured)
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-    .slice(0, 4);
+  .filter((project) => project.data.featured)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
 
 const t = {
-    es: {
-        title: "Desarrollo de software a medida, automatizacion y SEO en Peru | VelyonSoft",
-        description:
-            "VelyonSoft desarrolla software a medida, webs corporativas, tiendas virtuales y automatizaciones para empresas en Peru con estrategia SEO, datos y foco en conversion.",
-        badge: "Crecimiento digital",
-        introTitle:
-            "Desarrollo web, software a medida y automatización para empresas que quieren vender más.",
-        introText:
-            "En VelyonSoft creamos páginas web corporativas, tiendas virtuales, sistemas a medida y automatizaciones para empresas en Perú que necesitan captar más clientes, ordenar sus procesos y convertir su presencia digital en un canal real de ventas. Unimos estrategia SEO, diseño web, desarrollo de software y optimización técnica para que tu sitio no solo se vea profesional, sino que también posicione en Google, genere confianza y facilite nuevas oportunidades comerciales.",
-        impactCards: [
-            {
-                value: "SEO",
-                label: "posicionamiento orgánico",
-                detail: "estructura, contenido y arquitectura técnica para aparecer cuando tus clientes buscan tus servicios en Google",
-            },
-            {
-                value: "Web",
-                label: "desarrollo orientado a ventas",
-                detail: "páginas rápidas, claras y profesionales para transformar visitas en consultas comerciales",
-            },
-            {
-                value: "Soft",
-                label: "software a medida",
-                detail: "sistemas personalizados para gestionar clientes, operaciones, reservas, casos, pedidos o procesos internos",
-            },
-            {
-                value: "Auto",
-                label: "automatización de procesos",
-                detail: "flujos digitales que reducen tareas repetitivas, conectan herramientas y ayudan a escalar tu negocio",
-            },
-        ],
-        split: {
-            eyebrow: "Estrategia antes del desarrollo",
-            title: "Creamos soluciones digitales pensadas para posicionar, vender y escalar.",
-            body: "Antes de diseñar una página web, desarrollar software a medida o automatizar un proceso, analizamos cómo busca tu cliente, qué necesita entender y qué ruta debe seguir para contactarte. En VelyonSoft unimos estrategia SEO, desarrollo web, automatización de procesos y experiencia de usuario para que tu presencia digital no solo se vea profesional, sino que también atraiga clientes, ordene operaciones y genere oportunidades reales para tu empresa en Perú.",
-            bullets: [
-                "Arquitectura SEO para posicionar servicios clave como desarrollo web, software a medida y automatización en Perú.",
-                "Mensajes comerciales claros para explicar tu propuesta, reducir dudas y aumentar solicitudes de cotización.",
-                "Rutas de conversión hacia servicios, casos de éxito, formularios y WhatsApp.",
-                "Base técnica escalable para integrar sistemas, paneles administrativos y automatizaciones futuras.",
-            ],
-            metrics: [
-                {
-                    value: "SEO",
-                    label: "estructura optimizada",
-                },
-                {
-                    value: "UX",
-                    label: "recorrido claro",
-                },
-                {
-                    value: "CRM",
-                    label: "captación ordenada",
-                },
-            ],
-            conversion: [
-                "Búsqueda en Google",
-                "Mensaje de valor",
-                "Confianza y prueba social",
-                "Solicitud de cotización",
-            ],
+  es: {
+    title:
+      "Desarrollo de software a medida, automatizacion y SEO en Peru | VelyonSoft",
+    description:
+      "VelyonSoft desarrolla software a medida, webs corporativas, tiendas virtuales y automatizaciones para empresas en Peru con estrategia SEO, datos y foco en conversion.",
+    badge: "Crecimiento digital",
+    introTitle:
+      "Desarrollo web, software a medida y automatización para empresas que quieren vender más.",
+    introText:
+      "En VelyonSoft creamos páginas web corporativas, tiendas virtuales, sistemas a medida y automatizaciones para empresas en Perú que necesitan captar más clientes, ordenar sus procesos y convertir su presencia digital en un canal real de ventas. Unimos estrategia SEO, diseño web, desarrollo de software y optimización técnica para que tu sitio no solo se vea profesional, sino que también posicione en Google, genere confianza y facilite nuevas oportunidades comerciales.",
+    impactCards: [
+      {
+        value: "SEO",
+        label: "posicionamiento orgánico",
+        detail:
+          "estructura, contenido y arquitectura técnica para aparecer cuando tus clientes buscan tus servicios en Google",
+      },
+      {
+        value: "Web",
+        label: "desarrollo orientado a ventas",
+        detail:
+          "páginas rápidas, claras y profesionales para transformar visitas en consultas comerciales",
+      },
+      {
+        value: "Soft",
+        label: "software a medida",
+        detail:
+          "sistemas personalizados para gestionar clientes, operaciones, reservas, casos, pedidos o procesos internos",
+      },
+      {
+        value: "Auto",
+        label: "automatización de procesos",
+        detail:
+          "flujos digitales que reducen tareas repetitivas, conectan herramientas y ayudan a escalar tu negocio",
+      },
+    ],
+    split: {
+      eyebrow: "Estrategia antes del desarrollo",
+      title:
+        "Creamos soluciones digitales pensadas para posicionar, vender y escalar.",
+      body: "Antes de diseñar una página web, desarrollar software a medida o automatizar un proceso, analizamos cómo busca tu cliente, qué necesita entender y qué ruta debe seguir para contactarte. En VelyonSoft unimos estrategia SEO, desarrollo web, automatización de procesos y experiencia de usuario para que tu presencia digital no solo se vea profesional, sino que también atraiga clientes, ordene operaciones y genere oportunidades reales para tu empresa en Perú.",
+      bullets: [
+        "Arquitectura SEO para posicionar servicios clave como desarrollo web, software a medida y automatización en Perú.",
+        "Mensajes comerciales claros para explicar tu propuesta, reducir dudas y aumentar solicitudes de cotización.",
+        "Rutas de conversión hacia servicios, casos de éxito, formularios y WhatsApp.",
+        "Base técnica escalable para integrar sistemas, paneles administrativos y automatizaciones futuras.",
+      ],
+      metrics: [
+        {
+          value: "SEO",
+          label: "estructura optimizada",
         },
-        servicesTitle: "Servicios conectados a objetivos de negocio",
-        servicesText:
-            "Cada servicio interno del sitio funciona como una puerta de entrada a una necesidad concreta: captar clientes, ordenar operaciones, vender online o automatizar procesos.",
-        services: [
-            {
-                icon: Building2,
-                title: "Desarrollo web para empresas",
-                text: "Webs corporativas rapidas, claras y optimizadas para captar clientes.",
-                href: `/${lang}/servicios/desarrollo-web-empresas`,
-            },
-            {
-                icon: Workflow,
-                title: "Automatizacion de procesos",
-                text: "Flujos, alertas e integraciones para reducir tareas repetitivas.",
-                href: `/${lang}/servicios/automatizacion-de-procesos`,
-            },
-            {
-                icon: ShoppingBag,
-                title: "Tiendas virtuales",
-                text: "E-commerce con catalogo, carrito y experiencia enfocada en conversion.",
-                href: `/${lang}/servicios/tiendas-virtuales`,
-            },
-            {
-                icon: Scale,
-                title: "Software para abogados",
-                text: "Gestion de casos, clientes, documentos y agenda para estudios legales.",
-                href: `/${lang}/servicios/software-para-abogados`,
-            },
-            {
-                icon: Brain,
-                title: "Software para psicologos",
-                text: "Organizacion de pacientes, sesiones, historial y pagos en un solo lugar.",
-                href: `/${lang}/servicios/software-para-psicologos`,
-            },
-            {
-                icon: UtensilsCrossed,
-                title: "Software para restaurantes",
-                text: "Pedidos, reservas, menu digital e inventario para operar con mas control.",
-                href: `/${lang}/servicios/software-para-restaurantes`,
-            },
-        ],
-        methodTitle:
-            "Método VelyonSoft para crear soluciones digitales que sí generan resultados",
-        methodText:
-            "No desarrollamos páginas web, sistemas o automatizaciones sin una estrategia previa. Nuestro método combina análisis SEO, diseño UX, desarrollo de software a medida y optimización continua para que cada solución digital tenga una ruta clara: atraer clientes, convertir visitas, ordenar procesos y ayudar a tu empresa a crecer en Perú.",
-        method: [
-            {
-                step: "01",
-                title: "Análisis SEO y diagnóstico",
-                text: "Estudiamos tus servicios, búsquedas clave, competencia, clientes ideales y puntos de fuga para definir una estrategia digital clara antes de diseñar o programar.",
-            },
-            {
-                step: "02",
-                title: "Diseño web y experiencia",
-                text: "Creamos interfaces limpias, rápidas y orientadas a conversión, con mensajes claros, estructura profesional y recorridos pensados para generar confianza.",
-            },
-            {
-                step: "03",
-                title: "Desarrollo e integración",
-                text: "Construimos páginas web, tiendas virtuales, sistemas a medida o automatizaciones con una base técnica escalable, segura y preparada para crecer.",
-            },
-            {
-                step: "04",
-                title: "Medición y mejora continua",
-                text: "Conectamos formularios, WhatsApp, analítica y flujos de seguimiento para medir resultados, mejorar conversiones y optimizar cada etapa del proceso.",
-            },
-        ],
-        projectsTitle:
-            "Prueba real: proyectos con contexto, no solo pantallas bonitas",
-        projectsText:
-            "Usamos casos internos para demostrar experiencia en sectores distintos: legal, salud, e-commerce, comunicacion, educacion, operaciones y servicios profesionales.",
-        ctaTitle:
-            "Convierte tu web, sistema o proceso digital en una herramienta real de crecimiento.",
-        ctaText:
-            "Cuéntanos qué necesita tu empresa y te ayudamos a definir la mejor solución: una página web profesional con SEO, un software a medida, una tienda virtual, una automatización de procesos o una estrategia digital completa para captar más clientes y trabajar con más orden.",
-        cta: "Cotizar mi solución digital",
-        projectsCta: "Ver proyectos realizados",
-        learnMore: "Ver detalle",
-        faqTitle:
-            "Preguntas frecuentes sobre desarrollo web, software a medida y SEO",
-        faqIntro:
-            "Resolvemos las dudas más comunes antes de cotizar una página web, sistema personalizado, tienda virtual o automatización para tu empresa.",
-        faq: [
-            {
-                q: "¿VelyonSoft solo diseña páginas web?",
-                a: "No. En VelyonSoft desarrollamos páginas web corporativas, tiendas virtuales, software a medida y automatizaciones para empresas. Nuestro enfoque combina diseño web, desarrollo técnico, estrategia SEO y optimización de conversiones para que tu solución digital no solo se vea profesional, sino que también ayude a captar clientes y ordenar procesos.",
-            },
-            {
-                q: "¿Una página web puede ayudar a mi empresa a aparecer en Google?",
-                a: "Sí. Creamos sitios web con estructura SEO, contenido estratégico, buena velocidad de carga, arquitectura clara y secciones pensadas para posicionar servicios clave. Esto ayuda a que tu negocio tenga más posibilidades de aparecer cuando tus clientes buscan soluciones como desarrollo web, software a medida, tiendas virtuales o automatización de procesos en Perú.",
-            },
-            {
-                q: "¿También desarrollan sistemas personalizados para empresas?",
-                a: "Sí. Podemos crear sistemas a medida para gestionar clientes, reservas, pedidos, casos, documentos, inventario, usuarios, reportes o procesos internos. La idea es que tu empresa deje de depender de tareas manuales, hojas de cálculo desordenadas o herramientas que no se adaptan a tu operación.",
-            },
-            {
-                q: "¿Pueden mejorar una web que ya existe?",
-                a: "Sí. Podemos analizar tu sitio actual, detectar problemas de diseño, SEO, velocidad, mensajes poco claros o rutas de conversión débiles. Luego proponemos mejoras puntuales o un rediseño completo según lo que necesite tu empresa para captar más consultas, transmitir confianza y convertir mejor.",
-            },
-            {
-                q: "¿Cómo puedo cotizar una página web, sistema o automatización?",
-                a: "Puedes contarnos qué necesita tu empresa, qué problema quieres resolver y qué funcionalidades tienes en mente. Con esa información evaluamos si conviene una página web, una tienda virtual, un software a medida, una automatización o una solución combinada.",
-            },
-        ],
-    },
-    en: {
-        title: "Custom software, automation and SEO in Peru | VelyonSoft",
-        description:
-            "VelyonSoft builds custom software, corporate websites, online stores and automations in Peru with SEO strategy, data and conversion focus.",
-        badge: "Digital growth",
-        introTitle:
-            "Web development, custom software and automation for companies that want to sell more.",
-        introText:
-            "At VelyonSoft, we build corporate websites, online stores, custom systems and automations for companies that need to attract more clients, organize their operations and turn their digital presence into a real sales channel. We combine SEO strategy, web design, software development and technical optimization so your website does more than look professional: it ranks on Google, builds trust and creates new business opportunities.",
-        impactCards: [
-            {
-                value: "SEO",
-                label: "organic visibility",
-                detail: "content structure and technical architecture built to appear when your clients search on Google",
-            },
-            {
-                value: "Web",
-                label: "sales-focused development",
-                detail: "fast, clear and professional websites designed to turn visits into business inquiries",
-            },
-            {
-                value: "Soft",
-                label: "custom software",
-                detail: "tailored systems to manage clients, operations, bookings, cases, orders or internal processes",
-            },
-            {
-                value: "Auto",
-                label: "process automation",
-                detail: "digital workflows that reduce repetitive tasks, connect tools and help your business scale",
-            },
-        ],
-        split: {
-            eyebrow: "Strategy before development",
-            title: "We build digital solutions designed to rank, sell and scale.",
-            body: "Before designing a website, building custom software or automating a process, we analyze how your customer searches, what they need to understand and which path they should follow to contact you. At VelyonSoft, we combine SEO strategy, web development, process automation and user experience so your digital presence does more than look professional: it attracts clients, organizes operations and creates real business opportunities.",
-            bullets: [
-                "SEO architecture to position key services such as web development, custom software and automation in Peru.",
-                "Clear commercial messaging to explain your value, reduce doubts and increase quote requests.",
-                "Conversion paths to services, success cases, forms and WhatsApp.",
-                "Scalable technical foundation to integrate systems, admin panels and future automations.",
-            ],
-            metrics: [
-                {
-                    value: "SEO",
-                    label: "optimized structure",
-                },
-                {
-                    value: "UX",
-                    label: "clear journey",
-                },
-                {
-                    value: "CRM",
-                    label: "organized leads",
-                },
-            ],
-            conversion: [
-                "Google search",
-                "Value message",
-                "Trust and proof",
-                "Quote request",
-            ],
+        {
+          value: "UX",
+          label: "recorrido claro",
         },
-        servicesTitle: "Services connected to business goals",
-        servicesText:
-            "Each internal service works as an entry point to a concrete need: generate leads, organize operations, sell online or automate processes.",
-        services: [
-            {
-                icon: Building2,
-                title: "Business web development",
-                text: "Fast, clear corporate websites optimized to attract clients.",
-                href: `/${lang}/servicios/desarrollo-web-empresas`,
-            },
-            {
-                icon: Workflow,
-                title: "Process automation",
-                text: "Workflows, alerts and integrations to reduce repetitive tasks.",
-                href: `/${lang}/servicios/automatizacion-de-procesos`,
-            },
-            {
-                icon: ShoppingBag,
-                title: "Online stores",
-                text: "E-commerce with catalog, cart and conversion-focused experience.",
-                href: `/${lang}/servicios/tiendas-virtuales`,
-            },
-            {
-                icon: Scale,
-                title: "Software for law firms",
-                text: "Case, client, document and schedule management for legal teams.",
-                href: `/${lang}/servicios/software-para-abogados`,
-            },
-            {
-                icon: Brain,
-                title: "Software for psychologists",
-                text: "Patients, sessions, records and payments organized in one place.",
-                href: `/${lang}/servicios/software-para-psicologos`,
-            },
-            {
-                icon: UtensilsCrossed,
-                title: "Software for restaurants",
-                text: "Orders, reservations, digital menu and inventory for more control.",
-                href: `/${lang}/servicios/software-para-restaurantes`,
-            },
-        ],
-        methodTitle:
-            "The VelyonSoft method for building digital solutions that generate results",
-        methodText:
-            "We do not build websites, systems or automations without a clear strategy first. Our method combines SEO analysis, UX design, custom software development and continuous optimization so every digital solution has a clear path: attract clients, convert visits, organize processes and help your business grow.",
-        method: [
-            {
-                step: "01",
-                title: "SEO analysis and diagnosis",
-                text: "We study your services, search intent, competitors, ideal clients and conversion leaks to define a clear digital strategy before designing or coding.",
-            },
-            {
-                step: "02",
-                title: "Web design and experience",
-                text: "We create clean, fast and conversion-focused interfaces with clear messaging, professional structure and user journeys designed to build trust.",
-            },
-            {
-                step: "03",
-                title: "Development and integration",
-                text: "We build websites, online stores, custom systems or automations with a scalable, secure and growth-ready technical foundation.",
-            },
-            {
-                step: "04",
-                title: "Measurement and improvement",
-                text: "We connect forms, WhatsApp, analytics and follow-up flows to measure results, improve conversions and optimize every stage of the process.",
-            },
-        ],
-        projectsTitle:
-            "Real proof: projects with context, not just pretty screens",
-        projectsText:
-            "We use internal cases to demonstrate experience across legal, health, e-commerce, communications, education, operations and professional services.",
-        ctaTitle:
-            "Turn your website, system or digital process into a real growth tool.",
-        ctaText:
-            "Tell us what your business needs and we will help you define the best solution: a professional SEO-ready website, custom software, an online store, process automation or a complete digital strategy to attract more clients and work with more order.",
-        cta: "Quote my digital solution",
-        projectsCta: "View completed projects",
-        learnMore: "View detail",
-        faqTitle:
-            "Frequently asked questions about web development, custom software and SEO",
-        faqIntro:
-            "We answer the most common questions before quoting a website, custom system, online store or automation for your business.",
-        faq: [
-            {
-                q: "Does VelyonSoft only design websites?",
-                a: "No. At VelyonSoft, we build corporate websites, online stores, custom software and automations for businesses. Our approach combines web design, technical development, SEO strategy and conversion optimization so your digital solution does more than look professional: it helps attract clients and organize operations.",
-            },
-            {
-                q: "Can a website help my business appear on Google?",
-                a: "Yes. We create websites with SEO structure, strategic content, good loading speed, clear architecture and sections designed to rank key services. This helps your business have more opportunities to appear when customers search for solutions such as web development, custom software, online stores or process automation.",
-            },
-            {
-                q: "Do you also build custom systems for companies?",
-                a: "Yes. We can build custom systems to manage clients, bookings, orders, cases, documents, inventory, users, reports or internal processes. The goal is to help your business stop depending on manual tasks, messy spreadsheets or tools that do not fit your operation.",
-            },
-            {
-                q: "Can you improve an existing website?",
-                a: "Yes. We can analyze your current website, detect design issues, SEO problems, speed limitations, unclear messaging or weak conversion paths. Then we suggest specific improvements or a full redesign depending on what your business needs to attract more inquiries, build trust and convert better.",
-            },
-            {
-                q: "How can I request a quote for a website, system or automation?",
-                a: "You can tell us what your business needs, what problem you want to solve and what features you have in mind. With that information, we evaluate whether you need a website, an online store, custom software, automation or a combined solution.",
-            },
-        ],
+        {
+          value: "CRM",
+          label: "captación ordenada",
+        },
+      ],
+      conversion: [
+        "Búsqueda en Google",
+        "Mensaje de valor",
+        "Confianza y prueba social",
+        "Solicitud de cotización",
+      ],
     },
+    servicesTitle: "Servicios conectados a objetivos de negocio",
+    servicesText:
+      "Cada servicio interno del sitio funciona como una puerta de entrada a una necesidad concreta: captar clientes, ordenar operaciones, vender online o automatizar procesos.",
+    services: [
+      {
+        icon: Building2,
+        title: "Desarrollo web para empresas",
+        text: "Webs corporativas rapidas, claras y optimizadas para captar clientes.",
+        href: `/${lang}/servicios/desarrollo-web-empresas`,
+      },
+      {
+        icon: Workflow,
+        title: "Automatizacion de procesos",
+        text: "Flujos, alertas e integraciones para reducir tareas repetitivas.",
+        href: `/${lang}/servicios/automatizacion-de-procesos`,
+      },
+      {
+        icon: ShoppingBag,
+        title: "Tiendas virtuales",
+        text: "E-commerce con catalogo, carrito y experiencia enfocada en conversion.",
+        href: `/${lang}/servicios/tiendas-virtuales`,
+      },
+      {
+        icon: Scale,
+        title: "Software para abogados",
+        text: "Gestion de casos, clientes, documentos y agenda para estudios legales.",
+        href: `/${lang}/servicios/software-para-abogados`,
+      },
+      {
+        icon: Brain,
+        title: "Software para psicologos",
+        text: "Organizacion de pacientes, sesiones, historial y pagos en un solo lugar.",
+        href: `/${lang}/servicios/software-para-psicologos`,
+      },
+      {
+        icon: UtensilsCrossed,
+        title: "Software para restaurantes",
+        text: "Pedidos, reservas, menu digital e inventario para operar con mas control.",
+        href: `/${lang}/servicios/software-para-restaurantes`,
+      },
+    ],
+    methodTitle:
+      "Método VelyonSoft para crear soluciones digitales que sí generan resultados",
+    methodText:
+      "No desarrollamos páginas web, sistemas o automatizaciones sin una estrategia previa. Nuestro método combina análisis SEO, diseño UX, desarrollo de software a medida y optimización continua para que cada solución digital tenga una ruta clara: atraer clientes, convertir visitas, ordenar procesos y ayudar a tu empresa a crecer en Perú.",
+    method: [
+      {
+        step: "01",
+        title: "Análisis SEO y diagnóstico",
+        text: "Estudiamos tus servicios, búsquedas clave, competencia, clientes ideales y puntos de fuga para definir una estrategia digital clara antes de diseñar o programar.",
+      },
+      {
+        step: "02",
+        title: "Diseño web y experiencia",
+        text: "Creamos interfaces limpias, rápidas y orientadas a conversión, con mensajes claros, estructura profesional y recorridos pensados para generar confianza.",
+      },
+      {
+        step: "03",
+        title: "Desarrollo e integración",
+        text: "Construimos páginas web, tiendas virtuales, sistemas a medida o automatizaciones con una base técnica escalable, segura y preparada para crecer.",
+      },
+      {
+        step: "04",
+        title: "Medición y mejora continua",
+        text: "Conectamos formularios, WhatsApp, analítica y flujos de seguimiento para medir resultados, mejorar conversiones y optimizar cada etapa del proceso.",
+      },
+    ],
+    projectsTitle:
+      "Prueba real: proyectos con contexto, no solo pantallas bonitas",
+    projectsText:
+      "Usamos casos internos para demostrar experiencia en sectores distintos: legal, salud, e-commerce, comunicacion, educacion, operaciones y servicios profesionales.",
+    ctaTitle:
+      "Convierte tu web, sistema o proceso digital en una herramienta real de crecimiento.",
+    ctaText:
+      "Cuéntanos qué necesita tu empresa y te ayudamos a definir la mejor solución: una página web profesional con SEO, un software a medida, una tienda virtual, una automatización de procesos o una estrategia digital completa para captar más clientes y trabajar con más orden.",
+    cta: "Cotizar mi solución digital",
+    projectsCta: "Ver proyectos realizados",
+    learnMore: "Ver detalle",
+    faqTitle:
+      "Preguntas frecuentes sobre desarrollo web, software a medida y SEO",
+    faqIntro:
+      "Resolvemos las dudas más comunes antes de cotizar una página web, sistema personalizado, tienda virtual o automatización para tu empresa.",
+    faq: [
+      {
+        q: "¿VelyonSoft solo diseña páginas web?",
+        a: "No. En VelyonSoft desarrollamos páginas web corporativas, tiendas virtuales, software a medida y automatizaciones para empresas. Nuestro enfoque combina diseño web, desarrollo técnico, estrategia SEO y optimización de conversiones para que tu solución digital no solo se vea profesional, sino que también ayude a captar clientes y ordenar procesos.",
+      },
+      {
+        q: "¿Una página web puede ayudar a mi empresa a aparecer en Google?",
+        a: "Sí. Creamos sitios web con estructura SEO, contenido estratégico, buena velocidad de carga, arquitectura clara y secciones pensadas para posicionar servicios clave. Esto ayuda a que tu negocio tenga más posibilidades de aparecer cuando tus clientes buscan soluciones como desarrollo web, software a medida, tiendas virtuales o automatización de procesos en Perú.",
+      },
+      {
+        q: "¿También desarrollan sistemas personalizados para empresas?",
+        a: "Sí. Podemos crear sistemas a medida para gestionar clientes, reservas, pedidos, casos, documentos, inventario, usuarios, reportes o procesos internos. La idea es que tu empresa deje de depender de tareas manuales, hojas de cálculo desordenadas o herramientas que no se adaptan a tu operación.",
+      },
+      {
+        q: "¿Pueden mejorar una web que ya existe?",
+        a: "Sí. Podemos analizar tu sitio actual, detectar problemas de diseño, SEO, velocidad, mensajes poco claros o rutas de conversión débiles. Luego proponemos mejoras puntuales o un rediseño completo según lo que necesite tu empresa para captar más consultas, transmitir confianza y convertir mejor.",
+      },
+      {
+        q: "¿Cómo puedo cotizar una página web, sistema o automatización?",
+        a: "Puedes contarnos qué necesita tu empresa, qué problema quieres resolver y qué funcionalidades tienes en mente. Con esa información evaluamos si conviene una página web, una tienda virtual, un software a medida, una automatización o una solución combinada.",
+      },
+    ],
+  },
+  en: {
+    title: "Custom software, automation and SEO in Peru | VelyonSoft",
+    description:
+      "VelyonSoft builds custom software, corporate websites, online stores and automations in Peru with SEO strategy, data and conversion focus.",
+    badge: "Digital growth",
+    introTitle:
+      "Web development, custom software and automation for companies that want to sell more.",
+    introText:
+      "At VelyonSoft, we build corporate websites, online stores, custom systems and automations for companies that need to attract more clients, organize their operations and turn their digital presence into a real sales channel. We combine SEO strategy, web design, software development and technical optimization so your website does more than look professional: it ranks on Google, builds trust and creates new business opportunities.",
+    impactCards: [
+      {
+        value: "SEO",
+        label: "organic visibility",
+        detail:
+          "content structure and technical architecture built to appear when your clients search on Google",
+      },
+      {
+        value: "Web",
+        label: "sales-focused development",
+        detail:
+          "fast, clear and professional websites designed to turn visits into business inquiries",
+      },
+      {
+        value: "Soft",
+        label: "custom software",
+        detail:
+          "tailored systems to manage clients, operations, bookings, cases, orders or internal processes",
+      },
+      {
+        value: "Auto",
+        label: "process automation",
+        detail:
+          "digital workflows that reduce repetitive tasks, connect tools and help your business scale",
+      },
+    ],
+    split: {
+      eyebrow: "Strategy before development",
+      title: "We build digital solutions designed to rank, sell and scale.",
+      body: "Before designing a website, building custom software or automating a process, we analyze how your customer searches, what they need to understand and which path they should follow to contact you. At VelyonSoft, we combine SEO strategy, web development, process automation and user experience so your digital presence does more than look professional: it attracts clients, organizes operations and creates real business opportunities.",
+      bullets: [
+        "SEO architecture to position key services such as web development, custom software and automation in Peru.",
+        "Clear commercial messaging to explain your value, reduce doubts and increase quote requests.",
+        "Conversion paths to services, success cases, forms and WhatsApp.",
+        "Scalable technical foundation to integrate systems, admin panels and future automations.",
+      ],
+      metrics: [
+        {
+          value: "SEO",
+          label: "optimized structure",
+        },
+        {
+          value: "UX",
+          label: "clear journey",
+        },
+        {
+          value: "CRM",
+          label: "organized leads",
+        },
+      ],
+      conversion: [
+        "Google search",
+        "Value message",
+        "Trust and proof",
+        "Quote request",
+      ],
+    },
+    servicesTitle: "Services connected to business goals",
+    servicesText:
+      "Each internal service works as an entry point to a concrete need: generate leads, organize operations, sell online or automate processes.",
+    services: [
+      {
+        icon: Building2,
+        title: "Business web development",
+        text: "Fast, clear corporate websites optimized to attract clients.",
+        href: `/${lang}/servicios/desarrollo-web-empresas`,
+      },
+      {
+        icon: Workflow,
+        title: "Process automation",
+        text: "Workflows, alerts and integrations to reduce repetitive tasks.",
+        href: `/${lang}/servicios/automatizacion-de-procesos`,
+      },
+      {
+        icon: ShoppingBag,
+        title: "Online stores",
+        text: "E-commerce with catalog, cart and conversion-focused experience.",
+        href: `/${lang}/servicios/tiendas-virtuales`,
+      },
+      {
+        icon: Scale,
+        title: "Software for law firms",
+        text: "Case, client, document and schedule management for legal teams.",
+        href: `/${lang}/servicios/software-para-abogados`,
+      },
+      {
+        icon: Brain,
+        title: "Software for psychologists",
+        text: "Patients, sessions, records and payments organized in one place.",
+        href: `/${lang}/servicios/software-para-psicologos`,
+      },
+      {
+        icon: UtensilsCrossed,
+        title: "Software for restaurants",
+        text: "Orders, reservations, digital menu and inventory for more control.",
+        href: `/${lang}/servicios/software-para-restaurantes`,
+      },
+    ],
+    methodTitle:
+      "The VelyonSoft method for building digital solutions that generate results",
+    methodText:
+      "We do not build websites, systems or automations without a clear strategy first. Our method combines SEO analysis, UX design, custom software development and continuous optimization so every digital solution has a clear path: attract clients, convert visits, organize processes and help your business grow.",
+    method: [
+      {
+        step: "01",
+        title: "SEO analysis and diagnosis",
+        text: "We study your services, search intent, competitors, ideal clients and conversion leaks to define a clear digital strategy before designing or coding.",
+      },
+      {
+        step: "02",
+        title: "Web design and experience",
+        text: "We create clean, fast and conversion-focused interfaces with clear messaging, professional structure and user journeys designed to build trust.",
+      },
+      {
+        step: "03",
+        title: "Development and integration",
+        text: "We build websites, online stores, custom systems or automations with a scalable, secure and growth-ready technical foundation.",
+      },
+      {
+        step: "04",
+        title: "Measurement and improvement",
+        text: "We connect forms, WhatsApp, analytics and follow-up flows to measure results, improve conversions and optimize every stage of the process.",
+      },
+    ],
+    projectsTitle: "Real proof: projects with context, not just pretty screens",
+    projectsText:
+      "We use internal cases to demonstrate experience across legal, health, e-commerce, communications, education, operations and professional services.",
+    ctaTitle:
+      "Turn your website, system or digital process into a real growth tool.",
+    ctaText:
+      "Tell us what your business needs and we will help you define the best solution: a professional SEO-ready website, custom software, an online store, process automation or a complete digital strategy to attract more clients and work with more order.",
+    cta: "Quote my digital solution",
+    projectsCta: "View completed projects",
+    learnMore: "View detail",
+    faqTitle:
+      "Frequently asked questions about web development, custom software and SEO",
+    faqIntro:
+      "We answer the most common questions before quoting a website, custom system, online store or automation for your business.",
+    faq: [
+      {
+        q: "Does VelyonSoft only design websites?",
+        a: "No. At VelyonSoft, we build corporate websites, online stores, custom software and automations for businesses. Our approach combines web design, technical development, SEO strategy and conversion optimization so your digital solution does more than look professional: it helps attract clients and organize operations.",
+      },
+      {
+        q: "Can a website help my business appear on Google?",
+        a: "Yes. We create websites with SEO structure, strategic content, good loading speed, clear architecture and sections designed to rank key services. This helps your business have more opportunities to appear when customers search for solutions such as web development, custom software, online stores or process automation.",
+      },
+      {
+        q: "Do you also build custom systems for companies?",
+        a: "Yes. We can build custom systems to manage clients, bookings, orders, cases, documents, inventory, users, reports or internal processes. The goal is to help your business stop depending on manual tasks, messy spreadsheets or tools that do not fit your operation.",
+      },
+      {
+        q: "Can you improve an existing website?",
+        a: "Yes. We can analyze your current website, detect design issues, SEO problems, speed limitations, unclear messaging or weak conversion paths. Then we suggest specific improvements or a full redesign depending on what your business needs to attract more inquiries, build trust and convert better.",
+      },
+      {
+        q: "How can I request a quote for a website, system or automation?",
+        a: "You can tell us what your business needs, what problem you want to solve and what features you have in mind. With that information, we evaluate whether you need a website, an online store, custom software, automation or a combined solution.",
+      },
+    ],
+  },
 }[lang];
 
 const sectionIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l1.8 6.1L20 10l-6.2 1.9L12 18l-1.8-6.1L4 10l6.2-1.9L12 2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M19 15l.8 2.7L22.5 18l-2.7.8L19 21.5l-.8-2.7-2.7-.8 2.7-.8L19 15Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
@@ -381,1222 +390,1226 @@ const growthFallbackSvg = `<svg class="lottie-fallback-svg" viewBox="0 0 320 320
 const seoFallbackSvg = `<svg class="lottie-fallback-svg" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle class="fallback-ring" cx="160" cy="160" r="104" stroke="currentColor" stroke-width="13" opacity="0.35"/><path class="fallback-check" d="M104 162L144 204L224 112" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="160" cy="160" r="124" stroke="currentColor" stroke-width="2" opacity="0.16" stroke-dasharray="10 12"/></svg>`;
 
 const schemaData = {
-    "@context": "https://schema.org",
-    "@graph": [
-        {
-            "@type": "WebPage",
-            "@id": `${homeUrl}#webpage`,
-            url: homeUrl,
-            name: t.title,
-            description: t.description,
-            inLanguage: lang,
-            isPartOf: { "@id": `${site}/#website` },
-            about: [
-                "desarrollo de software a medida",
-                "automatizacion de procesos",
-                "desarrollo web para empresas",
-                "SEO tecnico",
-            ],
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${homeUrl}#webpage`,
+      url: homeUrl,
+      name: t.title,
+      description: t.description,
+      inLanguage: lang,
+      isPartOf: { "@id": `${site}/#website` },
+      about: [
+        "desarrollo de software a medida",
+        "automatizacion de procesos",
+        "desarrollo web para empresas",
+        "SEO tecnico",
+      ],
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${homeUrl}#services`,
+      name:
+        lang === "es"
+          ? "Servicios digitales de VelyonSoft"
+          : "VelyonSoft digital services",
+      itemListElement: t.services.map((service, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: service.title,
+        url: `${site}${service.href}`,
+      })),
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${homeUrl}#faq`,
+      mainEntity: t.faq.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
         },
-        {
-            "@type": "ItemList",
-            "@id": `${homeUrl}#services`,
-            name:
-                lang === "es"
-                    ? "Servicios digitales de VelyonSoft"
-                    : "VelyonSoft digital services",
-            itemListElement: t.services.map((service, index) => ({
-                "@type": "ListItem",
-                position: index + 1,
-                name: service.title,
-                url: `${site}${service.href}`,
-            })),
-        },
-        {
-            "@type": "FAQPage",
-            "@id": `${homeUrl}#faq`,
-            mainEntity: t.faq.map((item) => ({
-                "@type": "Question",
-                name: item.q,
-                acceptedAnswer: {
-                    "@type": "Answer",
-                    text: item.a,
-                },
-            })),
-        },
-    ],
+      })),
+    },
+  ],
 };
 ---
 
 <BaseLayout
-    lang={lang}
-    title={t.title}
-    description={t.description}
-    image="/home.webp"
+  lang={lang}
+  title={t.title}
+  description={t.description}
+  image="/home.webp"
 >
-    <Fragment slot="head">
-        <script
-            type="application/ld+json"
-            set:html={JSON.stringify(schemaData)}
-        />
-    </Fragment>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  </Fragment>
 
-    <Hero lang={lang} />
+  <Hero lang={lang} />
 
-    <section
-        class="home-shell relative overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
-        aria-labelledby="home-intro-title"
-    >
-        <div class="pointer-events-none absolute inset-0 home-grid"></div>
+  <section
+    class="home-shell relative overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
+    aria-labelledby="home-intro-title"
+  >
+    <div class="pointer-events-none absolute inset-0 home-grid"></div>
 
-        <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
-            <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-                <div>
-                    <div class="home-badge">
-                        <span set:html={sectionIcon} />
-                        {t.badge}
-                    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+        <div>
+          <div class="home-badge">
+            <span set:html={sectionIcon} />
+            {t.badge}
+          </div>
 
-                    <h2
-                        id="home-intro-title"
-                        class="mt-6 max-w-4xl text-3xl font-black leading-[1.02] tracking-tight text-primary sm:text-5xl lg:text-6xl"
-                    >
-                        {t.introTitle}
-                    </h2>
+          <h2
+            id="home-intro-title"
+            class="mt-6 max-w-4xl text-3xl font-black leading-[1.02] tracking-tight text-primary sm:text-5xl lg:text-6xl"
+          >
+            {t.introTitle}
+          </h2>
 
-                    <div class="mt-7 flex flex-wrap gap-3">
-                        <div class="mini-proof">
-                            <SearchCheck size={18} />
-                            <span
-                                >{
-                                    lang === "es"
-                                        ? "SEO técnico"
-                                        : "Technical SEO"
-                                }</span
-                            >
-                        </div>
-                        <div class="mini-proof">
-                            <Gauge size={18} />
-                            <span
-                                >{
-                                    lang === "es"
-                                        ? "Web rápida"
-                                        : "Fast website"
-                                }</span
-                            >
-                        </div>
-                        <div class="mini-proof">
-                            <LineChart size={18} />
-                            <span
-                                >{
-                                    lang === "es"
-                                        ? "Más consultas"
-                                        : "More inquiries"
-                                }</span
-                            >
-                        </div>
-                    </div>
-                </div>
-
-                <article
-                    class="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/70 p-6 shadow-2xl shadow-black/5 backdrop-blur-xl sm:p-8"
-                    aria-label={lang === "es"
-                        ? "Resumen de servicios digitales de VelyonSoft"
-                        : "Summary of VelyonSoft digital services"}
-                >
-                    <div
-                        class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-secondary/10 blur-3xl"
-                    >
-                    </div>
-
-                    <p
-                        class="relative text-base leading-8 text-muted-foreground sm:text-lg"
-                    >
-                        {t.introText}
-                    </p>
-
-                    <div class="relative mt-7 grid gap-3 sm:grid-cols-2">
-                        <p
-                            class="rounded-2xl border border-border/70 bg-background/70 p-4 text-sm leading-6 text-muted-foreground"
-                        >
-                            <strong class="block">
-                                {
-                                    lang === "es"
-                                        ? "Para empresas que necesitan clientes"
-                                        : "For companies that need clients"
-                                }
-                            </strong>
-                            {
-                                lang === "es"
-                                    ? "Sitios preparados para posicionar, explicar servicios y generar confianza."
-                                    : "Websites built to rank, explain services and build trust."
-                            }
-                        </p>
-
-                        <p
-                            class="rounded-2xl border border-border/70 bg-background/70 p-4 text-sm leading-6 text-muted-foreground"
-                        >
-                            <strong class="block">
-                                {
-                                    lang === "es"
-                                        ? "Para negocios que quieren escalar"
-                                        : "For businesses ready to scale"
-                                }
-                            </strong>
-                            {
-                                lang === "es"
-                                    ? "Software y automatizaciones para operar con más orden y menos tareas manuales."
-                                    : "Software and automations to operate with more control and less manual work."
-                            }
-                        </p>
-                    </div>
-                </article>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <div class="mini-proof">
+              <SearchCheck size={18} />
+              <span>{lang === "es" ? "SEO técnico" : "Technical SEO"}</span>
             </div>
+            <div class="mini-proof">
+              <Gauge size={18} />
+              <span>{lang === "es" ? "Web rápida" : "Fast website"}</span>
+            </div>
+            <div class="mini-proof">
+              <LineChart size={18} />
+              <span>{lang === "es" ? "Más consultas" : "More inquiries"}</span>
+            </div>
+          </div>
+        </div>
 
-            <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article
+          class="relative overflow-hidden rounded-[2rem] border border-border/70 bg-card/70 p-6 shadow-2xl shadow-black/5 backdrop-blur-xl sm:p-8"
+          aria-label={lang === "es"
+            ? "Resumen de servicios digitales de VelyonSoft"
+            : "Summary of VelyonSoft digital services"}
+        >
+          <div
+            class="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-secondary/10 blur-3xl"
+          >
+          </div>
+
+          <p class="relative text-[17px] leading-[1.95] text-muted-foreground">
+            {t.introText}
+          </p>
+
+          <div class="relative mt-7 grid gap-3 sm:grid-cols-2">
+            <p
+              class="rounded-2xl border border-border/70 bg-background/70 p-4 text-[15px] leading-[1.9] text-muted-foreground"
+            >
+              <strong class="block">
                 {
-                    t.impactCards.map((card) => (
-                        <article class="metric-card group">
-                            <p class="text-4xl font-black tracking-tight text-primary transition-colors group-hover:text-secondary sm:text-5xl">
-                                {card.value}
-                            </p>
-                            <h3 class="mt-3 text-sm font-bold uppercase tracking-[0.18em] text-secondary">
-                                {card.label}
-                            </h3>
-                            <p class="mt-3 text-sm leading-6 text-muted-foreground">
-                                {card.detail}
-                            </p>
-                        </article>
-                    ))
+                  lang === "es"
+                    ? "Para empresas que necesitan clientes"
+                    : "For companies that need clients"
                 }
-            </div>
-        </div>
-    </section>
+              </strong>
+              {
+                lang === "es"
+                  ? "Sitios preparados para posicionar, explicar servicios y generar confianza."
+                  : "Websites built to rank, explain services and build trust."
+              }
+            </p>
 
-    <section
-        class="relative overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
-        aria-labelledby="diagnosis-title"
+            <p
+              class="rounded-2xl border border-border/70 bg-background/70 p-4 text-[15px] leading-[1.9] text-muted-foreground"
+            >
+              <strong class="block">
+                {
+                  lang === "es"
+                    ? "Para negocios que quieren escalar"
+                    : "For businesses ready to scale"
+                }
+              </strong>
+              {
+                lang === "es"
+                  ? "Software y automatizaciones para operar con más orden y menos tareas manuales."
+                  : "Software and automations to operate with more control and less manual work."
+              }
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          t.impactCards.map((card) => (
+            <article class="metric-card group">
+              <p class="text-4xl font-black tracking-tight text-primary transition-colors group-hover:text-secondary sm:text-5xl">
+                {card.value}
+              </p>
+              <h3 class="mt-3 text-sm font-bold uppercase tracking-[0.18em] text-secondary">
+                {card.label}
+              </h3>
+              <p class="mt-3 text-[15px] leading-[1.9] text-muted-foreground">
+                {card.detail}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="relative overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
+    aria-labelledby="diagnosis-title"
+  >
+    <div class="pointer-events-none absolute inset-0">
+      <div
+        class="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-secondary/10 blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-primary/5 blur-3xl"
+      >
+      </div>
+    </div>
+
+    <div
+      class="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
     >
-        <div class="pointer-events-none absolute inset-0">
-            <div
-                class="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-secondary/10 blur-3xl"
-            >
-            </div>
-            <div
-                class="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-primary/5 blur-3xl"
-            >
-            </div>
+      <div class="order-2 lg:order-1">
+        <div class="home-badge">
+          <span set:html={sectionIcon} />
+          {t.split.eyebrow}
         </div>
+
+        <h2
+          id="diagnosis-title"
+          class="mt-6 max-w-3xl text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl"
+        >
+          {t.split.title}
+        </h2>
+
+        <p class="mt-6 max-w-2xl text-[17px] leading-[1.95] text-muted-foreground">
+          {t.split.body}
+        </p>
+
+        <div class="mt-8 grid gap-3 sm:grid-cols-3">
+          {
+            t.split.metrics.map((item) => (
+              <div class="rounded-2xl border bg-card/60 p-4 shadow-sm backdrop-blur">
+                <p class="text-2xl font-black tracking-tight text-primary">
+                  {item.value}
+                </p>
+                <p class="mt-1 text-[15px] leading-[1.7] text-muted-foreground">
+                  {item.label}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-8 space-y-4">
+          {
+            t.split.bullets.map((item) => (
+              <p class="flex gap-3 text-[15px] leading-[1.9] text-muted-foreground">
+                <CheckCircle2 class="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
+                <span>{item}</span>
+              </p>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="order-1 lg:order-2">
+        <div
+          class="conversion-panel relative overflow-hidden rounded-[2rem] border bg-card/70 p-5 shadow-2xl backdrop-blur sm:p-8"
+        >
+          <div
+            class="conversion-glow absolute -right-10 -top-10 h-36 w-36 rounded-full blur-3xl"
+          >
+          </div>
+
+          <div class="relative">
+            <div class="flex items-center justify-between gap-4">
+              <div>
+                <p
+                  class="text-sm font-semibold uppercase tracking-[0.24em] text-secondary"
+                >
+                  {lang === "es" ? "Mapa de crecimiento" : "Growth map"}
+                </p>
+                <h3
+                  class="mt-3 text-2xl font-black tracking-tight text-primary"
+                >
+                  {
+                    lang === "es"
+                      ? "Del tráfico a la cotización"
+                      : "From traffic to quote"
+                  }
+                </h3>
+              </div>
+
+              <div
+                class="hidden rounded-2xl border bg-background/70 px-4 py-3 text-right sm:block"
+              >
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground"
+                >
+                  {lang === "es" ? "Enfoque" : "Focus"}
+                </p>
+                <p class="mt-1 text-sm font-bold text">SEO + Conversión</p>
+              </div>
+            </div>
+
+            <div
+              class="mt-7 grid gap-5 sm:grid-cols-[0.9fr_1.1fr] sm:items-center"
+            >
+              <div
+                class="lottie-card rounded-[1.5rem] border bg-background/60 p-4"
+              >
+                <div
+                  class="home-lottie-frame"
+                  data-lottie-frame
+                  role="img"
+                  aria-label={lang === "es"
+                    ? "Animación de automatización y crecimiento digital"
+                    : "Automation and digital growth animation"}
+                >
+                  <div
+                    class="home-lottie"
+                    data-lottie-src="/lotties/automation.json"
+                  >
+                  </div>
+                  <div
+                    class="lottie-fallback"
+                    set:html={automationFallbackSvg}
+                  />
+                </div>
+              </div>
+
+              <div class="space-y-3">
+                {
+                  t.split.conversion.map((item, index) => (
+                    <div class="conversion-step group flex items-center gap-3 rounded-2xl border bg-background/60 p-3 transition hover:-translate-y-0.5 hover:bg-background">
+                      <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-secondary text-xs font-black text-black">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span class="text-sm font-semibold text-foreground/90">
+                        {item}
+                      </span>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+
+            <div class="mt-7 rounded-2xl border bg-primary/5 p-4">
+              <p class="text-[15px] leading-[1.9] text-muted-foreground">
+                {
+                  lang === "es"
+                    ? "Una web efectiva no empieza por el diseño: empieza por entender qué debe posicionar, qué debe comunicar y cómo debe convertir cada visita en una oportunidad comercial."
+                    : "An effective website does not start with design: it starts by understanding what it must rank for, what it must communicate and how each visit should become a business opportunity."
+                }
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="bg-background py-16 sm:py-20 lg:py-28"
+    aria-labelledby="services-title"
+  >
+    <div class="mx-auto max-w-7xl px-4 sm:px-6">
+      <div class="mx-auto max-w-3xl text-center">
+        <div class="home-badge mx-auto">
+          <span set:html={sectionIcon} />
+          {lang === "es" ? "Servicios principales" : "Core services"}
+        </div>
+        <h2
+          id="services-title"
+          class="mt-6 text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl"
+        >
+          {t.servicesTitle}
+        </h2>
+        <p class="mt-5 text-[17px] leading-[1.95] text-muted-foreground">
+          {t.servicesText}
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {
+          t.services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <a
+                href={service.href}
+                class="service-tile group"
+                aria-label={service.title}
+              >
+                <span class="service-icon">
+                  <Icon size={22} />
+                </span>
+                <h3 class="mt-5 text-xl font-black tracking-tight text-primary group-hover:text-secondary">
+                  {service.title}
+                </h3>
+                <p class="mt-3 text-[15px] leading-[1.9] text-muted-foreground">
+                  {service.text}
+                </p>
+                <span class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-secondary">
+                  {t.learnMore}
+                  <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="method-section relative overflow-hidden py-16 sm:py-20 lg:py-28"
+    aria-labelledby="method-title"
+  >
+    <div class="method-glow absolute inset-0"></div>
+
+    <div
+      class="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"
+    >
+      <div>
+        <div class="home-badge dark-badge">
+          <span set:html={sectionIcon} />
+          {lang === "es" ? "Sistema VelyonSoft" : "VelyonSoft system"}
+        </div>
+
+        <h2
+          id="method-title"
+          class="mt-6 max-w-2xl text-3xl font-black leading-tight tracking-tight sm:text-5xl"
+        >
+          {t.methodTitle}
+        </h2>
+
+        <p
+          class="mt-5 max-w-xl text-[17px] leading-[1.95] text-muted-foreground"
+        >
+          {t.methodText}
+        </p>
+
+        <div class="mt-8 grid gap-3 sm:grid-cols-3 lg:max-w-xl">
+          <div
+            class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur"
+          >
+            <p class="text-2xl font-black">SEO</p>
+            <p class="mt-1 text-[15px] leading-[1.7] text-muted-foreground">
+              {lang === "es" ? "visibilidad orgánica" : "organic visibility"}
+            </p>
+          </div>
+
+          <div
+            class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur"
+          >
+            <p class="text-2xl font-black">UX</p>
+            <p class="mt-1 text-[15px] leading-[1.7] text-muted-foreground">
+              {lang === "es" ? "experiencia clara" : "clear experience"}
+            </p>
+          </div>
+
+          <div
+            class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur"
+          >
+            <p class="text-2xl font-black">DEV</p>
+            <p class="mt-1 text-[15px] leading-[1.7] text-muted-foreground">
+              {lang === "es" ? "base escalable" : "scalable base"}
+            </p>
+          </div>
+        </div>
+
+        <div class="lottie-card mt-8 max-w-xs rounded-[1.5rem] border p-4">
+          <div
+            class="home-lottie-frame"
+            data-lottie-frame
+            role="img"
+            aria-label={lang === "es"
+              ? "Animación de crecimiento digital para empresas"
+              : "Digital growth animation for companies"}
+          >
+            <div class="home-lottie" data-lottie-src="/lotties/growth.json">
+            </div>
+            <div class="lottie-fallback" set:html={growthFallbackSvg} />
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        {
+          t.method.map((item) => (
+            <article class="method-card group">
+              <div class="relative">
+                <span>{item.step}</span>
+
+                <h3>{item.title}</h3>
+
+                <p>{item.text}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="relative overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
+    aria-labelledby="faq-title"
+  >
+    <div class="pointer-events-none absolute inset-0">
+      <div
+        class="absolute -left-24 top-10 h-72 w-72 rounded-full bg-secondary/10 blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-primary/5 blur-3xl"
+      >
+      </div>
+    </div>
+
+    <div
+      class="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start"
+    >
+      <div class="lg:sticky lg:top-24">
+        <div class="home-badge">
+          <span set:html={sectionIcon} />
+          {lang === "es" ? "SEO & Cotización" : "SEO & Quote"}
+        </div>
+
+        <h2
+          id="faq-title"
+          class="mt-6 max-w-xl text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl"
+        >
+          {t.faqTitle}
+        </h2>
+
+        <p
+          class="mt-5 max-w-lg text-[17px] leading-[1.95] text-muted-foreground"
+        >
+          {t.faqIntro}
+        </p>
 
         <div
-            class="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
+          class="mt-8 grid max-w-lg gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3"
         >
-            <div class="order-2 lg:order-1">
-                <div class="home-badge">
-                    <span set:html={sectionIcon} />
-                    {t.split.eyebrow}
-                </div>
+          <div
+            class="rounded-2xl border bg-card/60 p-4 shadow-sm backdrop-blur"
+          >
+            <p class="text-2xl font-black text-primary">SEO</p>
+            <p class="mt-1 text-[15px] leading-[1.7] text-muted-foreground">
+              {lang === "es" ? "posicionamiento" : "ranking"}
+            </p>
+          </div>
 
-                <h2
-                    id="diagnosis-title"
-                    class="mt-6 max-w-3xl text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl"
-                >
-                    {t.split.title}
-                </h2>
+          <div
+            class="rounded-2xl border bg-card/60 p-4 shadow-sm backdrop-blur"
+          >
+            <p class="text-2xl font-black text-primary">Web</p>
+            <p class="mt-1 text-[15px] leading-[1.7] text-muted-foreground">
+              {lang === "es" ? "captación" : "lead generation"}
+            </p>
+          </div>
 
-                <p
-                    class="mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg"
-                >
-                    {t.split.body}
-                </p>
-
-                <div class="mt-8 grid gap-3 sm:grid-cols-3">
-                    {
-                        t.split.metrics.map((item) => (
-                            <div class="rounded-2xl border bg-card/60 p-4 shadow-sm backdrop-blur">
-                                <p class="text-2xl font-black tracking-tight text-primary">
-                                    {item.value}
-                                </p>
-                                <p class="mt-1 text-sm leading-5 text-muted-foreground">
-                                    {item.label}
-                                </p>
-                            </div>
-                        ))
-                    }
-                </div>
-
-                <div class="mt-8 space-y-4">
-                    {
-                        t.split.bullets.map((item) => (
-                            <p class="flex gap-3 text-sm leading-6 text-foreground/80 sm:text-base">
-                                <CheckCircle2 class="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
-                                <span>{item}</span>
-                            </p>
-                        ))
-                    }
-                </div>
-            </div>
-
-            <div class="order-1 lg:order-2">
-                <div
-                    class="conversion-panel relative overflow-hidden rounded-[2rem] border bg-card/70 p-5 shadow-2xl backdrop-blur sm:p-8"
-                >
-                    <div
-                        class="conversion-glow absolute -right-10 -top-10 h-36 w-36 rounded-full blur-3xl"
-                    >
-                    </div>
-
-                    <div class="relative">
-                        <div class="flex items-center justify-between gap-4">
-                            <div>
-                                <p
-                                    class="text-sm font-semibold uppercase tracking-[0.24em] text-secondary"
-                                >
-                                    {
-                                        lang === "es"
-                                            ? "Mapa de crecimiento"
-                                            : "Growth map"
-                                    }
-                                </p>
-                                <h3
-                                    class="mt-3 text-2xl font-black tracking-tight text-primary"
-                                >
-                                    {
-                                        lang === "es"
-                                            ? "Del tráfico a la cotización"
-                                            : "From traffic to quote"
-                                    }
-                                </h3>
-                            </div>
-
-                            <div
-                                class="hidden rounded-2xl border bg-background/70 px-4 py-3 text-right sm:block"
-                            >
-                                <p
-                                    class="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground"
-                                >
-                                    {lang === "es" ? "Enfoque" : "Focus"}
-                                </p>
-                                <p class="mt-1 text-sm font-bold text">
-                                    SEO + Conversión
-                                </p>
-                            </div>
-                        </div>
-
-                        <div
-                            class="mt-7 grid gap-5 sm:grid-cols-[0.9fr_1.1fr] sm:items-center"
-                        >
-                            <div
-                                class="lottie-card rounded-[1.5rem] border bg-background/60 p-4"
-                            >
-                                <div
-                                    class="home-lottie-frame"
-                                    data-lottie-frame
-                                    role="img"
-                                    aria-label={lang === "es"
-                                        ? "Animación de automatización y crecimiento digital"
-                                        : "Automation and digital growth animation"}
-                                >
-                                    <div
-                                        class="home-lottie"
-                                        data-lottie-src="/lotties/automation.json"
-                                    >
-                                    </div>
-                                    <div
-                                        class="lottie-fallback"
-                                        set:html={automationFallbackSvg}
-                                    />
-                                </div>
-                            </div>
-
-                            <div class="space-y-3">
-                                {
-                                    t.split.conversion.map((item, index) => (
-                                        <div class="conversion-step group flex items-center gap-3 rounded-2xl border bg-background/60 p-3 transition hover:-translate-y-0.5 hover:bg-background">
-                                            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-secondary text-xs font-black text-black">
-                                                {String(index + 1).padStart(
-                                                    2,
-                                                    "0",
-                                                )}
-                                            </span>
-                                            <span class="text-sm font-semibold text-foreground/90">
-                                                {item}
-                                            </span>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </div>
-
-                        <div class="mt-7 rounded-2xl border bg-primary/5 p-4">
-                            <p class="text-sm leading-6 text-muted-foreground">
-                                {
-                                    lang === "es"
-                                        ? "Una web efectiva no empieza por el diseño: empieza por entender qué debe posicionar, qué debe comunicar y cómo debe convertir cada visita en una oportunidad comercial."
-                                        : "An effective website does not start with design: it starts by understanding what it must rank for, what it must communicate and how each visit should become a business opportunity."
-                                }
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div
+            class="rounded-2xl border bg-card/60 p-4 shadow-sm backdrop-blur"
+          >
+            <p class="text-2xl font-black text-primary">Soft</p>
+            <p class="mt-1 text-[15px] leading-[1.7] text-muted-foreground">
+              {lang === "es" ? "automatización" : "automation"}
+            </p>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section
-        class="bg-background py-16 sm:py-20 lg:py-28"
-        aria-labelledby="services-title"
+      <div class="space-y-4">
+        {
+          t.faq.map((item, index) => (
+            <details class="faq-item group rounded-[1.5rem] border bg-card/60 p-5 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:p-6">
+              <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
+                <span class="flex gap-4">
+                  <span class="hidden h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-secondary text-xs font-black text-black sm:flex">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <span class="text-base font-black leading-7 text-primary sm:text-lg">
+                    {item.q}
+                  </span>
+                </span>
+
+                <span class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-lg font-black text-primary transition group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+
+              <p class="mt-4 pl-0 text-[15px] leading-[1.9] text-muted-foreground sm:pl-13">
+                {item.a}
+              </p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="relative overflow-hidden px-4 pb-16 sm:px-6 sm:pb-20 lg:pb-28"
+    id="contacto"
+  >
+    <div class="pointer-events-none absolute inset-0">
+      <div
+        class="absolute left-1/2 bottom-0 h-80 w-80 -translate-x-1/2 rounded-full bg-secondary/10 blur-3xl"
+      >
+      </div>
+      <div
+        class="absolute -right-24 top-8 h-72 w-72 rounded-full bg-primary/5 blur-3xl"
+      >
+      </div>
+    </div>
+
+    <div
+      class="home-cta-panel relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] border shadow-2xl shadow-black/10"
     >
-        <div class="mx-auto max-w-7xl px-4 sm:px-6">
-            <div class="mx-auto max-w-3xl text-center">
-                <div class="home-badge mx-auto">
-                    <span set:html={sectionIcon} />
-                    {lang === "es" ? "Servicios principales" : "Core services"}
-                </div>
-                <h2
-                    id="services-title"
-                    class="mt-6 text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl"
-                >
-                    {t.servicesTitle}
-                </h2>
-                <p
-                    class="mt-5 text-base leading-8 text-muted-foreground sm:text-lg"
-                >
-                    {t.servicesText}
-                </p>
-            </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-card/80"
+      >
+      </div>
 
-            <div class="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                {
-                    t.services.map((service) => {
-                        const Icon = service.icon;
-                        return (
-                            <a
-                                href={service.href}
-                                class="service-tile group"
-                                aria-label={service.title}
-                            >
-                                <span class="service-icon">
-                                    <Icon size={22} />
-                                </span>
-                                <h3 class="mt-5 text-xl font-black tracking-tight text-primary group-hover:text-secondary">
-                                    {service.title}
-                                </h3>
-                                <p class="mt-3 text-sm leading-7 text-muted-foreground">
-                                    {service.text}
-                                </p>
-                                <span class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-secondary">
-                                    {t.learnMore}
-                                    <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                                </span>
-                            </a>
-                        );
-                    })
-                }
-            </div>
-        </div>
-    </section>
+      <div
+        class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-secondary/10 blur-3xl"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute -bottom-24 left-12 h-64 w-64 rounded-full bg-primary/10 blur-3xl"
+      >
+      </div>
 
-    <section
-        class="method-section relative overflow-hidden py-16 sm:py-20 lg:py-28"
-        aria-labelledby="method-title"
-    >
-        <div class="method-glow absolute inset-0"></div>
-
+      <div
+        class="relative mx-auto max-w-5xl px-6 py-12 text-center sm:px-10 sm:py-14 lg:px-12 lg:py-16"
+      >
         <div
-            class="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"
+          class="home-cta-eyebrow mx-auto inline-flex items-center gap-2 rounded-full border bg-background/50 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] backdrop-blur"
         >
-            <div>
-                <div class="home-badge dark-badge">
-                    <span set:html={sectionIcon} />
-                    {lang === "es" ? "Sistema VelyonSoft" : "VelyonSoft system"}
-                </div>
-
-                <h2
-                    id="method-title"
-                    class="mt-6 max-w-2xl text-3xl font-black leading-tight tracking-tight sm:text-5xl"
-                >
-                    {t.methodTitle}
-                </h2>
-
-                <p
-                    class="mt-5 max-w-xl text-base leading-8 text-muted-foreground sm:text-lg"
-                >
-                    {t.methodText}
-                </p>
-
-                <div class="mt-8 grid gap-3 sm:grid-cols-3 lg:max-w-xl">
-                    <div
-                        class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur"
-                    >
-                        <p class="text-2xl font-black">SEO</p>
-                        <p class="mt-1 text-sm leading-5 text-muted-foreground">
-                            {
-                                lang === "es"
-                                    ? "visibilidad orgánica"
-                                    : "organic visibility"
-                            }
-                        </p>
-                    </div>
-
-                    <div
-                        class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur"
-                    >
-                        <p class="text-2xl font-black">UX</p>
-                        <p class="mt-1 text-sm leading-5 text-muted-foreground">
-                            {
-                                lang === "es"
-                                    ? "experiencia clara"
-                                    : "clear experience"
-                            }
-                        </p>
-                    </div>
-
-                    <div
-                        class="rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur"
-                    >
-                        <p class="text-2xl font-black">DEV</p>
-                        <p class="mt-1 text-sm leading-5 text-muted-foreground">
-                            {lang === "es" ? "base escalable" : "scalable base"}
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="lottie-card mt-8 max-w-xs rounded-[1.5rem] border p-4"
-                >
-                    <div
-                        class="home-lottie-frame"
-                        data-lottie-frame
-                        role="img"
-                        aria-label={lang === "es"
-                            ? "Animación de crecimiento digital para empresas"
-                            : "Digital growth animation for companies"}
-                    >
-                        <div
-                            class="home-lottie"
-                            data-lottie-src="/lotties/growth.json"
-                        >
-                        </div>
-                        <div
-                            class="lottie-fallback"
-                            set:html={growthFallbackSvg}
-                        />
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid gap-4 sm:grid-cols-2">
-                {
-                    t.method.map((item) => (
-                        <article class="method-card group">
-                            <div class="relative">
-                                <span>{item.step}</span>
-
-                                <h3>{item.title}</h3>
-
-                                <p>{item.text}</p>
-                            </div>
-                        </article>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <section
-        class="relative overflow-hidden bg-background py-16 sm:py-20 lg:py-28"
-        aria-labelledby="faq-title"
-    >
-        <div class="pointer-events-none absolute inset-0">
-            <div
-                class="absolute -left-24 top-10 h-72 w-72 rounded-full bg-secondary/10 blur-3xl"
-            >
-            </div>
-            <div
-                class="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-primary/5 blur-3xl"
-            >
-            </div>
+          <Sparkles size={15} />
+          {lang === "es" ? "Siguiente paso" : "Next step"}
         </div>
 
-        <div
-            class="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start"
+        <h2
+          class="mx-auto mt-6 max-w-4xl text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl"
         >
-            <div class="lg:sticky lg:top-24">
-                <div class="home-badge">
-                    <span set:html={sectionIcon} />
-                    {lang === "es" ? "SEO & Cotización" : "SEO & Quote"}
-                </div>
+          {t.ctaTitle}
+        </h2>
 
-                <h2
-                    id="faq-title"
-                    class="mt-6 max-w-xl text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl"
-                >
-                    {t.faqTitle}
-                </h2>
-
-                <p
-                    class="mt-5 max-w-lg text-base leading-8 text-muted-foreground sm:text-lg"
-                >
-                    {t.faqIntro}
-                </p>
-
-                <div
-                    class="mt-8 grid max-w-lg gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3"
-                >
-                    <div
-                        class="rounded-2xl border bg-card/60 p-4 shadow-sm backdrop-blur"
-                    >
-                        <p class="text-2xl font-black text-primary">SEO</p>
-                        <p class="mt-1 text-sm leading-5 text-muted-foreground">
-                            {lang === "es" ? "posicionamiento" : "ranking"}
-                        </p>
-                    </div>
-
-                    <div
-                        class="rounded-2xl border bg-card/60 p-4 shadow-sm backdrop-blur"
-                    >
-                        <p class="text-2xl font-black text-primary">Web</p>
-                        <p class="mt-1 text-sm leading-5 text-muted-foreground">
-                            {lang === "es" ? "captación" : "lead generation"}
-                        </p>
-                    </div>
-
-                    <div
-                        class="rounded-2xl border bg-card/60 p-4 shadow-sm backdrop-blur"
-                    >
-                        <p class="text-2xl font-black text-primary">Soft</p>
-                        <p class="mt-1 text-sm leading-5 text-muted-foreground">
-                            {lang === "es" ? "automatización" : "automation"}
-                        </p>
-                    </div>
-                </div>
-
-                <div
-                    class="lottie-card mt-8 max-w-xs rounded-[1.5rem] border p-4"
-                >
-                    <div
-                        class="home-lottie-frame"
-                        data-lottie-frame
-                        role="img"
-                        aria-label={lang === "es"
-                            ? "Animación de SEO técnico y posicionamiento web"
-                            : "Technical SEO and web ranking animation"}
-                    >
-                        <div
-                            class="home-lottie"
-                            data-lottie-src="/lotties/seo.json"
-                        >
-                        </div>
-                        <div
-                            class="lottie-fallback"
-                            set:html={seoFallbackSvg}
-                        />
-                    </div>
-                </div>
-            </div>
-
-            <div class="space-y-4">
-                {
-                    t.faq.map((item, index) => (
-                        <details class="faq-item group rounded-[1.5rem] border bg-card/60 p-5 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:p-6">
-                            <summary class="flex cursor-pointer list-none items-start justify-between gap-4">
-                                <span class="flex gap-4">
-                                    <span class="hidden h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-secondary text-xs font-black text-black sm:flex">
-                                        {String(index + 1).padStart(2, "0")}
-                                    </span>
-
-                                    <span class="text-base font-black leading-7 text-primary sm:text-lg">
-                                        {item.q}
-                                    </span>
-                                </span>
-
-                                <span class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-lg font-black text-primary transition group-open:rotate-45">
-                                    +
-                                </span>
-                            </summary>
-
-                            <p class="mt-4 pl-0 text-sm leading-7 text-muted-foreground sm:pl-13 sm:text-base">
-                                {item.a}
-                            </p>
-                        </details>
-                    ))
-                }
-            </div>
-        </div>
-    </section>
-
-    <section
-        class="relative overflow-hidden px-4 pb-16 sm:px-6 sm:pb-20 lg:pb-28"
-        id="contacto"
-    >
-        <div class="pointer-events-none absolute inset-0">
-            <div
-                class="absolute left-1/2 bottom-0 h-80 w-80 -translate-x-1/2 rounded-full bg-secondary/10 blur-3xl"
-            >  
-            </div>
-            <div
-                class="absolute -right-24 top-8 h-72 w-72 rounded-full bg-primary/5 blur-3xl"
-            > 
-            </div>
-        </div>
-
-        <div
-            class="home-cta-panel relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] border shadow-2xl shadow-black/10"
+        <p
+          class="mx-auto mt-5 max-w-2xl text-[17px] leading-[1.95] text-muted-foreground"
         >
-            <div
-                class="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-card/80"
-            >
-            </div>
+          {t.ctaText}
+        </p>
 
-            <div
-                class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-secondary/10 blur-3xl"
-            >
-            </div>
-            <div
-                class="pointer-events-none absolute -bottom-24 left-12 h-64 w-64 rounded-full bg-primary/10 blur-3xl"
-            >
-            </div>
+        <div class="mx-auto mt-7 grid max-w-3xl gap-3 sm:grid-cols-3">
+          <div class="rounded-2xl border bg-background/50 p-4 backdrop-blur">
+            <p class="text-lg font-black text-primary">Web + SEO</p>
+            <p class="mt-1 text-[15px] leading-[1.7] text-muted-foreground">
+              {lang === "es" ? "para captar clientes" : "to attract clients"}
+            </p>
+          </div>
 
-            <div
-                class="relative mx-auto max-w-5xl px-6 py-12 text-center sm:px-10 sm:py-14 lg:px-12 lg:py-16"
-            >
-                <div
-                    class="home-cta-eyebrow mx-auto inline-flex items-center gap-2 rounded-full border bg-background/50 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] backdrop-blur"
-                >
-                    <Sparkles size={15} />
-                    {lang === "es" ? "Siguiente paso" : "Next step"}
-                </div>
+          <div class="rounded-2xl border bg-background/50 p-4 backdrop-blur">
+            <p class="text-lg font-black text-primary">Software</p>
+            <p class="mt-1 text-[15px] leading-[1.7] text-muted-foreground">
+              {
+                lang === "es"
+                  ? "para ordenar procesos"
+                  : "to organize processes"
+              }
+            </p>
+          </div>
 
-                <h2
-                    class="mx-auto mt-6 max-w-4xl text-3xl font-black leading-tight tracking-tight text-primary sm:text-5xl"
-                >
-                    {t.ctaTitle}
-                </h2>
-
-                <p
-                    class="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg"
-                >
-                    {t.ctaText}
-                </p>
-
-                <div class="mx-auto mt-7 grid max-w-3xl gap-3 sm:grid-cols-3">
-                    <div
-                        class="rounded-2xl border bg-background/50 p-4 backdrop-blur"
-                    >
-                        <p class="text-lg font-black text-primary">Web + SEO</p>
-                        <p class="mt-1 text-sm leading-5 text-muted-foreground">
-                            {
-                                lang === "es"
-                                    ? "para captar clientes"
-                                    : "to attract clients"
-                            }
-                        </p>
-                    </div>
-
-                    <div
-                        class="rounded-2xl border bg-background/50 p-4 backdrop-blur"
-                    >
-                        <p class="text-lg font-black text-primary">Software</p>
-                        <p class="mt-1 text-sm leading-5 text-muted-foreground">
-                            {
-                                lang === "es"
-                                    ? "para ordenar procesos"
-                                    : "to organize processes"
-                            }
-                        </p>
-                    </div>
-
-                    <div
-                        class="rounded-2xl border bg-background/50 p-4 backdrop-blur"
-                    >
-                        <p class="text-lg font-black text-primary">
-                            Automatización
-                        </p>
-                        <p class="mt-1 text-sm leading-5 text-muted-foreground">
-                            {
-                                lang === "es"
-                                    ? "para escalar mejor"
-                                    : "to scale better"
-                            }
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mx-auto mt-8 grid max-w-xl gap-3 sm:grid-cols-2">
-                    <a
-                        href={quoteHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="cta-main inline-flex w-full items-center justify-center gap-2"
-                        aria-label={lang === "es"
-                            ? "Cotizar desarrollo web, software a medida o automatización con VelyonSoft"
-                            : "Quote web development, custom software or automation with VelyonSoft"}
-                    >
-                        {t.cta}
-                    </a>
-
-                    <a
-                        href={`/${lang}/proyectos`}
-                        class="cta-secondary inline-flex w-full items-center justify-center gap-2"
-                        aria-label={lang === "es"
-                            ? "Ver proyectos de desarrollo web y software realizados por VelyonSoft"
-                            : "View web development and software projects completed by VelyonSoft"}
-                    >
-                        {t.projectsCta}
-                    </a>
-                </div>
-
-                <p
-                    class="mx-auto mt-5 max-w-xl text-center text-xs leading-5 text-muted-foreground"
-                >
-                    {
-                        lang === "es"
-                            ? "Respuesta orientada a empresas, negocios y profesionales que buscan crecer con tecnología."
-                            : "Built for companies, businesses and professionals looking to grow with technology."
-                    }
-                </p>
-            </div>
+          <div class="rounded-2xl border bg-background/50 p-4 backdrop-blur">
+            <p class="text-lg font-black text-primary">Automatización</p>
+            <p class="mt-1 text-[15px] leading-[1.7] text-muted-foreground">
+              {lang === "es" ? "para escalar mejor" : "to scale better"}
+            </p>
+          </div>
         </div>
-    </section>
+
+        <div class="mx-auto mt-8 grid max-w-xl gap-3 sm:grid-cols-2">
+          <a
+            href={quoteHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-main inline-flex w-full items-center justify-center gap-2"
+            aria-label={lang === "es"
+              ? "Cotizar desarrollo web, software a medida o automatización con VelyonSoft"
+              : "Quote web development, custom software or automation with VelyonSoft"}
+          >
+            {t.cta}
+          </a>
+
+          <a
+            href={`/${lang}/proyectos`}
+            class="cta-secondary inline-flex w-full items-center justify-center gap-2"
+            aria-label={lang === "es"
+              ? "Ver proyectos de desarrollo web y software realizados por VelyonSoft"
+              : "View web development and software projects completed by VelyonSoft"}
+          >
+            {t.projectsCta}
+          </a>
+        </div>
+
+        <p
+          class="mx-auto mt-5 max-w-xl text-center text-xs leading-5 text-muted-foreground"
+        >
+          {
+            lang === "es"
+              ? "Respuesta orientada a empresas, negocios y profesionales que buscan crecer con tecnología."
+              : "Built for companies, businesses and professionals looking to grow with technology."
+          }
+        </p>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <script>
-    import lottie from "lottie-web";
+  import lottie from "lottie-web";
 
-    const mountHomeLotties = () => {
-        document.querySelectorAll("[data-lottie-src]").forEach((element) => {
-            if (
-                !(element instanceof HTMLElement) ||
-                element.dataset.lottieMounted === "true"
-            ) {
-                return;
-            }
+  const homeLottieLightContrast = "#00677c";
 
-            const src = element.dataset.lottieSrc;
-            const frame = element.closest("[data-lottie-frame]");
+  const normalizeLottieColor = (value = "") =>
+    value.replace(/\s+/g, "").toLowerCase();
 
-            if (!src || !(frame instanceof HTMLElement)) {
-                return;
-            }
+  const isThemeSensitiveLottieColor = (value = "") => {
+    const normalizedValue = normalizeLottieColor(value);
 
-            element.dataset.lottieMounted = "true";
+    return (
+      normalizedValue === "#fff" ||
+      normalizedValue === "#ffffff" ||
+      normalizedValue === "rgb(255,255,255)" ||
+      normalizedValue === homeLottieLightContrast ||
+      normalizedValue === "rgb(0,103,124)"
+    );
+  };
 
-            const showLoaded = () => {
-                frame.classList.add("is-lottie-loaded");
-                frame.classList.remove("is-lottie-fallback");
-            };
+  const markThemeSensitiveLottieShapes = (frame) => {
+    if (!(frame instanceof HTMLElement)) {
+      return;
+    }
 
-            const showFallback = () => {
-                frame.classList.add("is-lottie-fallback");
-                element.dataset.lottieMounted = "failed";
-            };
+    frame
+      .querySelectorAll("svg [fill], svg [stroke], svg [style]")
+      .forEach((shape) => {
+        if (!(shape instanceof SVGElement)) {
+          return;
+        }
 
-            try {
-                const animation = lottie.loadAnimation({
-                    container: element,
-                    renderer: "svg",
-                    loop: true,
-                    autoplay: true,
-                    path: src,
-                    rendererSettings: {
-                        preserveAspectRatio: "xMidYMid meet",
-                        progressiveLoad: false,
-                    },
-                });
+        const fillValue =
+          shape.style.getPropertyValue("fill") ||
+          shape.getAttribute("fill") ||
+          "";
+        const strokeValue =
+          shape.style.getPropertyValue("stroke") ||
+          shape.getAttribute("stroke") ||
+          "";
 
-                animation.addEventListener("DOMLoaded", showLoaded);
-                animation.addEventListener("data_ready", showLoaded);
-                animation.addEventListener("config_ready", showLoaded);
-                animation.addEventListener("data_failed", showFallback);
-            } catch (error) {
-                console.error("Lottie mount error:", error);
-                showFallback();
-            }
+        if (isThemeSensitiveLottieColor(fillValue)) {
+          shape.dataset.lottieThemeFill = "true";
+        }
+
+        if (isThemeSensitiveLottieColor(strokeValue)) {
+          shape.dataset.lottieThemeStroke = "true";
+        }
+      });
+  };
+
+  const syncHomeLottieColors = () => {
+    const targetColor = document.documentElement.classList.contains("dark")
+      ? "#ffffff"
+      : homeLottieLightContrast;
+
+    document.querySelectorAll("[data-lottie-frame]").forEach((frame) => {
+      if (!(frame instanceof HTMLElement)) {
+        return;
+      }
+
+      markThemeSensitiveLottieShapes(frame);
+
+      frame
+        .querySelectorAll(
+          "svg [data-lottie-theme-fill], svg [data-lottie-theme-stroke]",
+        )
+        .forEach((shape) => {
+          if (!(shape instanceof SVGElement)) {
+            return;
+          }
+
+          if (shape.dataset.lottieThemeFill === "true") {
+            shape.setAttribute("fill", targetColor);
+            shape.style.setProperty("fill", targetColor);
+          }
+
+          if (shape.dataset.lottieThemeStroke === "true") {
+            shape.setAttribute("stroke", targetColor);
+            shape.style.setProperty("stroke", targetColor);
+          }
         });
-    };
+    });
+  };
 
-    mountHomeLotties();
-    document.addEventListener("astro:page-load", mountHomeLotties);
+  const mountHomeLotties = () => {
+    document.querySelectorAll("[data-lottie-src]").forEach((element) => {
+      if (
+        !(element instanceof HTMLElement) ||
+        element.dataset.lottieMounted === "true"
+      ) {
+        return;
+      }
+
+      const src = element.dataset.lottieSrc;
+      const frame = element.closest("[data-lottie-frame]");
+
+      if (!src || !(frame instanceof HTMLElement)) {
+        return;
+      }
+
+      element.dataset.lottieMounted = "true";
+
+      const showLoaded = () => {
+        frame.classList.add("is-lottie-loaded");
+        frame.classList.remove("is-lottie-fallback");
+      };
+
+      const showFallback = () => {
+        frame.classList.add("is-lottie-fallback");
+        element.dataset.lottieMounted = "failed";
+      };
+
+      try {
+        const animation = lottie.loadAnimation({
+          container: element,
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          path: src,
+          rendererSettings: {
+            preserveAspectRatio: "xMidYMid meet",
+            progressiveLoad: false,
+          },
+        });
+
+        animation.addEventListener("DOMLoaded", () => {
+          syncHomeLottieColors();
+          showLoaded();
+        });
+        animation.addEventListener("data_ready", showLoaded);
+        animation.addEventListener("config_ready", showLoaded);
+        animation.addEventListener("data_failed", showFallback);
+      } catch (error) {
+        console.error("Lottie mount error:", error);
+        showFallback();
+      }
+    });
+  };
+
+  mountHomeLotties();
+  syncHomeLottieColors();
+
+  if (!window.__homeLottieThemeSyncBound) {
+    window.__homeLottieThemeSyncBound = true;
+    document.addEventListener("themechange", syncHomeLottieColors);
+    document.addEventListener("astro:page-load", () => {
+      mountHomeLotties();
+      syncHomeLottieColors();
+    });
+  }
 </script>
 
 <style>
-    .home-grid {
-        background-image:
-            linear-gradient(
-                to right,
-                color-mix(in srgb, var(--border) 55%, transparent) 1px,
-                transparent 1px
-            ),
-            linear-gradient(
-                to bottom,
-                color-mix(in srgb, var(--border) 55%, transparent) 1px,
-                transparent 1px
-            );
-        background-size: 56px 56px;
-        mask-image: radial-gradient(circle at 50% 20%, black, transparent 72%);
-        opacity: 0.55;
+  .home-grid {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--border) 55%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--border) 55%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 56px 56px;
+    mask-image: radial-gradient(circle at 50% 20%, black, transparent 72%);
+    opacity: 0.55;
+  }
+
+  .home-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    width: fit-content;
+    border: 1px solid color-mix(in srgb, var(--secondary) 30%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--secondary) 10%, transparent);
+    color: var(--secondary);
+    padding: 0.45rem 0.8rem;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .home-badge svg {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .dark-badge {
+    border-color: color-mix(in srgb, var(--secondary) 28%, var(--border));
+    background: color-mix(in srgb, var(--secondary) 9%, var(--card));
+    color: var(--secondary);
+  }
+
+  .conversion-panel {
+    border-color: color-mix(in srgb, var(--secondary) 20%, var(--border));
+    background: color-mix(in srgb, var(--card) 88%, var(--secondary) 5%);
+    color: var(--primary);
+    box-shadow: 0 24px 70px
+      color-mix(in srgb, var(--secondary) 10%, transparent);
+  }
+
+  .conversion-glow {
+    background: color-mix(in srgb, var(--secondary) 18%, transparent);
+  }
+
+  .lottie-card {
+    border-color: var(--border);
+    background: color-mix(in srgb, var(--background) 70%, var(--card));
+  }
+
+  .conversion-step {
+    border-color: var(--border);
+    background: color-mix(in srgb, var(--background) 70%, var(--card));
+    color: var(--primary);
+  }
+
+  .method-section {
+    background: color-mix(in srgb, var(--card) 86%, var(--secondary) 5%);
+    color: var(--primary);
+  }
+
+  .method-glow {
+    background:
+      radial-gradient(
+        circle at 20% 10%,
+        color-mix(in srgb, var(--secondary) 18%, transparent),
+        transparent 35%
+      ),
+      radial-gradient(
+        circle at 80% 60%,
+        color-mix(in srgb, var(--primary) 7%, transparent),
+        transparent 30%
+      );
+  }
+
+  .mini-proof {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    background: var(--background);
+    padding: 0.75rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--primary);
+  }
+
+  .mini-proof svg,
+  .service-icon svg {
+    color: var(--secondary);
+  }
+
+  .metric-card,
+  .service-tile,
+  .project-card,
+  .faq-item {
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--card) 82%, transparent);
+    backdrop-filter: blur(18px);
+  }
+
+  .metric-card {
+    border-radius: 1.5rem;
+    padding: 1.4rem;
+    box-shadow: 0 18px 44px rgb(0 0 0 / 0.04);
+  }
+
+  .service-tile {
+    min-height: 17rem;
+    border-radius: 1.6rem;
+    padding: 1.45rem;
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .service-tile:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--secondary) 45%, var(--border));
+    box-shadow: 0 24px 60px
+      color-mix(in srgb, var(--secondary) 14%, transparent);
+  }
+
+  .service-icon {
+    display: inline-flex;
+    height: 3rem;
+    width: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    background: var(--background);
+  }
+
+  .method-card {
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    background: color-mix(in srgb, var(--background) 68%, transparent);
+    padding: 1.5rem;
+    min-height: 14rem;
+  }
+
+  .method-card span {
+    color: var(--secondary);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+  }
+
+  .method-card h3 {
+    margin-top: 1.75rem;
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: var(--primary);
+  }
+
+  .method-card p {
+    margin-top: 0.8rem;
+    color: var(--muted-foreground);
+    line-height: 1.95;
+    font-size: 15px;
+  }
+
+  .project-card {
+    overflow: hidden;
+    border-radius: 1.5rem;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgb(0 0 0 / 0.08);
+  }
+
+  .project-card img {
+    transition: transform 0.4s ease;
+  }
+
+  .project-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .faq-item {
+    border-radius: 1.35rem;
+    padding: 1.2rem 1.35rem;
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 900;
+    color: var(--primary);
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item p {
+    margin-top: 1rem;
+    color: var(--muted-foreground);
+    line-height: 1.9;
+    font-size: 15px;
+  }
+
+  .cta-main,
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    padding: 0.9rem 1.25rem;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .cta-main {
+    background: var(--secondary);
+    color: black;
+  }
+
+  .cta-secondary {
+    border: 1px solid var(--border);
+    background: var(--background);
+    color: var(--primary);
+  }
+
+  .home-cta-panel {
+    border-color: var(--border);
+    background: color-mix(in srgb, var(--card) 88%, var(--secondary) 4%);
+    color: var(--primary);
+  }
+
+  .home-cta-eyebrow {
+    border-color: color-mix(in srgb, var(--secondary) 28%, var(--border));
+    background: color-mix(in srgb, var(--secondary) 9%, var(--card));
+    color: var(--secondary);
+  }
+
+  .home-lottie-frame {
+    position: relative;
+    display: grid;
+    height: 220px;
+    min-height: 220px;
+    place-items: center;
+    overflow: hidden;
+    color: var(--secondary);
+  }
+
+  .home-lottie,
+  .lottie-fallback {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .home-lottie {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .is-lottie-loaded .home-lottie {
+    opacity: 1;
+  }
+
+  .lottie-fallback {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  .is-lottie-loaded .lottie-fallback {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .home-lottie svg {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+  }
+
+  .lottie-fallback-svg {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    overflow: visible;
+  }
+
+  .fallback-ring,
+  .fallback-orbit {
+    transform-origin: 160px 160px;
+    animation: fallback-spin 7s linear infinite;
+  }
+
+  .fallback-orbit {
+    animation-duration: 11s;
+    animation-direction: reverse;
+  }
+
+  .fallback-bar {
+    transform-origin: center bottom;
+    animation: fallback-grow 1.8s ease-in-out infinite alternate;
+  }
+
+  .fallback-bar-2 {
+    animation-delay: 0.18s;
+  }
+
+  .fallback-bar-3 {
+    animation-delay: 0.34s;
+  }
+
+  .fallback-line,
+  .fallback-check {
+    stroke-dasharray: 260;
+    stroke-dashoffset: 260;
+    animation: fallback-draw 2.4s ease-in-out infinite;
+  }
+
+  @keyframes fallback-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes fallback-grow {
+    from {
+      transform: scaleY(0.55);
+      opacity: 0.55;
     }
 
-    .home-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.55rem;
-        width: fit-content;
-        border: 1px solid color-mix(in srgb, var(--secondary) 30%, transparent);
-        border-radius: 999px;
-        background: color-mix(in srgb, var(--secondary) 10%, transparent);
-        color: var(--secondary);
-        padding: 0.45rem 0.8rem;
-        font-size: 0.68rem;
-        font-weight: 800;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
+    to {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fallback-draw {
+    0% {
+      stroke-dashoffset: 260;
+      opacity: 0.35;
     }
 
-    .home-badge svg {
-        height: 1rem;
-        width: 1rem;
+    45%,
+    75% {
+      stroke-dashoffset: 0;
+      opacity: 1;
     }
 
-    .dark-badge {
-        border-color: color-mix(in srgb, var(--secondary) 28%, var(--border));
-        background: color-mix(in srgb, var(--secondary) 9%, var(--card));
-        color: var(--secondary);
+    100% {
+      stroke-dashoffset: -260;
+      opacity: 0.35;
     }
-
-    .conversion-panel {
-        border-color: color-mix(in srgb, var(--secondary) 20%, var(--border));
-        background: color-mix(in srgb, var(--card) 88%, var(--secondary) 5%);
-        color: var(--primary);
-        box-shadow: 0 24px 70px
-            color-mix(in srgb, var(--secondary) 10%, transparent);
-    }
-
-    .conversion-glow {
-        background: color-mix(in srgb, var(--secondary) 18%, transparent);
-    }
-
-    .lottie-card {
-        border-color: var(--border);
-        background: color-mix(in srgb, var(--background) 70%, var(--card));
-    }
-
-    .conversion-step {
-        border-color: var(--border);
-        background: color-mix(in srgb, var(--background) 70%, var(--card));
-        color: var(--primary);
-    }
-
-    .method-section {
-        background: color-mix(in srgb, var(--card) 86%, var(--secondary) 5%);
-        color: var(--primary);
-    }
-
-    .method-glow {
-        background:
-            radial-gradient(
-                circle at 20% 10%,
-                color-mix(in srgb, var(--secondary) 18%, transparent),
-                transparent 35%
-            ),
-            radial-gradient(
-                circle at 80% 60%,
-                color-mix(in srgb, var(--primary) 7%, transparent),
-                transparent 30%
-            );
-    }
-
-    .mini-proof {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        border-radius: 1rem;
-        border: 1px solid var(--border);
-        background: var(--background);
-        padding: 0.75rem 0.85rem;
-        font-size: 0.8rem;
-        font-weight: 800;
-        color: var(--primary);
-    }
-
-    .mini-proof svg,
-    .service-icon svg {
-        color: var(--secondary);
-    }
-
-    .metric-card,
-    .service-tile,
-    .project-card,
-    .faq-item {
-        border: 1px solid var(--border);
-        background: color-mix(in srgb, var(--card) 82%, transparent);
-        backdrop-filter: blur(18px);
-    }
-
-    .metric-card {
-        border-radius: 1.5rem;
-        padding: 1.4rem;
-        box-shadow: 0 18px 44px rgb(0 0 0 / 0.04);
-    }
-
-    .service-tile {
-        min-height: 17rem;
-        border-radius: 1.6rem;
-        padding: 1.45rem;
-        transition:
-            transform 0.25s ease,
-            border-color 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .service-tile:hover {
-        transform: translateY(-6px);
-        border-color: color-mix(in srgb, var(--secondary) 45%, var(--border));
-        box-shadow: 0 24px 60px
-            color-mix(in srgb, var(--secondary) 14%, transparent);
-    }
-
-    .service-icon {
-        display: inline-flex;
-        height: 3rem;
-        width: 3rem;
-        align-items: center;
-        justify-content: center;
-        border-radius: 1rem;
-        border: 1px solid var(--border);
-        background: var(--background);
-    }
-
-    .method-card {
-        border: 1px solid var(--border);
-        border-radius: 1.5rem;
-        background: color-mix(in srgb, var(--background) 68%, transparent);
-        padding: 1.5rem;
-        min-height: 14rem;
-    }
-
-    .method-card span {
-        color: var(--secondary);
-        font-size: 0.78rem;
-        font-weight: 900;
-        letter-spacing: 0.2em;
-    }
-
-    .method-card h3 {
-        margin-top: 1.75rem;
-        font-size: 1.35rem;
-        font-weight: 900;
-        color: var(--primary);
-    }
-
-    .method-card p {
-        margin-top: 0.8rem;
-        color: var(--muted-foreground);
-        line-height: 1.7;
-        font-size: 0.95rem;
-    }
-
-    .project-card {
-        overflow: hidden;
-        border-radius: 1.5rem;
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .project-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 24px 60px rgb(0 0 0 / 0.08);
-    }
-
-    .project-card img {
-        transition: transform 0.4s ease;
-    }
-
-    .project-card:hover img {
-        transform: scale(1.05);
-    }
-
-    .line-clamp-2 {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .faq-item {
-        border-radius: 1.35rem;
-        padding: 1.2rem 1.35rem;
-    }
-
-    .faq-item summary {
-        cursor: pointer;
-        font-weight: 900;
-        color: var(--primary);
-        list-style: none;
-    }
-
-    .faq-item summary::-webkit-details-marker {
-        display: none;
-    }
-
-    .faq-item p {
-        margin-top: 1rem;
-        color: var(--muted-foreground);
-        line-height: 1.75;
-    }
-
-    .cta-main,
-    .cta-secondary {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 1rem;
-        padding: 0.9rem 1.25rem;
-        font-weight: 900;
-        white-space: nowrap;
-    }
-
-    .cta-main {
-        background: var(--secondary);
-        color: black;
-    }
-
-    .cta-secondary {
-        border: 1px solid var(--border);
-        background: var(--background);
-        color: var(--primary);
-    }
-
-    .home-cta-panel {
-        border-color: var(--border);
-        background: color-mix(in srgb, var(--card) 88%, var(--secondary) 4%);
-        color: var(--primary);
-    }
-
-    .home-cta-eyebrow {
-        border-color: color-mix(in srgb, var(--secondary) 28%, var(--border));
-        background: color-mix(in srgb, var(--secondary) 9%, var(--card));
-        color: var(--secondary);
-    }
-
-    .home-lottie-frame {
-        position: relative;
-        display: grid;
-        height: 220px;
-        min-height: 220px;
-        place-items: center;
-        overflow: hidden;
-        color: var(--secondary);
-    }
-
-    .home-lottie,
-    .lottie-fallback {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        display: grid;
-        place-items: center;
-    }
-
-    .home-lottie {
-        opacity: 0;
-        transition: opacity 0.2s ease;
-    }
-
-    .is-lottie-loaded .home-lottie {
-        opacity: 1;
-    }
-
-    .lottie-fallback {
-        opacity: 1;
-        transition: opacity 0.2s ease;
-    }
-
-    .is-lottie-loaded .lottie-fallback {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    .home-lottie svg {
-        width: 100% !important;
-        height: 100% !important;
-        display: block;
-    }
-
-    .lottie-fallback-svg {
-        width: 100%;
-        max-width: 260px;
-        height: auto;
-        overflow: visible;
-    }
-
-    .fallback-ring,
-    .fallback-orbit {
-        transform-origin: 160px 160px;
-        animation: fallback-spin 7s linear infinite;
-    }
-
-    .fallback-orbit {
-        animation-duration: 11s;
-        animation-direction: reverse;
-    }
-
-    .fallback-bar {
-        transform-origin: center bottom;
-        animation: fallback-grow 1.8s ease-in-out infinite alternate;
-    }
-
-    .fallback-bar-2 {
-        animation-delay: 0.18s;
-    }
-
-    .fallback-bar-3 {
-        animation-delay: 0.34s;
-    }
-
-    .fallback-line,
-    .fallback-check {
-        stroke-dasharray: 260;
-        stroke-dashoffset: 260;
-        animation: fallback-draw 2.4s ease-in-out infinite;
-    }
-
-    @keyframes fallback-spin {
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    @keyframes fallback-grow {
-        from {
-            transform: scaleY(0.55);
-            opacity: 0.55;
-        }
-
-        to {
-            transform: scaleY(1);
-            opacity: 1;
-        }
-    }
-
-    @keyframes fallback-draw {
-        0% {
-            stroke-dashoffset: 260;
-            opacity: 0.35;
-        }
-
-        45%,
-        75% {
-            stroke-dashoffset: 0;
-            opacity: 1;
-        }
-
-        100% {
-            stroke-dashoffset: -260;
-            opacity: 0.35;
-        }
-    }
+  }
 </style>
