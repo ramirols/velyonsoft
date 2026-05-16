@@ -75,6 +75,9 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 		<meta name="generator" content={Astro.generator} />
 		<meta name="author" content="VelyonSoft" />
 		<meta name="theme-color" content="#ffffff" />
+
+		<meta name="msvalidate.01" content="F642000EE1A0DC0A49E6AB0A92B9AAB0" />
+
 		<meta name="application-name" content="VelyonSoft" />
 		<meta name="apple-mobile-web-app-title" content="VelyonSoft" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -333,7 +336,9 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 					const logo = getLoaderLogo();
 					if (!(logo instanceof HTMLImageElement)) return;
 
-					logo.src = document.documentElement.classList.contains("dark")
+					logo.src = document.documentElement.classList.contains(
+						"dark",
+					)
 						? "/velyon-logo-mo.webp"
 						: "/velyon-logo-mc.webp";
 				};
@@ -374,7 +379,8 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 					const elapsed = performance.now() - loaderState.startedAt;
 					const easedProgress =
 						PROGRESS_START +
-						(0.84 - PROGRESS_START) * (1 - Math.exp(-elapsed / 700));
+						(0.84 - PROGRESS_START) *
+							(1 - Math.exp(-elapsed / 700));
 
 					setLoaderProgress(easedProgress);
 					loaderState.progressFrame =
@@ -383,7 +389,8 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 
 				const revealLoader = () => {
 					const loader = getLoader();
-					if (!loader || !loaderState.active || loaderState.visible) return;
+					if (!loader || !loaderState.active || loaderState.visible)
+						return;
 
 					loaderState.visible = true;
 					loaderState.visibleAt = performance.now();
