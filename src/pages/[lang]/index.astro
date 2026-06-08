@@ -1080,9 +1080,17 @@ const schemaData = {
 </BaseLayout>
 
 <script>
-  import lottie from "lottie-web";
-
   const homeLottieLightContrast = "#00677c";
+  const reduceMotionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let lottieModulePromise;
+
+  const getLottie = () => {
+    if (!lottieModulePromise) {
+      lottieModulePromise = import("lottie-web").then((module) => module.default ?? module);
+    }
+
+    return lottieModulePromise;
+  };
 
   const normalizeLottieColor = (value = "") =>
     value.replace(/\s+/g, "").toLowerCase();
@@ -1164,7 +1172,22 @@ const schemaData = {
     });
   };
 
-  const mountHomeLotties = () => {
+  const showAllLottieFallbacks = () => {
+    document.querySelectorAll("[data-lottie-frame]").forEach((frame) => {
+      if (frame instanceof HTMLElement) {
+        frame.classList.add("is-lottie-fallback");
+      }
+    });
+  };
+
+  const mountHomeLotties = async () => {
+    if (reduceMotionMedia.matches) {
+      showAllLottieFallbacks();
+      return;
+    }
+
+    const lottie = await getLottie();
+
     document.querySelectorAll("[data-lottie-src]").forEach((element) => {
       if (
         !(element instanceof HTMLElement) ||
@@ -1219,16 +1242,34 @@ const schemaData = {
     });
   };
 
-  mountHomeLotties();
-  syncHomeLottieColors();
+  const scheduleHomeLotties = () => {
+    const run = () => {
+      mountHomeLotties();
+      syncHomeLottieColors();
+    };
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(run, { timeout: 1600 });
+      return;
+    }
+
+    window.setTimeout(run, 500);
+  };
+
+  scheduleHomeLotties();
 
   if (!window.__homeLottieThemeSyncBound) {
     window.__homeLottieThemeSyncBound = true;
     document.addEventListener("themechange", syncHomeLottieColors);
     document.addEventListener("astro:page-load", () => {
-      mountHomeLotties();
-      syncHomeLottieColors();
+      scheduleHomeLotties();
     });
+
+    if (reduceMotionMedia.addEventListener) {
+      reduceMotionMedia.addEventListener("change", scheduleHomeLotties);
+    } else {
+      reduceMotionMedia.addListener(scheduleHomeLotties);
+    }
   }
 </script>
 
