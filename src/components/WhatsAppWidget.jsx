@@ -20,11 +20,6 @@ const WhatsAppWidget = () => {
         setIsOpen(!isOpen);
     };
 
-    const handleSendMessage = () => {
-        window.open(getWhatsAppLink(), '_blank');
-        setIsOpen(false);
-    };
-
     return (
         <div
             className="group fixed bottom-10 sm:bottom-6 right-4 sm:right-6 z-50 flex items-center gap-2 sm:gap-4"
@@ -40,29 +35,38 @@ const WhatsAppWidget = () => {
                 className="relative isolate rounded-full border border-secondary/30 bg-secondary p-3 text-white shadow-[0_20px_45px_-18px_rgba(30,172,204,0.45)] ring-1 ring-background/70 cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-primary-foreground hover:shadow-[0_24px_50px_-20px_rgba(30,172,204,0.32)] active:scale-95 sm:p-4"
                 onClick={handleWhatsAppClick}
                 aria-label={isOpen ? 'Cerrar chat de WhatsApp' : 'Abrir chat de WhatsApp'}
+                aria-expanded={isOpen}
+                aria-controls="whatsapp-widget-panel"
             >
                 {!isOpen && (
-                    <span className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-secondary/35 [animation:ping_2.2s_cubic-bezier(0,0,0.2,1)_infinite]" />
+                    <span aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-secondary/35 [animation:ping_2.2s_cubic-bezier(0,0,0.2,1)_infinite]" />
                 )}
                 {isOpen ? <X size={24} className="sm:w-8 sm:h-8" /> : <WhatsAppIcon className="h-6 w-6 sm:h-8 sm:w-8" />}
             </button>
 
             {isOpen && (
-                <div className="absolute bottom-16 right-0 w-[280px] rounded-lg border border-secondary/20 bg-card p-4 shadow-[0_28px_60px_-26px_rgba(30,172,204,0.22)] sm:bottom-20 sm:w-80 sm:p-6">
+                <div
+                    id="whatsapp-widget-panel"
+                    role="dialog"
+                    aria-labelledby="whatsapp-widget-title"
+                    className="absolute bottom-16 right-0 w-[280px] rounded-lg border border-secondary/20 bg-card p-4 shadow-[0_28px_60px_-26px_rgba(30,172,204,0.22)] sm:bottom-20 sm:w-80 sm:p-6"
+                >
                     <div className="text-center mb-3 sm:mb-4">
-                        <h3 className="font-semibold text-lg sm:text-xl mb-2 text-foreground">¡Hola! 👋</h3>
+                        <h3 id="whatsapp-widget-title" className="font-semibold text-lg sm:text-xl mb-2 text-foreground">¡Hola!</h3>
                         <p className="text-muted-foreground text-xs sm:text-sm">
                             ¿En qué podemos ayudarte? Estamos aquí para resolver tus dudas sobre nuestros servicios.
                         </p>
                     </div>
-                    <button
-                        type="button"
-                        onClick={handleSendMessage}
+                    <a
+                        href={getWhatsAppLink()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsOpen(false)}
                         className="flex w-full items-center justify-center gap-2 rounded-lg border border-secondary/20 bg-secondary py-2 text-sm text-white shadow-[0_14px_30px_-22px_rgba(30,172,204,0.45)] transition-all cursor-pointer hover:bg-primary hover:text-primary-foreground sm:py-3 sm:text-base"
                     >
                         <WhatsAppIcon className="h-[18px] w-[18px] sm:h-5 sm:w-5" />
                         Iniciar conversación
-                    </button>
+                    </a>
                 </div>
             )}
         </div>
