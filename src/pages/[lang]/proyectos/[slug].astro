@@ -37,18 +37,77 @@ if (!project) {
 
 const { Content } = await render(project);
 
-const projectsHref = lang === "en" ? "/en/projects" : "/es/proyectos";
+const site = "https://www.velyonsoft.com";
+const pageUrl = `${site}/${lang}/proyectos/${project.id}`;
+const projectsHref = `/${lang}/proyectos`;
 const projectsLabel = lang === "en" ? "Projects" : "Proyectos";
 const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
+const pageTitle = `${project.data.title} | ${lang === "es" ? "Caso de estudio" : "Case Study"} | VelyonSoft`;
+const schemaData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebPage",
+            "@id": `${pageUrl}#webpage`,
+            url: pageUrl,
+            name: pageTitle,
+            description: project.data.description,
+            inLanguage: lang,
+            isPartOf: { "@id": `${site}/#website` },
+            mainEntity: { "@id": `${pageUrl}#article` },
+        },
+        {
+            "@type": "Article",
+            "@id": `${pageUrl}#article`,
+            headline: project.data.title,
+            description: project.data.description,
+            image: `${site}${project.data.cover}`,
+            datePublished: project.data.date.toISOString(),
+            dateModified: project.data.date.toISOString(),
+            inLanguage: lang,
+            mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+            author: { "@id": `${site}/#organization` },
+            publisher: { "@id": `${site}/#organization` },
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": `${pageUrl}#breadcrumbs`,
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: lang === "es" ? "Inicio" : "Home",
+                    item: `${site}/${lang}`,
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: projectsLabel,
+                    item: `${site}${projectsHref}`,
+                },
+                {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: project.data.title,
+                    item: pageUrl,
+                },
+            ],
+        },
+    ],
+};
 ---
 
 <BaseLayout
     lang={lang}
-    title={`${project.data.title} | ${lang === "es" ? "Proyectos" : "Projects"}`}
+    title={pageTitle}
     description={project.data.description}
     image={project.data.cover}
     type="article"
 >
+    <Fragment slot="head">
+        <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+    </Fragment>
+
     <article class="max-w-4xl mx-auto mt-28 px-4 pb-16 sm:px-6 md:mt-[130px] flex flex-col gap-5">
         <nav class="mb-4">
             <div class="flex min-w-0 items-center gap-2 text-muted-foreground text-sm">
@@ -71,6 +130,8 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
                 <img
                     src={project.data.cover}
                     alt={project.data.title}
+                    width="1200"
+                    height="800"
                     loading="eager"
                     decoding="async"
                     class="w-full rounded-2xl shadow-sm"
@@ -97,7 +158,9 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
                 <div class="mb-16">
                     <a
                         href={project.data.url}
-                        data-external-link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${ctaLabel}: ${project.data.title}`}
                         class="inline-flex w-full items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition sm:w-auto"
                     >
                         {ctaLabel}
@@ -108,15 +171,3 @@ const ctaLabel = lang === "en" ? "Visit website" : "Visitar sitio";
         }
     </article>
 </BaseLayout>
-
-<script is:inline>
-    const isTouch = window.matchMedia("(pointer: coarse)").matches;
-    const links = document.querySelectorAll("[data-external-link]");
-
-    links.forEach((link) => {
-        if (!isTouch) {
-            link.setAttribute("target", "_blank");
-            link.setAttribute("rel", "noopener noreferrer");
-        }
-    });
-</script>
