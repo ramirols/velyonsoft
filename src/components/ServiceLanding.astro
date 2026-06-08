@@ -564,7 +564,92 @@ const secondaryCta =
             : theme.variant === "corporate"
                 ? { href: "#beneficios-proceso", label: "Ver enfoque del servicio" }
                 : { href: "#beneficios-proceso", label: "Ver beneficios y proceso" };
+
+const site = "https://www.velyonsoft.com";
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || `/${currentLang}`;
+const currentUrl = `${site}${currentPath}`;
+const homeLabel = currentLang === "es" ? "Inicio" : "Home";
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebPage",
+            "@id": `${currentUrl}#webpage`,
+            url: currentUrl,
+            name: title,
+            description,
+            inLanguage: currentLang,
+            isPartOf: { "@id": `${site}/#website` },
+            mainEntity: { "@id": `${currentUrl}#service` },
+        },
+        {
+            "@type": "Service",
+            "@id": `${currentUrl}#service`,
+            name: title,
+            serviceType: title,
+            description,
+            url: currentUrl,
+            provider: { "@id": `${site}/#organization` },
+            areaServed: {
+                "@type": "Country",
+                name: "Peru",
+            },
+            audience: {
+                "@type": "Audience",
+                audienceType: theme.audience,
+            },
+            hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: currentLang === "es" ? "Módulos incluidos" : "Included modules",
+                itemListElement: features.map((feature) => ({
+                    "@type": "Offer",
+                    itemOffered: {
+                        "@type": "Service",
+                        name: feature,
+                    },
+                })),
+            },
+            mainEntityOfPage: { "@id": `${currentUrl}#webpage` },
+        },
+        ...(faq.length > 0
+            ? [
+                {
+                    "@type": "FAQPage",
+                    "@id": `${currentUrl}#faq`,
+                    mainEntity: faq.map((item) => ({
+                        "@type": "Question",
+                        name: item.q,
+                        acceptedAnswer: {
+                            "@type": "Answer",
+                            text: item.a,
+                        },
+                    })),
+                },
+            ]
+            : []),
+        {
+            "@type": "BreadcrumbList",
+            "@id": `${currentUrl}#breadcrumbs`,
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: homeLabel,
+                    item: `${site}/${currentLang}`,
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: title,
+                    item: currentUrl,
+                },
+            ],
+        },
+    ],
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <div class="service-landing" data-service-variant={theme.variant}>
 <section class="relative overflow-hidden bg-background pt-32 pb-16 sm:pt-36 md:pt-40 md:pb-24">
@@ -854,6 +939,7 @@ const secondaryCta =
                 href={`https://wa.me/51936274994?text=${encodeURIComponent(whatsappText)}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Cotizar ${title} por WhatsApp`}
                 class={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-secondary px-5 py-3.5 text-sm font-semibold text-white transition-colors ${theme.accentButton}`}
             >
                 <MessageCircle size={16} />
@@ -1036,6 +1122,7 @@ const secondaryCta =
                     href={`https://wa.me/51936274994?text=${encodeURIComponent(whatsappText)}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`Hablar por WhatsApp sobre ${title}`}
                     class={`inline-flex items-center justify-center gap-2 rounded-2xl bg-secondary px-6 py-3.5 text-sm font-semibold text-white transition-colors ${theme.accentButton}`}
                 >
                     <MessageCircle size={16} />
