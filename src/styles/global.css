@@ -233,6 +233,29 @@ select:-webkit-autofill {
     html {
         @apply font-sans;
         overflow-x: hidden;
+        scroll-padding-top: calc(var(--nav-height) + 2rem);
+    }
+
+    :target,
+    :focus {
+        scroll-margin-top: calc(var(--nav-height) + 2rem);
+        scroll-margin-bottom: 4rem;
+    }
+
+    :focus-visible {
+        outline: 3px solid var(--secondary);
+        outline-offset: 4px;
+    }
+
+    a,
+    button,
+    [role="button"],
+    input,
+    textarea,
+    select,
+    summary {
+        min-height: 24px;
+        min-width: 24px;
     }
 
     img,
@@ -260,6 +283,92 @@ select:-webkit-autofill {
     .font-mono {
         font-family: var(--font-mono);
     }
+}
+
+.skip-link {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 10000;
+    transform: translateY(calc(-100% - 1.5rem));
+    border-radius: 999px;
+    background: var(--secondary);
+    color: var(--secondary-foreground);
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    box-shadow: var(--shadow-lg);
+    transition: transform 180ms var(--ease);
+}
+
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+body.mobile-nav-open {
+    overflow: hidden;
+}
+
+@keyframes scroll-reveal-up {
+    from {
+        opacity: 0;
+        transform: translate3d(0, var(--scroll-reveal-distance, 2.5rem), 0);
+        filter: blur(var(--scroll-reveal-blur, 12px));
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+        filter: blur(0);
+    }
+}
+
+.scroll-reveal-ready [data-scroll-reveal]:not(.scroll-reveal-visible) {
+    opacity: 0;
+    transform: translate3d(0, var(--scroll-reveal-distance, 2.5rem), 0);
+    filter: blur(var(--scroll-reveal-blur, 12px));
+}
+
+.scroll-reveal-ready [data-scroll-reveal].scroll-reveal-visible {
+    animation: scroll-reveal-up 720ms cubic-bezier(0.22, 1, 0.36, 1)
+        var(--scroll-reveal-delay, 0ms) backwards;
+}
+
+[data-scroll-reveal="hero"] {
+    --scroll-reveal-distance: 1.75rem;
+    --scroll-reveal-blur: 10px;
+}
+
+[data-scroll-reveal="soft"] {
+    --scroll-reveal-distance: 1.5rem;
+    --scroll-reveal-blur: 8px;
+}
+
+[data-scroll-reveal-stagger] > [data-scroll-reveal]:nth-child(2) {
+    --scroll-reveal-delay: 80ms;
+}
+
+[data-scroll-reveal-stagger] > [data-scroll-reveal]:nth-child(3) {
+    --scroll-reveal-delay: 160ms;
+}
+
+[data-scroll-reveal-stagger] > [data-scroll-reveal]:nth-child(4) {
+    --scroll-reveal-delay: 240ms;
+}
+
+[data-scroll-reveal-stagger] > [data-scroll-reveal]:nth-child(5) {
+    --scroll-reveal-delay: 320ms;
+}
+
+[data-scroll-reveal-stagger] > [data-scroll-reveal]:nth-child(6) {
+    --scroll-reveal-delay: 400ms;
+}
+
+[data-scroll-reveal-stagger] > [data-scroll-reveal]:nth-child(7) {
+    --scroll-reveal-delay: 480ms;
+}
+
+[data-scroll-reveal-stagger] > [data-scroll-reveal]:nth-child(8) {
+    --scroll-reveal-delay: 560ms;
 }
 
 @keyframes shimmer {
@@ -349,6 +458,15 @@ select:-webkit-autofill {
 
 @media (prefers-reduced-motion: reduce) {
 
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
     .page-loader,
     .page-loader__inner {
         transition: none;
@@ -356,5 +474,12 @@ select:-webkit-autofill {
 
     .page-loader__line span {
         transition: none;
+    }
+
+    [data-scroll-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
     }
 }

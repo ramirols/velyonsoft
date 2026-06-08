@@ -22,6 +22,8 @@ const canonical =
 const alternateEs = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 const alternateEn = `${site}/en${normalizedPath === "/" ? "" : normalizedPath}`;
 const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
+const skipLinkLabel = lang === "es" ? "Saltar al contenido principal" : "Skip to main content";
+const loaderLogoLabel = lang === "es" ? "VelyonSoft cargando" : "VelyonSoft loading";
 ---
 
 <!doctype html>
@@ -185,9 +187,11 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 		<slot name="head" />
 	</head>
 	<body>
+		<a class="skip-link" href="#main-content">{skipLinkLabel}</a>
+
 		<div id="page-loader" class="page-loader" aria-hidden="true">
 			<div class="page-loader__inner">
-				<div class="page-loader__logo" aria-label="VelyonSoft cargando">
+				<div class="page-loader__logo" role="img" aria-label={loaderLogoLabel}>
 					<img
 						id="page-loader-logo"
 						class="page-loader__logo-image"
@@ -206,6 +210,157 @@ const xDefault = `${site}/es${normalizedPath === "/" ? "" : normalizedPath}`;
 
 		<slot />
 		<script is:inline>
+			(() => {
+				if (window.__velyonScrollRevealBound) return;
+				window.__velyonScrollRevealBound = true;
+
+				const REVEAL_SELECTOR = "[data-scroll-reveal]";
+				const AUTO_REVEAL_SELECTOR = "section, article";
+				const READY_CLASS = "scroll-reveal-ready";
+				const VISIBLE_CLASS = "scroll-reveal-visible";
+				const mediaQuery = window.matchMedia(
+					"(prefers-reduced-motion: reduce)",
+				);
+				let intersectionObserver = null;
+				let mutationObserver = null;
+				let frameId = 0;
+
+				const getContentRoot = () =>
+					document.getElementById("main-content") || document.body;
+
+				const getRevealElements = () =>
+					Array.from(document.querySelectorAll(REVEAL_SELECTOR)).filter(
+						(element) => element instanceof HTMLElement,
+					);
+
+				const prepareRevealElements = () => {
+					const contentRoot = getContentRoot();
+					const autoRevealElements = Array.from(
+						contentRoot.querySelectorAll(AUTO_REVEAL_SELECTOR),
+					).filter(
+						(element) =>
+							element instanceof HTMLElement &&
+							!element.hasAttribute("data-scroll-reveal-skip"),
+					);
+
+					autoRevealElements.forEach((element, index) => {
+						if (!element.hasAttribute("data-scroll-reveal")) {
+							element.setAttribute(
+								"data-scroll-reveal",
+								index === 0 ? "hero" : "soft",
+							);
+						}
+					});
+				};
+
+				const stopObservers = () => {
+					intersectionObserver?.disconnect();
+					mutationObserver?.disconnect();
+					intersectionObserver = null;
+					mutationObserver = null;
+
+					if (frameId) {
+						window.cancelAnimationFrame(frameId);
+						frameId = 0;
+					}
+				};
+
+				const showElementsImmediately = () => {
+					document.documentElement.classList.remove(READY_CLASS);
+
+					getRevealElements().forEach((element) => {
+						element.classList.add(VISIBLE_CLASS);
+					});
+				};
+
+				const observeElements = () => {
+					if (!intersectionObserver) return;
+
+					getRevealElements().forEach((element) => {
+						if (!element.classList.contains(VISIBLE_CLASS)) {
+							intersectionObserver.observe(element);
+						}
+					});
+				};
+
+				const scheduleObserve = () => {
+					if (frameId) return;
+
+					frameId = window.requestAnimationFrame(() => {
+						frameId = 0;
+						prepareRevealElements();
+						observeElements();
+					});
+				};
+
+				const setupReveal = () => {
+					stopObservers();
+					prepareRevealElements();
+
+					if (
+						mediaQuery.matches ||
+						!("IntersectionObserver" in window)
+					) {
+						showElementsImmediately();
+						return;
+					}
+
+					document.documentElement.classList.add(READY_CLASS);
+					intersectionObserver = new IntersectionObserver(
+						(entries) => {
+							entries.forEach((entry) => {
+								if (!entry.isIntersecting) return;
+
+								entry.target.classList.add(VISIBLE_CLASS);
+								intersectionObserver?.unobserve(entry.target);
+							});
+						},
+						{
+							rootMargin: "0px 0px -12% 0px",
+							threshold: 0.12,
+						},
+					);
+
+					observeElements();
+
+					mutationObserver = new MutationObserver((mutations) => {
+						const shouldObserveAgain = mutations.some((mutation) =>
+							Array.from(mutation.addedNodes).some(
+								(node) =>
+									node instanceof HTMLElement &&
+									(node.matches(AUTO_REVEAL_SELECTOR) ||
+										node.matches(REVEAL_SELECTOR) ||
+										Boolean(
+											node.querySelector(
+												`${AUTO_REVEAL_SELECTOR}, ${REVEAL_SELECTOR}`,
+											),
+										)),
+							),
+						);
+
+						if (shouldObserveAgain) {
+							scheduleObserve();
+						}
+					});
+
+					mutationObserver.observe(getContentRoot(), {
+						childList: true,
+						subtree: true,
+					});
+				};
+
+				setupReveal();
+
+				if (mediaQuery.addEventListener) {
+					mediaQuery.addEventListener("change", setupReveal);
+				} else {
+					mediaQuery.addListener(setupReveal);
+				}
+
+				document.addEventListener("astro:page-load", setupReveal);
+				window.addEventListener("pageshow", setupReveal);
+			})();
+
 			(() => {
 				if (window.__velyonHeaderScrollBound) return;
 				window.__velyonHeaderScrollBound = true;
