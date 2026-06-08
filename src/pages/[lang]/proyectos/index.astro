@@ -10,6 +10,8 @@ export async function getStaticPaths() {
 }
 
 const { lang } = Astro.params as { lang: Lang };
+const site = "https://www.velyonsoft.com";
+const pageUrl = `${site}/${lang}/proyectos`;
 
 const t = {
     es: {
@@ -38,25 +40,62 @@ const projects = await getCollection("proyectos");
 
 const schemaData = {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": t.pageTitle,
-    "description": t.pageDesc,
-    "url": `https://velyonsoft.com/${lang}/proyectos`,
-    "hasPart": projects.map((p, i) => ({
-        "@type": "CreativeWork",
-        "position": i + 1,
-        "name": p.data.title,
-        "description": p.data.description,
-        "image": p.data.cover,
-        "url": `https://velyonsoft.com/${lang}/proyectos/${p.id}`,
-    })),
+    "@graph": [
+        {
+            "@type": "CollectionPage",
+            "@id": `${pageUrl}#webpage`,
+            name: t.pageTitle,
+            description: t.pageDesc,
+            url: pageUrl,
+            inLanguage: lang,
+            isPartOf: { "@id": `${site}/#website` },
+            mainEntity: { "@id": `${pageUrl}#projects` },
+        },
+        {
+            "@type": "ItemList",
+            "@id": `${pageUrl}#projects`,
+            name: t.pageTitle,
+            itemListElement: projects.map((p, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                url: `${site}/${lang}/proyectos/${p.id}`,
+                item: {
+                    "@type": "CreativeWork",
+                    name: p.data.title,
+                    description: p.data.description,
+                    image: `${site}${p.data.cover}`,
+                    url: `${site}/${lang}/proyectos/${p.id}`,
+                },
+            })),
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": `${pageUrl}#breadcrumbs`,
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: lang === "es" ? "Inicio" : "Home",
+                    item: `${site}/${lang}`,
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: t.eyebrow,
+                    item: pageUrl,
+                },
+            ],
+        },
+    ],
 };
 ---
 
 <BaseLayout lang={lang} title={t.pageTitle} description={t.pageDesc}>
-    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+    <Fragment slot="head">
+        <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+    </Fragment>
 
-    <main class="relative bg-background min-h-screen">
+    <div class="relative bg-background min-h-screen">
 
         <!-- Background -->
         <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
@@ -161,7 +200,7 @@ const schemaData = {
                 ))}
             </ul>
         </div>
-    </main>
+    </div>
 </BaseLayout>
 
 <style>
