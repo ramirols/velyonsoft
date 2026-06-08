@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+Sitemap: https://www.velyonsoft.com/sitemap.xml
 Sitemap: https://www.velyonsoft.com/sitemap-index.xml

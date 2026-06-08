@@ -20,7 +20,7 @@ const {
   description = lang === "es"
     ? "Creamos páginas web, sistemas y automatizaciones para negocios en Perú."
     : "We build websites, systems and automations for businesses in Peru.",
-  image = "/og-default.jpg",
+  image = "/home.webp",
   type = "website",
 } = Astro.props as Props;
 
@@ -37,6 +37,8 @@ const canonical =
 
 const absoluteImage = image.startsWith("http") ? image : `${site}${image}`;
 const ogLocale = lang === "es" ? "es_PE" : "en_US";
+const alternateLocale = lang === "es" ? "en_US" : "es_PE";
+const logoUrl = `${site}/web-app-manifest-512x512.png`;
 
 const ldData = {
     "@context": "https://schema.org",
@@ -46,7 +48,21 @@ const ldData = {
             "@id": `${site}/#organization`,
             name: "VelyonSoft",
             url: site,
-            logo: `${site}/logo.png`,
+            logo: {
+                "@type": "ImageObject",
+                url: logoUrl,
+                width: 512,
+                height: 512,
+            },
+            image: logoUrl,
+            telephone: "+51997676432",
+            contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+51997676432",
+                contactType: lang === "es" ? "ventas" : "sales",
+                areaServed: "PE",
+                availableLanguage: ["es", "en"],
+            },
             sameAs: [
                 "https://facebook.com/velyonsoft",
                 "https://instagram.com/velyonsoft",
@@ -56,12 +72,13 @@ const ldData = {
         },
         {
             "@type": "ProfessionalService",
-            "@id": `${canonical}#service`,
+            "@id": `${site}/#professional-service`,
             name: "VelyonSoft",
-            url: canonical,
+            url: site,
             image: absoluteImage,
             telephone: "+51997676432",
             priceRange: "$$",
+            parentOrganization: { "@id": `${site}/#organization` },
             areaServed: "PE",
             address: {
                 "@type": "PostalAddress",
@@ -89,6 +106,7 @@ const ldData = {
             url: site,
             name: "VelyonSoft",
             inLanguage: lang,
+            publisher: { "@id": `${site}/#organization` },
         },
     ],
 };
@@ -101,6 +119,7 @@ const ldData = {
 
         <meta property="og:type" content={type} />
         <meta property="og:locale" content={ogLocale} />
+        <meta property="og:locale:alternate" content={alternateLocale} />
         <meta property="og:url" content={canonical} />
         <meta property="og:site_name" content="VelyonSoft" />
         <meta property="og:title" content={title} />
@@ -116,6 +135,7 @@ const ldData = {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={absoluteImage} />
+        <meta name="twitter:image:alt" content={title} />
 
         <script type="application/ld+json" set:html={JSON.stringify(ldData)} />
 
