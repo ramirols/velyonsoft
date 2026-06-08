@@ -49,6 +49,7 @@ export default function Header({ lang = "es", pathname = "/" }) {
     const [currentPathname, setCurrentPathname] = useState(pathname);
     const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
     const servicesMenuCloseTimeoutRef = useRef(null);
+    const mobileMenuButtonRef = useRef(null);
 
     const translations = {
         es: {
@@ -58,6 +59,12 @@ export default function Header({ lang = "es", pathname = "/" }) {
             proyectos: "Proyectos",
             contacto: "Contacto",
             toggleTheme: "Cambiar tema",
+            mainNav: "Navegación principal",
+            mobileNav: "Navegación móvil",
+            openMenu: "Abrir menú principal",
+            closeMenu: "Cerrar menú principal",
+            switchToSpanish: "Cambiar idioma a español",
+            switchToEnglish: "Cambiar idioma a inglés",
             servicesEyebrow: "Servicios",
             servicesTitle: "Soluciones para crecer y operar mejor",
             servicesOverview: "Servicios principales",
@@ -70,6 +77,12 @@ export default function Header({ lang = "es", pathname = "/" }) {
             proyectos: "Projects",
             contacto: "Contact",
             toggleTheme: "Toggle theme",
+            mainNav: "Main navigation",
+            mobileNav: "Mobile navigation",
+            openMenu: "Open main menu",
+            closeMenu: "Close main menu",
+            switchToSpanish: "Switch language to Spanish",
+            switchToEnglish: "Switch language to English",
             servicesEyebrow: "Services",
             servicesTitle: "Solutions to grow and operate better",
             servicesOverview: "Core services",
@@ -238,6 +251,36 @@ const featuredServicePlans = {
         };
     }, []);
 
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key !== "Escape") return;
+
+            if (open) {
+                setOpen(false);
+                mobileMenuButtonRef.current?.focus();
+            }
+
+            if (servicesMenuOpen) {
+                clearServicesMenuCloseTimeout();
+                setServicesMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [open, servicesMenuOpen]);
+
+    useEffect(() => {
+        document.body.classList.toggle("mobile-nav-open", open);
+
+        return () => {
+            document.body.classList.remove("mobile-nav-open");
+        };
+    }, [open]);
+
     const switchLang = (newLang) => {
         const url = new URL(window.location.href);
         const segments = url.pathname.split("/").filter(Boolean);
@@ -318,6 +361,7 @@ const featuredServicePlans = {
 
                     <nav
                         className="hidden items-center gap-4 text-sm font-medium text-primary lg:flex xl:gap-8"
+                        aria-label={t.mainNav}
                     >
                         <a
                             href={`/${lang}/sobre-nosotros`}
@@ -342,6 +386,7 @@ const featuredServicePlans = {
                                 aria-expanded={servicesMenuOpen}
                                 aria-controls="services-menu"
                                 aria-haspopup="true"
+                                aria-current={isServicesRoute ? "page" : undefined}
                                 data-active={isServicesActive ? "true" : "false"}
                             >
                                 <Grid3X3 size={18} />
@@ -394,6 +439,7 @@ const featuredServicePlans = {
                                                                 href={getWhatsAppLinkWithMessage(message)}
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
+                                                                aria-label={`${plan.name} - WhatsApp`}
                                                                 className="group/item flex items-start gap-3 rounded-[1.35rem] border border-transparent px-3 py-3 text-primary transition-colors duration-150 hover:border-border/70 hover:bg-muted/65"
                                                             >
                                                                 <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-border/70 bg-card text-secondary">
@@ -480,6 +526,9 @@ const featuredServicePlans = {
                             <button
                                 type="button"
                                 onClick={() => switchLang("es")}
+                                aria-label={t.switchToSpanish}
+                                aria-pressed={lang === "es"}
+                                lang="es"
                                 className={`cursor-pointer rounded-lg px-3 py-1 text-sm font-bold transition-colors duration-150 ${lang === "es"
                                     ? "bg-secondary text-white shadow-sm shadow-secondary/25"
                                     : "bg-transparent text-primary hover:text-secondary"
@@ -491,6 +540,9 @@ const featuredServicePlans = {
                             <button
                                 type="button"
                                 onClick={() => switchLang("en")}
+                                aria-label={t.switchToEnglish}
+                                aria-pressed={lang === "en"}
+                                lang="en"
                                 className={`cursor-pointer rounded-lg px-3 py-1 text-sm font-bold transition-colors duration-150 ${lang === "en"
                                     ? "bg-secondary text-white shadow-sm shadow-secondary/25"
                                     : "bg-transparent text-primary hover:text-secondary"
@@ -504,6 +556,7 @@ const featuredServicePlans = {
                             href={primaryContactHref}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={`${t.contacto} - WhatsApp`}
                             className="flex items-center gap-2 rounded-xl bg-secondary px-5 py-2 font-semibold text-white transition-opacity duration-150 hover:opacity-90"
                         >
                             <Mail size={18} />
@@ -512,10 +565,12 @@ const featuredServicePlans = {
                     </div>
 
                     <button
+                        ref={mobileMenuButtonRef}
                         type="button"
                         onClick={() => setOpen(!open)}
                         aria-expanded={open}
                         aria-controls="mobile-navigation"
+                        aria-label={open ? t.closeMenu : t.openMenu}
                         className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border/70 bg-card/80 text-primary transition-colors duration-150 hover:bg-muted lg:hidden"
                     >
                         {open ? <X size={22} /> : <Menu size={22} />}
@@ -523,8 +578,9 @@ const featuredServicePlans = {
                 </div>
 
                 {open && (
-                    <div
+                    <nav
                         id="mobile-navigation"
+                        aria-label={t.mobileNav}
                         className="mt-2 max-h-[calc(100vh-6.5rem)] overflow-y-auto rounded-2xl border border-border/70 bg-background p-4 text-primary shadow-xl shadow-black/10 backdrop-blur-sm transition-colors duration-150 dark:bg-card sm:p-5 lg:hidden"
                     >
                         <div className="space-y-2">
@@ -594,6 +650,9 @@ const featuredServicePlans = {
                             <button
                                 type="button"
                                 onClick={() => switchLang("es")}
+                                aria-label={t.switchToSpanish}
+                                aria-pressed={lang === "es"}
+                                lang="es"
                                 className={`rounded-lg px-3 py-1 font-bold transition-colors duration-150 ${lang === "es"
                                     ? "bg-secondary text-white shadow-sm shadow-secondary/25"
                                     : "bg-transparent text-primary hover:text-secondary"
@@ -605,6 +664,9 @@ const featuredServicePlans = {
                             <button
                                 type="button"
                                 onClick={() => switchLang("en")}
+                                aria-label={t.switchToEnglish}
+                                aria-pressed={lang === "en"}
+                                lang="en"
                                 className={`rounded-lg px-3 py-1 font-bold transition-colors duration-150 ${lang === "en"
                                     ? "bg-secondary text-white shadow-sm shadow-secondary/25"
                                     : "bg-transparent text-primary hover:text-secondary"
@@ -619,12 +681,13 @@ const featuredServicePlans = {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setOpen(false)}
+                            aria-label={`${t.contacto} - WhatsApp`}
                             className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-secondary py-3 font-semibold text-white transition-opacity duration-150 hover:opacity-90"
                         >
                             <Mail size={18} />
                             {t.contacto}
                         </a>
-                    </div>
+                    </nav>
                 )}
             </div>
         </header>
