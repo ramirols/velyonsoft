@@ -20,48 +20,50 @@ const {
   aria-label={label}
 >
   <canvas class="h-full w-full" aria-hidden="true"></canvas>
-  <noscript
-    ><img
+
+  <noscript>
+    <img
       src="/brand/isotipo-velyon-color.svg"
       width="180"
       height="180"
       alt="Velyon"
-    /></noscript
-  >
+    />
+  </noscript>
 </div>
 
 <script>
   import { DotLottie } from "@lottiefiles/dotlottie-web";
 
-  const reduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
+  function initLotties() {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
-  document
-    .querySelectorAll<HTMLElement>("[data-lottie]:not([data-ready])")
-    .forEach((container) => {
-      container.dataset.ready = "true";
-      const canvas = container.querySelector<HTMLCanvasElement>("canvas");
-      const src = container.dataset.src;
-      if (!canvas || !src) return;
+    document
+      .querySelectorAll<HTMLElement>("[data-lottie]:not([data-ready])")
+      .forEach((container) => {
+        container.dataset.ready = "true";
 
-      const player = new DotLottie({
-        canvas,
-        src,
-        loop: !reduceMotion,
-        autoplay: false,
+        const canvas = container.querySelector<HTMLCanvasElement>("canvas");
+
+        const src = container.dataset.src;
+
+        if (!canvas || !src) return;
+
+        const player = new DotLottie({
+          canvas,
+          src,
+          loop: !reduceMotion,
+          autoplay: true,
+        });
+
+        if (reduceMotion) {
+          player.setFrame(0);
+        }
       });
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            reduceMotion ? player.setFrame(0) : player.play();
-          } else {
-            player.pause();
-          }
-        },
-        { rootMargin: "120px" },
-      );
+  }
 
-      observer.observe(container);
-    });
+  initLotties();
+
+  document.addEventListener("astro:page-load", initLotties);
 </script>
