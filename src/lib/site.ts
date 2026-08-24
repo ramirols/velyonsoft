@@ -1,5 +1,3 @@
-import { Facebook, Instagram, Linkedin } from "@lucide/astro";
-
 export const siteConfig = {
   name: "Velyon",
   legalName: "VelyonSoft",
