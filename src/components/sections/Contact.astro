@@ -1,0 +1,143 @@
+---
+import { Check, Mail, Send } from "@lucide/astro";
+import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/lib/site";
+---
+
+<section
+  id="contacto"
+  class="bg-velyon-deep py-[105px] text-white max-[640px]:py-20"
+>
+  <div
+    class="container-velyon grid grid-cols-[.8fr_1.2fr] items-start gap-24 max-[850px]:grid-cols-1 max-[850px]:gap-12"
+  >
+    <div class="pt-5">
+      <span class="section-label text-velyon-mint">07 — Conversemos</span>
+      <h2
+        class="font-display text-[clamp(2.35rem,4.2vw,3.4rem)] font-bold leading-[1.08] tracking-[-0.052em]"
+      >
+        Cuéntanos qué quieres mejorar en tu negocio.
+      </h2>
+      <p class="my-6 text-[15px] leading-7 text-white/70">
+        En una primera conversación identificaremos el problema, la prioridad y
+        el siguiente paso más útil. Sin tecnicismos innecesarios.
+      </p>
+      <div class="grid gap-3">
+        {
+          [
+            "Respuesta en 1 día hábil",
+            "Diagnóstico inicial sin costo",
+            "Propuesta con alcance claro",
+          ].map((item) => (
+            <span class="flex items-center gap-2.5 text-xs font-semibold">
+              <span class="grid size-[18px] place-items-center rounded-full bg-velyon-mint/15 text-velyon-mint">
+                <Check class="size-3" stroke-width="3" />
+              </span>
+              {item}
+            </span>
+          ))
+        }
+      </div>
+      <a
+        class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-velyon-mint"
+        href={`mailto:${siteConfig.email}`}
+        ><Mail class="size-4" /> {siteConfig.email}</a
+      >
+    </div>
+
+    <form
+      id="contact-form"
+      data-contact-email={siteConfig.email}
+      class="grid gap-4 rounded-[22px] border border-white/20 bg-white/[0.08] p-8 max-[640px]:p-5"
+    >
+      <div class="grid grid-cols-2 gap-4 max-[560px]:grid-cols-1">
+        <label class="grid gap-2 text-[11px] font-bold text-white/85"
+          >Nombre<input
+            class="h-12 rounded-xl border border-white/20 bg-white/10 px-3.5 text-sm text-white outline-none placeholder:text-white/45 focus:border-velyon-mint focus:ring-4 focus:ring-velyon-mint/10"
+            type="text"
+            name="nombre"
+            placeholder="Tu nombre"
+            required
+          /></label
+        >
+        <label class="grid gap-2 text-[11px] font-bold text-white/85"
+          >Negocio<input
+            class="h-12 rounded-xl border border-white/20 bg-white/10 px-3.5 text-sm text-white outline-none placeholder:text-white/45 focus:border-velyon-mint focus:ring-4 focus:ring-velyon-mint/10"
+            type="text"
+            name="negocio"
+            placeholder="Nombre del negocio"
+            required
+          /></label
+        >
+      </div>
+      <label class="grid gap-2 text-[11px] font-bold text-white/85"
+        >Correo o WhatsApp<input
+          class="h-12 rounded-xl border border-white/20 bg-white/10 px-3.5 text-sm text-white outline-none placeholder:text-white/45 focus:border-velyon-mint focus:ring-4 focus:ring-velyon-mint/10"
+          type="text"
+          name="contacto"
+          placeholder="¿Cómo te contactamos?"
+          required
+        /></label
+      >
+      <label class="grid gap-2 text-[11px] font-bold text-white/85"
+        >¿Qué necesitas?
+        <select
+          class="h-12 rounded-xl border border-white/20 bg-white/10 px-3.5 text-sm text-white outline-none focus:border-velyon-mint focus:ring-4 focus:ring-velyon-mint/10"
+          name="necesidad"
+          required
+        >
+          <option class="text-foreground" value="">Selecciona una opción</option
+          >
+          <option class="text-foreground">Presencia digital</option><option
+            class="text-foreground">Ventas por internet</option
+          ><option class="text-foreground">Automatización o sistema</option
+          ><option class="text-foreground">No estoy seguro todavía</option>
+        </select>
+      </label>
+      <label class="grid gap-2 text-[11px] font-bold text-white/85"
+        >Cuéntanos brevemente<textarea
+          class="min-h-28 resize-y rounded-xl border border-white/20 bg-white/10 p-3.5 text-sm text-white outline-none placeholder:text-white/45 focus:border-velyon-mint focus:ring-4 focus:ring-velyon-mint/10"
+          name="mensaje"
+          placeholder="¿Qué problema quieres resolver?"
+          required></textarea></label
+      >
+      <Button type="submit" variant="light" size="lg" className="mt-1 w-full"
+        >Preparar mensaje</Button
+      >
+      <p
+        id="form-status"
+        class="hidden items-center justify-center gap-2 text-center text-[11px] text-velyon-mint"
+        aria-live="polite"
+      >
+        <Send class="size-3.5" /> Se abrirá tu aplicación de correo para enviar el
+        mensaje.
+      </p>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("#contact-form");
+  const status = document.querySelector<HTMLElement>("#form-status");
+  const contactEmail = form?.dataset.contactEmail ?? "";
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+    const subject = `Consulta Velyon — ${data.get("necesidad") ?? "Nueva oportunidad"}`;
+    const body = [
+      `Nombre: ${data.get("nombre") ?? ""}`,
+      `Negocio: ${data.get("negocio") ?? ""}`,
+      `Contacto: ${data.get("contacto") ?? ""}`,
+      `Necesidad: ${data.get("necesidad") ?? ""}`,
+      "",
+      String(data.get("mensaje") ?? ""),
+    ].join("\n");
+
+    status?.classList.remove("hidden");
+    status?.classList.add("flex");
+    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>

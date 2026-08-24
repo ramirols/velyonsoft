@@ -1,0 +1,14 @@
+---
+import { MessageCircle } from "@lucide/astro";
+import { whatsappUrl } from "@/lib/site";
+---
+
+<a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noreferrer"
+  class="fixed bottom-5 right-5 z-40 grid size-14 place-items-center rounded-2xl bg-velyon-mint text-velyon-deep-dark shadow-[0_16px_40px_rgba(20,92,80,.24)] transition hover:-translate-y-1 hover:bg-[#8be7cd] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-velyon-mint/35"
+  aria-label="Conversar con Velyon por WhatsApp"
+>
+  <MessageCircle class="size-6" stroke-width="2.2" aria-hidden="true" />
+</a>

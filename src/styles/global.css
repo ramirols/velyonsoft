@@ -1,0 +1,193 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/manrope";
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f0f0f;
+  --card: #ffffff;
+  --card-foreground: #0f0f0f;
+  --muted: #f5f7f8;
+  --muted-foreground: #626b68;
+  --border: #dfe5e3;
+  --input: #dfe5e3;
+  --ring: #74dfc1;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-velyon-deep: #145c50;
+  --color-velyon-deep-dark: #0d4038;
+  --color-velyon-mint: #74dfc1;
+  --color-velyon-mint-soft: #e4f9f2;
+  --color-velyon-lavender: #bec2f8;
+  --color-velyon-lavender-soft: #eeefff;
+  --color-velyon-indigo: #454a82;
+  --color-velyon-ink: #0f0f0f;
+  --color-velyon-mist: #f5f7f8;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply m-0 bg-background font-sans text-foreground antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  ::selection {
+    background: #74dfc1;
+    color: #0d4038;
+  }
+}
+
+@layer components {
+  .container-velyon {
+    width: min(1180px, calc(100% - 3rem));
+    margin-inline: auto;
+  }
+
+  .section-label {
+    @apply mb-4 block text-[11px] font-extrabold uppercase tracking-[0.12em] text-velyon-deep;
+  }
+
+  .section-title {
+    @apply font-display text-4xl font-bold leading-[1.08] tracking-[-0.052em] text-velyon-ink sm:text-5xl lg:text-[3.35rem];
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2.5 rounded-xl border border-velyon-deep bg-velyon-deep px-5 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-velyon-deep-dark hover:shadow-xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-velyon-mint/30;
+  }
+
+  .btn-light {
+    @apply inline-flex min-h-12 items-center justify-center gap-2.5 rounded-xl border border-white bg-white px-5 text-sm font-bold text-velyon-deep transition hover:-translate-y-0.5 hover:bg-velyon-mint-soft focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/30;
+  }
+
+  .btn-outline {
+    @apply inline-flex min-h-12 items-center justify-center gap-2.5 rounded-xl border border-border bg-white px-5 text-sm font-bold text-foreground transition hover:-translate-y-0.5 hover:border-velyon-deep hover:bg-velyon-mint-soft hover:text-velyon-deep focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-velyon-mint/30;
+  }
+
+  .text-link {
+    @apply inline-flex items-center gap-2 text-sm font-bold text-velyon-deep transition-[gap] hover:gap-3 focus-visible:rounded focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-velyon-mint/25;
+  }
+
+  .check-dot {
+    @apply inline-grid size-[18px] shrink-0 place-items-center rounded-full bg-velyon-mint-soft text-velyon-deep;
+  }
+
+  .soft-shadow {
+    box-shadow: 0 18px 60px rgb(15 50 43 / 10%);
+  }
+
+  .lottie-shell {
+    @apply relative overflow-hidden rounded-[28px];
+    contain: layout paint;
+  }
+
+  .content-prose h2 {
+    @apply mt-12 font-display text-3xl font-bold leading-tight tracking-[-0.04em] text-velyon-ink;
+  }
+
+  .content-prose h3 {
+    @apply mt-8 font-display text-xl font-bold text-velyon-ink;
+  }
+
+  .content-prose p {
+    @apply mt-4 text-[15px] leading-7 text-muted-foreground;
+  }
+
+  .content-prose ul {
+    @apply mt-5 grid gap-3;
+  }
+
+  .content-prose li {
+    @apply relative pl-6 text-sm leading-7 text-[#414946];
+  }
+
+  .content-prose li::before {
+    content: "";
+    @apply absolute left-0 top-[10px] size-2 rounded-full bg-velyon-mint;
+  }
+
+  .nav-dropdown[open] > summary {
+    color: #145c50;
+  }
+
+  .nav-dropdown[open] .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .faq-item[open] .faq-plus {
+    transform: rotate(45deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .container-velyon {
+    width: calc(100% - 1.875rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

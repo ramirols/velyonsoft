@@ -1,0 +1,63 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Diagnóstico",
+    description: "Entendemos tu negocio, el problema y el resultado esperado.",
+  },
+  {
+    number: "02",
+    title: "Propuesta",
+    description: "Definimos alcance, inversión, tiempos y lo que sí incluye.",
+  },
+  {
+    number: "03",
+    title: "Implementación",
+    description: "Diseñamos, construimos y entregamos por etapas visibles.",
+  },
+  {
+    number: "04",
+    title: "Continuidad",
+    description: "Acompañamos con soporte, mantenimiento y mejoras.",
+  },
+];
+---
+
+<section class="container-velyon py-[122px] max-[640px]:py-20">
+  <div class="mx-auto mb-14 max-w-[670px] text-center">
+    <span class="section-label">05 — Cómo trabajamos</span><h2
+      class="section-title"
+    >
+      Un proceso claro desde la primera conversación.
+    </h2><p class="mt-5 text-base leading-7 text-muted-foreground">
+      Menos incertidumbre, avances visibles y decisiones tomadas con contexto.
+    </p>
+  </div>
+  <ol
+    class="relative grid grid-cols-4 max-[800px]:grid-cols-2 max-[800px]:gap-y-10 max-[500px]:grid-cols-1"
+  >
+    <span
+      class="absolute left-[8%] right-[8%] top-5 h-px bg-border max-[800px]:hidden"
+      aria-hidden="true"></span>
+    {
+      steps.map((step, index) => (
+        <li class="relative px-7 text-center max-[500px]:px-0">
+          <span
+            class:list={[
+              "relative z-10 mx-auto mb-6 grid size-11 place-items-center rounded-full border text-[10px] font-extrabold",
+              index === 2
+                ? "border-velyon-deep bg-velyon-deep text-velyon-mint"
+                : "border-border bg-white text-velyon-deep",
+            ]}
+          >
+            {step.number}
+          </span>
+          <h3 class="text-lg font-bold">{step.title}</h3>
+          <p class="mt-2 text-xs leading-6 text-muted-foreground">
+            {step.description}
+          </p>
+        </li>
+      ))
+    }
+  </ol>
+</section>

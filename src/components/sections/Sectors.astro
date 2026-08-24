@@ -1,0 +1,116 @@
+---
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  GraduationCap,
+  HeartPulse,
+} from "@lucide/astro";
+
+const sectors = [
+  {
+    id: "educacion",
+    number: "01",
+    label: "Sector prioritario",
+    title: "Educación",
+    description:
+      "Webs, matrículas, pagos, comunicación y gestión para colegios, academias y centros de formación.",
+    icon: GraduationCap,
+    featured: true,
+    link: "Explorar soluciones educativas",
+    href: "/educacion",
+  },
+  {
+    id: "salud",
+    number: "02",
+    label: "Próximo vertical",
+    title: "Salud",
+    description:
+      "Presencia digital, reservas y seguimiento para consultorios y centros especializados.",
+    icon: HeartPulse,
+    featured: false,
+    href: "/sectores/salud",
+  },
+  {
+    id: "negocios",
+    number: "03",
+    label: "Soluciones flexibles",
+    title: "Negocios y servicios",
+    description:
+      "Ventas, clientes y operación para pymes que necesitan digitalizarse sin complicarse.",
+    icon: BriefcaseBusiness,
+    featured: false,
+    href: "/negocios-y-servicios",
+  },
+];
+---
+
+<section id="sectores" class="bg-velyon-mist py-[120px] max-[640px]:py-20">
+  <div class="container-velyon">
+    <div
+      class="mb-14 grid grid-cols-[1.15fr_.7fr] items-end gap-20 max-[760px]:grid-cols-1 max-[760px]:gap-5"
+    >
+      <div>
+        <span class="section-label">04 — Sectores</span><h2
+          class="section-title"
+        >
+          Tecnología que habla el idioma de cada negocio.
+        </h2>
+      </div>
+      <p class="mb-1 text-[15px] leading-7 text-muted-foreground">
+        La marca es amplia, pero cada propuesta comercial se enfoca en procesos,
+        usuarios y resultados concretos.
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-[1.25fr_.875fr_.875fr] gap-4 max-[900px]:grid-cols-2 max-[620px]:grid-cols-1"
+    >
+      {
+        sectors.map((sector) => (
+          <article
+            id={sector.id}
+            class:list={[
+              "flex min-h-[370px] flex-col justify-between rounded-[22px] border p-7 max-[620px]:min-h-[300px]",
+              sector.featured
+                ? "border-transparent bg-velyon-lavender-soft max-[900px]:col-span-2 max-[620px]:col-span-1"
+                : "border-border bg-white",
+            ]}
+          >
+            <div class="flex justify-between text-[9px] font-extrabold uppercase tracking-[0.08em] text-velyon-deep">
+              <>
+                <span>{sector.label}</span>
+                <span>{sector.number}</span>
+              </>
+            </div>
+            <div>
+              <span
+                class:list={[
+                  "mb-5 grid size-11 place-items-center rounded-xl",
+                  sector.featured
+                    ? "bg-white/70 text-velyon-indigo"
+                    : "bg-velyon-mint-soft text-velyon-deep",
+                ]}
+              >
+                <sector.icon class="size-5" aria-hidden="true" />
+              </span>
+              <h3 class="font-display text-[28px] font-bold tracking-[-0.04em]">
+                {sector.title}
+              </h3>
+              <p class="mt-3 text-sm leading-7 text-muted-foreground">
+                {sector.description}
+              </p>
+              <a
+                class="mt-5 inline-flex items-center gap-2 text-xs font-bold text-velyon-deep"
+                href={sector.href}
+              >
+                {sector.link ??
+                  `Ver soluciones para ${sector.title.toLowerCase()}`}{" "}
+                <ArrowRight class="size-4" />
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

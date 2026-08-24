@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 84" role="img" aria-labelledby="title">
+  <title id="title">Velyon</title>
+  <path d="M10 18 36 69 72 12" fill="none" stroke="#74DFC1" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M36 69 72 12" fill="none" stroke="#145C50" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="72" cy="12" r="7" fill="#BEC2F8"/>
+  <text x="96" y="60" fill="#0F0F0F" font-family="Manrope,Inter,Arial,sans-serif" font-size="56" font-weight="750" letter-spacing="-3">Velyon</text>
+</svg>

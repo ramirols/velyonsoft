@@ -1,0 +1,85 @@
+---
+import DetailPage from "@/components/DetailPage.astro";
+const benefits = [
+  {
+    title: "Confianza desde el primer clic",
+    description:
+      "Una imagen profesional y mensajes claros para que las personas entiendan por qué elegirte.",
+  },
+  {
+    title: "Más consultas calificadas",
+    description:
+      "Rutas de conversión, llamadas a la acción y contacto directo por WhatsApp o formulario.",
+  },
+  {
+    title: "Base preparada para posicionar",
+    description:
+      "Estructura semántica, rendimiento y SEO técnico listos para crecer con contenido.",
+  },
+  {
+    title: "Fácil de mantener",
+    description:
+      "Componentes reutilizables y una arquitectura que permite ampliar la web sin rehacerla.",
+  },
+];
+const steps = [
+  {
+    title: "Diagnóstico y contenido",
+    description:
+      "Definimos público, objetivo, propuesta de valor y páginas necesarias.",
+  },
+  {
+    title: "Diseño y desarrollo",
+    description:
+      "Creamos una experiencia responsive alineada con la identidad del negocio.",
+  },
+  {
+    title: "Publicación y mejora",
+    description:
+      "Medimos, corregimos y acompañamos el crecimiento mediante un plan mensual opcional.",
+  },
+];
+const faqs = [
+  {
+    question: "¿Una landing o una web con varias páginas?",
+    answer:
+      "Depende de la intención de búsqueda y del alcance. Una campaña concreta puede funcionar con landing; una marca con varios servicios suele necesitar páginas internas para explicar y posicionar cada oferta.",
+  },
+  {
+    question: "¿Incluye dominio y hosting?",
+    answer:
+      "Podemos configurarlos e incluir su administración en el plan. El dominio debe quedar registrado a nombre del cliente.",
+  },
+  {
+    question: "¿Podré editar textos e imágenes?",
+    answer:
+      "Sí. Según el proyecto, integramos un gestor de contenido o dejamos secciones editables y documentación clara.",
+  },
+];
+---
+
+<DetailPage
+  eyebrow="Solución · Presencia digital"
+  title="Una web que convierte tu experiencia en"
+  highlight="confianza."
+  description="Diseñamos páginas corporativas, landings y catálogos rápidos, claros y preparados para atraer oportunidades."
+  metaTitle="Diseño de páginas web para negocios en Perú | Velyon"
+  metaDescription="Diseño y desarrollo de páginas web, landing pages y catálogos digitales para negocios en Perú. Webs rápidas, responsive y con SEO técnico."
+  path="/soluciones/presencia-digital"
+  lottieSrc="/animations/presencia-digital.lottie"
+  introTitle="Tu web debe explicar, convencer y facilitar el siguiente paso."
+  intro="No empezamos por una plantilla. Primero entendemos qué necesita encontrar tu cliente, qué objeciones tiene y qué acción debe realizar. Después construimos una experiencia útil alrededor de esa decisión."
+  {benefits}
+  deliverables={[
+    "Arquitectura y estrategia de contenidos",
+    "Diseño responsive",
+    "Desarrollo en Astro",
+    "Integración con WhatsApp y formularios",
+    "SEO técnico inicial",
+    "Analítica y medición",
+    "Optimización de velocidad",
+    "Capacitación y soporte",
+  ]}
+  {steps}
+  {faqs}
+/>

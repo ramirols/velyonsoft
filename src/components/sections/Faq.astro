@@ -1,0 +1,54 @@
+---
+import { Plus } from "@lucide/astro";
+
+const questions = [
+  {
+    question: "¿Velyon solo crea páginas web?",
+    answer:
+      "No. Una web puede ser el punto de partida, pero también desarrollamos comercio digital, automatizaciones y sistemas internos según el problema del negocio.",
+  },
+  {
+    question: "¿Todo se paga mensualmente?",
+    answer:
+      "No. La construcción se cobra como implementación inicial. La mensualidad cubre continuidad: infraestructura, soporte, mantenimiento y mejoras previamente definidas.",
+  },
+  {
+    question: "¿Trabajan únicamente con educación y salud?",
+    answer:
+      "No. Son verticales de especialización. Velyon también atiende negocios y profesionales cuando existe un problema claro que la tecnología puede resolver.",
+  },
+];
+---
+
+<section
+  class="container-velyon grid grid-cols-[.7fr_1.3fr] items-start gap-20 py-[122px] max-[800px]:grid-cols-1 max-[800px]:gap-10 max-[640px]:py-20"
+>
+  <div class="sticky top-28 max-[800px]:static">
+    <span class="section-label">Preguntas frecuentes</span><h2
+      class="section-title text-[42px]"
+    >
+      Antes de comenzar
+    </h2>
+  </div>
+  <div class="border-t border-border">
+    {
+      questions.map((item, index) => (
+        <details
+          class="faq-item border-b border-border py-6"
+          open={index === 0}
+        >
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-5 text-base font-bold">
+            {item.question}
+            <Plus
+              class="faq-plus size-5 shrink-0 text-velyon-deep transition-transform"
+              aria-hidden="true"
+            />
+          </summary>
+          <p class="mr-10 mt-4 max-w-[650px] text-[13px] leading-6 text-muted-foreground">
+            {item.answer}
+          </p>
+        </details>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,83 @@
+---
+import DetailPage from "@/components/DetailPage.astro";
+const benefits = [
+  {
+    title: "Información confiable",
+    description:
+      "Presenta especialidades, profesionales y atención con claridad.",
+  },
+  {
+    title: "Reservas más simples",
+    description:
+      "Reduce llamadas y mensajes repetidos con un flujo de citas ordenado.",
+  },
+  {
+    title: "Seguimiento oportuno",
+    description: "Automatiza recordatorios y comunicaciones autorizadas.",
+  },
+  {
+    title: "Operación visible",
+    description:
+      "Centraliza solicitudes y estados sin exponer información sensible.",
+  },
+];
+const steps = [
+  {
+    title: "Revisión del servicio",
+    description:
+      "Entendemos especialidades, sedes, horarios, canales y requisitos de privacidad.",
+  },
+  {
+    title: "Experiencia del paciente",
+    description: "Diseñamos la información y el flujo de contacto o reserva.",
+  },
+  {
+    title: "Integración gradual",
+    description:
+      "Conectamos herramientas y automatizaciones con controles claros.",
+  },
+];
+const faqs = [
+  {
+    question: "¿La web reemplaza un sistema clínico?",
+    answer:
+      "No necesariamente. Puede integrarse o convivir con el sistema actual; el alcance se define según procesos y obligaciones aplicables.",
+  },
+  {
+    question: "¿Incluye reserva de citas?",
+    answer:
+      "Puede incluirla, desde una solicitud simple hasta integración con una agenda, según la herramienta elegida.",
+  },
+  {
+    question: "¿Cómo tratan los datos sensibles?",
+    answer:
+      "Minimizamos la información solicitada y definimos seguridad, accesos y proveedores según el alcance. La validación legal específica corresponde al responsable del servicio.",
+  },
+];
+---
+
+<DetailPage
+  eyebrow="Sector · Salud"
+  title="Experiencias digitales que simplifican la"
+  highlight="atención."
+  description="Presencia web, reservas y automatizaciones para consultorios y centros especializados que quieren atender con más orden."
+  metaTitle="Páginas web y reservas para consultorios en Perú | Velyon"
+  metaDescription="Páginas web, reservas online y automatizaciones para consultorios y centros de salud en Perú. Atención clara y procesos ordenados."
+  path="/sectores/salud"
+  lottieSrc="/animations/health.lottie"
+  introTitle="Tecnología útil antes, durante y después de la consulta."
+  intro="Diseñamos una primera etapa enfocada en información, contacto y reserva. Las funciones más sensibles se evalúan con especial cuidado y se implementan solo cuando existe el marco adecuado."
+  {benefits}
+  deliverables={[
+    "Web de especialidades",
+    "Perfiles profesionales",
+    "Solicitud o reserva de citas",
+    "Recordatorios",
+    "Preguntas frecuentes",
+    "Integración con WhatsApp",
+    "Analítica",
+    "Soporte mensual",
+  ]}
+  {steps}
+  {faqs}
+/>

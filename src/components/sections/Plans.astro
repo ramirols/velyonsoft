@@ -1,0 +1,146 @@
+---
+import { ArrowRight, Check } from "@lucide/astro";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+
+const plans = [
+  {
+    type: "Proyecto",
+    title: "Implementación",
+    description:
+      "Para lanzar una web, tienda, automatización o sistema con alcance definido.",
+    prefix: "Desde",
+    price: "S/ 1,200",
+    suffix: "pago por proyecto",
+    bullets: [
+      "Diagnóstico y alcance",
+      "Diseño e implementación",
+      "Puesta en funcionamiento",
+    ],
+    cta: "Cotizar proyecto",
+    featured: false,
+  },
+  {
+    type: "Mensual",
+    title: "Continuidad",
+    description:
+      "Para mantener la solución estable, segura y acompañada después del lanzamiento.",
+    prefix: "Desde",
+    price: "S/ 149",
+    suffix: "al mes",
+    bullets: [
+      "Hosting y respaldos",
+      "Soporte con alcance claro",
+      "Mantenimiento preventivo",
+    ],
+    cta: "Elegir continuidad",
+    featured: true,
+  },
+  {
+    type: "A medida",
+    title: "Evolución",
+    description:
+      "Para negocios que necesitan mejoras frecuentes y acompañamiento tecnológico.",
+    prefix: "Inversión",
+    price: "A medida",
+    suffix: "según objetivos",
+    bullets: [
+      "Bolsa mensual de mejoras",
+      "Priorización conjunta",
+      "Seguimiento continuo",
+    ],
+    cta: "Conocer modalidad",
+    featured: false,
+  },
+];
+---
+
+<section id="planes" class="bg-velyon-mist py-[120px] max-[640px]:py-20">
+  <div class="container-velyon">
+    <div
+      class="mb-14 grid grid-cols-[1.15fr_.7fr] items-end gap-20 max-[760px]:grid-cols-1 max-[760px]:gap-5"
+    >
+      <div>
+        <span class="section-label">06 — Modalidades</span><h2
+          class="section-title"
+        >
+          Una inversión inicial y continuidad sin sorpresas.
+        </h2>
+      </div>
+      <p class="mb-1 text-[15px] leading-7 text-muted-foreground">
+        La implementación se cotiza según el alcance. Después eliges el nivel de
+        acompañamiento que necesita tu negocio.
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-3 gap-4 max-[900px]:grid-cols-1 max-[900px]:gap-6"
+    >
+      {
+        plans.map((plan) => (
+          <Card
+            className={`relative h-full bg-white ${plan.featured ? "border-2 border-velyon-deep shadow-xl" : "border-border"}`}
+          >
+            {plan.featured && (
+              <span class="absolute -top-3.5 right-6 rounded-full bg-velyon-mint px-3 py-2 text-[9px] font-extrabold uppercase tracking-[0.08em] text-velyon-deep-dark">
+                Más recomendado
+              </span>
+            )}
+            <CardHeader className="pb-3">
+              <span class="text-[10px] font-extrabold uppercase tracking-[0.1em] text-velyon-deep">
+                {plan.type}
+              </span>
+              <h3 class="font-display text-[27px] font-bold tracking-[-0.04em]">
+                {plan.title}
+              </h3>
+              <p class="min-h-[66px] text-[13px] leading-6 text-muted-foreground">
+                {plan.description}
+              </p>
+            </CardHeader>
+            <CardContent className="flex flex-1 flex-col">
+              <div class="mb-6 border-b border-border pb-6">
+                <span class="block text-[10px] text-muted-foreground">
+                  {plan.prefix}
+                </span>
+                <strong class="my-1 block font-display text-[34px] font-bold tracking-[-0.045em] text-velyon-deep">
+                  {plan.price}
+                </strong>
+                <small class="text-[10px] text-muted-foreground">
+                  {plan.suffix}
+                </small>
+              </div>
+              <ul class="grid gap-3">
+                {plan.bullets.map((bullet) => (
+                  <li class="flex items-center gap-2.5 text-xs text-[#414a47]">
+                    <span class="check-dot">
+                      <Check class="size-3" stroke-width="3" />
+                    </span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+            <CardFooter>
+              <a
+                class={
+                  plan.featured ? "btn-primary w-full" : "btn-outline w-full"
+                }
+                href="#contacto"
+              >
+                {plan.cta} <ArrowRight class="size-4" />
+              </a>
+            </CardFooter>
+          </Card>
+        ))
+      }
+    </div>
+    <p class="mt-5 text-center text-[10px] text-muted-foreground">
+      Precios referenciales. La propuesta final depende del alcance,
+      integraciones y nivel de soporte.
+    </p>
+  </div>
+</section>

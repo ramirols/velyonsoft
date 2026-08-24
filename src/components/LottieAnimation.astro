@@ -1,0 +1,67 @@
+---
+interface Props {
+  src?: string;
+  label?: string;
+  class?: string;
+}
+
+const {
+  src = "/animations/velyon.lottie",
+  label = "Animación de tecnología conectada",
+  class: className = "",
+} = Astro.props;
+---
+
+<div
+  class:list={["lottie-shell", className]}
+  data-lottie
+  data-src={src}
+  role="img"
+  aria-label={label}
+>
+  <canvas class="h-full w-full" aria-hidden="true"></canvas>
+  <noscript
+    ><img
+      src="/brand/isotipo-velyon-color.svg"
+      width="180"
+      height="180"
+      alt="Velyon"
+    /></noscript
+  >
+</div>
+
+<script>
+  import { DotLottie } from "@lottiefiles/dotlottie-web";
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  document
+    .querySelectorAll<HTMLElement>("[data-lottie]:not([data-ready])")
+    .forEach((container) => {
+      container.dataset.ready = "true";
+      const canvas = container.querySelector<HTMLCanvasElement>("canvas");
+      const src = container.dataset.src;
+      if (!canvas || !src) return;
+
+      const player = new DotLottie({
+        canvas,
+        src,
+        loop: !reduceMotion,
+        autoplay: false,
+      });
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            reduceMotion ? player.setFrame(0) : player.play();
+          } else {
+            player.pause();
+          }
+        },
+        { rootMargin: "120px" },
+      );
+
+      observer.observe(container);
+    });
+</script>

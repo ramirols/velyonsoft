@@ -1,0 +1,84 @@
+---
+import DetailPage from "@/components/DetailPage.astro";
+const benefits = [
+  {
+    title: "Menos tareas repetitivas",
+    description:
+      "Automatiza registros, avisos, asignaciones y seguimientos que hoy consumen horas.",
+  },
+  {
+    title: "Información centralizada",
+    description:
+      "Reúne clientes, pedidos y procesos en una fuente clara y accesible.",
+  },
+  {
+    title: "Menos errores",
+    description:
+      "Reduce copias manuales y pasos inconsistentes mediante reglas y validaciones.",
+  },
+  {
+    title: "Visibilidad operativa",
+    description: "Paneles e indicadores para saber qué ocurre y dónde actuar.",
+  },
+];
+const steps = [
+  {
+    title: "Mapeo del proceso",
+    description:
+      "Documentamos el flujo actual, responsables, herramientas y puntos de pérdida.",
+  },
+  {
+    title: "Primera versión útil",
+    description:
+      "Priorizamos la automatización o módulo con mayor impacto y menor riesgo.",
+  },
+  {
+    title: "Adopción y evolución",
+    description:
+      "Acompañamos al equipo, medimos el resultado y ampliamos por etapas.",
+  },
+];
+const faqs = [
+  {
+    question: "¿Construyen un CRM desde cero?",
+    answer:
+      "Solo cuando existe una razón real. Muchas veces es mejor configurar una herramienta existente e integrarla con el proceso del negocio.",
+  },
+  {
+    question: "¿Pueden conectar WhatsApp, formularios y correo?",
+    answer:
+      "Sí, según las APIs y permisos disponibles en cada servicio. Validamos las limitaciones antes de cotizar.",
+  },
+  {
+    question: "¿Cómo se protege la información?",
+    answer:
+      "Definimos accesos por rol, respaldos, proveedores confiables y buenas prácticas de seguridad desde el alcance inicial.",
+  },
+];
+---
+
+<DetailPage
+  eyebrow="Solución · Automatización y sistemas"
+  title="Procesos conectados para trabajar con más"
+  highlight="control."
+  description="Automatizamos tareas y desarrollamos sistemas internos adaptados a la operación real de tu negocio."
+  metaTitle="Automatización y sistemas a medida en Perú | Velyon"
+  metaDescription="Automatización de procesos, CRM, paneles y sistemas a medida para pymes en Perú. Menos tareas manuales, errores y oportunidades perdidas."
+  path="/soluciones/automatizacion-y-sistemas"
+  lottieSrc="/animations/automatizacion-y-sistemas.lottie"
+  introTitle="La tecnología debe quitar fricción, no añadirla."
+  intro="Empezamos por el proceso y el resultado esperado. Luego elegimos entre integrar herramientas existentes, automatizar pasos concretos o desarrollar software a medida."
+  {benefits}
+  deliverables={[
+    "Mapa del proceso actual",
+    "Automatizaciones e integraciones",
+    "CRM configurado",
+    "Panel administrativo",
+    "Roles y permisos",
+    "Reportes operativos",
+    "Documentación",
+    "Soporte evolutivo",
+  ]}
+  {steps}
+  {faqs}
+/>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://velyonsoft.com/sitemap-index.xml

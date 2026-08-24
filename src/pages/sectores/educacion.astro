@@ -1,0 +1,85 @@
+---
+import DetailPage from "@/components/DetailPage.astro";
+const benefits = [
+  {
+    title: "Más matrículas",
+    description:
+      "Una presencia digital clara y rutas simples para consultas, admisión e inscripción.",
+  },
+  {
+    title: "Comunicación ordenada",
+    description:
+      "Centraliza avisos y reduce mensajes dispersos entre familias, docentes y administración.",
+  },
+  {
+    title: "Gestión administrativa",
+    description:
+      "Digitaliza asistencia, pagos, documentos y seguimiento académico por etapas.",
+  },
+  {
+    title: "Experiencia para familias",
+    description:
+      "Facilita el acceso a información importante desde cualquier dispositivo.",
+  },
+];
+const steps = [
+  {
+    title: "Diagnóstico institucional",
+    description:
+      "Revisamos admisión, comunicación, cobranzas y los sistemas que ya utiliza la institución.",
+  },
+  {
+    title: "Módulo prioritario",
+    description:
+      "Implementamos primero la web, matrícula o proceso con mayor impacto.",
+  },
+  {
+    title: "Escalamiento",
+    description:
+      "Sumamos portales, automatizaciones y módulos solo cuando la base está funcionando.",
+  },
+];
+const faqs = [
+  {
+    question: "¿Es un sistema educativo completo?",
+    answer:
+      "La oferta empieza de forma modular. Podemos implementar una web, matrícula o comunicación y ampliar después según validación y presupuesto.",
+  },
+  {
+    question: "¿Sirve para colegios y academias?",
+    answer:
+      "Sí, pero el flujo se adapta a cada institución. Un colegio, academia y centro de formación no gestionan los mismos usuarios ni procesos.",
+  },
+  {
+    question: "¿Se puede cobrar una mensualidad?",
+    answer:
+      "Sí. La implementación cubre la puesta en marcha y la mensualidad puede incluir hosting, seguridad, soporte y mejoras acotadas.",
+  },
+];
+---
+
+<DetailPage
+  eyebrow="Sector · Educación"
+  title="Tecnología educativa que facilita la"
+  highlight="gestión."
+  description="Soluciones digitales para colegios, academias y centros de formación: presencia web, matrícula, pagos, comunicación y procesos internos."
+  metaTitle="Sistemas y páginas web para colegios en Perú | Velyon"
+  metaDescription="Páginas web, matrícula online, pagos, comunicación y sistemas para colegios, academias y centros educativos en Perú."
+  path="/educacion"
+  lottieSrc="/animations/educacion.lottie"
+  introTitle="Una propuesta especializada para la realidad educativa."
+  intro="Esta página es la primera vertical de Velyon. Habla directamente de admisión, estudiantes, familias, docentes, pagos y gestión; no de tecnología genérica."
+  {benefits}
+  deliverables={[
+    "Web institucional",
+    "Admisión y matrícula online",
+    "Portal para familias",
+    "Asistencia y seguimiento",
+    "Pensiones y cobranzas",
+    "Comunicaciones y avisos",
+    "Panel administrativo",
+    "Soporte mensual",
+  ]}
+  {steps}
+  {faqs}
+/>

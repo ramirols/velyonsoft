@@ -1,0 +1,85 @@
+---
+import DetailPage from "@/components/DetailPage.astro";
+const benefits = [
+  {
+    title: "Más oportunidades",
+    description:
+      "Conecta la presencia digital con consultas y seguimiento comercial.",
+  },
+  {
+    title: "Ventas ordenadas",
+    description:
+      "Organiza clientes, cotizaciones, pedidos y estados en un flujo visible.",
+  },
+  {
+    title: "Tiempo recuperado",
+    description:
+      "Automatiza tareas repetitivas que frenan la atención y la operación.",
+  },
+  {
+    title: "Crecimiento por etapas",
+    description:
+      "Empieza con una necesidad prioritaria y amplía la solución sin sobredimensionar.",
+  },
+];
+const steps = [
+  {
+    title: "Objetivo de negocio",
+    description:
+      "Identificamos la pérdida más importante: ventas, tiempo, información o atención.",
+  },
+  {
+    title: "Solución prioritaria",
+    description:
+      "Combinamos web, comercio, automatización o sistema según el caso.",
+  },
+  {
+    title: "Acompañamiento",
+    description:
+      "Medimos resultados y mantenemos una mejora mensual con alcance definido.",
+  },
+];
+const faqs = [
+  {
+    question: "¿Trabajan con negocios pequeños?",
+    answer:
+      "Sí. La propuesta está pensada para pymes que necesitan una primera solución profesional y escalable.",
+  },
+  {
+    question: "¿Debo contratar todos los servicios?",
+    answer:
+      "No. Recomendamos empezar por el problema con mayor impacto y menor complejidad.",
+  },
+  {
+    question: "¿Proyecto único o plan mensual?",
+    answer:
+      "La implementación inicial entrega la solución. El plan mensual es opcional para hosting, soporte, mantenimiento y mejoras continuas.",
+  },
+];
+---
+
+<DetailPage
+  eyebrow="Sector · Negocios y servicios"
+  title="Tecnología práctica para una pyme más"
+  highlight="competitiva."
+  description="Web, ventas, automatización y sistemas para negocios que quieren crecer con más orden y menos tareas manuales."
+  metaTitle="Soluciones digitales para pymes en Perú | Velyon"
+  metaDescription="Páginas web, tiendas, automatización y sistemas para pymes y negocios de servicios en Perú. Soluciones por etapas y soporte mensual."
+  path="/negocios-y-servicios"
+  lottieSrc="/animations/negocios-y-servicios.lottie"
+  introTitle="Una solución proporcional a la etapa de tu negocio."
+  intro="No necesitas contratar un departamento tecnológico. Velyon puede resolver una primera prioridad y acompañar la evolución con un alcance mensual claro."
+  {benefits}
+  deliverables={[
+    "Web o landing comercial",
+    "Catálogo o tienda online",
+    "CRM y seguimiento",
+    "Cotizaciones y pedidos",
+    "Automatizaciones",
+    "Paneles e indicadores",
+    "Integraciones",
+    "Soporte mensual",
+  ]}
+  {steps}
+  {faqs}
+/>

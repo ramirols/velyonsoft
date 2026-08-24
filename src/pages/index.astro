@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import WhatsAppButton from "@/components/WhatsAppButton.astro";
+import Hero from "@/components/sections/Hero.astro";
+import ProblemSelector from "@/components/sections/ProblemSelector.astro";
+import Solutions from "@/components/sections/Solutions.astro";
+import Products from "@/components/sections/Products.astro";
+import Sectors from "@/components/sections/Sectors.astro";
+import Process from "@/components/sections/Process.astro";
+import Plans from "@/components/sections/Plans.astro";
+import Faq from "@/components/sections/Faq.astro";
+import Contact from "@/components/sections/Contact.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<BaseLayout
+  title="Soluciones tecnológicas para negocios en Perú | Velyon"
+  description="Páginas web, tiendas online, automatización y sistemas para negocios en Perú. Tecnología útil para vender más y operar mejor."
+>
+  <Header />
+  <main transition:animate="slide">
+    <Hero />
+    <ProblemSelector />
+    <Solutions />
+    <Products />
+    <Sectors />
+    <Process />
+    <Plans />
+    <Faq />
+    <Contact />
+  </main>
+  <Footer />
+  <WhatsAppButton />
+</BaseLayout>

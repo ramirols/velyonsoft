@@ -1,0 +1,84 @@
+---
+import DetailPage from "@/components/DetailPage.astro";
+const benefits = [
+  {
+    title: "Compra sencilla",
+    description:
+      "Catálogo, búsqueda y checkout pensados para reducir fricción y dudas.",
+  },
+  {
+    title: "Pedidos ordenados",
+    description:
+      "Centraliza productos, clientes, estados y comunicaciones en un flujo claro.",
+  },
+  {
+    title: "Pagos integrados",
+    description:
+      "Conecta los medios de pago adecuados para tu operación y tu público.",
+  },
+  {
+    title: "Decisiones con datos",
+    description:
+      "Mide visitas, productos consultados, conversiones y oportunidades de mejora.",
+  },
+];
+const steps = [
+  {
+    title: "Modelo de venta",
+    description:
+      "Revisamos catálogo, entregas, pagos, inventario y atención actual.",
+  },
+  {
+    title: "Tienda e integraciones",
+    description:
+      "Implementamos la experiencia de compra y conectamos servicios esenciales.",
+  },
+  {
+    title: "Lanzamiento y conversión",
+    description: "Probamos el flujo completo y optimizamos según datos reales.",
+  },
+];
+const faqs = [
+  {
+    question: "¿Necesito una tienda completa?",
+    answer:
+      "No siempre. Si cierras ventas por WhatsApp, un catálogo con consultas puede ser una primera versión más rentable.",
+  },
+  {
+    question: "¿Pueden integrar pagos y delivery?",
+    answer:
+      "Sí, cuando el proveedor elegido ofrece una integración compatible. Los costos de terceros se cotizan por separado.",
+  },
+  {
+    question: "¿La mensualidad incluye cambios ilimitados?",
+    answer:
+      "No. Cada plan especifica soporte y mejoras incluidas; los cambios fuera de alcance se cotizan de forma transparente.",
+  },
+];
+---
+
+<DetailPage
+  eyebrow="Solución · Ventas por internet"
+  title="Convierte tu catálogo en un canal de"
+  highlight="ventas."
+  description="Creamos tiendas y catálogos online que conectan productos, pedidos, pagos y atención sin complicar tu operación."
+  metaTitle="Tiendas online y catálogos digitales en Perú | Velyon"
+  metaDescription="Desarrollo de tiendas virtuales y catálogos digitales para negocios en Perú. Pagos, pedidos, WhatsApp, analítica y soporte."
+  path="/soluciones/ventas-por-internet"
+  lottieSrc="/animations/ventas-por-internet.lottie"
+  introTitle="Vender online es un proceso, no solo una página de productos."
+  intro="Diseñamos el canal digital alrededor de cómo compras, despachas y atiendes. Así evitamos una tienda bonita que genera desorden operativo."
+  {benefits}
+  deliverables={[
+    "Catálogo y fichas de producto",
+    "Carrito o pedido por WhatsApp",
+    "Pasarela de pagos",
+    "Gestión de pedidos",
+    "Opciones de entrega",
+    "Correos transaccionales",
+    "Analítica de comercio",
+    "Soporte y mejoras",
+  ]}
+  {steps}
+  {faqs}
+/>

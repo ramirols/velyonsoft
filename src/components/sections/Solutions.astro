@@ -1,0 +1,166 @@
+---
+import {
+  ArrowRight,
+  Check,
+  MonitorSmartphone,
+  ShoppingBag,
+  Workflow,
+} from "@lucide/astro";
+
+const solutions = [
+  {
+    id: "presencia",
+    number: "01",
+    tag: "Visibilidad",
+    title: "Presencia digital",
+    description:
+      "Sitios modernos que explican tu valor, generan confianza y convierten visitas en oportunidades.",
+    bullets: [
+      "Web corporativa o profesional",
+      "Landing pages y catálogos",
+      "Integración con WhatsApp",
+    ],
+    icon: MonitorSmartphone,
+    cardClass: "bg-velyon-mint-soft text-foreground",
+    mutedClass: "text-[#55615d]",
+    borderClass: "border-velyon-deep/15",
+    href: "/soluciones/presencia-digital",
+  },
+  {
+    id: "ventas",
+    number: "02",
+    tag: "Crecimiento",
+    title: "Ventas por internet",
+    description:
+      "Experiencias de compra que conectan tus productos, pagos, pedidos y atención al cliente.",
+    bullets: [
+      "Tiendas y catálogos online",
+      "Pagos y gestión de pedidos",
+      "Optimización de conversión",
+    ],
+    icon: ShoppingBag,
+    cardClass: "bg-velyon-lavender-soft text-foreground",
+    mutedClass: "text-[#55615d]",
+    borderClass: "border-velyon-deep/15",
+    href: "/soluciones/ventas-por-internet",
+  },
+  {
+    id: "automatizacion",
+    number: "03",
+    tag: "Eficiencia",
+    title: "Automatización y sistemas",
+    description:
+      "Procesos conectados y software adaptado a la forma real en que funciona tu negocio.",
+    bullets: [
+      "Automatización de tareas",
+      "CRM y paneles internos",
+      "Sistemas a medida",
+    ],
+    icon: Workflow,
+    cardClass: "bg-velyon-deep text-white",
+    mutedClass: "text-white/70",
+    borderClass: "border-white/15",
+    href: "/soluciones/automatizacion-y-sistemas",
+  },
+];
+---
+
+<section id="soluciones" class="bg-velyon-mist py-[120px] max-[640px]:py-20">
+  <div class="container-velyon">
+    <div
+      class="mb-14 grid grid-cols-[1.15fr_.7fr] items-end gap-20 max-[760px]:grid-cols-1 max-[760px]:gap-5"
+    >
+      <div>
+        <span class="section-label">02 — Soluciones</span><h2
+          class="section-title"
+        >
+          Una oferta simple, organizada por resultados.
+        </h2>
+      </div>
+      <p class="mb-1 text-[15px] leading-7 text-muted-foreground">
+        No necesitas saber qué herramienta usar. Primero entendemos el objetivo
+        y después diseñamos la solución adecuada.
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-3 gap-4 max-[900px]:mx-auto max-[900px]:max-w-[620px] max-[900px]:grid-cols-1"
+    >
+      {
+        solutions.map((solution) => (
+          <article
+            id={solution.id}
+            class:list={[
+              "flex min-h-[520px] flex-col rounded-[22px] p-8 max-[900px]:min-h-[450px]",
+              solution.cardClass,
+            ]}
+          >
+            <div class="flex items-center justify-between text-[11px] font-extrabold">
+              <span>{solution.number}</span>
+              <span
+                class:list={[
+                  "rounded-full border px-2.5 py-1.5 text-[9px] uppercase tracking-[0.08em]",
+                  solution.borderClass,
+                ]}
+              >
+                {solution.tag}
+              </span>
+            </div>
+            <span
+              class:list={[
+                "mt-14 grid size-11 place-items-center rounded-xl",
+                solution.id === "automatizacion"
+                  ? "bg-white/10 text-velyon-mint"
+                  : "bg-white/70 text-velyon-deep",
+              ]}
+            >
+              <solution.icon
+                class="size-5"
+                stroke-width="1.8"
+                aria-hidden="true"
+              />
+            </span>
+            <h3 class="mt-5 max-w-[270px] font-display text-[31px] font-bold leading-[1.08] tracking-[-0.045em]">
+              {solution.title}
+            </h3>
+            <p
+              class:list={[
+                "mt-4 min-h-[76px] text-sm leading-7",
+                solution.mutedClass,
+              ]}
+            >
+              {solution.description}
+            </p>
+            <ul
+              class:list={[
+                "my-7 grid gap-3 border-y py-5",
+                solution.borderClass,
+              ]}
+            >
+              {solution.bullets.map((bullet) => (
+                <li class="flex items-center gap-2.5 text-xs font-semibold">
+                  <span
+                    class:list={[
+                      "check-dot",
+                      solution.id === "automatizacion" && "bg-velyon-mint",
+                    ]}
+                  >
+                    <Check class="size-3" stroke-width="3" aria-hidden="true" />
+                  </span>
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+            <a
+              class="mt-auto inline-flex items-center gap-2 text-[13px] font-bold"
+              href={solution.href}
+            >
+              Conocer la solución{" "}
+              <ArrowRight class="size-4" aria-hidden="true" />
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

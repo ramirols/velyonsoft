@@ -1,0 +1,282 @@
+---
+import { ArrowRight, Check, ChevronRight } from "@lucide/astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import WhatsAppButton from "@/components/WhatsAppButton.astro";
+import LottieAnimation from "@/components/LottieAnimation.astro";
+import { whatsappUrl } from "@/lib/site";
+
+interface Item {
+  title: string;
+  description: string;
+}
+interface Faq {
+  question: string;
+  answer: string;
+}
+interface Props {
+  eyebrow: string;
+  title: string;
+  highlight: string;
+  description: string;
+  metaTitle: string;
+  metaDescription: string;
+  path: string;
+  introTitle: string;
+  intro: string;
+  benefits: Item[];
+  deliverables: string[];
+  steps: Item[];
+  faqs: Faq[];
+  relatedLabel?: string;
+  lottieSrc?: string;
+}
+
+const props = Astro.props;
+const pageUrl = new URL(props.path, "https://velyon.pe").href;
+const fullName = `${props.title} ${props.highlight}`
+  .replace(/\s+/g, " ")
+  .trim();
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: fullName,
+    description: props.metaDescription,
+    provider: {
+      "@type": "ProfessionalService",
+      name: "Velyon",
+      url: "https://velyon.pe",
+    },
+    areaServed: { "@type": "Country", name: "Perú" },
+    url: pageUrl,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: "https://velyon.pe/",
+      },
+      { "@type": "ListItem", position: 2, name: props.eyebrow, item: pageUrl },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: props.faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={props.metaTitle}
+  description={props.metaDescription}
+  schema={schema}
+>
+  <Header />
+  <main>
+    <section
+      class="overflow-hidden border-b border-border bg-[linear-gradient(135deg,#f7fffc_0%,#ffffff_48%,#f1f1ff_100%)] py-20 sm:py-28"
+    >
+      <div
+        class="container-velyon grid grid-cols-[1.08fr_.72fr] items-center gap-16 max-[820px]:grid-cols-1"
+      >
+        <div>
+          <nav
+            class="mb-8 flex items-center gap-2 text-xs font-semibold text-muted-foreground"
+            aria-label="Migas de pan"
+          >
+            <a href="/" class="hover:text-velyon-deep">Inicio</a><ChevronRight
+              class="size-3.5"
+            /><span>{props.eyebrow}</span>
+          </nav>
+          <span class="section-label">{props.eyebrow}</span>
+          <h1
+            class="max-w-[760px] font-display text-[clamp(2.8rem,5.6vw,4.8rem)] font-bold leading-[.99] tracking-[-0.064em] text-velyon-ink"
+          >
+            {props.title}
+            <em class="font-serif font-medium text-velyon-deep"
+              >{props.highlight}</em>
+          </h1>
+          <p class="mt-7 max-w-[690px] text-lg leading-8 text-muted-foreground">
+            {props.description}
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a class="btn-primary" href="/#contacto"
+              >Solicitar diagnóstico <ArrowRight class="size-4" /></a
+            ><a
+              class="btn-outline"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer">Conversar por WhatsApp</a>
+          </div>
+        </div>
+        <div
+          class="soft-shadow relative mx-auto grid aspect-square w-full max-w-[430px] place-items-center rounded-[40px] border border-velyon-deep/10 bg-white p-9"
+        >
+          <div
+            class="absolute inset-7 rounded-[32px] bg-gradient-to-br from-velyon-mint-soft to-velyon-lavender-soft"
+          >
+          </div>
+          <LottieAnimation
+            class="relative z-10 size-full"
+            src={props.lottieSrc}
+            label={`Animación para ${fullName}`}
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24">
+      <div
+        class="container-velyon grid grid-cols-[.8fr_1.2fr] gap-20 max-[820px]:grid-cols-1 max-[820px]:gap-10"
+      >
+        <div>
+          <span class="section-label">Enfoque Velyon</span><h2
+            class="section-title"
+          >
+            {props.introTitle}
+          </h2><p class="mt-6 text-[15px] leading-7 text-muted-foreground">
+            {props.intro}
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4 max-[600px]:grid-cols-1">
+          {
+            props.benefits.map((item, index) => (
+              <article class="rounded-[22px] border border-border bg-velyon-mist p-6">
+                <>
+                  <span class="text-[10px] font-extrabold text-velyon-deep">
+                    0{index + 1}
+                  </span>
+                  <h3 class="mt-8 font-display text-xl font-bold tracking-tight">
+                    {item.title}
+                  </h3>
+                  <p class="mt-3 text-sm leading-7 text-muted-foreground">
+                    {item.description}
+                  </p>
+                </>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-velyon-deep py-24 text-white">
+      <div
+        class="container-velyon grid grid-cols-[.8fr_1.2fr] gap-20 max-[820px]:grid-cols-1 max-[820px]:gap-10"
+      >
+        <div>
+          <span class="section-label !text-velyon-mint">Qué puede incluir</span
+          ><h2
+            class="font-display text-4xl font-bold leading-tight tracking-[-0.05em]"
+          >
+            Una solución con alcance claro.
+          </h2><p class="mt-5 text-sm leading-7 text-white/65">
+            El alcance final se define después del diagnóstico. Así inviertes
+            solo en lo que aporta valor hoy y dejas una base preparada para
+            crecer.
+          </p>
+        </div>
+        <ul class="grid grid-cols-2 gap-3 max-[600px]:grid-cols-1">
+          {
+            props.deliverables.map((item) => (
+              <li class="flex min-h-16 items-center gap-3 rounded-2xl border border-white/10 bg-white/[.06] px-5 text-sm font-semibold">
+                <span class="check-dot bg-velyon-mint text-velyon-deep">
+                  <Check class="size-3" stroke-width="3" />
+                </span>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="py-24">
+      <div class="container-velyon">
+        <div class="mb-12 max-w-[700px]">
+          <span class="section-label">Proceso</span><h2 class="section-title">
+            De la necesidad a una solución funcionando.
+          </h2>
+        </div><div class="grid grid-cols-3 gap-4 max-[760px]:grid-cols-1">
+          {
+            props.steps.map((step, index) => (
+              <article class="rounded-[22px] border border-border p-7">
+                <>
+                  <span class="grid size-10 place-items-center rounded-xl bg-velyon-mint-soft text-xs font-extrabold text-velyon-deep">
+                    0{index + 1}
+                  </span>
+                  <h3 class="mt-7 font-display text-xl font-bold">
+                    {step.title}
+                  </h3>
+                  <p class="mt-3 text-sm leading-7 text-muted-foreground">
+                    {step.description}
+                  </p>
+                </>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-velyon-mist py-24">
+      <div
+        class="container-velyon grid grid-cols-[.65fr_1.35fr] gap-20 max-[800px]:grid-cols-1 max-[800px]:gap-8"
+      >
+        <div>
+          <span class="section-label">Preguntas frecuentes</span><h2
+            class="section-title"
+          >
+            Antes de empezar.
+          </h2>
+        </div><div class="grid gap-3">
+          {
+            props.faqs.map((faq) => (
+              <details class="faq-item rounded-2xl border border-border bg-white p-5">
+                <>
+                  <summary class="cursor-pointer list-none pr-8 font-display text-base font-bold">
+                    {faq.question}
+                  </summary>
+                  <p class="mt-4 text-sm leading-7 text-muted-foreground">
+                    {faq.answer}
+                  </p>
+                </>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24">
+      <div
+        class="container-velyon rounded-[30px] bg-velyon-lavender-soft px-8 py-14 text-center sm:px-14"
+      >
+        <span class="section-label">Siguiente paso</span><h2
+          class="mx-auto max-w-[760px] font-display text-4xl font-bold leading-tight tracking-[-0.05em]"
+        >
+          Conversemos sobre lo que tu negocio necesita resolver.
+        </h2><p
+          class="mx-auto mt-5 max-w-[650px] text-sm leading-7 text-muted-foreground"
+        >
+          Te ayudamos a priorizar una primera versión útil, medible y
+          sostenible.
+        </p><a class="btn-primary mt-7" href="/#contacto"
+          >Solicitar diagnóstico <ArrowRight class="size-4" /></a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppButton />
+</BaseLayout>

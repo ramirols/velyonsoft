@@ -1,0 +1,205 @@
+---
+import { ArrowRight, ChevronDown, Menu, X } from "@lucide/astro";
+import Logo from "@/components/Logo.astro";
+import { sectorLinks, solutionLinks } from "@/lib/site";
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-border/85 bg-white/92 backdrop-blur-xl"
+>
+  <div
+    class="mx-auto grid h-[76px] w-[min(1240px,calc(100%-2.5rem))] grid-cols-[auto_1fr_auto] items-center gap-8 max-[900px]:grid-cols-[1fr_auto] max-[900px]:w-[calc(100%-2rem)]"
+  >
+    <Logo />
+
+    <nav
+      class="justify-self-center max-[900px]:hidden"
+      aria-label="Navegación principal"
+    >
+      <ul
+        class="flex items-center gap-7 text-sm font-semibold text-[#313936] max-[1040px]:gap-4"
+      >
+        <li>
+          <a class="block py-[27px] transition hover:text-velyon-deep" href="/"
+            >Inicio</a
+          >
+        </li>
+        <li>
+          <details class="nav-dropdown group relative">
+            <summary
+              class="flex cursor-pointer list-none items-center gap-1 py-[27px] transition hover:text-velyon-deep"
+            >
+              Soluciones <ChevronDown
+                class="dropdown-arrow size-3.5 transition-transform"
+                aria-hidden="true"
+              />
+            </summary>
+            <div
+              class="soft-shadow absolute left-1/2 top-[65px] min-w-[350px] -translate-x-1/2 rounded-2xl border border-border bg-white p-2.5"
+            >
+              {
+                solutionLinks.map((item) => (
+                  <a
+                    class="flex items-center gap-3 rounded-xl p-3 transition hover:bg-velyon-mist"
+                    href={item.href}
+                  >
+                    <span class="grid size-9 shrink-0 place-items-center rounded-[10px] bg-velyon-mint-soft text-[11px] font-extrabold text-velyon-deep">
+                      {item.number}
+                    </span>
+                    <span>
+                      <>
+                        <strong class="block text-sm text-foreground">
+                          {item.label}
+                        </strong>
+                        <small class="mt-0.5 block text-xs font-normal text-muted-foreground">
+                          {item.detail}
+                        </small>
+                      </>
+                    </span>
+                  </a>
+                ))
+              }
+            </div>
+          </details>
+        </li>
+        <li>
+          <a
+            class="block py-[27px] transition hover:text-velyon-deep"
+            href="/#productos">Productos</a
+          >
+        </li>
+        <li>
+          <details class="nav-dropdown group relative">
+            <summary
+              class="flex cursor-pointer list-none items-center gap-1 py-[27px] transition hover:text-velyon-deep"
+            >
+              Sectores <ChevronDown
+                class="dropdown-arrow size-3.5 transition-transform"
+                aria-hidden="true"
+              />
+            </summary>
+            <div
+              class="soft-shadow absolute left-1/2 top-[65px] min-w-[310px] -translate-x-1/2 rounded-2xl border border-border bg-white p-2.5"
+            >
+              {
+                sectorLinks.map((item) => (
+                  <a
+                    class="block rounded-xl p-3 transition hover:bg-velyon-mist"
+                    href={item.href}
+                  >
+                    <>
+                      <strong class="block text-sm text-foreground">
+                        {item.label}
+                      </strong>
+                      <small class="mt-0.5 block text-xs font-normal text-muted-foreground">
+                        {item.detail}
+                      </small>
+                    </>
+                  </a>
+                ))
+              }
+            </div>
+          </details>
+        </li>
+        <li>
+          <a
+            class="block py-[27px] transition hover:text-velyon-deep"
+            href="/#planes">Planes</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <a
+      class="btn-primary min-h-10 px-4 text-xs max-[900px]:hidden"
+      href="/#contacto"
+      >Conversemos <ArrowRight class="size-4" aria-hidden="true" /></a
+    >
+
+    <button
+      id="menu-toggle"
+      class="hidden size-11 place-items-center rounded-xl border border-border bg-white text-foreground max-[900px]:grid"
+      type="button"
+      aria-controls="mobile-nav"
+      aria-expanded="false"
+      aria-label="Abrir menú"
+    >
+      <Menu id="menu-open-icon" class="size-5" aria-hidden="true" />
+      <X id="menu-close-icon" class="hidden size-5" aria-hidden="true" />
+    </button>
+
+    <nav
+      id="mobile-nav"
+      class="soft-shadow absolute inset-x-4 top-[68px] hidden rounded-2xl border border-border bg-white p-3"
+      aria-label="Navegación móvil"
+    >
+      <div class="grid gap-1">
+        <a
+          class="rounded-xl px-4 py-3 text-sm font-semibold hover:bg-velyon-mist"
+          href="/">Inicio</a
+        >
+        <p
+          class="px-4 pt-3 text-[10px] font-extrabold uppercase tracking-wider text-velyon-deep"
+        >
+          Soluciones
+        </p>
+        {
+          solutionLinks.map((item) => (
+            <a
+              class="rounded-xl px-4 py-2.5 text-sm font-semibold hover:bg-velyon-mist"
+              href={item.href}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <p
+          class="px-4 pt-3 text-[10px] font-extrabold uppercase tracking-wider text-velyon-deep"
+        >
+          Sectores
+        </p>
+        {
+          sectorLinks.map((item) => (
+            <a
+              class="rounded-xl px-4 py-2.5 text-sm font-semibold hover:bg-velyon-mist"
+              href={item.href}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <a
+          class="rounded-xl px-4 py-3 text-sm font-semibold hover:bg-velyon-mist"
+          href="/#planes">Planes</a
+        >
+        <a class="btn-primary mt-2" href="/#contacto">Solicitar diagnóstico</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>("#menu-toggle");
+  const nav = document.querySelector<HTMLElement>("#mobile-nav");
+  const openIcon = document.querySelector<HTMLElement>("#menu-open-icon");
+  const closeIcon = document.querySelector<HTMLElement>("#menu-close-icon");
+
+  const setOpen = (open: boolean) => {
+    nav?.classList.toggle("hidden", !open);
+    openIcon?.classList.toggle("hidden", open);
+    closeIcon?.classList.toggle("hidden", !open);
+    toggle?.setAttribute("aria-expanded", String(open));
+    toggle?.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+  };
+
+  toggle?.addEventListener("click", () =>
+    setOpen(toggle.getAttribute("aria-expanded") !== "true"),
+  );
+  nav
+    ?.querySelectorAll("a")
+    .forEach((link) => link.addEventListener("click", () => setOpen(false)));
+  document.addEventListener(
+    "keydown",
+    (event) => event.key === "Escape" && setOpen(false),
+  );
+</script>
