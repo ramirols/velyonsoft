@@ -35,7 +35,7 @@ interface Props {
 }
 
 const props = Astro.props;
-const pageUrl = new URL(props.path, "https://velyon.pe").href;
+const pageUrl = new URL(props.path, "https://www.velyonsoft.com").href;
 const fullName = `${props.title} ${props.highlight}`
   .replace(/\s+/g, " ")
   .trim();
@@ -47,8 +47,8 @@ const schema = [
     description: props.metaDescription,
     provider: {
       "@type": "ProfessionalService",
-      name: "Velyon",
-      url: "https://velyon.pe",
+      name: "VelyonSoft",
+      url: "https://www.velyonsoft.com",
     },
     areaServed: { "@type": "Country", name: "Perú" },
     url: pageUrl,
@@ -61,7 +61,7 @@ const schema = [
         "@type": "ListItem",
         position: 1,
         name: "Inicio",
-        item: "https://velyon.pe/",
+        item: "https://www.velyonsoft.com",
       },
       { "@type": "ListItem", position: 2, name: props.eyebrow, item: pageUrl },
     ],
