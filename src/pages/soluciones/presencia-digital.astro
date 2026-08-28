@@ -1,5 +1,7 @@
 ---
 import DetailPage from "@/components/DetailPage.astro";
+import { siteConfig } from "@/lib/site";
+
 const benefits = [
   {
     title: "Confianza desde el primer clic",
@@ -39,44 +41,74 @@ const steps = [
       "Medimos, corregimos y acompañamos el crecimiento mediante un plan mensual opcional.",
   },
 ];
+
 const faqs = [
+  {
+    question: "¿Cuánto cuesta una página web para un negocio en Perú?",
+    answer:
+      "El precio depende de la cantidad de páginas, funciones, contenido e integraciones necesarias. Una landing tiene un alcance diferente a una web corporativa, catálogo digital o tienda virtual. Después del diagnóstico entregamos una propuesta con alcance, plazo y precio definidos.",
+  },
   {
     question: "¿Una landing o una web con varias páginas?",
     answer:
-      "Depende de la intención de búsqueda y del alcance. Una campaña concreta puede funcionar con landing; una marca con varios servicios suele necesitar páginas internas para explicar y posicionar cada oferta.",
+      "Depende del objetivo. Una campaña o servicio concreto puede funcionar con una landing. Una empresa con varios servicios suele necesitar páginas internas para explicar y posicionar cada solución en Google.",
+  },
+  {
+    question: "¿La página estará optimizada para Google?",
+    answer:
+      "Sí. Trabajamos la estructura semántica, títulos, descripciones, URLs, velocidad, sitemap, datos estructurados y experiencia móvil. El crecimiento posterior depende también del contenido, la competencia y la autoridad del dominio.",
   },
   {
     question: "¿Incluye dominio y hosting?",
     answer:
-      "Podemos configurarlos e incluir su administración en el plan. El dominio debe quedar registrado a nombre del cliente.",
+      "Podemos configurar y administrar ambos servicios. El dominio debe quedar registrado a nombre del cliente para asegurar que conserve su propiedad.",
   },
   {
-    question: "¿Podré editar textos e imágenes?",
+    question: "¿Podré editar los textos y las imágenes?",
     answer:
-      "Sí. Según el proyecto, integramos un gestor de contenido o dejamos secciones editables y documentación clara.",
+      "Sí. Según las características del proyecto, podemos integrar un gestor de contenido o dejar componentes editables con documentación clara.",
   },
 ];
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${siteConfig.url}/soluciones/presencia-digital#service`,
+  name: "Diseño de páginas web para negocios",
+  serviceType: "Diseño y desarrollo de páginas web",
+  description:
+    "Diseño y desarrollo de páginas web corporativas, landing pages y catálogos digitales para negocios y empresas en Perú.",
+  url: `${siteConfig.url}/soluciones/presencia-digital`,
+  provider: {
+    "@id": `${siteConfig.url}/#organization`,
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "Perú",
+  },
+};
 ---
 
 <DetailPage
+  schema={serviceSchema}
   eyebrow="Solución · Presencia digital"
   title="Una web que convierte tu experiencia en"
-  highlight="confianza."
-  description="Diseñamos páginas corporativas, landings y catálogos rápidos, claros y preparados para atraer oportunidades."
-  metaTitle="Diseño de páginas web para negocios en Perú | Velyon"
-  metaDescription="Diseño y desarrollo de páginas web, landing pages y catálogos digitales para negocios en Perú. Webs rápidas, responsive y con SEO técnico."
+  highlight="confianza y clientes"
+  description="Diseñamos páginas web corporativas, landings y catálogos digitales para negocios y empresas en Perú que necesitan atraer clientes y presentar sus servicios profesionalmente."
+  metaTitle="Páginas web para negocios en Perú | Velyon"
+  metaDescription="Diseño y desarrollo de páginas web para negocios y empresas en Perú. Webs rápidas, responsive, optimizadas para Google y preparadas para generar consultas."
   path="/soluciones/presencia-digital"
   lottieSrc="/animations/presencia-digital.lottie"
   introTitle="Tu web debe explicar, convencer y facilitar el siguiente paso."
-  intro="No empezamos por una plantilla. Primero entendemos qué necesita encontrar tu cliente, qué objeciones tiene y qué acción debe realizar. Después construimos una experiencia útil alrededor de esa decisión."
+  intro="Una página web profesional debe explicar qué hace tu negocio, generar confianza y facilitar que los visitantes soliciten información. En Velyon analizamos a tu público, tus servicios y tus objetivos antes de diseñar una solución digital preparada para posicionarse y convertir visitas en oportunidades."
   {benefits}
   deliverables={[
     "Arquitectura y estrategia de contenidos",
-    "Diseño responsive",
-    "Desarrollo en Astro",
+    "Diseño responsive para celulares y computadoras",
+    "Desarrollo web rápido y escalable en Astro",
     "Integración con WhatsApp y formularios",
     "SEO técnico inicial",
-    "Analítica y medición",
+    "Configuración de analítica y medición",
     "Optimización de velocidad",
     "Capacitación y soporte",
   ]}

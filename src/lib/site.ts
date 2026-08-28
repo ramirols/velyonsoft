@@ -1,15 +1,17 @@
 export const siteConfig = {
   name: "Velyon",
+  alternateName: "VelyonSoft",
   legalName: "VelyonSoft",
   descriptor: "Estudio de soluciones tecnológicas",
   tagline: "Tecnología para vender y operar mejor.",
   description:
-    "Velyon crea páginas web, tiendas online, automatizaciones y sistemas para negocios que quieren vender más y operar mejor.",
-  url: "https://velyonsoft.com",
+    "Velyon desarrolla páginas web, tiendas online, automatizaciones y sistemas a medida para negocios y empresas en Perú.",
+  url: "https://www.velyonsoft.com",
   email: "contacto@velyonsoft.com",
   location: "Lima, Perú",
   whatsappNumber: "51997676432",
-  whatsappMessage: "Hola Velyon, quisiera conversar sobre una solución para mi negocio.",
+  whatsappMessage:
+    "Hola Velyon, quisiera conversar sobre una solución para mi negocio.",
 } as const;
 
 export const solutionLinks = [
