@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://velyonsoft.com",
+  site: "https://www.velyonsoft.com",
   trailingSlash: "never",
   integrations: [react(), sitemap()],
   vite: {

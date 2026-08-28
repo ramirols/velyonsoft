@@ -69,7 +69,7 @@ export const socialNetworks = [
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/velyonsoft",
+    url: "https://linkedin.com/in/velyonsoft",
     icon: "linkedin",
   },
 ];
