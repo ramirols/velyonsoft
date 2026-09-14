@@ -1,36 +1,145 @@
 ---
-import { DetailPage } from "@/components/DetailPage.astro";
-import { siteConfig } from "@/lib/site";
+import SolutionPage from "@/components/SolutionPage.astro";
+
+const outcomes = [
+    {
+        title: "Alcance directo al bolsillo del usuario",
+        description:
+            "Presencia constante en el dispositivo principal de tus clientes con notificaciones y acceso inmediato.",
+    },
+    {
+        title: "Experiencia nativa y fluida",
+        description:
+            "Aprovechamiento total del hardware del celular (cámara, GPS, notificaciones push, modo offline) con un rendimiento superior.",
+    },
+    {
+        title: "Operación en campo conectada",
+        description:
+            "Permite a tu equipo registrar datos, estados o entregas en tiempo real desde cualquier lugar sin depender de una PC.",
+    },
+    {
+        title: "Evolución por fases",
+        description:
+            "Lanzamos una primera versión con el núcleo funcional indispensable y escalamos de acuerdo con el uso real.",
+    },
+];
+
+const capabilities = [
+    {
+        title: "Desarrollo iOS y Android",
+        description:
+            "Aplicaciones nativas e híbridas optimizadas para ofrecer una experiencia de usuario impecable.",
+    },
+    {
+        title: "Sincronización en tiempo real",
+        description:
+            "Conexión directa con tu base de datos central y sistemas existentes mediante APIs seguras.",
+    },
+    {
+        title: "Notificaciones push",
+        description:
+            "Alertas personalizadas para mantener enganchados a tus usuarios o coordinar a tu equipo en campo.",
+    },
+    {
+        title: "Modo offline",
+        description:
+            "Capacidad de seguir operando y registrando información incluso cuando no hay conexión a internet.",
+    },
+    {
+        title: "Paneles de administración",
+        description:
+            "Web de control para gestionar contenidos, usuarios, analíticas y configuraciones de la app.",
+    },
+    {
+        title: "Publicación en stores",
+        description:
+            "Gestión completa para el despliegue y aprobación en Apple App Store y Google Play Store.",
+    },
+];
+
+const steps = [
+    {
+        title: "Estrategia y alcance",
+        description:
+            "Definimos si necesitas una app nativa, el flujo principal de usuario y los requerimientos técnicos clave.",
+    },
+    {
+        title: "Diseño y desarrollo MVP",
+        description:
+            "Diseñamos las interfaces (UI/UX) y construimos la primera versión funcional lista para pruebas y despliegue.",
+    },
+    {
+        title: "Lanzamiento y evolución",
+        description:
+            "Publicamos en tiendas, monitoreamos el rendimiento y agregamos nuevas capacidades según tus objetivos.",
+    },
+];
+
+const related = [
+    {
+        title: "Software a medida",
+        description:
+            "Paneles web, sistemas de gestión y plataformas robustas para la operación interna de tu negocio.",
+        href: "/soluciones/software-a-medida",
+    },
+    {
+        title: "Automatización de procesos",
+        description:
+            "Conecta formularios, WhatsApp y APIs para eliminar pasos manuales en tu negocio.",
+        href: "/soluciones/automatizacion-de-procesos",
+    },
+    {
+        title: "Soluciones para pymes y servicios",
+        description:
+            "Descubre cómo digitalizamos negocios de servicios y comercios.",
+        href: "/sectores/pymes-y-servicios",
+    },
+];
+
+const faqs = [
+    {
+        question: "¿Conviene desarrollar una app nativa o una web app?",
+        answer: "Depende de tu presupuesto y objetivos. Si necesitas uso intensivo del hardware del celular (GPS, cámara, notificaciones avanzadas o modo offline completo), una app móvil es ideal. Si buscas algo más rápido para empezar, una plataforma web responsiva puede ser el punto de partida.",
+    },
+    {
+        question: "¿Cuánto demora el desarrollo de una aplicación móvil?",
+        answer: "Varía según la complejidad, pero una primera versión funcional (MVP) suele tomar entre 8 y 12 semanas de trabajo estructurado por etapas.",
+    },
+    {
+        question: "¿Ayudan con la subida a Google Play y App Store?",
+        answer: "Sí. Nos encargamos de todo el proceso técnico de configuración, revisión y publicación en ambas tiendas de aplicaciones.",
+    },
+    {
+        question: "¿La aplicación se conecta con mi sistema actual?",
+        answer: "Sí, diseñamos o adaptamos APIs seguras para que tu aplicación móvil comparta información en tiempo real con tus bases de datos o paneles existentes.",
+    },
+];
 ---
 
-<DetailPage
+<SolutionPage
     eyebrow="Solución · Aplicaciones móviles"
-    title="Aplicaciones Móviles a Medida"
-    highlight="Potencia tu alcance"
-    description="Creamos aplicaciones móviles nativas para iOS y Android que se adaptan a las necesidades únicas de tu negocio. Potencia tu alcance con soluciones móviles profesionales."
-    metaTitle="Aplicaciones móviles personalizadas - Velyon"
-    metaDescription="Desarrollo de aplicaciones móviles nativas para iOS y Android que se adaptan a las necesidades únicas de tu negocio. Potencia tu alcance con soluciones móviles profesionales."
-    path="/assets/productos/app-movil-personalizada.webp"
+    title="Aplicaciones móviles que extienden tu negocio al"
+    highlight="celular de tus clientes."
+    description="Diseñamos y desarrollamos aplicaciones móviles nativas y optimizadas para iOS y Android. Conecta con tus usuarios, automatiza la operación en campo y potencia tu alcance."
+    metaTitle="Desarrollo de aplicaciones móviles en Perú | Velyon"
+    metaDescription="Desarrollo de aplicaciones móviles personalizadas para iOS y Android en Perú. Apps empresariales, de servicios, e-commerce y más. Implementación por etapas."
+    path="/soluciones/aplicaciones-moviles"
     lottieSrc="/animations/apps-moviles.lottie"
+    introTitle="Una app debe resolver un problema real, no solo ocupar espacio."
+    intro="Analizamos el contexto de tus usuarios antes de programar una sola línea de código. Evitamos complejidades innecesarias y enfocamos el desarrollo en la utilidad directa, el rendimiento y la facilidad de uso."
+    outcomes={outcomes}
+    capabilities={capabilities}
     deliverables={[
-        "Desarrollo Nativo iOS y Android",
-        "Diseño UI/UX Moderno",
-        "Sincronización en Tiempo Real",
-        "Notificaciones Push",
-        "Integración con Sistemas Existentes",
-        "Modo Offline",
-        "Análisis y Métricas",
-        "Publicación en App Stores"
+        "Desarrollo iOS y Android",
+        "Diseño UI/UX adaptable",
+        "Sincronización vía API",
+        "Notificaciones push",
+        "Modo offline básico",
+        "Panel de control web",
+        "Guías y despliegue en stores",
+        "Documentación técnica",
     ]}
-    {/*videoUrl="/assets/videos/demo-app.mp4"*/}
-    useCases={[
-        { title: "Apps de E-commerce", description: "Tiendas móviles completas con carrito, pagos y gestión de pedidos optimizadas para la venta directa." },
-        { title: "Aplicaciones Empresariales", description: "Herramientas internas para empleados, gestión de tareas, reportes y colaboración en campo." },
-        { title: "Apps de Servicios", description: "Sistemas de reserva, seguimiento de servicios y comunicación directa con clientes." },
-        { title: "Apps de Fidelización", description: "Programas de puntos, recompensas y comunicación exclusiva para miembros VIP." },
-        { title: "Apps de Eventos", description: "Plataformas interactivas para conferencias, ferias y eventos corporativos con agenda, ponentes y networking." },
-        { title: "Apps de Entrega", description: "Seguimiento en tiempo real, notificaciones de estado y gestión de entregas para negocios de comida y paquetería." }
-    ]}
-    pricingUrl="/precios/aplicaciones-moviles"
-    contactUrl="/contacto"
+    steps={steps}
+    related={related}
+    faqs={faqs}
 />

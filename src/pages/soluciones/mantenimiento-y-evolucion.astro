@@ -1,56 +1,142 @@
 ---
-import { DetailPage } from "@/components/DetailPage.astro";
-import { siteConfig } from "@/lib/site";
+import SolutionPage from "@/components/SolutionPage.astro";
+
+const outcomes = [
+    {
+        title: "Estabilidad y disponibilidad constante",
+        description:
+            "Monitoreo proactivo para evitar caídas imprevistas y garantizar que tu web o sistema siempre esté en línea.",
+    },
+    {
+        title: "Seguridad actualizada",
+        description:
+            "Parches periódicos y revisión de vulnerabilidades para proteger los datos de tu empresa y tus clientes.",
+    },
+    {
+        title: "Evolución planificada mes a mes",
+        description:
+            "Un espacio reservado en nuestro equipo para agregar nuevas funcionalidades, optimizar velocidad o rediseñar secciones.",
+    },
+    {
+        title: "Tranquilidad técnica total",
+        description:
+            "Olvídate de romper código al actualizar plugins, dependencias o servidores; nosotros nos encargamos del soporte.",
+    },
+];
+
+const capabilities = [
+    {
+        title: "Soporte técnico prioritario",
+        description:
+            "Canal directo de comunicación para resolver incidencias técnicas con tiempos de respuesta garantizados.",
+    },
+    {
+        title: "Actualizaciones de seguridad",
+        description:
+            "Mantenimiento preventivo de librerías, dependencias, frameworks y certificados SSL.",
+    },
+    {
+        title: "Optimización de rendimiento",
+        description:
+            "Auditorías continuas de velocidad, peso de recursos y tiempos de carga web o de sistemas.",
+    },
+    {
+        title: "Desarrollo evolutivo continuo",
+        description:
+            "Bolsa de horas mensuales orientada a construir nuevas características solicitadas por el negocio.",
+    },
+    {
+        title: "Respaldos automáticos (Backups)",
+        description:
+            "Copias de seguridad programadas de bases de datos y archivos críticos con protocolos de recuperación.",
+    },
+    {
+        title: "Migraciones tecnológicas",
+        description:
+            "Actualización gradual de versiones antiguas de software hacia arquitecturas modernas y seguras.",
+    },
+];
+
+const steps = [
+    {
+        title: "Auditoría inicial",
+        description:
+            "Revisamos el estado actual del código, la infraestructura, los riesgos de seguridad y los puntos de mejora.",
+    },
+    {
+        title: "Estabilización y respaldo",
+        description:
+            "Corregimos errores pendientes, aseguramos copias de respaldo y dejamos el sistema en un punto óptimo.",
+    },
+    {
+        title: "Soporte y evolución mensual",
+        description:
+            "Ejecutamos el plan de mantenimiento acordado y aplicamos mejoras continuas de forma iterativa.",
+    },
+];
+
+const related = [
+    {
+        title: "Software a medida",
+        description:
+            "Construye nuevas plataformas o sistemas robustos desde cero con arquitectura escalable.",
+        href: "/soluciones/software-a-medida",
+    },
+    {
+        title: "Automatización de procesos",
+        description:
+            "Optimiza los flujos internos de tu negocio conectando herramientas digitales.",
+        href: "/soluciones/automatizacion-de-procesos",
+    },
+    {
+        title: "Páginas web profesionales",
+        description:
+            "Desarrollo de sitios corporativos modernos, rápidos y orientados a la conversión.",
+        href: "/soluciones/desarrollo-web",
+    },
+];
+
+const faqs = [
+    {
+        question: "¿Qué incluye un plan de mantenimiento y evolución?",
+        answer: "Incluye monitoreo preventivo, respaldos periódicos, solución de incidencias y una bolsa de horas destinada a implementar mejoras o nuevas funciones cada mes.",
+    },
+    {
+        question:
+            "¿Pueden dar mantenimiento a un sistema que no desarrollaron ustedes?",
+        answer: "Sí, realizamos una auditoría técnica previa para evaluar el estado del código y definir el plan de estabilización necesario antes de asumir el soporte continuo.",
+    },
+    {
+        question: "¿Cómo se gestionan las nuevas solicitudes de cambios?",
+        answer: "Se priorizan dentro de las horas contratadas del mes o se presupuestan de manera transparente si requieren un alcance mayor.",
+    },
+];
 ---
 
-<DetailPage
-    title="Mantenimiento y Evolución de Software - Velyon"
-    description="Asegura la longevidad y rendimiento de tus aplicaciones con nuestros servicios de mantenimiento evolutivo. Actualizaciones, nuevas funcionalidades y soporte continuo."
-    deliverables={[
-        "Soporte Técnico Continuo",
-        "Actualizaciones de Seguridad",
-        "Optimización de Rendimiento",
-        "Nuevas Funcionalidades",
-        "Migración de Tecnología",
-        "Soporte Multi-Plataforma",
-        "Escalabilidad",
-        "Documentación Técnica",
-    ]}
-    path="/assets/productos/mantenimiento-evolutivo.webp"
+<SolutionPage
+    eyebrow="Solución · Mantenimiento y evolución"
+    title="Asegura la estabilidad, seguridad y crecimiento continuo de tu"
+    highlight="software en producción."
+    description="Protege tu inversión digital con planes de soporte técnico, optimización de rendimiento, actualizaciones de seguridad y desarrollo evolutivo constante."
+    metaTitle="Mantenimiento de software y soporte técnico en Perú | Velyon"
+    metaDescription="Servicios de mantenimiento evolutivo, soporte técnico continuo, seguridad y optimización de sistemas web y aplicaciones en Perú."
+    path="/soluciones/mantenimiento-y-evolucion"
     lottieSrc="/animations/mantenimiento-evolutivo.lottie"
-    {/*videoUrl="/assets/videos/demo-mantenimiento.mp4"*/}
-    useCases={[
-        {
-            title: "Soporte Continuo",
-            description:
-                "Mantenemos tus sistemas funcionando sin problemas con monitoreo proactivo y respuesta rápida a incidentes.",
-        },
-        {
-            title: "Actualizaciones de Seguridad",
-            description:
-                "Protege tus datos con parches de seguridad regulares y cumplimiento actualizado.",
-        },
-        {
-            title: "Nuevas Funcionalidades",
-            description:
-                "Mejora continuamente tus aplicaciones con nuevas características solicitadas por los usuarios.",
-        },
-        {
-            title: "Optimización de Rendimiento",
-            description:
-                "Aumenta la velocidad y eficiencia de tus sistemas con optimización de código y base de datos.",
-        },
-        {
-            title: "Migración Tecnológica",
-            description:
-                "Moderniza tus aplicaciones legacy con migraciones seguras a nuevas tecnologías.",
-        },
-        {
-            title: "Escalabilidad Empresarial",
-            description:
-                "Preparamos tus sistemas para crecer contigo, manejando mayor carga y usuarios sin problemas.",
-        },
+    introTitle="Un sistema digital no termina el día que se lanza."
+    intro="El software requiere atención constante frente a cambios en navegadores, brechas de seguridad o nuevas necesidades del negocio. Te acompañamos para que tu plataforma nunca se quede atrás."
+    outcomes={outcomes}
+    capabilities={capabilities}
+    deliverables={[
+        "Auditoría técnica inicial",
+        "Monitoreo de disponibilidad",
+        "Actualizaciones de seguridad",
+        "Backups automáticos programados",
+        "Bolsa de horas para mejoras",
+        "Optimización de velocidad",
+        "Soporte técnico prioritario",
+        "Reportes mensuales de estado",
     ]}
-    pricingUrl="/precios/mantenimiento-evolutivo"
-    contactUrl="/contacto"
+    steps={steps}
+    related={related}
+    faqs={faqs}
 />
