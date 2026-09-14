@@ -1,0 +1,56 @@
+---
+import { DetailPage } from "@/components/DetailPage.astro";
+import { siteConfig } from "@/lib/site";
+---
+
+<DetailPage
+    title="Automatización de Procesos - Velyon"
+    description="Elimina tareas repetitivas y optimiza la eficiencia de tu negocio con nuestras soluciones de automatización personalizadas."
+    deliverables={[
+        "Automatización de Tareas Repetitivas",
+        "Integración entre Aplicaciones",
+        "Notificaciones y Alertas",
+        "Procesos de Aprobación",
+        "Generación Automática de Reportes",
+        "Flujos de Trabajo Personalizados",
+        "Integración con IA",
+        "Reducción de Errores Humanos",
+    ]}
+    path="/assets/productos/automatizacion-procesos.webp"
+    lottieSrc="/animations/automatizacion.lottie"
+    {/*videoUrl="/assets/videos/demo-automatizacion.mp4"*/}
+    useCases={[
+        {
+            title: "Automatización de Marketing",
+            description:
+                "Secuencias de correos, publicaciones en redes y campañas automatizadas.",
+        },
+        {
+            title: "Procesos de Ventas",
+            description:
+                "Captura de leads, seguimiento y notificaciones al equipo comercial.",
+        },
+        {
+            title: "Onboarding de Clientes",
+            description:
+                "Flujos automáticos de bienvenida, configuración y capacitación.",
+        },
+        {
+            title: "Gestión de Tareas",
+            description:
+                "Asignación automática, recordatorios y seguimiento de progreso.",
+        },
+        {
+            title: "Reportes y Analítica",
+            description:
+                "Generación automática de dashboards e informes periódicos.",
+        },
+        {
+            title: "Integraciones Empresariales",
+            description:
+                "Conexión entre sistemas existentes para flujos de trabajo fluidos.",
+        },
+    ]}
+    pricingUrl="/precios/automatizacion-de-procesos"
+    contactUrl="/contacto"
+/>

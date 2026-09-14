@@ -1,9 +1,6 @@
 ---
 import { ArrowRight, Check, ChevronRight } from "@lucide/astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
-import WhatsAppButton from "@/components/WhatsAppButton.astro";
 import LottieAnimation from "@/components/LottieAnimation.astro";
 import { whatsappUrl } from "@/lib/site";
 
@@ -83,7 +80,6 @@ const schema = [
   description={props.metaDescription}
   schema={schema}
 >
-  <Header />
   <main>
     <section
       class="overflow-hidden border-b border-border bg-[linear-gradient(135deg,#f7fffc_0%,#ffffff_48%,#f1f1ff_100%)] py-20 sm:py-28"
@@ -95,7 +91,7 @@ const schema = [
           <nav
             class="mb-8 flex items-center gap-2 text-xs font-semibold text-muted-foreground"
             aria-label="Migas de pan"
-          >
+          >  
             <a href="/" class="hover:text-velyon-deep">Inicio</a><ChevronRight
               class="size-3.5"
             /><span>{props.eyebrow}</span>
@@ -278,6 +274,4 @@ const schema = [
       </div>
     </section>
   </main>
-  <Footer />
-  <WhatsAppButton />
 </BaseLayout>

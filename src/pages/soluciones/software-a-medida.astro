@@ -1,0 +1,149 @@
+---
+import SolutionPage from "@/components/SolutionPage.astro";
+
+const outcomes = [
+  {
+    title: "Una operación más ordenada",
+    description:
+      "Centraliza clientes, pedidos, documentos y estados en un flujo diseñado alrededor de tu forma real de trabajar.",
+  },
+  {
+    title: "Menos tareas manuales",
+    description:
+      "Reduce duplicaciones, seguimiento por hojas sueltas y errores causados por información dispersa.",
+  },
+  {
+    title: "Decisiones con información visible",
+    description:
+      "Convierte los datos operativos en paneles y alertas que ayudan a actuar a tiempo.",
+  },
+  {
+    title: "Una base que puede evolucionar",
+    description:
+      "Construimos por etapas para validar la primera versión antes de ampliar módulos, usuarios e integraciones.",
+  },
+];
+
+const capabilities = [
+  {
+    title: "Paneles administrativos",
+    description:
+      "Control de usuarios, estados, indicadores y tareas desde una interfaz central.",
+  },
+  {
+    title: "Portales privados",
+    description:
+      "Espacios para clientes, proveedores o trabajadores con permisos según su función.",
+  },
+  {
+    title: "Pedidos e inventario",
+    description:
+      "Registro, seguimiento, movimientos de stock y alertas adaptadas a la operación.",
+  },
+  {
+    title: "Sistemas de reservas",
+    description:
+      "Disponibilidad, confirmaciones, reprogramaciones y seguimiento desde un único flujo.",
+  },
+  {
+    title: "Modernización de sistemas",
+    description:
+      "Reemplazo gradual de herramientas antiguas sin interrumpir innecesariamente el trabajo.",
+  },
+  {
+    title: "MVP web y móvil",
+    description:
+      "Primera versión medible para validar un producto o proceso antes de invertir en mayor alcance.",
+  },
+];
+
+const steps = [
+  {
+    title: "Descubrimiento",
+    description:
+      "Mapeamos usuarios, reglas, información y puntos de fricción del proceso actual.",
+  },
+  {
+    title: "Primera versión",
+    description:
+      "Priorizamos el núcleo útil, diseñamos la experiencia y desarrollamos por entregas revisables.",
+  },
+  {
+    title: "Evolución",
+    description:
+      "Medimos el uso, corregimos y añadimos módulos mediante un plan mensual opcional.",
+  },
+];
+
+const related = [
+  {
+    title: "Automatización de procesos",
+    description:
+      "Conecta WhatsApp, formularios, correo y APIs para eliminar pasos repetitivos.",
+    href: "/soluciones/automatizacion-de-procesos",
+  },
+  {
+    title: "Aplicaciones móviles",
+    description:
+      "Extiende la operación al celular cuando el contexto realmente lo necesita.",
+    href: "/soluciones/aplicaciones-moviles",
+  },
+  {
+    title: "Soluciones para pymes y servicios",
+    description:
+      "Casos de uso para negocios que necesitan ordenar clientes, pedidos y atención.",
+    href: "/sectores/pymes-y-servicios",
+  },
+];
+
+const faqs = [
+  {
+    question: "¿Cuándo conviene un sistema a medida?",
+    answer:
+      "Cuando el proceso es importante para el negocio, se repite con frecuencia y las herramientas existentes obligan a trabajar con demasiadas excepciones o pasos manuales.",
+  },
+  {
+    question: "¿Se construye todo desde el inicio?",
+    answer:
+      "No. Recomendamos una primera versión con el flujo principal y ampliaciones posteriores basadas en uso real.",
+  },
+  {
+    question: "¿Puede integrarse con mis herramientas actuales?",
+    answer:
+      "Sí, si esas herramientas ofrecen APIs o mecanismos seguros de integración. La viabilidad se confirma durante el diagnóstico.",
+  },
+  {
+    question: "¿Incluye mantenimiento?",
+    answer:
+      "La implementación puede complementarse con un plan mensual para soporte, seguridad, monitoreo y evolución planificada.",
+  },
+];
+---
+
+<SolutionPage
+  eyebrow="Solución · Software a medida"
+  title="Software que se adapta a la forma en que tu negocio"
+  highlight="realmente opera."
+  description="Diseñamos sistemas web, paneles administrativos y portales que centralizan procesos, reducen trabajo manual y pueden crecer por etapas."
+  metaTitle="Desarrollo de software a medida en Perú | Velyon"
+  metaDescription="Desarrollo de software a medida, paneles administrativos, portales y sistemas empresariales para negocios en Perú. Implementación gradual y soporte."
+  path="/soluciones/software-a-medida"
+  lottieSrc="/animations/software-a-medida.lottie"
+  introTitle="No necesitas más funciones. Necesitas un flujo que funcione."
+  intro="Antes de escribir código, revisamos quién usa el sistema, qué información necesita y dónde se producen retrasos o errores. Con esa evidencia definimos una primera versión pequeña, útil y sostenible."
+  outcomes={outcomes}
+  capabilities={capabilities}
+  deliverables={[
+    "Arquitectura funcional",
+    "Diseño UX/UI",
+    "Panel administrativo",
+    "Roles y permisos",
+    "Base de datos",
+    "Integraciones acordadas",
+    "Despliegue y monitoreo",
+    "Documentación y capacitación",
+  ]}
+  steps={steps}
+  related={related}
+  faqs={faqs}
+/>

@@ -1,0 +1,56 @@
+---
+import { DetailPage } from "@/components/DetailPage.astro";
+import { siteConfig } from "@/lib/site";
+---
+
+<DetailPage
+    title="Mantenimiento y Evolución de Software - Velyon"
+    description="Asegura la longevidad y rendimiento de tus aplicaciones con nuestros servicios de mantenimiento evolutivo. Actualizaciones, nuevas funcionalidades y soporte continuo."
+    deliverables={[
+        "Soporte Técnico Continuo",
+        "Actualizaciones de Seguridad",
+        "Optimización de Rendimiento",
+        "Nuevas Funcionalidades",
+        "Migración de Tecnología",
+        "Soporte Multi-Plataforma",
+        "Escalabilidad",
+        "Documentación Técnica",
+    ]}
+    path="/assets/productos/mantenimiento-evolutivo.webp"
+    lottieSrc="/animations/mantenimiento-evolutivo.lottie"
+    {/*videoUrl="/assets/videos/demo-mantenimiento.mp4"*/}
+    useCases={[
+        {
+            title: "Soporte Continuo",
+            description:
+                "Mantenemos tus sistemas funcionando sin problemas con monitoreo proactivo y respuesta rápida a incidentes.",
+        },
+        {
+            title: "Actualizaciones de Seguridad",
+            description:
+                "Protege tus datos con parches de seguridad regulares y cumplimiento actualizado.",
+        },
+        {
+            title: "Nuevas Funcionalidades",
+            description:
+                "Mejora continuamente tus aplicaciones con nuevas características solicitadas por los usuarios.",
+        },
+        {
+            title: "Optimización de Rendimiento",
+            description:
+                "Aumenta la velocidad y eficiencia de tus sistemas con optimización de código y base de datos.",
+        },
+        {
+            title: "Migración Tecnológica",
+            description:
+                "Moderniza tus aplicaciones legacy con migraciones seguras a nuevas tecnologías.",
+        },
+        {
+            title: "Escalabilidad Empresarial",
+            description:
+                "Preparamos tus sistemas para crecer contigo, manejando mayor carga y usuarios sin problemas.",
+        },
+    ]}
+    pricingUrl="/precios/mantenimiento-evolutivo"
+    contactUrl="/contacto"
+/>

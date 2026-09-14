@@ -1,83 +1,127 @@
 ---
-import DetailPage from "@/components/DetailPage.astro";
-const benefits = [
+import SectorPage from "@/components/SectorPage.astro";
+
+const challenges = [
   {
-    title: "Información confiable",
+    title: "Solicitudes de cita dispersas",
     description:
-      "Presenta especialidades, profesionales y atención con claridad.",
+      "Llamadas, WhatsApp y formularios llegan por canales distintos y dificultan confirmar o reprogramar a tiempo.",
   },
   {
-    title: "Reservas más simples",
+    title: "Información repetida",
     description:
-      "Reduce llamadas y mensajes repetidos con un flujo de citas ordenado.",
+      "El equipo responde una y otra vez horarios, especialidades, ubicaciones, preparación y disponibilidad.",
   },
   {
-    title: "Seguimiento oportuno",
-    description: "Automatiza recordatorios y comunicaciones autorizadas.",
+    title: "Seguimiento manual",
+    description:
+      "Los recordatorios y comunicaciones dependen de tareas que pueden olvidarse durante los momentos de mayor carga.",
   },
   {
-    title: "Operación visible",
+    title: "Herramientas que no conversan",
     description:
-      "Centraliza solicitudes y estados sin exponer información sensible.",
+      "La web, la agenda y la operación interna pueden mantener datos separados o exigir doble registro.",
   },
 ];
-const steps = [
+
+const solutions = [
   {
-    title: "Revisión del servicio",
+    title: "Desarrollo web",
     description:
-      "Entendemos especialidades, sedes, horarios, canales y requisitos de privacidad.",
+      "Sitios claros para presentar especialidades, profesionales, sedes y canales de atención.",
+    href: "/soluciones/desarrollo-web",
+    label: "Presencia",
   },
   {
-    title: "Experiencia del paciente",
-    description: "Diseñamos la información y el flujo de contacto o reserva.",
+    title: "Software a medida",
+    description:
+      "Paneles, agendas y flujos internos adaptados a la operación del centro.",
+    href: "/soluciones/software-a-medida",
+    label: "Operación",
   },
   {
-    title: "Integración gradual",
+    title: "Automatización de procesos",
     description:
-      "Conectamos herramientas y automatizaciones con controles claros.",
+      "Confirmaciones, recordatorios e integraciones con controles definidos.",
+    href: "/soluciones/automatizacion-de-procesos",
+    label: "Seguimiento",
   },
 ];
+
+const principles = [
+  {
+    title: "Datos mínimos",
+    description:
+      "Solicitamos únicamente la información necesaria para cada interacción y propósito.",
+  },
+  {
+    title: "Accesos definidos",
+    description:
+      "Separamos permisos y responsabilidades según el rol de cada usuario.",
+  },
+  {
+    title: "Implementación gradual",
+    description:
+      "Empezamos por información, contacto y reserva antes de abordar funciones más sensibles.",
+  },
+  {
+    title: "Alcance verificable",
+    description:
+      "Documentamos qué resuelve la solución, qué integra y qué queda fuera de la primera etapa.",
+  },
+];
+
 const faqs = [
   {
-    question: "¿La web reemplaza un sistema clínico?",
+    question: "¿Una web reemplaza un sistema clínico?",
     answer:
-      "No necesariamente. Puede integrarse o convivir con el sistema actual; el alcance se define según procesos y obligaciones aplicables.",
+      "No necesariamente. La web puede informar, captar solicitudes o integrarse con una agenda. Un sistema clínico requiere un alcance y controles distintos.",
   },
   {
-    question: "¿Incluye reserva de citas?",
+    question: "¿Pueden desarrollar una reserva de citas?",
     answer:
-      "Puede incluirla, desde una solicitud simple hasta integración con una agenda, según la herramienta elegida.",
+      "Sí. Puede ir desde una solicitud con confirmación hasta una agenda conectada con disponibilidad y recordatorios, según la operación.",
   },
   {
-    question: "¿Cómo tratan los datos sensibles?",
+    question: "¿Cómo se manejan los datos sensibles?",
     answer:
-      "Minimizamos la información solicitada y definimos seguridad, accesos y proveedores según el alcance. La validación legal específica corresponde al responsable del servicio.",
+      "Se minimizan los datos, se definen accesos y se seleccionan proveedores apropiados. Las obligaciones legales específicas deben validarse con el responsable del servicio y asesoría especializada.",
+  },
+  {
+    question: "¿La aplicación móvil y el panel web son productos diferentes?",
+    answer:
+      "No si comparten el mismo objetivo, usuarios y datos. En ese caso son interfaces de un solo producto tecnológico.",
   },
 ];
 ---
 
-<DetailPage
-  eyebrow="Sector · Salud"
-  title="Experiencias digitales que simplifican la"
-  highlight="atención."
-  description="Presencia web, reservas y automatizaciones para consultorios y centros especializados que quieren atender con más orden."
-  metaTitle="Páginas web y reservas para consultorios en Perú | Velyon"
-  metaDescription="Páginas web, reservas online y automatizaciones para consultorios y centros de salud en Perú. Atención clara y procesos ordenados."
+<SectorPage
+  sector="Salud"
+  title="Tecnología que ordena la atención sin perder el trato"
+  highlight="humano."
+  description="Creamos experiencias web, reservas, automatizaciones y sistemas para consultorios y centros de salud que necesitan atender con mayor claridad y continuidad."
+  metaTitle="Soluciones tecnológicas para consultorios en Perú | Velyon"
+  metaDescription="Páginas web, reservas, automatizaciones y software para consultorios y centros de salud en Perú. Soluciones digitales diseñadas por etapas."
   path="/sectores/salud"
   lottieSrc="/animations/salud.lottie"
-  introTitle="Tecnología útil antes, durante y después de la consulta."
-  intro="Diseñamos una primera etapa enfocada en información, contacto y reserva. Las funciones más sensibles se evalúan con especial cuidado y se implementan solo cuando existe el marco adecuado."
-  {benefits}
-  deliverables={[
-    "Web de especialidades",
-    "Perfiles profesionales",
-    "Solicitud o reserva de citas",
-    "Recordatorios",
-    "Preguntas frecuentes",
-    "Integración con WhatsApp",
-    "Analítica",
-    "Soporte mensual",
+  
+  audiences={[
+    "Consultorios",
+    "Centros especializados",
+    "Profesionales de salud",
+    "Clínicas pequeñas",
   ]}
-  {steps}
+  {challenges}
+  {solutions}
+  {principles}
+  product={{
+    eyebrow: "Producto para salud",
+    title:
+      "Sistema para consultorios: agenda, seguimiento y operación conectada.",
+    description:
+      "Un producto web y móvil en desarrollo para resolver un flujo repetible del sector. Su página explica módulos, usuarios, estado y programa piloto.",
+    href: "/productos/sistema-para-consultorios",
+    status: "Piloto en desarrollo",
+  }}
   {faqs}
 />

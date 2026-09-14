@@ -1,0 +1,120 @@
+---
+import ProductPage from "@/components/ProductPage.astro";
+
+const modules = [
+    {
+        title: "Agenda y disponibilidad",
+        description:
+            "Organiza horarios, estados, reprogramaciones y la carga de atención desde un panel central.",
+    },
+    {
+        title: "Solicitud y confirmación",
+        description:
+            "Recibe solicitudes desde la web o el móvil y permite confirmar el siguiente paso con claridad.",
+    },
+    {
+        title: "Recordatorios",
+        description:
+            "Programa comunicaciones operativas para reducir olvidos y tareas manuales del equipo.",
+    },
+    {
+        title: "Panel operativo",
+        description:
+            "Da visibilidad sobre citas, pendientes y acciones sin depender de conversaciones dispersas.",
+    },
+    {
+        title: "Aplicación móvil",
+        description:
+            "Permite realizar acciones frecuentes desde el celular cuando el usuario está fuera del escritorio.",
+    },
+    {
+        title: "Integraciones",
+        description:
+            "Conecta canales y herramientas compatibles mediante APIs y reglas previamente definidas.",
+    },
+];
+
+const audiences = [
+    {
+        title: "Administración",
+        description:
+            "Para organizar disponibilidad, solicitudes, confirmaciones y seguimiento operativo.",
+    },
+    {
+        title: "Profesionales",
+        description:
+            "Para consultar la información necesaria y gestionar acciones asociadas a su jornada.",
+    },
+    {
+        title: "Pacientes",
+        description:
+            "Para encontrar información y completar solicitudes mediante una experiencia sencilla.",
+    },
+];
+
+const workflow = [
+    {
+        title: "El paciente inicia una solicitud",
+        description:
+            "Selecciona el servicio y comparte solo los datos necesarios para iniciar la atención.",
+    },
+    {
+        title: "El equipo revisa y confirma",
+        description:
+            "La solicitud aparece en el panel con un estado claro y las acciones disponibles.",
+    },
+    {
+        title: "El sistema acompaña el seguimiento",
+        description:
+            "Se ejecutan recordatorios o comunicaciones previamente autorizadas.",
+    },
+    {
+        title: "La operación queda visible",
+        description:
+            "El equipo identifica pendientes y próximos pasos desde una única fuente de información.",
+    },
+];
+
+const faqs = [
+    {
+        question: "¿El producto ya está disponible?",
+        answer: "La página debe indicar el estado real. Si todavía está en desarrollo, se ofrece únicamente como piloto con alcance y condiciones claras.",
+    },
+    {
+        question: "¿La app móvil y el sistema web se cobran por separado?",
+        answer: "Forman un solo producto si comparten backend, datos y propósito. El plan puede variar por módulos, usuarios o sedes, no por fingir que son soluciones desconectadas.",
+    },
+    {
+        question: "¿Incluye historia clínica?",
+        answer: "No debe prometerse hasta tener definidos requisitos, seguridad, responsabilidades y validación normativa. La primera versión puede enfocarse en agenda y operación no clínica.",
+    },
+    {
+        question: "¿Puedo participar como cliente piloto?",
+        answer: "Sí, después de revisar si tu operación coincide con el problema que el producto busca resolver y acordar alcance, soporte y uso de retroalimentación.",
+    },
+];
+---
+
+<ProductPage
+    productName="Velyon Salud"
+    status="Piloto en desarrollo"
+    title="Agenda y operación conectadas para una atención más"
+    highlight="ordenada."
+    description="Producto web y móvil para consultorios que necesitan centralizar solicitudes, confirmaciones, recordatorios y tareas operativas."
+    metaTitle="Software para consultorios y citas médicas en Perú | Velyon"
+    metaDescription="Software web y móvil para consultorios en Perú: agenda, solicitudes de citas, confirmaciones, recordatorios y panel operativo. Programa piloto."
+    path="/productos/sistema-para-consultorios"
+    lottieSrc="/animations/producto-salud.lottie"
+    platforms={["Panel web", "Aplicación móvil", "Backend conectado"]}
+    {modules}
+    {audiences}
+    {workflow}
+    pilotIncludes={[
+        "Diagnóstico de compatibilidad con tu operación",
+        "Configuración de los módulos disponibles",
+        "Acompañamiento de adopción",
+        "Canal de soporte y registro de incidencias",
+        "Revisión periódica de uso y prioridades",
+    ]}
+    {faqs}
+/>

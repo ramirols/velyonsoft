@@ -1,0 +1,36 @@
+---
+import { DetailPage } from "@/components/DetailPage.astro";
+import { siteConfig } from "@/lib/site";
+---
+
+<DetailPage
+    eyebrow="Solución · Aplicaciones móviles"
+    title="Aplicaciones Móviles a Medida"
+    highlight="Potencia tu alcance"
+    description="Creamos aplicaciones móviles nativas para iOS y Android que se adaptan a las necesidades únicas de tu negocio. Potencia tu alcance con soluciones móviles profesionales."
+    metaTitle="Aplicaciones móviles personalizadas - Velyon"
+    metaDescription="Desarrollo de aplicaciones móviles nativas para iOS y Android que se adaptan a las necesidades únicas de tu negocio. Potencia tu alcance con soluciones móviles profesionales."
+    path="/assets/productos/app-movil-personalizada.webp"
+    lottieSrc="/animations/apps-moviles.lottie"
+    deliverables={[
+        "Desarrollo Nativo iOS y Android",
+        "Diseño UI/UX Moderno",
+        "Sincronización en Tiempo Real",
+        "Notificaciones Push",
+        "Integración con Sistemas Existentes",
+        "Modo Offline",
+        "Análisis y Métricas",
+        "Publicación en App Stores"
+    ]}
+    {/*videoUrl="/assets/videos/demo-app.mp4"*/}
+    useCases={[
+        { title: "Apps de E-commerce", description: "Tiendas móviles completas con carrito, pagos y gestión de pedidos optimizadas para la venta directa." },
+        { title: "Aplicaciones Empresariales", description: "Herramientas internas para empleados, gestión de tareas, reportes y colaboración en campo." },
+        { title: "Apps de Servicios", description: "Sistemas de reserva, seguimiento de servicios y comunicación directa con clientes." },
+        { title: "Apps de Fidelización", description: "Programas de puntos, recompensas y comunicación exclusiva para miembros VIP." },
+        { title: "Apps de Eventos", description: "Plataformas interactivas para conferencias, ferias y eventos corporativos con agenda, ponentes y networking." },
+        { title: "Apps de Entrega", description: "Seguimiento en tiempo real, notificaciones de estado y gestión de entregas para negocios de comida y paquetería." }
+    ]}
+    pricingUrl="/precios/aplicaciones-moviles"
+    contactUrl="/contacto"
+/>
