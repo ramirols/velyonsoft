@@ -1,0 +1,308 @@
+---
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+} from "@lucide/astro";
+
+interface CaseStudy {
+  client: string;
+  category: string;
+  title: string;
+  description: string;
+  challenge: string;
+  delivered: string[];
+  image: string;
+  imageAlt: string;
+  href?: string;
+  accent: "mint" | "lavender" | "neutral";
+}
+
+const cases: CaseStudy[] = [
+  {
+    client: "All Travelers Peru",
+    category: "Plataforma turística",
+    title: "Una experiencia digital para explorar y solicitar tours.",
+    description:
+      "Desarrollo de una plataforma responsive para organizar recorridos, galerías, información turística y solicitudes de reserva.",
+    challenge:
+      "Presentar diferentes experiencias sin saturar al visitante y facilitar el contacto desde cualquier dispositivo.",
+    delivered: [
+      "Arquitectura de contenidos",
+      "Catálogo de tours",
+      "Galerías visuales",
+      "Formularios de reserva",
+      "Experiencia responsive",
+    ],
+    image: "/images/cases/all-travelers-peru.webp",
+    imageAlt:
+      "Vista del proyecto web desarrollado para All Travelers Peru",
+    accent: "mint",
+  },
+  {
+    client: "RAFLA S.A.C.",
+    category: "Sitio corporativo",
+    title: "Una presencia profesional para una empresa de ingeniería.",
+    description:
+      "Diseño y desarrollo de un sitio corporativo orientado a presentar servicios, experiencia y proyectos de forma clara.",
+    challenge:
+      "Convertir información técnica en una presentación comprensible para clientes y empresas interesadas.",
+    delivered: [
+      "Diseño corporativo",
+      "Organización de servicios",
+      "Presentación de proyectos",
+      "Contacto comercial",
+      "Optimización responsive",
+    ],
+    image: "/images/cases/rafla.webp",
+    imageAlt:
+      "Vista del sitio corporativo desarrollado para RAFLA",
+    accent: "neutral",
+  },
+  {
+    client: "The Olivar Apartments",
+    category: "Web para alojamiento",
+    title: "Una experiencia enfocada en consultas y reservas.",
+    description:
+      "Desarrollo de una interfaz para presentar departamentos, ubicación, características y canales de contacto.",
+    challenge:
+      "Ayudar al visitante a comprender rápidamente la propuesta y facilitar una consulta desde celular.",
+    delivered: [
+      "Presentación de alojamientos",
+      "Contenido visual",
+      "Diseño responsive",
+      "Integración con WhatsApp",
+      "Flujo de contacto",
+    ],
+    image: "/images/cases/the-olivar-apartments.webp",
+    imageAlt:
+      "Vista del proyecto web desarrollado para The Olivar Apartments",
+    accent: "lavender",
+  },
+];
+
+const accentClasses = {
+  mint: "bg-velyon-mint-soft",
+  lavender: "bg-velyon-lavender-soft",
+  neutral: "bg-velyon-mist",
+};
+---
+
+<section
+  id="casos"
+  class="overflow-hidden bg-white py-24 sm:py-28"
+  aria-labelledby="cases-title"
+>
+  <div class="container-velyon">
+    <!-- Encabezado -->
+    <div
+      class="grid grid-cols-[minmax(0,.7fr)_minmax(0,1.3fr)] gap-16
+             max-[820px]:grid-cols-1 max-[820px]:gap-7"
+    >
+      <div>
+        <span class="section-label">Trabajo realizado</span>
+      </div>
+
+      <div>
+        <h2 id="cases-title" class="section-title max-w-[820px]">
+          Proyectos construidos alrededor de una
+          <span class="font-serif font-medium italic text-velyon-deep">
+            necesidad real.
+          </span>
+        </h2>
+
+        <p class="mt-6 max-w-[650px] text-[15px] leading-7 text-muted-foreground">
+          Cada proyecto parte de un problema concreto: presentar mejor un
+          servicio, facilitar una consulta o convertir información dispersa en
+          una experiencia clara.
+        </p>
+      </div>
+    </div>
+
+    <!-- Proyectos -->
+    <div class="mt-20 border-t border-border">
+      {
+        cases.map((project, index) => (
+          <article
+            class="grid grid-cols-[minmax(320px,.92fr)_minmax(0,1.08fr)]
+                   gap-14 border-b border-border py-14
+                   max-[860px]:grid-cols-1 max-[860px]:gap-9"
+          >
+            <!-- Captura -->
+            <figure
+              class:list={[
+                "relative overflow-hidden p-5 sm:p-7",
+                accentClasses[project.accent],
+                index % 2 !== 0 && "min-[861px]:order-2",
+              ]}
+            >
+              <div
+                class="overflow-hidden border border-black/10
+                       bg-white shadow-[0_24px_70px_rgba(20,40,35,.12)]"
+              >
+                <!-- Barra de navegador -->
+                <div
+                  class="flex h-9 items-center gap-1.5
+                         border-b border-border bg-white px-3"
+                  aria-hidden="true"
+                >
+                  <span class="size-1.5 rounded-full bg-[#ef7b72]" />
+                  <span class="size-1.5 rounded-full bg-[#e7ba5c]" />
+                  <span class="size-1.5 rounded-full bg-[#69b986]" />
+
+                  <span
+                    class="ml-3 h-2.5 w-24 rounded-full bg-velyon-mist"
+                  />
+                </div>
+
+                <div class="aspect-[16/10] overflow-hidden bg-white">
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    width="960"
+                    height="600"
+                    loading="lazy"
+                    decoding="async"
+                    class="size-full object-cover object-top
+                           transition-transform duration-700
+                           hover:scale-[1.015]"
+                  />
+                </div>
+              </div>
+
+              <figcaption
+                class="mt-4 text-[10px] font-bold uppercase
+                       tracking-[.14em] text-velyon-ink/55"
+              >
+                Proyecto {String(index + 1).padStart(2, "0")}
+              </figcaption>
+            </figure>
+
+            <!-- Información -->
+            <div
+              class:list={[
+                "self-center",
+                index % 2 !== 0 && "min-[861px]:order-1",
+              ]}
+            >
+              <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <span
+                  class="text-[10px] font-extrabold uppercase
+                         tracking-[.16em] text-velyon-deep"
+                >
+                  {project.category}
+                </span>
+
+                <span
+                  class="h-px w-8 bg-velyon-deep/25"
+                  aria-hidden="true"
+                />
+
+                <span class="text-xs font-semibold text-muted-foreground">
+                  {project.client}
+                </span>
+              </div>
+
+              <h3
+                class="mt-6 max-w-[630px] font-display
+                       text-[clamp(2rem,3.6vw,3.2rem)] font-bold
+                       leading-[1.06] tracking-[-0.052em] text-velyon-ink"
+              >
+                {project.title}
+              </h3>
+
+              <p
+                class="mt-5 max-w-[620px] text-[15px]
+                       leading-7 text-muted-foreground"
+              >
+                {project.description}
+              </p>
+
+              <div class="mt-8 border-l-2 border-velyon-mint pl-5">
+                <p
+                  class="text-[10px] font-extrabold uppercase
+                         tracking-[.16em] text-velyon-deep"
+                >
+                  Necesidad identificada
+                </p>
+
+                <p class="mt-2 max-w-[590px] text-sm leading-6 text-velyon-ink/75">
+                  {project.challenge}
+                </p>
+              </div>
+
+              <div class="mt-8">
+                <p
+                  class="text-[10px] font-extrabold uppercase
+                         tracking-[.16em] text-muted-foreground"
+                >
+                  Alcance trabajado
+                </p>
+
+                <ul class="mt-4 grid grid-cols-2 gap-x-7 gap-y-3
+                           max-[520px]:grid-cols-1">
+                  {project.delivered.map((item) => (
+                    <li
+                      class="flex items-start gap-2.5
+                             text-sm font-semibold text-velyon-ink/75"
+                    >
+                      <Check
+                        class="mt-0.5 size-3.5 shrink-0 text-velyon-deep"
+                        stroke-width="2.7"
+                        aria-hidden="true"
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {project.href && (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-9 inline-flex items-center gap-2
+                         text-sm font-extrabold text-velyon-deep"
+                >
+                  Visitar proyecto
+                  <ArrowUpRight class="size-4" aria-hidden="true" />
+                </a>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- CTA final -->
+    <div
+      class="mt-12 flex items-end justify-between gap-10
+             max-[720px]:block"
+    >
+      <div class="max-w-[680px]">
+        <p
+          class="text-[10px] font-extrabold uppercase
+                 tracking-[.16em] text-velyon-deep"
+        >
+          Tu proyecto puede empezar aquí
+        </p>
+
+        <h3
+          class="mt-4 font-display text-[clamp(1.8rem,3vw,2.7rem)]
+                 font-bold leading-tight tracking-[-0.045em]"
+        >
+          Revisemos qué necesita mejorar tu negocio.
+        </h3>
+      </div>
+
+      <a
+        href="/#contacto"
+        class="btn-primary shrink-0 max-[720px]:mt-7"
+      >
+        Solicitar diagnóstico
+        <ArrowRight class="size-4" aria-hidden="true" />
+      </a>
+    </div>
+  </div>
+</section>
