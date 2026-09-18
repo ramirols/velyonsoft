@@ -4,70 +4,76 @@ import { siteConfig } from "@/lib/site";
 
 const benefits = [
   {
-    title: "Confianza desde el primer clic",
+    title: "Una imagen profesional para tu negocio",
     description:
-      "Una imagen profesional y mensajes claros para que las personas entiendan por qué elegirte.",
+      "Diseñamos una página web que comunica claramente quién eres, qué haces y por qué tus clientes deberían elegirte.",
   },
   {
-    title: "Más consultas calificadas",
+    title: "Más oportunidades de contacto",
     description:
-      "Rutas de conversión, llamadas a la acción y contacto directo por WhatsApp o formulario.",
+      "Creamos recorridos claros con botones, formularios y WhatsApp para facilitar que los visitantes se conviertan en clientes.",
   },
   {
-    title: "Base preparada para posicionar",
+    title: "Preparada para aparecer en Google",
     description:
-      "Estructura semántica, rendimiento y SEO técnico listos para crecer con contenido.",
+      "Construimos una estructura optimizada con SEO técnico, velocidad y buenas prácticas para facilitar su posicionamiento.",
   },
   {
-    title: "Fácil de mantener",
+    title: "Una web preparada para crecer",
     description:
-      "Componentes reutilizables y una arquitectura que permite ampliar la web sin rehacerla.",
+      "Desarrollamos sitios escalables que permiten agregar nuevas páginas, servicios, contenido e integraciones.",
   },
 ];
 
 const steps = [
   {
-    title: "Diagnóstico y contenido",
+    title: "Estrategia y estructura",
     description:
-      "Definimos público, objetivo, propuesta de valor y páginas necesarias.",
+      "Analizamos tu negocio, clientes y objetivos para definir las páginas, mensajes y funcionalidades necesarias.",
   },
   {
-    title: "Diseño y desarrollo",
+    title: "Diseño y desarrollo web",
     description:
-      "Creamos una experiencia responsive alineada con la identidad del negocio.",
+      "Creamos una experiencia moderna, rápida y adaptable para celulares, tablets y computadoras.",
   },
   {
-    title: "Publicación y mejora",
+    title: "Publicación y optimización",
     description:
-      "Medimos, corregimos y acompañamos el crecimiento mediante un plan mensual opcional.",
+      "Lanzamos la web, configuramos medición y realizamos mejoras para aumentar resultados con el tiempo.",
   },
 ];
 
 const faqs = [
   {
-    question: "¿Cuánto cuesta una página web para un negocio en Perú?",
+    question:
+      "¿Cuánto cuesta desarrollar una página web para un negocio en Perú?",
     answer:
-      "El precio depende de la cantidad de páginas, funciones, contenido e integraciones necesarias. Una landing tiene un alcance diferente a una web corporativa, catálogo digital o tienda virtual. Después del diagnóstico entregamos una propuesta con alcance, plazo y precio definidos.",
+      "El precio depende del tipo de página, cantidad de secciones, funcionalidades, contenido e integraciones necesarias. Una landing page tiene un alcance diferente a una web corporativa completa, catálogo digital o ecommerce.",
   },
   {
-    question: "¿Una landing o una web con varias páginas?",
+    question: "¿Qué tipo de páginas web desarrollan?",
     answer:
-      "Depende del objetivo. Una campaña o servicio concreto puede funcionar con una landing. Una empresa con varios servicios suele necesitar páginas internas para explicar y posicionar cada solución en Google.",
+      "Creamos páginas web corporativas, páginas para servicios profesionales, landing pages comerciales, catálogos digitales y soluciones web personalizadas según el objetivo del negocio.",
   },
   {
-    question: "¿La página estará optimizada para Google?",
+    question: "¿La página web estará optimizada para Google?",
     answer:
-      "Sí. Trabajamos la estructura semántica, títulos, descripciones, URLs, velocidad, sitemap, datos estructurados y experiencia móvil. El crecimiento posterior depende también del contenido, la competencia y la autoridad del dominio.",
+      "Sí. Implementamos estructura SEO inicial, títulos, metadescripciones, URLs amigables, velocidad de carga, datos estructurados y configuración técnica necesaria para facilitar su posicionamiento.",
   },
   {
-    question: "¿Incluye dominio y hosting?",
+    question: "¿La página funcionará correctamente en celulares?",
     answer:
-      "Podemos configurar y administrar ambos servicios. El dominio debe quedar registrado a nombre del cliente para asegurar que conserve su propiedad.",
+      "Sí. Diseñamos páginas responsive adaptadas para celulares, tablets y computadoras, considerando la experiencia del usuario en cada dispositivo.",
   },
   {
-    question: "¿Podré editar los textos y las imágenes?",
+    question: "¿Incluyen dominio y hosting?",
     answer:
-      "Sí. Según las características del proyecto, podemos integrar un gestor de contenido o dejar componentes editables con documentación clara.",
+      "Podemos ayudarte con la configuración del dominio y hosting. El registro del dominio siempre debe quedar a nombre del cliente para conservar la propiedad.",
+  },
+  {
+    question: "¿Podré modificar información de mi página después?",
+    answer:
+      "Sí. Dependiendo del proyecto podemos integrar herramientas de administración de contenido o preparar una estructura editable para futuras actualizaciones.",
   },
 ];
 
@@ -75,10 +81,11 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": `${siteConfig.url}/soluciones/desarrollo-web#service`,
-  name: "Diseño de páginas web para negocios",
-  serviceType: "Diseño y desarrollo de páginas web",
+  name: "Diseño y desarrollo de páginas web profesionales",
+  serviceType:
+    "Desarrollo de páginas web corporativas, landing pages y sitios web empresariales",
   description:
-    "Diseño y desarrollo de páginas web corporativas, landing pages y catálogos digitales para negocios y empresas en Perú.",
+    "Diseño y desarrollo de páginas web profesionales para negocios y empresas en Perú, optimizadas para velocidad, SEO y generación de clientes.",
   url: `${siteConfig.url}/soluciones/desarrollo-web`,
   provider: {
     "@id": `${siteConfig.url}/#organization`,
@@ -87,29 +94,59 @@ const serviceSchema = {
     "@type": "Country",
     name: "Perú",
   },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Servicios de desarrollo web",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Página web corporativa",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Landing page comercial",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Catálogo digital",
+        },
+      },
+    ],
+  },
 };
 ---
 
 <DetailPage
   schema={serviceSchema}
-  eyebrow="Solución · Presencia digital"
-  title="Una web que convierte tu experiencia en"
-  highlight="confianza y clientes"
-  description="Diseñamos páginas web corporativas, landings y catálogos digitales para negocios y empresas en Perú que necesitan atraer clientes y presentar sus servicios profesionalmente."
-  metaTitle="Páginas web para negocios en Perú | Velyon"
-  metaDescription="Diseño y desarrollo de páginas web para negocios y empresas en Perú. Webs rápidas, responsive, optimizadas para Google y preparadas para generar consultas."
+  eyebrow="Solución · Diseño y desarrollo web"
+  title="Una página web profesional que convierte visitas en"
+  highlight="clientes."
+  description="Diseñamos páginas web corporativas, landing pages y catálogos digitales para negocios y empresas en Perú que necesitan atraer clientes, mostrar sus servicios y crecer en internet."
+  metaTitle="Diseño de páginas web profesionales en Perú | Velyon"
+  metaDescription="Desarrollo de páginas web profesionales para negocios y empresas en Perú. Webs rápidas, responsive, optimizadas para Google, SEO técnico y enfocadas en generar clientes."
   path="/soluciones/desarrollo-web"
   lottieSrc="/animations/desarrollo-web.lottie"
-  introTitle="Tu web debe explicar, convencer y facilitar el siguiente paso."
-  intro="Una página web profesional debe explicar qué hace tu negocio, generar confianza y facilitar que los visitantes soliciten información. En Velyon analizamos a tu público, tus servicios y tus objetivos antes de diseñar una solución digital preparada para posicionarse y convertir visitas en oportunidades."
+  introTitle="Tu página web debe explicar, convencer y generar oportunidades."
+  intro="Una web profesional no solo debe verse bien. Debe comunicar tu propuesta de valor, responder dudas de tus clientes y facilitar el contacto. Analizamos tu negocio, estructura y objetivos para crear una solución digital preparada para posicionarse y convertir visitantes en oportunidades comerciales."
   {benefits}
   deliverables={[
-    "Arquitectura y estrategia de contenidos",
-    "Diseño responsive para celulares y computadoras",
-    "Desarrollo web rápido y escalable en Astro",
-    "Integración con WhatsApp y formularios",
+    "Estrategia y arquitectura web",
+    "Diseño UX/UI personalizado",
+    "Desarrollo responsive",
+    "Landing pages comerciales",
+    "Páginas corporativas",
+    "Integración con WhatsApp",
+    "Formularios de contacto",
     "SEO técnico inicial",
-    "Configuración de analítica y medición",
+    "Configuración analítica",
     "Optimización de velocidad",
     "Capacitación y soporte",
   ]}

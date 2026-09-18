@@ -3,75 +3,75 @@ import SolutionPage from "@/components/SolutionPage.astro";
 
 const outcomes = [
   {
-    title: "Una operación más ordenada",
+    title: "Procesos más ordenados y eficientes",
     description:
-      "Centraliza clientes, pedidos, documentos y estados en un flujo diseñado alrededor de tu forma real de trabajar.",
+      "Centralizamos clientes, pedidos, documentos e información operativa en sistemas diseñados alrededor de la forma real en que trabaja tu empresa.",
   },
   {
-    title: "Menos tareas manuales",
+    title: "Menos trabajo manual y errores",
     description:
-      "Reduce duplicaciones, seguimiento por hojas sueltas y errores causados por información dispersa.",
+      "Eliminamos procesos repetitivos, información duplicada y tareas que consumen tiempo mediante herramientas digitales personalizadas.",
   },
   {
-    title: "Decisiones con información visible",
+    title: "Información disponible para decidir mejor",
     description:
-      "Convierte los datos operativos en paneles y alertas que ayudan a actuar a tiempo.",
+      "Creamos paneles e indicadores que permiten visualizar el estado del negocio y tomar decisiones con datos reales.",
   },
   {
-    title: "Una base que puede evolucionar",
+    title: "Una solución preparada para crecer",
     description:
-      "Construimos por etapas para validar la primera versión antes de ampliar módulos, usuarios e integraciones.",
+      "Desarrollamos por etapas para validar resultados y ampliar funcionalidades según las necesidades futuras.",
   },
 ];
 
 const capabilities = [
   {
+    title: "Sistemas web empresariales",
+    description:
+      "Plataformas internas para administrar operaciones, clientes, ventas, procesos y equipos de trabajo.",
+  },
+  {
     title: "Paneles administrativos",
     description:
-      "Control de usuarios, estados, indicadores y tareas desde una interfaz central.",
+      "Interfaces centralizadas para gestionar usuarios, información, indicadores y tareas importantes.",
   },
   {
     title: "Portales privados",
     description:
-      "Espacios para clientes, proveedores o trabajadores con permisos según su función.",
+      "Espacios digitales para clientes, proveedores o trabajadores con accesos y permisos personalizados.",
   },
   {
-    title: "Pedidos e inventario",
+    title: "Gestión de pedidos e inventarios",
     description:
-      "Registro, seguimiento, movimientos de stock y alertas adaptadas a la operación.",
+      "Sistemas para controlar productos, movimientos, estados y procesos comerciales.",
   },
   {
-    title: "Sistemas de reservas",
+    title: "Integración con herramientas existentes",
     description:
-      "Disponibilidad, confirmaciones, reprogramaciones y seguimiento desde un único flujo.",
+      "Conectamos tus plataformas actuales para mejorar el flujo de información entre sistemas.",
   },
   {
-    title: "Modernización de sistemas",
+    title: "MVP y nuevos productos digitales",
     description:
-      "Reemplazo gradual de herramientas antiguas sin interrumpir innecesariamente el trabajo.",
-  },
-  {
-    title: "MVP web y móvil",
-    description:
-      "Primera versión medible para validar un producto o proceso antes de invertir en mayor alcance.",
+      "Creamos primeras versiones funcionales para validar ideas antes de realizar inversiones mayores.",
   },
 ];
 
 const steps = [
   {
-    title: "Descubrimiento",
+    title: "Analizamos tu operación",
     description:
-      "Mapeamos usuarios, reglas, información y puntos de fricción del proceso actual.",
+      "Entendemos usuarios, procesos, información y problemas actuales antes de definir la solución tecnológica.",
   },
   {
-    title: "Primera versión",
+    title: "Diseñamos y desarrollamos",
     description:
-      "Priorizamos el núcleo útil, diseñamos la experiencia y desarrollamos por entregas revisables.",
+      "Construimos una primera versión funcional enfocada en resolver los procesos más importantes del negocio.",
   },
   {
-    title: "Evolución",
+    title: "Mejoramos y escalamos",
     description:
-      "Medimos el uso, corregimos y añadimos módulos mediante un plan mensual opcional.",
+      "Medimos resultados, incorporamos mejoras y agregamos nuevas funcionalidades según la evolución de la empresa.",
   },
 ];
 
@@ -79,68 +79,69 @@ const related = [
   {
     title: "Automatización de procesos",
     description:
-      "Conecta WhatsApp, formularios, correo y APIs para eliminar pasos repetitivos.",
+      "Conecta herramientas y elimina tareas repetitivas mediante flujos automáticos.",
     href: "/soluciones/automatizacion-de-procesos",
   },
   {
     title: "Aplicaciones móviles",
     description:
-      "Extiende la operación al celular cuando el contexto realmente lo necesita.",
+      "Lleva procesos, servicios y herramientas de tu negocio al celular.",
     href: "/soluciones/aplicaciones-moviles",
   },
   {
-    title: "Soluciones para pymes y servicios",
+    title: "Mantenimiento y evolución",
     description:
-      "Casos de uso para negocios que necesitan ordenar clientes, pedidos y atención.",
-    href: "/sectores/pymes-y-servicios",
+      "Mantén tus sistemas seguros, actualizados y preparados para crecer.",
+    href: "/soluciones/mantenimiento-y-evolucion",
   },
 ];
 
 const faqs = [
   {
-    question: "¿Cuándo conviene un sistema a medida?",
+    question: "¿Cuándo una empresa necesita desarrollar software a medida?",
     answer:
-      "Cuando el proceso es importante para el negocio, se repite con frecuencia y las herramientas existentes obligan a trabajar con demasiadas excepciones o pasos manuales.",
+      "Cuando los procesos del negocio son importantes, se repiten constantemente y las herramientas actuales no permiten trabajar de forma eficiente.",
   },
   {
-    question: "¿Se construye todo desde el inicio?",
+    question: "¿Es necesario desarrollar todo desde cero?",
     answer:
-      "No. Recomendamos una primera versión con el flujo principal y ampliaciones posteriores basadas en uso real.",
+      "No. Recomendamos comenzar con una primera versión enfocada en los procesos principales y ampliar funcionalidades según resultados reales.",
   },
   {
-    question: "¿Puede integrarse con mis herramientas actuales?",
+    question: "¿Pueden integrar el sistema con herramientas existentes?",
     answer:
-      "Sí, si esas herramientas ofrecen APIs o mecanismos seguros de integración. La viabilidad se confirma durante el diagnóstico.",
+      "Sí. Evaluamos las plataformas actuales y desarrollamos integraciones mediante APIs u otros mecanismos disponibles.",
   },
   {
-    question: "¿Incluye mantenimiento?",
+    question: "¿Incluye soporte después del desarrollo?",
     answer:
-      "La implementación puede complementarse con un plan mensual para soporte, seguridad, monitoreo y evolución planificada.",
+      "Sí. Podemos complementar el desarrollo con mantenimiento, monitoreo, seguridad y evolución continua del sistema.",
   },
 ];
 ---
 
 <SolutionPage
-  eyebrow="Solución · Software a medida"
-  title="Software que se adapta a la forma en que tu negocio"
-  highlight="realmente opera."
-  description="Diseñamos sistemas web, paneles administrativos y portales que centralizan procesos, reducen trabajo manual y pueden crecer por etapas."
-  metaTitle="Desarrollo de software a medida en Perú | Velyon"
-  metaDescription="Desarrollo de software a medida, paneles administrativos, portales y sistemas empresariales para negocios en Perú. Implementación gradual y soporte."
+  eyebrow="Solución · Desarrollo de software a medida"
+  title="Software personalizado para optimizar los procesos de"
+  highlight="tu negocio."
+  description="Creamos sistemas web, plataformas empresariales y herramientas digitales adaptadas a la forma en que opera tu empresa para mejorar eficiencia, control y crecimiento."
+  metaTitle="Desarrollo de software a medida en Perú | Sistemas personalizados | Velyon"
+  metaDescription="Desarrollamos software a medida para empresas en Perú. Sistemas web personalizados, paneles administrativos, plataformas empresariales e integraciones digitales."
   path="/soluciones/software-a-medida"
   lottieSrc="/animations/software-a-medida.lottie"
-  introTitle="No necesitas más funciones. Necesitas un flujo que funcione."
-  intro="Antes de escribir código, revisamos quién usa el sistema, qué información necesita y dónde se producen retrasos o errores. Con esa evidencia definimos una primera versión pequeña, útil y sostenible."
+  introTitle="La tecnología debe adaptarse a tu negocio, no al revés."
+  intro="Antes de desarrollar una solución analizamos cómo funciona tu empresa, qué información necesitas controlar y dónde existen oportunidades de mejora. Diseñamos software personalizado que resuelve necesidades reales y puede evolucionar junto con tu crecimiento."
   outcomes={outcomes}
   capabilities={capabilities}
   deliverables={[
-    "Arquitectura funcional",
+    "Análisis funcional del negocio",
+    "Arquitectura del sistema",
     "Diseño UX/UI",
     "Panel administrativo",
-    "Roles y permisos",
-    "Base de datos",
-    "Integraciones acordadas",
-    "Despliegue y monitoreo",
+    "Gestión de usuarios y permisos",
+    "Base de datos personalizada",
+    "Integraciones con plataformas externas",
+    "Despliegue y configuración",
     "Documentación y capacitación",
   ]}
   steps={steps}

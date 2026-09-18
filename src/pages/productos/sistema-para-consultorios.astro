@@ -3,118 +3,178 @@ import ProductPage from "@/components/ProductPage.astro";
 
 const modules = [
     {
-        title: "Agenda y disponibilidad",
+        title: "Agenda médica inteligente",
+
         description:
-            "Organiza horarios, estados, reprogramaciones y la carga de atención desde un panel central.",
+            "Gestiona citas, disponibilidad, horarios, reprogramaciones y estados de atención desde un panel centralizado.",
     },
+
     {
-        title: "Solicitud y confirmación",
+        title: "Portal del paciente",
+
         description:
-            "Recibe solicitudes desde la web o el móvil y permite confirmar el siguiente paso con claridad.",
+            "Permite solicitar atención, consultar información, recibir avisos y mantener comunicación organizada con el centro.",
     },
-    {
-        title: "Recordatorios",
-        description:
-            "Programa comunicaciones operativas para reducir olvidos y tareas manuales del equipo.",
-    },
-    {
-        title: "Panel operativo",
-        description:
-            "Da visibilidad sobre citas, pendientes y acciones sin depender de conversaciones dispersas.",
-    },
+
     {
         title: "Aplicación móvil",
+
         description:
-            "Permite realizar acciones frecuentes desde el celular cuando el usuario está fuera del escritorio.",
+            "Una experiencia desde celular para pacientes y profesionales que necesitan acceder a información fuera del escritorio.",
     },
+
     {
-        title: "Integraciones",
+        title: "Panel para profesionales",
+
         description:
-            "Conecta canales y herramientas compatibles mediante APIs y reglas previamente definidas.",
+            "Los médicos pueden gestionar agenda, pacientes asignados, disponibilidad y seguimiento de atenciones.",
+    },
+
+    {
+        title: "Seguimiento operativo",
+
+        description:
+            "Controla estados como solicitud recibida, confirmada, atención en proceso y finalizada.",
+    },
+
+    {
+        title: "Notificaciones automáticas",
+
+        description:
+            "Envía recordatorios y comunicaciones para reducir ausencias y tareas repetitivas del equipo.",
+    },
+
+    {
+        title: "Reportes administrativos",
+
+        description:
+            "Visualiza indicadores de atención, citas, usuarios y actividad general del sistema.",
+    },
+
+    {
+        title: "Integraciones futuras",
+
+        description:
+            "Conecta pagos, videollamadas, mapas y otros servicios mediante APIs compatibles.",
     },
 ];
 
 const audiences = [
     {
-        title: "Administración",
+        title: "Consultorios independientes",
+
         description:
-            "Para organizar disponibilidad, solicitudes, confirmaciones y seguimiento operativo.",
+            "Profesionales que necesitan organizar pacientes, agenda y atención sin depender de procesos manuales.",
     },
+
     {
-        title: "Profesionales",
+        title: "Centros médicos",
+
         description:
-            "Para consultar la información necesaria y gestionar acciones asociadas a su jornada.",
+            "Equipos con varios profesionales que requieren coordinación, seguimiento y mayor control operativo.",
     },
+
     {
-        title: "Pacientes",
+        title: "Clínicas pequeñas",
+
         description:
-            "Para encontrar información y completar solicitudes mediante una experiencia sencilla.",
+            "Instituciones que buscan digitalizar procesos sin implementar plataformas complejas desde el inicio.",
     },
 ];
 
 const workflow = [
     {
-        title: "El paciente inicia una solicitud",
+        title: "El paciente solicita atención",
+
         description:
-            "Selecciona el servicio y comparte solo los datos necesarios para iniciar la atención.",
+            "El usuario inicia una solicitud desde la aplicación o plataforma web indicando el servicio requerido.",
     },
+
     {
-        title: "El equipo revisa y confirma",
+        title: "El equipo organiza la atención",
+
         description:
-            "La solicitud aparece en el panel con un estado claro y las acciones disponibles.",
+            "El personal administra disponibilidad, profesionales y horarios desde un panel operativo.",
     },
+
     {
-        title: "El sistema acompaña el seguimiento",
+        title: "El profesional atiende",
+
         description:
-            "Se ejecutan recordatorios o comunicaciones previamente autorizadas.",
+            "El médico consulta información necesaria, registra seguimiento y actualiza el estado de atención.",
     },
+
     {
-        title: "La operación queda visible",
+        title: "La información queda organizada",
+
         description:
-            "El equipo identifica pendientes y próximos pasos desde una única fuente de información.",
+            "El sistema mantiene un historial operativo para facilitar futuras interacciones.",
     },
 ];
 
 const faqs = [
     {
-        question: "¿El producto ya está disponible?",
-        answer: "La página debe indicar el estado real. Si todavía está en desarrollo, se ofrece únicamente como piloto con alcance y condiciones claras.",
+        question: "¿Velyon Salud reemplaza un sistema clínico completo?",
+
+        answer: "No necesariamente. La primera versión está orientada a organizar agenda, atención, comunicación y operación del consultorio. Los módulos clínicos avanzados requieren análisis adicional.",
     },
+
     {
-        question: "¿La app móvil y el sistema web se cobran por separado?",
-        answer: "Forman un solo producto si comparten backend, datos y propósito. El plan puede variar por módulos, usuarios o sedes, no por fingir que son soluciones desconectadas.",
+        question: "¿Puedo usarlo si soy un médico independiente?",
+
+        answer: "Sí. El producto puede adaptarse desde profesionales independientes hasta centros con varios usuarios y colaboradores.",
     },
+
     {
-        question: "¿Incluye historia clínica?",
-        answer: "No debe prometerse hasta tener definidos requisitos, seguridad, responsabilidades y validación normativa. La primera versión puede enfocarse en agenda y operación no clínica.",
+        question: "¿Incluye aplicación móvil?",
+
+        answer: "El producto contempla una experiencia móvil para facilitar acciones frecuentes de pacientes y profesionales.",
     },
+
     {
-        question: "¿Puedo participar como cliente piloto?",
-        answer: "Sí, después de revisar si tu operación coincide con el problema que el producto busca resolver y acordar alcance, soporte y uso de retroalimentación.",
+        question: "¿Cómo funciona el modelo de contratación?",
+
+        answer: "Velyon Salud funcionará bajo un modelo SaaS con planes según usuarios, módulos y necesidades operativas.",
+    },
+
+    {
+        question: "¿Puede integrarse con otros servicios?",
+
+        answer: "Sí. La arquitectura permite incorporar integraciones como pagos, videollamadas, mapas y otros servicios tecnológicos.",
     },
 ];
 ---
 
 <ProductPage
     productName="Velyon Salud"
-    status="Piloto en desarrollo"
-    title="Agenda y operación conectadas para una atención más"
-    highlight="ordenada."
-    description="Producto web y móvil para consultorios que necesitan centralizar solicitudes, confirmaciones, recordatorios y tareas operativas."
-    metaTitle="Software para consultorios y citas médicas en Perú | Velyon"
-    metaDescription="Software web y móvil para consultorios en Perú: agenda, solicitudes de citas, confirmaciones, recordatorios y panel operativo. Programa piloto."
+    status="Producto SaaS en desarrollo"
+    title="La plataforma que conecta pacientes, profesionales y la operación"
+    highlight="médica."
+    description="Velyon Salud es un sistema web y móvil diseñado para consultorios y centros médicos que buscan organizar citas, atención, comunicación y procesos internos desde un solo ecosistema digital."
+    metaTitle="Software para consultorios médicos en Perú | Velyon Salud"
+    metaDescription="Velyon Salud es un software SaaS para consultorios y centros médicos en Perú. Gestiona citas, pacientes, profesionales, seguimiento y operación desde una plataforma web y móvil."
     path="/productos/sistema-para-consultorios"
     lottieSrc="/animations/producto-salud.lottie"
-    platforms={["Panel web", "Aplicación móvil", "Backend conectado"]}
+    platforms={[
+        "Panel web administrativo",
+        "Aplicación móvil",
+        "Backend SaaS conectado",
+    ]}
     {modules}
     {audiences}
     {workflow}
     pilotIncludes={[
-        "Diagnóstico de compatibilidad con tu operación",
-        "Configuración de los módulos disponibles",
-        "Acompañamiento de adopción",
-        "Canal de soporte y registro de incidencias",
-        "Revisión periódica de uso y prioridades",
+        "Evaluación del flujo actual del consultorio",
+
+        "Configuración inicial de módulos disponibles",
+
+        "Creación de usuarios y roles",
+
+        "Acompañamiento durante la adopción",
+
+        "Recopilación de mejoras para evolución del producto",
+
+        "Acceso prioritario durante etapa piloto",
     ]}
     {faqs}
 />

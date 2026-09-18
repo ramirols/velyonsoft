@@ -10,21 +10,57 @@ export const productLinks = [
 export const sectorLinks = [
     {
         number: "01",
-        label: "Educación",
-        detail: "Tecnología para colegios, academias y formación",
-        href: "/sectores/educacion",
-    },
-    {
-        number: "02",
         label: "Salud",
         detail: "Soluciones para consultorios y centros de salud",
         href: "/sectores/salud",
     },
     {
+        number: "02",
+        label: "Inmobiliarias",
+        detail: "Soluciones para inmobiliarias",
+        href: "/sectores/inmobiliarias",
+    },
+    {
         number: "03",
+        label: "Agricultura",
+        detail: "Soluciones para agricultura",
+        href: "/sectores/agricultura",
+    },
+    {
+        number: "04",
+        label: "Logística y transporte",
+        detail: "Soluciones para logística y transporte",
+        href: "/sectores/logistica-transporte",
+    },
+    {
+        number: "05",
         label: "Pymes y servicios",
         detail: "Sistemas y herramientas para negocios",
         href: "/sectores/pymes-y-servicios",
+    },
+    {
+        number: "06",
+        label: "Educación",
+        detail: "Tecnología para colegios, academias y formación",
+        href: "/sectores/educacion",
+    },
+    {
+        number: "07",
+        label: "Servicios profesionales",
+        detail: "Soluciones para profesionales y empresas de servicios",
+        href: "/sectores/servicios-profesionales",
+    },
+    {
+        number: "08",
+        label: "Hoteles y turismo",
+        detail: "Soluciones para hoteles, hospedajes y operadores turísticos",
+        href: "/sectores/hoteles-turismo",
+    },
+    {
+        number: "09",
+        label: "Restaurantes y comida",
+        detail: "Soluciones para restaurantes, cafeterías y negocios de comida",
+        href: "/sectores/restaurantes-comida",
     },
 ] as const;
 
@@ -37,9 +73,9 @@ export const solutionLinks = [
     },
     {
         number: "02",
-        label: "Tiendas virtuales",
+        label: "Ventas por internet",
         detail: "Ecommerce, catálogos y ventas online",
-        href: "/soluciones/tiendas-virtuales",
+        href: "/soluciones/ventas-por-internet",
     },
     {
         number: "03",

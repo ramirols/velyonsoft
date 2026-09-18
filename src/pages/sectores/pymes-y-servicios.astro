@@ -1,85 +1,130 @@
 ---
-import DetailPage from "@/components/DetailPage.astro";
-const benefits = [
+import SectorPage from "@/components/SectorPage.astro";
+
+const challenges = [
   {
-    title: "Más oportunidades",
+    title: "Procesos comerciales desordenados",
     description:
-      "Conecta la presencia digital con consultas y seguimiento comercial.",
+      "Muchas empresas gestionan clientes, cotizaciones y pedidos mediante diferentes canales sin un flujo centralizado.",
   },
   {
-    title: "Ventas ordenadas",
+    title: "Demasiadas tareas manuales",
     description:
-      "Organiza clientes, cotizaciones, pedidos y estados en un flujo visible.",
+      "El equipo pierde tiempo realizando actividades repetitivas como registrar información, responder consultas o actualizar datos.",
   },
   {
-    title: "Tiempo recuperado",
+    title: "Información difícil de controlar",
     description:
-      "Automatiza tareas repetitivas que frenan la atención y la operación.",
+      "Los datos importantes del negocio pueden estar dispersos entre hojas de cálculo, mensajes y diferentes herramientas.",
   },
   {
-    title: "Crecimiento por etapas",
+    title: "Crecimiento sin estructura digital",
     description:
-      "Empieza con una necesidad prioritaria y amplía la solución sin sobredimensionar.",
-  },
-];
-const steps = [
-  {
-    title: "Objetivo de negocio",
-    description:
-      "Identificamos la pérdida más importante: ventas, tiempo, información o atención.",
-  },
-  {
-    title: "Solución prioritaria",
-    description:
-      "Combinamos web, comercio, automatización o sistema según el caso.",
-  },
-  {
-    title: "Acompañamiento",
-    description:
-      "Medimos resultados y mantenemos una mejora mensual con alcance definido.",
+      "A medida que aumenta la cantidad de clientes, la operación necesita procesos más ordenados y herramientas adecuadas.",
   },
 ];
+
+const solutions = [
+  {
+    title: "Desarrollo web",
+    description:
+      "Páginas profesionales para mostrar servicios, captar clientes y fortalecer la presencia digital del negocio.",
+    href: "/soluciones/desarrollo-web",
+    label: "Presencia",
+  },
+  {
+    title: "Ventas por internet",
+    description:
+      "Catálogos digitales y tiendas online para convertir productos y servicios en nuevos canales comerciales.",
+    href: "/soluciones/ventas-por-internet",
+    label: "Ventas",
+  },
+  {
+    title: "Automatización de procesos",
+    description:
+      "Conecta herramientas, reduce tareas repetitivas y mejora la eficiencia operativa.",
+    href: "/soluciones/automatizacion-de-procesos",
+    label: "Eficiencia",
+  },
+];
+
+const principles = [
+  {
+    title: "Soluciones según la etapa del negocio",
+    description:
+      "Comenzamos por las necesidades más importantes sin implementar tecnología innecesaria.",
+  },
+  {
+    title: "Resultados antes que complejidad",
+    description:
+      "Priorizamos herramientas que tengan impacto real en ventas, operación y atención.",
+  },
+  {
+    title: "Crecimiento progresivo",
+    description:
+      "Diseñamos soluciones que puedan evolucionar conforme aumenta la necesidad del negocio.",
+  },
+  {
+    title: "Tecnología fácil de usar",
+    description:
+      "Creamos herramientas pensadas para equipos reales, no únicamente para usuarios técnicos.",
+  },
+];
+
 const faqs = [
   {
-    question: "¿Trabajan con negocios pequeños?",
+    question: "¿Trabajan con pequeñas y medianas empresas?",
     answer:
-      "Sí. La propuesta está pensada para pymes que necesitan una primera solución profesional y escalable.",
+      "Sí. Diseñamos soluciones digitales para pymes y negocios de servicios que necesitan mejorar su presencia, ventas u operación.",
   },
   {
-    question: "¿Debo contratar todos los servicios?",
+    question: "¿Necesito contratar todos los servicios?",
     answer:
-      "No. Recomendamos empezar por el problema con mayor impacto y menor complejidad.",
+      "No. Analizamos el principal problema del negocio y recomendamos comenzar con la solución que genere mayor impacto.",
   },
   {
-    question: "¿Proyecto único o plan mensual?",
+    question:
+      "¿Pueden ayudar a digitalizar un negocio que todavía trabaja manualmente?",
     answer:
-      "La implementación inicial entrega la solución. El plan mensual es opcional para hosting, soporte, mantenimiento y mejoras continuas.",
+      "Sí. Podemos empezar con herramientas básicas como una web profesional y evolucionar hacia automatizaciones o sistemas personalizados.",
+  },
+  {
+    question: "¿Trabajan con proyectos pequeños?",
+    answer:
+      "Sí. La implementación puede comenzar con una primera solución enfocada y crecer según los resultados obtenidos.",
   },
 ];
 ---
 
-<DetailPage
-  eyebrow="Sector · Negocios y servicios"
-  title="Tecnología práctica para una pyme más"
-  highlight="competitiva."
-  description="Web, ventas, automatización y sistemas para negocios que quieren crecer con más orden y menos tareas manuales."
+<SectorPage
+  sector="Pymes y negocios de servicios"
+  title="Tecnología práctica para hacer crecer tu"
+  highlight="negocio."
+  description="Creamos soluciones digitales para pequeñas y medianas empresas que necesitan conseguir más clientes, ordenar sus procesos y trabajar con mayor eficiencia."
   metaTitle="Soluciones digitales para pymes en Perú | Velyon"
-  metaDescription="Páginas web, tiendas, automatización y sistemas para pymes y negocios de servicios en Perú. Soluciones por etapas y soporte mensual."
-  path="/negocios-y-servicios"
+  metaDescription="Desarrollo web, automatización, tiendas online y software para pymes en Perú. Digitalizamos negocios para mejorar ventas, procesos y atención al cliente."
+  path="/sectores/pymes-y-servicios"
   lottieSrc="/animations/negocios-y-servicios.lottie"
-  introTitle="Una solución proporcional a la etapa de tu negocio."
-  intro="No necesitas contratar un departamento tecnológico. Velyon puede resolver una primera prioridad y acompañar la evolución con un alcance mensual claro."
-  {benefits}
-  deliverables={[
-    "Web o landing comercial",
-    "Catálogo o tienda online",
-    "CRM y seguimiento",
-    "Cotizaciones y pedidos",
-    "Automatizaciones",
-    "Paneles e indicadores",
-    "Integraciones",
-    "Soporte mensual",
+  audiences={[
+    "Pequeñas empresas",
+    "Negocios familiares",
+    "Empresas de servicios",
+    "Emprendedores",
   ]}
-  {steps}
+  {challenges}
+  {solutions}
+  {principles}
+  product={{
+    eyebrow: "Producto para negocios",
+
+    title: "Sistema de gestión para pequeñas empresas.",
+
+    description:
+      "Una solución digital orientada a organizar clientes, ventas, pedidos y procesos internos mediante herramientas simples y escalables.",
+
+    href: "/productos/sistema-gestion-negocios",
+
+    status: "En desarrollo",
+  }}
   {faqs}
 />

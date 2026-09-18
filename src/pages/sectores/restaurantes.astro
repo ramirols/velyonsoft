@@ -1,0 +1,124 @@
+---
+import SectorPage from "@/components/SectorPage.astro";
+
+const challenges = [
+    {
+        title: "Pedidos dispersos en diferentes canales",
+        description:
+            "Los clientes pueden llegar desde WhatsApp, redes sociales, llamadas o plataformas externas haciendo difícil organizar la operación.",
+    },
+    {
+        title: "Dependencia de plataformas externas",
+        description:
+            "Muchos negocios pierden control sobre sus clientes y dependen completamente de intermediarios para vender.",
+    },
+    {
+        title: "Reservas y atención manual",
+        description:
+            "La gestión de mesas, consultas y confirmaciones puede consumir tiempo del equipo.",
+    },
+    {
+        title: "Poca información sobre clientes",
+        description:
+            "Sin datos organizados es difícil conocer preferencias, frecuencia de compra y oportunidades de fidelización.",
+    },
+];
+
+const solutions = [
+    {
+        title: "Desarrollo web",
+        description:
+            "Páginas modernas para mostrar carta, ubicación, promociones y facilitar reservas o pedidos.",
+        href: "/soluciones/desarrollo-web",
+        label: "Presencia",
+    },
+    {
+        title: "Ventas por internet",
+        description:
+            "Catálogos digitales y sistemas de pedidos online para crear canales propios de venta.",
+        href: "/soluciones/ventas-por-internet",
+        label: "Pedidos",
+    },
+    {
+        title: "Automatización de procesos",
+        description:
+            "Confirmaciones, mensajes y conexiones automáticas para mejorar atención y operación.",
+        href: "/soluciones/automatizacion-de-procesos",
+        label: "Automatización",
+    },
+];
+
+const principles = [
+    {
+        title: "Más control sobre tus clientes",
+        description:
+            "Ayudamos a construir canales propios para conocer mejor a quienes compran.",
+    },
+    {
+        title: "Procesos simples para equipos reales",
+        description:
+            "Las herramientas deben facilitar el trabajo diario, no agregar complejidad.",
+    },
+    {
+        title: "Experiencia rápida para clientes",
+        description:
+            "Diseñamos soluciones fáciles de usar desde celulares y dispositivos comunes.",
+    },
+    {
+        title: "Crecimiento progresivo",
+        description:
+            "Comenzamos con necesidades prioritarias y ampliamos según resultados.",
+    },
+];
+
+const faqs = [
+    {
+        question: "¿Desarrollan páginas web para restaurantes?",
+        answer: "Sí. Creamos páginas web gastronómicas con información del negocio, carta digital, ubicación, reservas y canales de contacto.",
+    },
+    {
+        question: "¿Pueden crear sistemas de pedidos online?",
+        answer: "Sí. Podemos desarrollar catálogos digitales y soluciones de pedidos adaptadas al modelo de atención del restaurante.",
+    },
+    {
+        question: "¿La solución reemplaza plataformas como delivery?",
+        answer: "No necesariamente. Podemos complementar los canales existentes creando canales propios para mejorar la relación con los clientes.",
+    },
+    {
+        question: "¿Sirve para cafeterías y pequeños negocios gastronómicos?",
+        answer: "Sí. La solución puede adaptarse según el tamaño, tipo de atención y objetivos comerciales del negocio.",
+    },
+];
+---
+
+<SectorPage
+    sector="Restaurantes y gastronomía"
+    title="Soluciones digitales para restaurantes que buscan"
+    highlight="vender mejor."
+    description="Creamos páginas web, canales de venta online y automatizaciones para restaurantes, cafeterías y negocios gastronómicos que necesitan mejorar ventas y operación."
+    metaTitle="Soluciones digitales para restaurantes en Perú | Web y pedidos online | Velyon"
+    metaDescription="Desarrollamos páginas web para restaurantes, pedidos online, catálogos digitales y automatizaciones para negocios gastronómicos en Perú."
+    path="/sectores/restaurantes"
+    lottieSrc="/animations/restaurantes.lottie"
+    audiences={[
+        "Restaurantes",
+        "Cafeterías",
+        "Dark kitchens",
+        "Negocios gastronómicos",
+    ]}
+    {challenges}
+    {solutions}
+    {principles}
+    product={{
+        eyebrow: "Producto para restaurantes",
+
+        title: "Sistema de pedidos y clientes para negocios gastronómicos.",
+
+        description: "Una solución digital en desarrollo para organizar pedidos, clientes, productos y comunicación con consumidores.",
+
+        href: "/productos/sistema-restaurantes",
+
+        status: "En desarrollo",
+    }}
+    {faqs}
+/>

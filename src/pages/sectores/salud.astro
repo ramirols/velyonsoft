@@ -3,24 +3,24 @@ import SectorPage from "@/components/SectorPage.astro";
 
 const challenges = [
   {
-    title: "Solicitudes de cita dispersas",
+    title: "Gestión de citas poco organizada",
     description:
-      "Llamadas, WhatsApp y formularios llegan por canales distintos y dificultan confirmar o reprogramar a tiempo.",
+      "Las solicitudes llegan desde llamadas, WhatsApp o formularios y pueden generar confusión al confirmar, cancelar o reprogramar atenciones.",
   },
   {
-    title: "Información repetida",
+    title: "Información repetida constantemente",
     description:
-      "El equipo responde una y otra vez horarios, especialidades, ubicaciones, preparación y disponibilidad.",
+      "El equipo invierte tiempo respondiendo preguntas frecuentes sobre servicios, horarios, especialistas y ubicación.",
   },
   {
-    title: "Seguimiento manual",
+    title: "Seguimiento manual de pacientes",
     description:
-      "Los recordatorios y comunicaciones dependen de tareas que pueden olvidarse durante los momentos de mayor carga.",
+      "Los recordatorios, confirmaciones y comunicaciones dependen de procesos manuales que pueden generar retrasos.",
   },
   {
-    title: "Herramientas que no conversan",
+    title: "Herramientas desconectadas",
     description:
-      "La web, la agenda y la operación interna pueden mantener datos separados o exigir doble registro.",
+      "La página web, canales de contacto y sistemas internos pueden trabajar separados dificultando la gestión.",
   },
 ];
 
@@ -28,100 +28,103 @@ const solutions = [
   {
     title: "Desarrollo web",
     description:
-      "Sitios claros para presentar especialidades, profesionales, sedes y canales de atención.",
+      "Páginas profesionales para mostrar especialistas, servicios, ubicaciones y facilitar solicitudes de atención.",
     href: "/soluciones/desarrollo-web",
-    label: "Presencia",
+    label: "Información",
   },
   {
     title: "Software a medida",
     description:
-      "Paneles, agendas y flujos internos adaptados a la operación del centro.",
+      "Sistemas personalizados para administrar procesos internos, agendas, usuarios e información operativa.",
     href: "/soluciones/software-a-medida",
-    label: "Operación",
+    label: "Gestión",
   },
   {
     title: "Automatización de procesos",
     description:
-      "Confirmaciones, recordatorios e integraciones con controles definidos.",
+      "Confirmaciones, recordatorios y conexiones entre herramientas para reducir tareas manuales.",
     href: "/soluciones/automatizacion-de-procesos",
-    label: "Seguimiento",
+    label: "Automatización",
   },
 ];
 
 const principles = [
   {
-    title: "Datos mínimos",
+    title: "Protección de información",
     description:
-      "Solicitamos únicamente la información necesaria para cada interacción y propósito.",
+      "Diseñamos soluciones considerando privacidad, control de accesos y manejo responsable de información.",
   },
   {
-    title: "Accesos definidos",
+    title: "Usuarios y permisos definidos",
     description:
-      "Separamos permisos y responsabilidades según el rol de cada usuario.",
+      "Cada herramienta debe permitir controlar quién puede acceder o modificar información.",
   },
   {
-    title: "Implementación gradual",
+    title: "Implementación progresiva",
     description:
-      "Empezamos por información, contacto y reserva antes de abordar funciones más sensibles.",
+      "Comenzamos con necesidades concretas antes de ampliar funcionalidades más complejas.",
   },
   {
-    title: "Alcance verificable",
+    title: "Procesos claros",
     description:
-      "Documentamos qué resuelve la solución, qué integra y qué queda fuera de la primera etapa.",
+      "Definimos objetivos, alcance e integraciones antes de construir una solución tecnológica.",
   },
 ];
 
 const faqs = [
   {
-    question: "¿Una web reemplaza un sistema clínico?",
+    question: "¿Desarrollan sistemas completos para clínicas?",
     answer:
-      "No necesariamente. La web puede informar, captar solicitudes o integrarse con una agenda. Un sistema clínico requiere un alcance y controles distintos.",
+      "Sí, podemos desarrollar soluciones digitales adaptadas a procesos específicos de clínicas y consultorios. El alcance se define según las necesidades operativas y requerimientos del proyecto.",
   },
   {
-    question: "¿Pueden desarrollar una reserva de citas?",
+    question: "¿Pueden crear sistemas de reservas o agenda médica?",
     answer:
-      "Sí. Puede ir desde una solicitud con confirmación hasta una agenda conectada con disponibilidad y recordatorios, según la operación.",
+      "Sí. Podemos desarrollar desde formularios de solicitud y confirmación hasta sistemas personalizados de agenda según el flujo de atención.",
   },
   {
-    question: "¿Cómo se manejan los datos sensibles?",
+    question: "¿Una página web ayuda a un consultorio médico?",
     answer:
-      "Se minimizan los datos, se definen accesos y se seleccionan proveedores apropiados. Las obligaciones legales específicas deben validarse con el responsable del servicio y asesoría especializada.",
+      "Sí. Una página profesional permite mostrar servicios, especialistas, ubicación, información importante y facilitar nuevos canales de contacto.",
   },
   {
-    question: "¿La aplicación móvil y el panel web son productos diferentes?",
+    question: "¿Cómo manejan la información sensible?",
     answer:
-      "No si comparten el mismo objetivo, usuarios y datos. En ese caso son interfaces de un solo producto tecnológico.",
+      "Las soluciones se diseñan considerando control de accesos, minimización de datos y buenas prácticas técnicas. Los requisitos legales específicos deben ser revisados por el responsable correspondiente.",
   },
 ];
 ---
 
 <SectorPage
   sector="Salud"
-  title="Tecnología que ordena la atención sin perder el trato"
-  highlight="humano."
-  description="Creamos experiencias web, reservas, automatizaciones y sistemas para consultorios y centros de salud que necesitan atender con mayor claridad y continuidad."
-  metaTitle="Soluciones tecnológicas para consultorios en Perú | Velyon"
-  metaDescription="Páginas web, reservas, automatizaciones y software para consultorios y centros de salud en Perú. Soluciones digitales diseñadas por etapas."
+  title="Soluciones digitales para clínicas y consultorios con"
+  highlight="atención más eficiente."
+  description="Creamos páginas web, sistemas personalizados y automatizaciones para organizaciones de salud que necesitan mejorar la gestión de citas, comunicación con pacientes y procesos internos."
+  metaTitle="Software para clínicas y consultorios en Perú | Soluciones digitales de salud | Velyon"
+  metaDescription="Desarrollamos páginas web, sistemas y automatizaciones para clínicas y consultorios en Perú. Digitaliza citas, comunicación y procesos administrativos."
   path="/sectores/salud"
   lottieSrc="/animations/salud.lottie"
-  
   audiences={[
-    "Consultorios",
+    "Consultorios médicos",
+    "Clínicas pequeñas",
     "Centros especializados",
     "Profesionales de salud",
-    "Clínicas pequeñas",
   ]}
   {challenges}
   {solutions}
   {principles}
   product={{
     eyebrow: "Producto para salud",
+
     title:
-      "Sistema para consultorios: agenda, seguimiento y operación conectada.",
+      "Sistema para consultorios: agenda, seguimiento y gestión conectada.",
+
     description:
-      "Un producto web y móvil en desarrollo para resolver un flujo repetible del sector. Su página explica módulos, usuarios, estado y programa piloto.",
+      "Una solución digital en desarrollo orientada a organizar citas, seguimiento de pacientes y procesos administrativos mediante herramientas web y móviles.",
+
     href: "/productos/sistema-para-consultorios",
-    status: "Piloto en desarrollo",
+
+    status: "Producto en desarrollo",
   }}
   {faqs}
 />

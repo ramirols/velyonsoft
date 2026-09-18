@@ -1,85 +1,124 @@
 ---
-import DetailPage from "@/components/DetailPage.astro";
-const benefits = [
+import SectorPage from "@/components/SectorPage.astro";
+
+const challenges = [
   {
-    title: "Más matrículas",
+    title: "Procesos de admisión poco eficientes",
     description:
-      "Una presencia digital clara y rutas simples para consultas, admisión e inscripción.",
+      "Las consultas de nuevos estudiantes llegan por diferentes canales y dificultan el seguimiento de familias interesadas.",
   },
   {
-    title: "Comunicación ordenada",
+    title: "Comunicación dispersa",
     description:
-      "Centraliza avisos y reduce mensajes dispersos entre familias, docentes y administración.",
+      "Avisos, mensajes y consultas entre institución, docentes y familias pueden depender de múltiples canales sin organización.",
   },
   {
-    title: "Gestión administrativa",
+    title: "Gestión administrativa manual",
     description:
-      "Digitaliza asistencia, pagos, documentos y seguimiento académico por etapas.",
+      "Asistencia, documentos, pagos y seguimiento académico pueden requerir demasiado trabajo repetitivo.",
   },
   {
-    title: "Experiencia para familias",
+    title: "Información sin una fuente centralizada",
     description:
-      "Facilita el acceso a información importante desde cualquier dispositivo.",
-  },
-];
-const steps = [
-  {
-    title: "Diagnóstico institucional",
-    description:
-      "Revisamos admisión, comunicación, cobranzas y los sistemas que ya utiliza la institución.",
-  },
-  {
-    title: "Módulo prioritario",
-    description:
-      "Implementamos primero la web, matrícula o proceso con mayor impacto.",
-  },
-  {
-    title: "Escalamiento",
-    description:
-      "Sumamos portales, automatizaciones y módulos solo cuando la base está funcionando.",
+      "La institución necesita herramientas que permitan organizar datos importantes y facilitar la toma de decisiones.",
   },
 ];
+
+const solutions = [
+  {
+    title: "Desarrollo web",
+    description:
+      "Sitios institucionales para mostrar programas, servicios educativos, admisión y canales de contacto.",
+    href: "/soluciones/desarrollo-web",
+    label: "Presencia",
+  },
+  {
+    title: "Software a medida",
+    description:
+      "Sistemas personalizados para administrar estudiantes, procesos internos y operaciones educativas.",
+    href: "/soluciones/software-a-medida",
+    label: "Gestión",
+  },
+  {
+    title: "Automatización de procesos",
+    description:
+      "Automatización de comunicaciones, registros, seguimiento y tareas administrativas.",
+    href: "/soluciones/automatizacion-de-procesos",
+    label: "Eficiencia",
+  },
+];
+
+const principles = [
+  {
+    title: "Soluciones por etapas",
+    description:
+      "Comenzamos con procesos prioritarios como admisión, comunicación o gestión antes de ampliar la plataforma.",
+  },
+  {
+    title: "Experiencia para usuarios reales",
+    description:
+      "Diseñamos pensando en administradores, docentes, estudiantes y familias.",
+  },
+  {
+    title: "Información organizada",
+    description:
+      "Creamos herramientas que ayudan a centralizar datos y reducir tareas repetitivas.",
+  },
+  {
+    title: "Tecnología adaptable",
+    description:
+      "Cada institución tiene procesos diferentes; la solución debe ajustarse a su realidad.",
+  },
+];
+
 const faqs = [
   {
-    question: "¿Es un sistema educativo completo?",
+    question: "¿Desarrollan sistemas para colegios y centros educativos?",
     answer:
-      "La oferta empieza de forma modular. Podemos implementar una web, matrícula o comunicación y ampliar después según validación y presupuesto.",
+      "Sí. Creamos soluciones digitales adaptadas a procesos específicos como admisión, comunicación, gestión administrativa y seguimiento.",
   },
   {
-    question: "¿Sirve para colegios y academias?",
+    question: "¿Pueden crear una plataforma de matrícula online?",
     answer:
-      "Sí, pero el flujo se adapta a cada institución. Un colegio, academia y centro de formación no gestionan los mismos usuarios ni procesos.",
+      "Sí. Podemos desarrollar sistemas para solicitudes, registros, seguimiento y organización del proceso de matrícula.",
   },
   {
-    question: "¿Se puede cobrar una mensualidad?",
+    question: "¿Sirve para colegios, academias y centros de formación?",
     answer:
-      "Sí. La implementación cubre la puesta en marcha y la mensualidad puede incluir hosting, seguridad, soporte y mejoras acotadas.",
+      "Sí. Cada institución tiene diferentes necesidades, por lo que analizamos usuarios, procesos y objetivos antes de definir la solución.",
+  },
+  {
+    question: "¿La solución puede crecer con la institución?",
+    answer:
+      "Sí. Recomendamos comenzar con módulos prioritarios y agregar nuevas funcionalidades según la evolución del proyecto.",
   },
 ];
 ---
 
-<DetailPage
-  eyebrow="Sector · Educación"
-  title="Tecnología educativa que facilita la"
-  highlight="gestión."
-  description="Soluciones digitales para colegios, academias y centros de formación: presencia web, matrícula, pagos, comunicación y procesos internos."
-  metaTitle="Sistemas y páginas web para colegios en Perú | Velyon"
-  metaDescription="Páginas web, matrícula online, pagos, comunicación y sistemas para colegios, academias y centros educativos en Perú."
-  path="/educacion"
+<SectorPage
+  sector="Educación"
+  title="Soluciones digitales para instituciones educativas con"
+  highlight="gestión más eficiente."
+  description="Desarrollamos páginas web, sistemas y automatizaciones para colegios, academias y centros de formación que buscan mejorar admisión, comunicación y procesos administrativos."
+  metaTitle="Sistemas para colegios y centros educativos en Perú | Velyon"
+  metaDescription="Creamos páginas web, sistemas de matrícula, automatizaciones y soluciones digitales para colegios, academias y centros educativos en Perú."
+  path="/sectores/educacion"
   lottieSrc="/animations/educacion.lottie"
-  introTitle="Una propuesta especializada para la realidad educativa."
-  intro="Esta página es la primera vertical de Velyon. Habla directamente de admisión, estudiantes, familias, docentes, pagos y gestión; no de tecnología genérica."
-  {benefits}
-  deliverables={[
-    "Web institucional",
-    "Admisión y matrícula online",
-    "Portal para familias",
-    "Asistencia y seguimiento",
-    "Pensiones y cobranzas",
-    "Comunicaciones y avisos",
-    "Panel administrativo",
-    "Soporte mensual",
-  ]}
-  {steps}
+  audiences={["Colegios", "Academias", "Institutos", "Centros de formación"]}
+  {challenges}
+  {solutions}
+  {principles}
+  product={{
+    eyebrow: "Producto para educación",
+
+    title: "Sistema de gestión educativa para instituciones.",
+
+    description:
+      "Una solución digital en desarrollo para organizar procesos como matrícula, comunicación y gestión administrativa mediante herramientas conectadas.",
+
+    href: "/productos/sistema-educativo",
+
+    status: "En desarrollo",
+  }}
   {faqs}
 />
