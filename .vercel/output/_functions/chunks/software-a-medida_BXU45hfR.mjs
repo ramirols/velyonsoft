@@ -1,0 +1,135 @@
+import { r as __exportAll } from "./rolldown-runtime_BMI-E3GI.mjs";
+import { a as renderComponent, f as renderTemplate } from "./server_DA5ogtCn.mjs";
+import { t as createComponent } from "./compiler_DVgYHClu.mjs";
+import { t as $$SolutionPage } from "./SolutionPage_DuMoNjkB.mjs";
+//#region src/pages/soluciones/software-a-medida.astro
+var software_a_medida_exports = /* @__PURE__ */ __exportAll({
+	default: () => $$SoftwareAMedida,
+	file: () => $$file,
+	url: () => $$url
+});
+var $$SoftwareAMedida = createComponent(($$result, $$props, $$slots) => {
+	return renderTemplate`${renderComponent($$result, "SolutionPage", $$SolutionPage, {
+		"eyebrow": "Solución · Desarrollo de software a medida",
+		"title": "Software personalizado para optimizar los procesos de",
+		"highlight": "tu negocio.",
+		"description": "Creamos sistemas web, plataformas empresariales y herramientas digitales adaptadas a la forma en que opera tu empresa para mejorar eficiencia, control y crecimiento.",
+		"metaTitle": "Desarrollo de software a medida en Perú | Sistemas personalizados | Velyon",
+		"metaDescription": "Desarrollamos software a medida para empresas en Perú. Sistemas web personalizados, paneles administrativos, plataformas empresariales e integraciones digitales.",
+		"path": "/soluciones/software-a-medida",
+		"lottieSrc": "/animations/software-a-medida.lottie",
+		"introTitle": "La tecnología debe adaptarse a tu negocio, no al revés.",
+		"intro": "Antes de desarrollar una solución analizamos cómo funciona tu empresa, qué información necesitas controlar y dónde existen oportunidades de mejora. Diseñamos software personalizado que resuelve necesidades reales y puede evolucionar junto con tu crecimiento.",
+		"outcomes": [
+			{
+				title: "Procesos más ordenados y eficientes",
+				description: "Centralizamos clientes, pedidos, documentos e información operativa en sistemas diseñados alrededor de la forma real en que trabaja tu empresa."
+			},
+			{
+				title: "Menos trabajo manual y errores",
+				description: "Eliminamos procesos repetitivos, información duplicada y tareas que consumen tiempo mediante herramientas digitales personalizadas."
+			},
+			{
+				title: "Información disponible para decidir mejor",
+				description: "Creamos paneles e indicadores que permiten visualizar el estado del negocio y tomar decisiones con datos reales."
+			},
+			{
+				title: "Una solución preparada para crecer",
+				description: "Desarrollamos por etapas para validar resultados y ampliar funcionalidades según las necesidades futuras."
+			}
+		],
+		"capabilities": [
+			{
+				title: "Sistemas web empresariales",
+				description: "Plataformas internas para administrar operaciones, clientes, ventas, procesos y equipos de trabajo."
+			},
+			{
+				title: "Paneles administrativos",
+				description: "Interfaces centralizadas para gestionar usuarios, información, indicadores y tareas importantes."
+			},
+			{
+				title: "Portales privados",
+				description: "Espacios digitales para clientes, proveedores o trabajadores con accesos y permisos personalizados."
+			},
+			{
+				title: "Gestión de pedidos e inventarios",
+				description: "Sistemas para controlar productos, movimientos, estados y procesos comerciales."
+			},
+			{
+				title: "Integración con herramientas existentes",
+				description: "Conectamos tus plataformas actuales para mejorar el flujo de información entre sistemas."
+			},
+			{
+				title: "MVP y nuevos productos digitales",
+				description: "Creamos primeras versiones funcionales para validar ideas antes de realizar inversiones mayores."
+			}
+		],
+		"deliverables": [
+			"Análisis funcional del negocio",
+			"Arquitectura del sistema",
+			"Diseño UX/UI",
+			"Panel administrativo",
+			"Gestión de usuarios y permisos",
+			"Base de datos personalizada",
+			"Integraciones con plataformas externas",
+			"Despliegue y configuración",
+			"Documentación y capacitación"
+		],
+		"steps": [
+			{
+				title: "Analizamos tu operación",
+				description: "Entendemos usuarios, procesos, información y problemas actuales antes de definir la solución tecnológica."
+			},
+			{
+				title: "Diseñamos y desarrollamos",
+				description: "Construimos una primera versión funcional enfocada en resolver los procesos más importantes del negocio."
+			},
+			{
+				title: "Mejoramos y escalamos",
+				description: "Medimos resultados, incorporamos mejoras y agregamos nuevas funcionalidades según la evolución de la empresa."
+			}
+		],
+		"related": [
+			{
+				title: "Automatización de procesos",
+				description: "Conecta herramientas y elimina tareas repetitivas mediante flujos automáticos.",
+				href: "/soluciones/automatizacion-de-procesos"
+			},
+			{
+				title: "Aplicaciones móviles",
+				description: "Lleva procesos, servicios y herramientas de tu negocio al celular.",
+				href: "/soluciones/aplicaciones-moviles"
+			},
+			{
+				title: "Mantenimiento y evolución",
+				description: "Mantén tus sistemas seguros, actualizados y preparados para crecer.",
+				href: "/soluciones/mantenimiento-y-evolucion"
+			}
+		],
+		"faqs": [
+			{
+				question: "¿Cuándo una empresa necesita desarrollar software a medida?",
+				answer: "Cuando los procesos del negocio son importantes, se repiten constantemente y las herramientas actuales no permiten trabajar de forma eficiente."
+			},
+			{
+				question: "¿Es necesario desarrollar todo desde cero?",
+				answer: "No. Recomendamos comenzar con una primera versión enfocada en los procesos principales y ampliar funcionalidades según resultados reales."
+			},
+			{
+				question: "¿Pueden integrar el sistema con herramientas existentes?",
+				answer: "Sí. Evaluamos las plataformas actuales y desarrollamos integraciones mediante APIs u otros mecanismos disponibles."
+			},
+			{
+				question: "¿Incluye soporte después del desarrollo?",
+				answer: "Sí. Podemos complementar el desarrollo con mantenimiento, monitoreo, seguridad y evolución continua del sistema."
+			}
+		]
+	})}`;
+}, "C:/Users/User/Desktop/velyon/src/pages/soluciones/software-a-medida.astro", void 0);
+var $$file = "C:/Users/User/Desktop/velyon/src/pages/soluciones/software-a-medida.astro";
+var $$url = "/soluciones/software-a-medida";
+//#endregion
+//#region \0virtual:astro:page:src/pages/soluciones/software-a-medida@_@astro
+var page = () => software_a_medida_exports;
+//#endregion
+export { page };

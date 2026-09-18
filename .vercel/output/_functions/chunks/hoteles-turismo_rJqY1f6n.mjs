@@ -1,0 +1,116 @@
+import { r as __exportAll } from "./rolldown-runtime_BMI-E3GI.mjs";
+import { a as renderComponent, f as renderTemplate } from "./server_DA5ogtCn.mjs";
+import { t as createComponent } from "./compiler_DVgYHClu.mjs";
+import { t as $$SectorPage } from "./SectorPage_BrQS4e9w.mjs";
+//#region src/pages/sectores/hoteles-turismo.astro
+var hoteles_turismo_exports = /* @__PURE__ */ __exportAll({
+	default: () => $$HotelesTurismo,
+	file: () => $$file,
+	url: () => $$url
+});
+var $$HotelesTurismo = createComponent(($$result, $$props, $$slots) => {
+	return renderTemplate`${renderComponent($$result, "SectorPage", $$SectorPage, {
+		"sector": "Hoteles y turismo",
+		"title": "Soluciones digitales para hoteles y negocios turísticos que buscan",
+		"highlight": "más reservas.",
+		"description": "Creamos páginas web, sistemas de reservas y automatizaciones para hoteles, alojamientos y empresas turísticas que necesitan mejorar ventas y experiencia del cliente.",
+		"metaTitle": "Soluciones digitales para hoteles y turismo en Perú | Velyon",
+		"metaDescription": "Desarrollamos páginas web para hoteles, sistemas de reservas y automatizaciones para negocios turísticos en Perú. Mejora ventas y atención al cliente.",
+		"path": "/sectores/hoteles-turismo",
+		"lottieSrc": "/animations/hoteles-turismo.lottie",
+		"audiences": [
+			"Hoteles",
+			"Hospedajes",
+			"Operadores turísticos",
+			"Agencias de viaje"
+		],
+		"challenges": [
+			{
+				title: "Dependencia de plataformas externas",
+				description: "Muchos negocios turísticos dependen completamente de intermediarios y pierden oportunidades de construir una relación directa con sus clientes."
+			},
+			{
+				title: "Consultas repetitivas de visitantes",
+				description: "Preguntas sobre disponibilidad, servicios, ubicación y reservas consumen tiempo del equipo de atención."
+			},
+			{
+				title: "Proceso de reserva poco optimizado",
+				description: "Los clientes necesitan una experiencia sencilla para conocer opciones, solicitar información y confirmar servicios."
+			},
+			{
+				title: "Información turística dispersa",
+				description: "Habitaciones, experiencias, paquetes y servicios requieren una presentación clara y actualizada."
+			}
+		],
+		"solutions": [
+			{
+				title: "Desarrollo web",
+				description: "Sitios profesionales para hoteles, alojamientos y operadores turísticos con información clara y experiencia visual atractiva.",
+				href: "/soluciones/desarrollo-web",
+				label: "Presencia"
+			},
+			{
+				title: "Ventas por internet",
+				description: "Sistemas de reservas, solicitudes y canales digitales para convertir visitantes en clientes.",
+				href: "/soluciones/ventas-por-internet",
+				label: "Reservas"
+			},
+			{
+				title: "Automatización de procesos",
+				description: "Confirmaciones, mensajes y seguimiento automático para mejorar atención antes y después de la reserva.",
+				href: "/soluciones/automatizacion-de-procesos",
+				label: "Atención"
+			}
+		],
+		"principles": [
+			{
+				title: "Experiencia del visitante",
+				description: "Diseñamos soluciones pensando en facilitar la decisión de compra y la comunicación con el cliente."
+			},
+			{
+				title: "Canales digitales propios",
+				description: "Ayudamos a construir una relación directa con clientes reduciendo dependencia de terceros."
+			},
+			{
+				title: "Información clara y actualizada",
+				description: "Organizamos servicios, precios, disponibilidad y experiencias para mejorar la conversión."
+			},
+			{
+				title: "Mejora continua",
+				description: "Las soluciones pueden evolucionar incorporando nuevas funcionalidades según las necesidades del negocio."
+			}
+		],
+		"product": {
+			eyebrow: "Producto para turismo",
+			title: "Sistema de reservas y gestión turística.",
+			description: "Una solución digital en desarrollo para organizar reservas, clientes, servicios turísticos y comunicación con visitantes.",
+			href: "/productos/sistema-reservas",
+			status: "En desarrollo"
+		},
+		"faqs": [
+			{
+				question: "¿Desarrollan páginas web para hoteles?",
+				answer: "Sí. Creamos páginas web para hoteles, hospedajes y negocios turísticos con información de servicios, ubicación, habitaciones y canales de contacto."
+			},
+			{
+				question: "¿Pueden crear sistemas de reservas?",
+				answer: "Sí. Podemos desarrollar soluciones para solicitudes, reservas, confirmaciones e integración con herramientas externas según el proyecto."
+			},
+			{
+				question: "¿Ayudan a automatizar la atención al cliente?",
+				answer: "Sí. Podemos automatizar mensajes, confirmaciones, recordatorios y procesos de comunicación con visitantes."
+			},
+			{
+				question: "¿Trabajan con pequeños hospedajes o solo hoteles grandes?",
+				answer: "Trabajamos con diferentes tipos de negocios turísticos, adaptando la solución según tamaño, necesidades y objetivos."
+			}
+		]
+	})}`;
+}, "C:/Users/User/Desktop/velyon/src/pages/sectores/hoteles-turismo.astro", void 0);
+var $$file = "C:/Users/User/Desktop/velyon/src/pages/sectores/hoteles-turismo.astro";
+var $$url = "/sectores/hoteles-turismo";
+//#endregion
+//#region \0virtual:astro:page:src/pages/sectores/hoteles-turismo@_@astro
+var page = () => hoteles_turismo_exports;
+//#endregion
+export { page };

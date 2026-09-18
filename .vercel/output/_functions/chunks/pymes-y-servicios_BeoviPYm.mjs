@@ -1,0 +1,116 @@
+import { r as __exportAll } from "./rolldown-runtime_BMI-E3GI.mjs";
+import { a as renderComponent, f as renderTemplate } from "./server_DA5ogtCn.mjs";
+import { t as createComponent } from "./compiler_DVgYHClu.mjs";
+import { t as $$SectorPage } from "./SectorPage_BrQS4e9w.mjs";
+//#region src/pages/sectores/pymes-y-servicios.astro
+var pymes_y_servicios_exports = /* @__PURE__ */ __exportAll({
+	default: () => $$PymesYServicios,
+	file: () => $$file,
+	url: () => $$url
+});
+var $$PymesYServicios = createComponent(($$result, $$props, $$slots) => {
+	return renderTemplate`${renderComponent($$result, "SectorPage", $$SectorPage, {
+		"sector": "Pymes y negocios de servicios",
+		"title": "Tecnología práctica para hacer crecer tu",
+		"highlight": "negocio.",
+		"description": "Creamos soluciones digitales para pequeñas y medianas empresas que necesitan conseguir más clientes, ordenar sus procesos y trabajar con mayor eficiencia.",
+		"metaTitle": "Soluciones digitales para pymes en Perú | Velyon",
+		"metaDescription": "Desarrollo web, automatización, tiendas online y software para pymes en Perú. Digitalizamos negocios para mejorar ventas, procesos y atención al cliente.",
+		"path": "/sectores/pymes-y-servicios",
+		"lottieSrc": "/animations/negocios-y-servicios.lottie",
+		"audiences": [
+			"Pequeñas empresas",
+			"Negocios familiares",
+			"Empresas de servicios",
+			"Emprendedores"
+		],
+		"challenges": [
+			{
+				title: "Procesos comerciales desordenados",
+				description: "Muchas empresas gestionan clientes, cotizaciones y pedidos mediante diferentes canales sin un flujo centralizado."
+			},
+			{
+				title: "Demasiadas tareas manuales",
+				description: "El equipo pierde tiempo realizando actividades repetitivas como registrar información, responder consultas o actualizar datos."
+			},
+			{
+				title: "Información difícil de controlar",
+				description: "Los datos importantes del negocio pueden estar dispersos entre hojas de cálculo, mensajes y diferentes herramientas."
+			},
+			{
+				title: "Crecimiento sin estructura digital",
+				description: "A medida que aumenta la cantidad de clientes, la operación necesita procesos más ordenados y herramientas adecuadas."
+			}
+		],
+		"solutions": [
+			{
+				title: "Desarrollo web",
+				description: "Páginas profesionales para mostrar servicios, captar clientes y fortalecer la presencia digital del negocio.",
+				href: "/soluciones/desarrollo-web",
+				label: "Presencia"
+			},
+			{
+				title: "Ventas por internet",
+				description: "Catálogos digitales y tiendas online para convertir productos y servicios en nuevos canales comerciales.",
+				href: "/soluciones/ventas-por-internet",
+				label: "Ventas"
+			},
+			{
+				title: "Automatización de procesos",
+				description: "Conecta herramientas, reduce tareas repetitivas y mejora la eficiencia operativa.",
+				href: "/soluciones/automatizacion-de-procesos",
+				label: "Eficiencia"
+			}
+		],
+		"principles": [
+			{
+				title: "Soluciones según la etapa del negocio",
+				description: "Comenzamos por las necesidades más importantes sin implementar tecnología innecesaria."
+			},
+			{
+				title: "Resultados antes que complejidad",
+				description: "Priorizamos herramientas que tengan impacto real en ventas, operación y atención."
+			},
+			{
+				title: "Crecimiento progresivo",
+				description: "Diseñamos soluciones que puedan evolucionar conforme aumenta la necesidad del negocio."
+			},
+			{
+				title: "Tecnología fácil de usar",
+				description: "Creamos herramientas pensadas para equipos reales, no únicamente para usuarios técnicos."
+			}
+		],
+		"product": {
+			eyebrow: "Producto para negocios",
+			title: "Sistema de gestión para pequeñas empresas.",
+			description: "Una solución digital orientada a organizar clientes, ventas, pedidos y procesos internos mediante herramientas simples y escalables.",
+			href: "/productos/sistema-gestion-negocios",
+			status: "En desarrollo"
+		},
+		"faqs": [
+			{
+				question: "¿Trabajan con pequeñas y medianas empresas?",
+				answer: "Sí. Diseñamos soluciones digitales para pymes y negocios de servicios que necesitan mejorar su presencia, ventas u operación."
+			},
+			{
+				question: "¿Necesito contratar todos los servicios?",
+				answer: "No. Analizamos el principal problema del negocio y recomendamos comenzar con la solución que genere mayor impacto."
+			},
+			{
+				question: "¿Pueden ayudar a digitalizar un negocio que todavía trabaja manualmente?",
+				answer: "Sí. Podemos empezar con herramientas básicas como una web profesional y evolucionar hacia automatizaciones o sistemas personalizados."
+			},
+			{
+				question: "¿Trabajan con proyectos pequeños?",
+				answer: "Sí. La implementación puede comenzar con una primera solución enfocada y crecer según los resultados obtenidos."
+			}
+		]
+	})}`;
+}, "C:/Users/User/Desktop/velyon/src/pages/sectores/pymes-y-servicios.astro", void 0);
+var $$file = "C:/Users/User/Desktop/velyon/src/pages/sectores/pymes-y-servicios.astro";
+var $$url = "/sectores/pymes-y-servicios";
+//#endregion
+//#region \0virtual:astro:page:src/pages/sectores/pymes-y-servicios@_@astro
+var page = () => pymes_y_servicios_exports;
+//#endregion
+export { page };

@@ -1,0 +1,136 @@
+import { r as __exportAll } from "./rolldown-runtime_BMI-E3GI.mjs";
+import { a as renderComponent, f as renderTemplate } from "./server_DA5ogtCn.mjs";
+import { t as createComponent } from "./compiler_DVgYHClu.mjs";
+import { t as $$SolutionPage } from "./SolutionPage_DuMoNjkB.mjs";
+//#region src/pages/soluciones/ventas-por-internet.astro
+var ventas_por_internet_exports = /* @__PURE__ */ __exportAll({
+	default: () => $$VentasPorInternet,
+	file: () => $$file,
+	url: () => $$url
+});
+var $$VentasPorInternet = createComponent(($$result, $$props, $$slots) => {
+	return renderTemplate`${renderComponent($$result, "SolutionPage", $$SolutionPage, {
+		"eyebrow": "Solución · Tiendas online y ventas digitales",
+		"title": "Convierte tu catálogo en un canal de",
+		"highlight": "ventas online.",
+		"description": "Creamos tiendas virtuales y experiencias digitales que conectan productos, clientes, pagos y pedidos para ayudarte a vender de forma más organizada.",
+		"metaTitle": "Tiendas online y ecommerce en Perú | Desarrollo web para vender más | Velyon",
+		"metaDescription": "Diseñamos tiendas online, catálogos digitales y ecommerce personalizados en Perú. Integramos productos, pagos, pedidos, WhatsApp y herramientas comerciales.",
+		"path": "/soluciones/ventas-por-internet",
+		"lottieSrc": "/animations/ventas-por-internet.lottie",
+		"introTitle": "Vender por internet no es solo publicar productos.",
+		"intro": "Diseñamos soluciones digitales enfocadas en cómo funciona realmente tu negocio: cómo recibes pedidos, cómo gestionas clientes, cómo entregas productos y cómo puedes mejorar la conversión.",
+		"outcomes": [
+			{
+				title: "Un canal digital para vender todos los días",
+				description: "Transformamos tus productos en una experiencia de compra online donde tus clientes pueden conocer, consultar y comprar con mayor facilidad."
+			},
+			{
+				title: "Menos desorden en la gestión de pedidos",
+				description: "Centraliza productos, clientes, solicitudes y estados de compra para reducir errores y mejorar la atención."
+			},
+			{
+				title: "Mayor confianza para tus clientes",
+				description: "Creamos una presencia digital profesional con información clara, procesos simples y elementos que generan seguridad al comprar."
+			},
+			{
+				title: "Una plataforma preparada para crecer",
+				description: "Construimos soluciones escalables que pueden evolucionar desde un catálogo digital hasta un ecommerce completo."
+			}
+		],
+		"capabilities": [
+			{
+				title: "Tiendas online completas",
+				description: "Ecommerce personalizados con catálogo, productos, carrito, pagos y gestión de pedidos."
+			},
+			{
+				title: "Catálogos digitales inteligentes",
+				description: "Muestra tus productos y recibe pedidos mediante formularios, WhatsApp o flujos personalizados."
+			},
+			{
+				title: "Integración de pagos",
+				description: "Configuración de métodos de pago digitales adaptados a las necesidades del negocio."
+			},
+			{
+				title: "Gestión de productos",
+				description: "Administración de inventario, categorías, precios, promociones y disponibilidad."
+			},
+			{
+				title: "Automatización comercial",
+				description: "Conecta formularios, WhatsApp, correos y herramientas externas para agilizar ventas."
+			},
+			{
+				title: "Analítica y mejora continua",
+				description: "Medición del comportamiento de usuarios para optimizar conversiones y decisiones."
+			}
+		],
+		"deliverables": [
+			"Arquitectura ecommerce",
+			"Diseño UX/UI",
+			"Catálogo de productos",
+			"Carrito de compra",
+			"Pedidos online",
+			"Integración WhatsApp",
+			"Pasarelas de pago",
+			"Configuración analítica",
+			"Optimización inicial SEO",
+			"Soporte y mejoras"
+		],
+		"steps": [
+			{
+				title: "Análisis del negocio",
+				description: "Evaluamos productos, clientes, procesos actuales de venta, logística y objetivos comerciales."
+			},
+			{
+				title: "Diseño y construcción",
+				description: "Creamos la experiencia digital, estructura de productos, funcionalidades e integraciones necesarias."
+			},
+			{
+				title: "Lanzamiento y optimización",
+				description: "Publicamos la solución, analizamos resultados y realizamos mejoras según datos reales."
+			}
+		],
+		"related": [
+			{
+				title: "Automatización de procesos",
+				description: "Reduce tareas repetitivas conectando herramientas digitales y flujos automáticos.",
+				href: "/soluciones/automatizacion-de-procesos"
+			},
+			{
+				title: "Software a medida",
+				description: "Construye sistemas internos para administrar ventas, clientes e información.",
+				href: "/soluciones/software-a-medida"
+			},
+			{
+				title: "Marketing digital",
+				description: "Atrae clientes y convierte visitas en oportunidades comerciales.",
+				href: "/soluciones/marketing-digital"
+			}
+		],
+		"faqs": [
+			{
+				question: "¿Necesito una tienda online completa para comenzar a vender?",
+				answer: "No siempre. Algunos negocios pueden iniciar con un catálogo digital conectado a WhatsApp y evolucionar posteriormente hacia un ecommerce completo."
+			},
+			{
+				question: "¿Pueden integrar pagos y métodos de entrega?",
+				answer: "Sí. Podemos integrar soluciones disponibles según el país, proveedor y necesidades específicas del negocio."
+			},
+			{
+				question: "¿La tienda online funciona para cualquier tipo de negocio?",
+				answer: "Puede adaptarse a diferentes sectores siempre que exista una necesidad de mostrar productos, recibir pedidos o mejorar el proceso comercial."
+			},
+			{
+				question: "¿Incluyen mantenimiento después del lanzamiento?",
+				answer: "Podemos complementar la implementación con soporte, seguridad, mejoras y evolución continua según el crecimiento del negocio."
+			}
+		]
+	})}`;
+}, "C:/Users/User/Desktop/velyon/src/pages/soluciones/ventas-por-internet.astro", void 0);
+var $$file = "C:/Users/User/Desktop/velyon/src/pages/soluciones/ventas-por-internet.astro";
+var $$url = "/soluciones/ventas-por-internet";
+//#endregion
+//#region \0virtual:astro:page:src/pages/soluciones/ventas-por-internet@_@astro
+var page = () => ventas_por_internet_exports;
+//#endregion
+export { page };
