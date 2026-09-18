@@ -47,10 +47,6 @@ Edita `src/lib/site.ts` para cambiar:
 - ubicación;
 - descripción general de Velyon.
 
-El número `51999999999` es demostrativo y debe reemplazarse antes de publicar.
-
-También debes confirmar el dominio definitivo en `astro.config.mjs`, `public/robots.txt` y `src/lib/site.ts`. El proyecto usa `https://velyon.pe` como referencia para las URL canónicas.
-
 Los textos, precios y listas de cada sección están dentro de los componentes de `src/components/sections/`. Los precios incluidos son referenciales.
 
 ## Estructura
@@ -128,6 +124,4 @@ Cada página tiene título, descripción, canonical, Open Graph, datos estructur
 
 La animación de ejemplo procede de la documentación oficial de LottieFiles. Consulta `CREDITS.md` antes de reemplazarla por una animación gratuita de la galería.
 
-## Publicación
-
-Al ser un sitio estático, puedes desplegarlo en Cloudflare Pages, Netlify, Vercel o cualquier hosting que permita publicar la carpeta `dist/`.
+# Founder: Ramiro Sánchez Hurtado
