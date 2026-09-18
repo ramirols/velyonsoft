@@ -4,10 +4,22 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+
   site: "https://www.velyonsoft.com",
+
   trailingSlash: "never",
-  integrations: [react(), sitemap()],
+
+  output: "server",
+
+  integrations: [
+    react(),
+    sitemap()
+  ],
+
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [
+      tailwindcss()
+    ],
   },
+
 });

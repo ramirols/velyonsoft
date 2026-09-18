@@ -1,24 +1,22 @@
 ---
 import {
   ArrowRight,
-  BellRing,
-  CalendarDays,
   Check,
-  LayoutDashboard,
   MonitorSmartphone,
   Smartphone,
+  CalendarDays,
+  Package,
+  Workflow,
+  UsersRound,
 } from "@lucide/astro";
 
 import { productLinks } from "@/data/navigation";
 
-const product = productLinks.at(0);
+const product = productLinks.find((item) => item.featured) ?? productLinks.at(0);
 
-const features = [
-  "Agenda y disponibilidad",
-  "Solicitudes y confirmaciones",
-  "Recordatorios automáticos",
-  "Panel administrativo",
-];
+const features = product?.features ?? [];
+
+const platforms = product?.platforms ?? [];
 ---
 
 {
@@ -29,498 +27,212 @@ const features = [
       aria-labelledby="product-spotlight-title"
     >
       <div class="container-velyon">
-        <!-- Encabezado de sección -->
+        <!-- Header -->
         <div class="mx-auto mb-14 max-w-[720px] text-center">
           <span class="section-label">03 — Producto Velyon</span>
 
-          <h2
-            id="product-spotlight-title"
-            class="section-title"
-          >
-            Software propio para problemas que
+          <h2 id="product-spotlight-title" class="section-title">
+            Software propio para problemas que{" "}
             <span class="font-serif font-medium italic text-velyon-deep">
               se repiten.
             </span>
           </h2>
 
           <p class="mx-auto mt-5 max-w-[640px] text-base leading-7 text-muted-foreground">
-            Convertimos necesidades frecuentes de un sector en productos
-            especializados, accesibles y preparados para crecer.
+            Creamos productos digitales especializados para sectores específicos,
+            transformando procesos repetitivos en experiencias más simples,
+            rápidas y conectadas.
           </p>
         </div>
 
-        <!-- Producto destacado -->
+        <!-- Producto -->
         <article
-          class="mx-auto grid max-w-[1120px]
-                 grid-cols-[minmax(0,.9fr)_minmax(420px,1.1fr)]
-                 overflow-hidden rounded-[26px]
-                 border border-velyon-deep/10 bg-white
-                 shadow-[0_24px_70px_rgba(20,50,44,.08)]
-                 max-[880px]:grid-cols-1"
+          class="mx-auto grid max-w-[1120px] grid-cols-[minmax(0,.9fr)_minmax(420px,1.1fr)] overflow-hidden rounded-[26px] border border-velyon-deep/10 bg-white shadow-[0_24px_70px_rgba(20,50,44,.08)] max-[880px]:grid-cols-1"
         >
           <!-- Información -->
-          <div
-            class="flex flex-col justify-between
-                   p-8 sm:p-10 lg:p-12"
-          >
+          <div class="flex flex-col justify-between p-8 sm:p-10 lg:p-12">
             <div>
               <div class="flex flex-wrap items-center gap-3">
-                <span
-                  class="text-[10px] font-extrabold uppercase
-                         tracking-[.17em] text-velyon-deep"
-                >
+                <span class="text-[10px] font-extrabold uppercase tracking-[.17em] text-velyon-deep">
                   {product.label}
                 </span>
 
-                <span
-                  class="rounded-full border border-velyon-indigo/15
-                         bg-velyon-lavender-soft
-                         px-3 py-1 text-[9px] font-extrabold
-                         uppercase tracking-[.12em]
-                         text-velyon-indigo"
-                >
+                <span class="rounded-full border border-velyon-indigo/15 bg-velyon-lavender-soft px-3 py-1 text-[9px] font-extrabold uppercase tracking-[.12em] text-velyon-indigo">
                   {product.status}
                 </span>
               </div>
 
-              <h3
-                class="mt-7 max-w-[520px] font-display
-                       text-[clamp(2rem,3.5vw,3.1rem)]
-                       font-bold leading-[1.05]
-                       tracking-[-0.052em] text-velyon-ink"
-              >
-                Una operación conectada entre
-                <span class="text-velyon-deep">web y móvil.</span>
+              <h3 class="mt-7 max-w-[520px] font-display text-[clamp(2rem,3.5vw,3.1rem)] font-bold leading-[1.05] tracking-[-0.052em] text-velyon-ink">
+                {product.hero}
               </h3>
 
-              <p
-                class="mt-5 max-w-[520px]
-                       text-sm leading-7 text-muted-foreground"
-              >
-                {product.detail}. Una solución enfocada inicialmente en
-                consultorios que necesitan organizar citas, solicitudes y
-                seguimiento desde un solo lugar.
+              <p class="mt-5 max-w-[520px] text-sm leading-7 text-muted-foreground">
+                {product.detail}
               </p>
 
               <!-- Plataformas -->
-              <div
-                class="mt-7 flex flex-wrap gap-x-6 gap-y-3
-                       border-y border-border py-4"
-              >
-                <span
-                  class="flex items-center gap-2 text-xs
-                         font-bold text-velyon-ink/70"
-                >
-                  <MonitorSmartphone
-                    class="size-4 text-velyon-deep"
-                    stroke-width="2"
-                    aria-hidden="true"
-                  />
-
-                  Panel web
-                </span>
-
-                <span
-                  class="flex items-center gap-2 text-xs
-                         font-bold text-velyon-ink/70"
-                >
-                  <Smartphone
-                    class="size-4 text-velyon-deep"
-                    stroke-width="2"
-                    aria-hidden="true"
-                  />
-
-                  Aplicación móvil
-                </span>
-              </div>
-
-              <!-- Funciones -->
-              <ul
-                class="mt-7 grid grid-cols-2 gap-x-5 gap-y-3
-                       max-[480px]:grid-cols-1"
-                aria-label="Funciones principales"
-              >
-                {
-                  features.map((feature) => (
-                    <li
-                      class="flex items-start gap-2.5
-                             text-xs font-semibold
-                             leading-5 text-velyon-ink/70"
-                    >
-                      <Check
-                        class="mt-0.5 size-3.5 shrink-0
-                               text-velyon-deep"
-                        stroke-width="2.8"
+              <div class="mt-7 flex flex-wrap gap-x-6 gap-y-3 border-y border-border py-4">
+                {platforms.map((platform, index) => (
+                  <span class="flex items-center gap-2 text-xs font-bold text-velyon-ink/70">
+                    {index === 0 ? (
+                      <MonitorSmartphone
+                        class="size-4 text-velyon-deep"
                         aria-hidden="true"
                       />
+                    ) : (
+                      <Smartphone
+                        class="size-4 text-velyon-deep"
+                        aria-hidden="true"
+                      />
+                    )}
 
-                      {feature}
-                    </li>
-                  ))
-                }
+                    {platform}
+                  </span>
+                ))}
+              </div>
+
+              <!-- Características -->
+              <ul
+                class="mt-7 grid grid-cols-2 gap-x-5 gap-y-3 max-[480px]:grid-cols-1"
+                aria-label="Características principales"
+              >
+                {features.map((feature) => (
+                  <li class="flex items-start gap-2.5 text-xs font-semibold leading-5 text-velyon-ink/70">
+                    <Check
+                      class="mt-0.5 size-3.5 shrink-0 text-velyon-deep"
+                      stroke-width="2.8"
+                    />
+
+                    {feature}
+                  </li>
+                ))}
               </ul>
             </div>
 
             <!-- Acciones -->
             <div class="mt-9 flex flex-wrap items-center gap-3">
-              <a
-                href={product.href}
-                class="btn-primary"
-              >
+              <a href={product.href} class="btn-primary">
                 Conocer el producto
-
-                <ArrowRight
-                  class="size-4"
-                  aria-hidden="true"
-                />
+                <ArrowRight class="size-4" aria-hidden="true" />
               </a>
 
               <a
                 href="/#contacto"
-                class="inline-flex min-h-11 items-center
-                       justify-center px-4 text-sm font-bold
-                       text-velyon-deep transition-colors
-                       hover:text-velyon-indigo"
+                class="inline-flex min-h-11 items-center justify-center px-4 text-sm font-bold text-velyon-deep transition-colors hover:text-velyon-indigo"
               >
-                Quiero participar en el piloto
+                Solicitar información
               </a>
             </div>
           </div>
 
-          <!-- Vista del producto -->
-          <div
-            class="flex items-center bg-velyon-mist
-                   p-6 sm:p-9 lg:p-11
-                   max-[880px]:border-t max-[880px]:border-border"
-          >
+          <!-- Preview -->
+          <div class="flex items-center bg-velyon-mist p-6 sm:p-9 lg:p-11 max-[880px]:border-t max-[880px]:border-border">
             <div class="w-full">
-              <!-- Ventana principal -->
-              <div
-                class="overflow-hidden rounded-[18px]
-                       border border-velyon-deep/10
-                       bg-white
-                       shadow-[0_22px_55px_rgba(20,50,44,.12)]"
-              >
-                <!-- Barra superior -->
-                <div
-                  class="flex h-11 items-center
-                         border-b border-border px-4"
-                >
-                  <div
-                    class="flex items-center gap-1.5"
-                    aria-hidden="true"
-                  >
+              <div class="overflow-hidden rounded-[18px] border border-velyon-deep/10 bg-white shadow-[0_22px_55px_rgba(20,50,44,.12)]">
+                <!-- Header ventana -->
+                <div class="flex h-11 items-center border-b border-border px-4">
+                  <div class="flex items-center gap-1.5">
                     <span class="size-1.5 rounded-full bg-[#ee8179]" />
                     <span class="size-1.5 rounded-full bg-[#e3b75e]" />
                     <span class="size-1.5 rounded-full bg-[#72bd91]" />
                   </div>
 
-                  <span
-                    class="ml-auto text-[8px] font-bold
-                           uppercase tracking-[.14em]
-                           text-muted-foreground"
-                  >
+                  <span class="ml-auto text-[8px] font-bold uppercase tracking-[.14em] text-muted-foreground">
                     Vista demostrativa
                   </span>
                 </div>
 
-                <div
-                  class="grid min-h-[340px]
-                         grid-cols-[130px_minmax(0,1fr)]
-                         max-[520px]:grid-cols-1"
-                >
-                  <!-- Menú lateral -->
-                  <aside
-                    class="border-r border-border
-                           bg-[#f5f8f7] p-3
-                           max-[520px]:hidden"
-                  >
-                    <div class="flex items-center gap-2 px-2 py-2">
-                      <span
-                        class="grid size-7 place-items-center
-                               rounded-lg bg-velyon-deep
-                               font-display text-[10px]
-                               font-bold text-velyon-mint"
-                      >
-                        V
+                <!-- Contenido dinámico -->
+                <div class="min-h-[340px] p-6">
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <span class="text-[8px] font-bold uppercase tracking-[.12em] text-muted-foreground">
+                        Producto
                       </span>
 
-                      <span
-                        class="font-display text-[10px]
-                               font-extrabold text-velyon-deep"
-                      >
+                      <h4 class="mt-1 font-display text-lg font-bold tracking-[-0.025em] text-velyon-ink">
                         {product.label}
-                      </span>
+                      </h4>
                     </div>
 
-                    <nav
-                      class="mt-7 grid gap-1"
-                      aria-label="Vista previa de navegación"
-                    >
-                      <span
-                        class="flex items-center gap-2
-                               rounded-lg bg-white px-2.5 py-2.5
-                               text-[9px] font-bold
-                               text-velyon-deep shadow-sm"
-                      >
-                        <LayoutDashboard
-                          class="size-3.5"
-                          aria-hidden="true"
-                        />
+                    <span class="rounded-full bg-velyon-mint-soft px-2.5 py-1 text-[8px] font-extrabold text-velyon-deep">
+                      Activo
+                    </span>
+                  </div>
 
-                        Resumen
-                      </span>
+                  <div class="mt-8 grid gap-3">
+                    {product.type === "health" && (
+                      <div class="flex items-center gap-3 rounded-xl border border-border p-4">
+                        <CalendarDays class="size-5 text-velyon-deep" />
 
-                      <span
-                        class="flex items-center gap-2
-                               px-2.5 py-2.5 text-[9px]
-                               font-bold text-muted-foreground"
-                      >
-                        <CalendarDays
-                          class="size-3.5"
-                          aria-hidden="true"
-                        />
+                        <div>
+                          <strong class="block text-sm">
+                            Agenda inteligente
+                          </strong>
 
-                        Agenda
-                      </span>
+                          <span class="text-xs text-muted-foreground">
+                            Citas y seguimiento organizado
+                          </span>
+                        </div>
+                      </div>
+                    )}
 
-                      <span
-                        class="flex items-center gap-2
-                               px-2.5 py-2.5 text-[9px]
-                               font-bold text-muted-foreground"
-                      >
-                        <BellRing
-                          class="size-3.5"
-                          aria-hidden="true"
-                        />
+                    {product.type === "inventory" && (
+                      <div class="flex items-center gap-3 rounded-xl border border-border p-4">
+                        <Package class="size-5 text-velyon-deep" />
 
-                        Recordatorios
-                      </span>
-                    </nav>
-                  </aside>
+                        <div>
+                          <strong class="block text-sm">
+                            Control de inventario
+                          </strong>
 
-                  <!-- Contenido -->
-                  <div class="p-5 sm:p-6">
-                    <div
-                      class="flex items-start justify-between
-                             gap-4"
-                    >
+                          <span class="text-xs text-muted-foreground">
+                            Stock actualizado en tiempo real
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    {product.type === "business" && (
+                      <div class="flex items-center gap-3 rounded-xl border border-border p-4">
+                        <Workflow class="size-5 text-velyon-deep" />
+
+                        <div>
+                          <strong class="block text-sm">
+                            Procesos conectados
+                          </strong>
+
+                          <span class="text-xs text-muted-foreground">
+                            Gestión empresarial digital
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    <div class="flex items-center gap-3 rounded-xl bg-velyon-mint-soft p-4">
+                      <UsersRound class="size-5 text-velyon-deep" />
+
                       <div>
-                        <span
-                          class="text-[8px] font-bold uppercase
-                                 tracking-[.12em]
-                                 text-muted-foreground"
-                        >
-                          Operación
+                        <strong class="block text-sm">
+                          Usuarios y operación
+                        </strong>
+
+                        <span class="text-xs text-muted-foreground">
+                          Información centralizada
                         </span>
-
-                        <h4
-                          class="mt-1 font-display text-lg
-                                 font-bold tracking-[-0.025em]
-                                 text-velyon-ink"
-                        >
-                          Agenda de atención
-                        </h4>
-                      </div>
-
-                      <span
-                        class="rounded-full bg-velyon-mint-soft
-                               px-2.5 py-1 text-[8px]
-                               font-extrabold text-velyon-deep"
-                      >
-                        Hoy
-                      </span>
-                    </div>
-
-                    <!-- Selector de días -->
-                    <div
-                      class="mt-6 grid grid-cols-5 gap-1.5"
-                      aria-hidden="true"
-                    >
-                      {
-                        ["Lun", "Mar", "Mié", "Jue", "Vie"].map(
-                          (day, index) => (
-                            <div
-                              class:list={[
-                                "px-1.5 py-2.5 text-center",
-                                index === 2
-                                  ? "bg-velyon-deep text-white"
-                                  : "border border-border bg-velyon-mist text-muted-foreground",
-                              ]}
-                            >
-                              <span
-                                class="block text-[7px]
-                                       font-bold uppercase"
-                              >
-                                {day}
-                              </span>
-
-                              <strong
-                                class="mt-0.5 block font-display
-                                       text-xs"
-                              >
-                                {14 + index}
-                              </strong>
-                            </div>
-                          ),
-                        )
-                      }
-                    </div>
-
-                    <!-- Agenda -->
-                    <div class="mt-6 grid gap-2">
-                      <div
-                        class="grid grid-cols-[42px_1fr_auto]
-                               items-center gap-3
-                               border-l-2 border-[#d5a64c]
-                               bg-[#fbf8f1] px-3 py-3"
-                      >
-                        <span
-                          class="text-[8px] font-bold
-                                 text-muted-foreground"
-                        >
-                          09:00
-                        </span>
-
-                        <span>
-                          <strong
-                            class="block text-[9px]
-                                   font-bold text-velyon-ink"
-                          >
-                            Solicitud pendiente
-                          </strong>
-
-                          <small
-                            class="mt-0.5 block text-[7px]
-                                   text-muted-foreground"
-                          >
-                            Requiere confirmación
-                          </small>
-                        </span>
-
-                        <span
-                          class="size-1.5 rounded-full
-                                 bg-[#d5a64c]"
-                          aria-label="Pendiente"
-                        />
-                      </div>
-
-                      <div
-                        class="grid grid-cols-[42px_1fr_auto]
-                               items-center gap-3
-                               border-l-2 border-velyon-deep
-                               bg-velyon-mint-soft/50
-                               px-3 py-3"
-                      >
-                        <span
-                          class="text-[8px] font-bold
-                                 text-muted-foreground"
-                        >
-                          10:30
-                        </span>
-
-                        <span>
-                          <strong
-                            class="block text-[9px]
-                                   font-bold text-velyon-ink"
-                          >
-                            Cita confirmada
-                          </strong>
-
-                          <small
-                            class="mt-0.5 block text-[7px]
-                                   text-muted-foreground"
-                          >
-                            Recordatorio programado
-                          </small>
-                        </span>
-
-                        <span
-                          class="size-1.5 rounded-full
-                                 bg-velyon-deep"
-                          aria-label="Confirmada"
-                        />
-                      </div>
-
-                      <div
-                        class="grid grid-cols-[42px_1fr_auto]
-                               items-center gap-3
-                               border-l-2 border-velyon-indigo
-                               bg-velyon-lavender-soft/45
-                               px-3 py-3"
-                      >
-                        <span
-                          class="text-[8px] font-bold
-                                 text-muted-foreground"
-                        >
-                          12:00
-                        </span>
-
-                        <span>
-                          <strong
-                            class="block text-[9px]
-                                   font-bold text-velyon-ink"
-                          >
-                            Seguimiento
-                          </strong>
-
-                          <small
-                            class="mt-0.5 block text-[7px]
-                                   text-muted-foreground"
-                          >
-                            Acción asignada
-                          </small>
-                        </span>
-
-                        <span
-                          class="size-1.5 rounded-full
-                                 bg-velyon-indigo"
-                          aria-label="En seguimiento"
-                        />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Pie de la demostración -->
-              <div
-                class="mt-4 flex items-center
-                       justify-between gap-5"
-              >
-                <p
-                  class="text-[10px] font-semibold
-                         text-muted-foreground"
-                >
-                  Una misma operación conectada desde diferentes dispositivos.
-                </p>
-
-                <div
-                  class="flex shrink-0 items-center
-                         gap-2 text-[9px] font-bold
-                         text-velyon-deep"
-                >
-                  <Smartphone
-                    class="size-3.5"
-                    aria-hidden="true"
-                  />
-
-                  Web + móvil
-                </div>
-              </div>
+              <p class="mt-4 text-[10px] font-semibold text-muted-foreground">
+                Producto desarrollado por VelyonSoft para resolver necesidades
+                reales del mercado.
+              </p>
             </div>
           </div>
         </article>
-
-        <!-- Nota de estado -->
-        <p
-          class="mx-auto mt-5 max-w-[780px]
-                 text-center text-xs leading-6
-                 text-muted-foreground"
-        >
-          Producto actualmente en validación. Las funciones y condiciones del
-          programa piloto se definirán según el alcance disponible.
-        </p>
       </div>
     </section>
   )

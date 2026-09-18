@@ -1,10 +1,73 @@
 export const productLinks = [
     {
         label: "Velyon Salud",
-        detail: "Agenda, seguimiento y operación para consultorios",
-        href: "/productos/sistema-para-consultorios",
-        status: "Piloto en desarrollo",
+        detail:
+            "Agenda, seguimiento y operación para consultorios.",
+        href:
+            "/productos/sistema-para-consultorios",
+        status:
+            "Piloto en desarrollo",
+        featured: false,
+        type: "health",
+        hero:
+            "Agenda y operación conectadas para una atención más ordenada.",
+        platforms: [
+            "Panel web",
+            "Aplicación móvil",
+            "Backend conectado"
+        ],
+        features: [
+            "Agenda inteligente",
+            "Solicitudes y confirmaciones",
+            "Recordatorios automáticos",
+            "Panel administrativo"
+        ]
     },
+    {
+        label: "Velyon Inventory",
+        detail:
+            "Control de inventario, almacenes y movimientos comerciales en tiempo real.",
+        href:
+            "/productos/sistema-inventario",
+        status:
+            "Producto en desarrollo",
+        featured: false,
+        type: "inventory",
+        hero:
+            "Controla tus productos, movimientos y stock desde un solo sistema.",
+        platforms: [
+            "Panel web",
+            "Aplicación móvil"
+        ],
+        features: [
+            "Stock en tiempo real",
+            "Entradas y salidas",
+            "Control de almacenes",
+            "Reportes comerciales"
+        ]
+    },
+    {
+        label: "Plaga Software",
+        detail:
+            "Software empresarial desarrollado por VelyonSoft.",
+        href:
+            "/productos/plaga-software",
+        status:
+            "Producto activo",
+        featured: true,
+        type: "business",
+        hero:
+            "Una plataforma digital para ordenar procesos empresariales.",
+        platforms: [
+            "Aplicación web"
+        ],
+        features: [
+            "Gestión operativa",
+            "Control de procesos",
+            "Automatización",
+            "Panel administrativo"
+        ]
+    }
 ] as const;
 
 export const sectorLinks = [

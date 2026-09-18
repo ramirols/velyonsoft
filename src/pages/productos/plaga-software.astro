@@ -1,0 +1,89 @@
+---
+import ProductPage from "@/components/ProductPage.astro";
+
+const modules = [
+    {
+        title: "Gestión centralizada",
+        description:
+            "Administra información y procesos desde una plataforma digital.",
+    },
+
+    {
+        title: "Panel operativo",
+        description: "Visualiza datos importantes para tomar decisiones.",
+    },
+
+    {
+        title: "Automatización",
+        description: "Reduce tareas manuales y mejora la eficiencia.",
+    },
+];
+
+const audiences = [
+    {
+        title: "Empresas",
+        description: "Organizaciones que necesitan digitalizar procesos.",
+    },
+
+    {
+        title: "Equipos administrativos",
+        description: "Usuarios que requieren información organizada.",
+    },
+
+    {
+        title: "Operaciones",
+        description: "Áreas que necesitan controlar actividades diarias.",
+    },
+];
+
+const workflow = [
+    {
+        title: "Registro de información",
+        description: "Los usuarios ingresan y organizan datos del negocio.",
+    },
+
+    {
+        title: "Procesamiento",
+        description: "El sistema centraliza y estructura la información.",
+    },
+
+    {
+        title: "Acción",
+        description:
+            "Los equipos utilizan la información para mejorar procesos.",
+    },
+];
+
+const faqs = [
+    {
+        question: "¿Plaga Software pertenece a VelyonSoft?",
+        answer: "Plaga Software es una solución desarrollada dentro del ecosistema tecnológico de VelyonSoft.",
+    },
+
+    {
+        question: "¿Puedo solicitar una implementación personalizada?",
+        answer: "Sí. VelyonSoft puede adaptar soluciones según las necesidades del negocio.",
+    },
+];
+---
+
+<ProductPage
+    productName="Plaga Software"
+    status="Producto activo"
+    title="Una plataforma digital para gestionar procesos de"
+    highlight="forma inteligente."
+    description="Plaga Software es una solución desarrollada por VelyonSoft para ayudar a negocios a digitalizar operaciones y mejorar la gestión diaria."
+    metaTitle="Plaga Software | Plataforma digital desarrollada por VelyonSoft"
+    metaDescription="Conoce Plaga Software, una solución digital desarrollada por VelyonSoft para optimizar procesos empresariales."
+    path="/productos/plaga-software"
+    platforms={["Aplicación web", "Panel administrativo"]}
+    modules={modules}
+    audiences={audiences}
+    workflow={workflow}
+    pilotIncludes={[
+        "Acceso a plataforma",
+        "Soporte técnico",
+        "Configuración inicial",
+    ]}
+    faqs={faqs}
+/>

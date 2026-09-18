@@ -1,0 +1,414 @@
+---
+const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbyaE_YZ0gJ9aj3FJJqhs_nTnBASkH8VHXjj_oweCaTiIY3wEXnnark2Z6DPbhQAN8aFHA/exec";
+
+const sectors = [
+    "Salud",
+    "Educación",
+    "Agricultura",
+    "Inmobiliaria",
+    "Comercio",
+    "Logística",
+    "Servicios profesionales",
+    "Otro",
+];
+
+const solutions = [
+    "Página web",
+    "Tienda online",
+    "Sistema personalizado",
+    "Aplicación móvil",
+    "Automatización",
+    "Marketing digital",
+];
+---
+
+<form
+    id="diagnostic-form"
+    class="rounded-[32px] border border-border bg-white p-8 shadow-[0_30px_80px_rgba(20,50,44,.08)] sm:p-10"
+>
+    <!-- PROGRESS -->
+    <div class="mb-10">
+        <div
+            class="flex justify-between text-xs font-bold text-muted-foreground"
+        >
+            <span id="step-label"> Paso 1 de 4 </span>
+
+            <span> Diagnóstico </span>
+        </div>
+
+        <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-velyon-mist">
+            <div
+                id="progress"
+                class="h-full w-1/4 rounded-full bg-velyon-deep transition-all"
+            >
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="form-step" data-step="0">
+        <h2 class="font-display text-2xl font-bold tracking-tight">
+            Cuéntanos sobre ti
+        </h2>
+
+        <p class="mt-2 text-sm text-muted-foreground">
+            Necesitamos algunos datos para contactarte.
+        </p>
+
+        <div class="mt-8 grid gap-5 sm:grid-cols-2">
+            <input
+                name="nombre"
+                required
+                placeholder="Nombre completo"
+                class="input-style"
+            />
+
+            <input
+                name="empresa"
+                required
+                placeholder="Empresa o negocio"
+                class="input-style"
+            />
+
+            <input name="cargo" placeholder="Cargo" class="input-style" />
+
+            <input
+                name="whatsapp"
+                required
+                placeholder="WhatsApp"
+                class="input-style"
+            />
+
+            <input
+                name="correo"
+                type="email"
+                placeholder="Correo electrónico"
+                class="input-style sm:col-span-2"
+            />
+        </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="form-step hidden" data-step="1">
+        <h2 class="font-display text-2xl font-bold">Sobre tu negocio</h2>
+
+        <p class="mt-2 text-sm text-muted-foreground">
+            Selecciona el sector donde trabajas.
+        </p>
+
+        <div class="mt-8 grid gap-3 sm:grid-cols-2">
+            {
+                sectors.map((sector) => (
+                    <label class="cursor-pointer">
+                        <input
+                            type="radio"
+                            name="sector"
+                            value={sector}
+                            class="peer hidden"
+                        />
+
+                        <div class="rounded-xl border border-border p-4 text-sm font-semibold transition peer-checked:border-velyon-deep peer-checked:bg-velyon-mint-soft">
+                            {sector}
+                        </div>
+                    </label>
+                ))
+            }
+        </div>
+
+        <h3 class="mt-10 font-display text-lg font-bold">
+            ¿Qué tienes actualmente?
+        </h3>
+
+        <textarea
+            name="presencia"
+            rows="3"
+            placeholder="Página web, redes sociales, Excel, sistemas actuales..."
+            class="input-style mt-4"></textarea>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="form-step hidden" data-step="2">
+        <h2 class="font-display text-2xl font-bold">¿Qué necesitas mejorar?</h2>
+
+        <p class="mt-2 text-sm text-muted-foreground">
+            Puedes seleccionar varias opciones.
+        </p>
+
+        <div class="mt-8 grid gap-3 sm:grid-cols-2">
+            {
+                solutions.map((item) => (
+                    <label class="cursor-pointer">
+                        <input
+                            type="checkbox"
+                            name="solucion"
+                            value={item}
+                            class="peer hidden"
+                        />
+
+                        <div class="rounded-xl border border-border p-4 text-sm font-semibold transition peer-checked:border-velyon-deep peer-checked:bg-velyon-mint-soft">
+                            {item}
+                        </div>
+                    </label>
+                ))
+            }
+        </div>
+
+        <textarea
+            name="necesidad"
+            rows="4"
+            placeholder="Cuéntanos qué problema quieres resolver..."
+            class="input-style mt-8"></textarea>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="form-step hidden" data-step="3">
+        <h2 class="font-display text-2xl font-bold">Últimos detalles</h2>
+
+        <textarea
+            name="referencias"
+            rows="3"
+            placeholder="Páginas web o empresas que tienes como referencia..."
+            class="input-style mt-8"></textarea>
+
+        <select name="presupuesto" class="input-style mt-5">
+            <option value=""> Presupuesto aproximado </option>
+
+            <option> Menos de S/1000 </option>
+
+            <option> S/1000 - S/3000 </option>
+
+            <option> S/3000 - S/7000 </option>
+
+            <option> Más de S/7000 </option>
+
+            <option> Todavía no definido </option>
+        </select>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="mt-10 flex justify-between gap-4">
+        <button type="button" id="prev" class="btn-outline hidden">
+            Atrás
+        </button>
+
+        <button type="button" id="next" class="btn-primary ml-auto">
+            Continuar
+        </button>
+
+        <button type="submit" id="submit" class="btn-primary hidden">
+            Enviar diagnóstico
+        </button>
+    </div>
+
+    <p id="message" class="mt-5 hidden text-center text-sm font-semibold"></p>
+</form>
+
+<script define:vars={{ GOOGLE_SCRIPT_URL }}>
+    const form = document.querySelector("#diagnostic-form");
+
+    const steps = [...document.querySelectorAll(".form-step")];
+
+    const next = document.querySelector("#next");
+    const prev = document.querySelector("#prev");
+    const submit = document.querySelector("#submit");
+
+    const progress = document.querySelector("#progress");
+    const label = document.querySelector("#step-label");
+    const message = document.querySelector("#message");
+
+    let current = 0;
+
+    function showMessage(text, type = "error") {
+        message.textContent = text;
+
+        message.classList.remove("hidden", "text-red-500", "text-velyon-deep");
+
+        if (type === "success") {
+            message.classList.add("text-velyon-deep");
+        } else {
+            message.classList.add("text-red-500");
+        }
+    }
+
+    function update() {
+        steps.forEach((step, index) => {
+            step.classList.toggle("hidden", index !== current);
+        });
+
+        prev.classList.toggle("hidden", current === 0);
+
+        next.classList.toggle("hidden", current === steps.length - 1);
+
+        submit.classList.toggle("hidden", current !== steps.length - 1);
+
+        progress.style.width = `${((current + 1) / steps.length) * 100}%`;
+
+        label.textContent = `Paso ${current + 1} de ${steps.length}`;
+    }
+
+    function validateCurrentStep() {
+        const currentStep = steps[current];
+
+        const fields = [
+            ...currentStep.querySelectorAll("input, textarea, select"),
+        ];
+
+        for (const field of fields) {
+            if (field.required && !field.value.trim()) {
+                field.focus();
+
+                showMessage(
+                    `Completa el campo: ${field.placeholder || field.name}`,
+                );
+
+                return false;
+            }
+        }
+
+        // validar radios
+
+        const radios = currentStep.querySelectorAll(
+            'input[type="radio"][required]',
+        );
+
+        if (radios.length) {
+            const checked = [...radios].some((r) => r.checked);
+
+            if (!checked) {
+                showMessage("Selecciona una opción para continuar");
+
+                return false;
+            }
+        }
+
+        // validar checkbox soluciones
+
+        if (current === 2) {
+            const checks = currentStep.querySelectorAll(
+                'input[type="checkbox"]',
+            );
+
+            const selected = [...checks].some((c) => c.checked);
+
+            if (!selected) {
+                showMessage("Selecciona al menos una solución");
+
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    next.addEventListener("click", () => {
+        if (!validateCurrentStep()) return;
+
+        current++;
+
+        showMessage("");
+
+        update();
+    });
+
+    prev.addEventListener("click", () => {
+        current--;
+
+        showMessage("");
+
+        update();
+    });
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        if (!validateCurrentStep()) return;
+
+        const data = new FormData(form);
+
+        const payload = {
+            nombre: data.get("nombre"),
+
+            empresa: data.get("empresa"),
+
+            cargo: data.get("cargo"),
+
+            whatsapp: data.get("whatsapp"),
+
+            correo: data.get("correo"),
+
+            sector: data.get("sector"),
+
+            presencia: data.get("presencia"),
+
+            necesidad: data.get("necesidad"),
+
+            solucion: data.getAll("solucion").join(", "),
+
+            referencias: data.get("referencias"),
+
+            presupuesto: data.get("presupuesto"),
+        };
+
+        try {
+            await fetch("/api/diagnostic", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+            });
+
+            showMessage(
+                "Diagnóstico enviado correctamente. Abriremos WhatsApp.",
+                "success",
+            );
+
+            const whatsapp = `
+Hola Velyon 👋
+
+Acabo de completar el diagnóstico.
+
+Nombre:
+${payload.nombre}
+
+Empresa:
+${payload.empresa}
+
+Sector:
+${payload.sector}
+
+Necesidad:
+${payload.necesidad}
+
+Solución:
+${payload.solucion}
+
+Presupuesto:
+${payload.presupuesto}
+
+`;
+
+            setTimeout(() => {
+                window.open(
+                    `https://wa.me/51997676432?text=${encodeURIComponent(whatsapp)}`,
+                    "_blank",
+                );
+            }, 800);
+        } catch (error) {
+            showMessage(
+                "No pudimos enviar el diagnóstico. Intenta nuevamente.",
+            );
+        }
+    });
+
+    update();
+</script>
+
+<style>
+    @reference "../styles/global.css";
+
+    .input-style {
+        @apply w-full rounded-xl border border-border bg-white px-4 py-3 text-sm outline-none transition focus:border-velyon-deep focus:ring-4 focus:ring-velyon-mint/20;
+    }
+</style>

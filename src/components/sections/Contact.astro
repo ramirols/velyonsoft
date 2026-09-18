@@ -1,143 +1,171 @@
 ---
-import { Check, Mail, Send } from "@lucide/astro";
-import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/site";
+import {
+  ArrowRight,
+  Check,
+  Mail,
+  MessageCircle,
+  ClipboardCheck,
+  Sparkles,
+  Target,
+} from "@lucide/astro";
+
+import { siteConfig, whatsappUrl } from "@/lib/site";
 ---
 
 <section
   id="contacto"
-  class="bg-velyon-deep py-[105px] text-white max-[640px]:py-20"
+  class="bg-velyon-deep py-[120px] text-white max-[640px]:py-20"
 >
   <div
-    class="container-velyon grid grid-cols-[.8fr_1.2fr] items-start gap-24 max-[850px]:grid-cols-1 max-[850px]:gap-12"
+    class="container-velyon grid grid-cols-[.85fr_1.15fr] items-center gap-20 max-[900px]:grid-cols-1"
   >
-    <div class="pt-5">
-      <span class="section-label text-velyon-mint">07 — Conversemos</span>
-      <h2
-        class="font-display text-[clamp(2.35rem,4.2vw,3.4rem)] font-bold leading-[1.08] tracking-[-0.052em]"
+    <!-- IZQUIERDA -->
+
+    <div>
+      <span
+        class="mb-5 block text-[11px] font-extrabold uppercase tracking-[0.14em] text-velyon-mint"
       >
-        Cuéntanos qué quieres mejorar en tu negocio.
+        08 — Conversemos
+      </span>
+
+      <h2
+        class="font-display text-[clamp(2.4rem,4vw,3.5rem)] font-bold leading-[1.05] tracking-[-0.055em]"
+      >
+        Antes de crear una solución,
+        <span class="font-serif italic text-velyon-mint">
+          entendamos tu negocio.
+        </span>
       </h2>
-      <p class="my-6 text-[15px] leading-7 text-white/70">
-        En una primera conversación identificaremos el problema, la prioridad y
-        el siguiente paso más útil. Sin tecnicismos innecesarios.
+
+      <p class="mt-6 max-w-[480px] text-[15px] leading-7 text-white/70">
+        Cada negocio tiene procesos, objetivos y necesidades diferentes. Por eso
+        creamos un diagnóstico inicial donde analizamos tu situación y
+        encontramos oportunidades reales de mejora.
       </p>
-      <div class="grid gap-3">
+
+      <!-- BENEFICIOS -->
+
+      <div class="mt-8 grid gap-4">
         {
           [
-            "Respuesta en 1 día hábil",
-            "Diagnóstico inicial sin costo",
-            "Propuesta con alcance claro",
+            "Analizamos tu modelo de negocio",
+            "Identificamos oportunidades digitales",
+            "Proponemos una solución según tu objetivo",
           ].map((item) => (
-            <span class="flex items-center gap-2.5 text-xs font-semibold">
-              <span class="grid size-[18px] place-items-center rounded-full bg-velyon-mint/15 text-velyon-mint">
-                <Check class="size-3" stroke-width="3" />
+            <div class="flex items-center gap-3">
+              <span class="grid size-6 place-items-center rounded-full bg-velyon-mint/15 text-velyon-mint">
+                <Check class="size-3.5" />
               </span>
-              {item}
-            </span>
+
+              <span class="text-sm font-semibold text-white/85">{item}</span>
+            </div>
           ))
         }
       </div>
-      <a
-        class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-velyon-mint"
-        href={`mailto:${siteConfig.email}`}
-        ><Mail class="size-4" /> {siteConfig.email}</a
-      >
+
+      <!-- CONTACTO -->
+
+      <div class="mt-10 flex flex-wrap gap-5">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          class="inline-flex items-center gap-2 text-sm font-bold text-velyon-mint transition hover:text-white"
+        >
+          <MessageCircle class="size-4" />
+
+          WhatsApp
+        </a>
+
+        <a
+          href={`mailto:${siteConfig.email}`}
+          class="inline-flex items-center gap-2 text-sm font-bold text-velyon-mint transition hover:text-white"
+        >
+          <Mail class="size-4" />
+
+          {siteConfig.email}
+        </a>
+      </div>
     </div>
 
-    <form
-      id="contact-form"
-      data-contact-email={siteConfig.email}
-      class="grid gap-4 rounded-[22px] border border-white/20 bg-white/[0.08] p-8 max-[640px]:p-5"
+    <!-- DERECHA -->
+
+    <div
+      class="rounded-[30px] border border-white/15 bg-white/[0.08] p-8 backdrop-blur-sm sm:p-10"
     >
-      <div class="grid grid-cols-2 gap-4 max-[560px]:grid-cols-1">
-        <label class="grid gap-2 text-[11px] font-bold text-white/85"
-          >Nombre<input
-            class="h-12 rounded-xl border border-white/20 bg-white/10 px-3.5 text-sm text-white outline-none placeholder:text-white/45 focus:border-velyon-mint focus:ring-4 focus:ring-velyon-mint/10"
-            type="text"
-            name="nombre"
-            placeholder="Tu nombre"
-            required
-          /></label
-        >
-        <label class="grid gap-2 text-[11px] font-bold text-white/85"
-          >Negocio<input
-            class="h-12 rounded-xl border border-white/20 bg-white/10 px-3.5 text-sm text-white outline-none placeholder:text-white/45 focus:border-velyon-mint focus:ring-4 focus:ring-velyon-mint/10"
-            type="text"
-            name="negocio"
-            placeholder="Nombre del negocio"
-            required
-          /></label
-        >
-      </div>
-      <label class="grid gap-2 text-[11px] font-bold text-white/85"
-        >Correo o WhatsApp<input
-          class="h-12 rounded-xl border border-white/20 bg-white/10 px-3.5 text-sm text-white outline-none placeholder:text-white/45 focus:border-velyon-mint focus:ring-4 focus:ring-velyon-mint/10"
-          type="text"
-          name="contacto"
-          placeholder="¿Cómo te contactamos?"
-          required
-        /></label
-      >
-      <label class="grid gap-2 text-[11px] font-bold text-white/85"
-        >¿Qué necesitas?
-        <select
-          class="h-12 rounded-xl border border-white/20 bg-white/10 px-3.5 text-sm text-white outline-none focus:border-velyon-mint focus:ring-4 focus:ring-velyon-mint/10"
-          name="necesidad"
-          required
-        >
-          <option class="text-foreground" value="">Selecciona una opción</option
+      <div class="flex items-start justify-between gap-5">
+        <div>
+          <span
+            class="text-[10px] font-extrabold uppercase tracking-[0.15em] text-velyon-mint"
           >
-          <option class="text-foreground">Presencia digital</option><option
-            class="text-foreground">Ventas por internet</option
-          ><option class="text-foreground">Automatización o sistema</option
-          ><option class="text-foreground">No estoy seguro todavía</option>
-        </select>
-      </label>
-      <label class="grid gap-2 text-[11px] font-bold text-white/85"
-        >Cuéntanos brevemente<textarea
-          class="min-h-28 resize-y rounded-xl border border-white/20 bg-white/10 p-3.5 text-sm text-white outline-none placeholder:text-white/45 focus:border-velyon-mint focus:ring-4 focus:ring-velyon-mint/10"
-          name="mensaje"
-          placeholder="¿Qué problema quieres resolver?"
-          required></textarea></label
+            Diagnóstico inicial
+          </span>
+
+          <h3 class="mt-3 font-display text-2xl font-bold tracking-[-0.04em]">
+            Cuéntanos qué quieres mejorar.
+          </h3>
+        </div>
+
+        <span
+          class="grid size-12 place-items-center rounded-xl bg-velyon-mint/15 text-velyon-mint"
+        >
+          <Sparkles class="size-5" />
+        </span>
+      </div>
+
+      <!-- PASOS -->
+
+      <div class="mt-8 grid gap-4">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+          <div class="flex gap-4">
+            <span
+              class="grid size-10 shrink-0 place-items-center rounded-xl bg-velyon-mint-soft text-velyon-deep"
+            >
+              <ClipboardCheck class="size-5" />
+            </span>
+
+            <div>
+              <h4 class="font-bold">1. Completa el diagnóstico</h4>
+
+              <p class="mt-1 text-sm leading-6 text-white/60">
+                Cuéntanos sobre tu empresa, objetivos y necesidades.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+          <div class="flex gap-4">
+            <span
+              class="grid size-10 shrink-0 place-items-center rounded-xl bg-white/10 text-velyon-mint"
+            >
+              <Target class="size-5" />
+            </span>
+
+            <div>
+              <h4 class="font-bold">2. Analizamos tu caso</h4>
+
+              <p class="mt-1 text-sm leading-6 text-white/60">
+                Revisamos oportunidades y definimos el camino adecuado.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+
+      <a
+        href="/diagnostico"
+        class="mt-8 flex min-h-14 items-center justify-center gap-3 rounded-xl bg-velyon-mint px-6 text-sm font-extrabold text-velyon-deep transition hover:-translate-y-1 hover:bg-white"
       >
-      <Button type="submit" variant="light" size="lg" className="mt-1 w-full"
-        >Preparar mensaje</Button
-      >
-      <p
-        id="form-status"
-        class="hidden items-center justify-center gap-2 text-center text-[11px] text-velyon-mint"
-        aria-live="polite"
-      >
-        <Send class="size-3.5" /> Se abrirá tu aplicación de correo para enviar el
-        mensaje.
+        Comenzar diagnóstico gratuito
+
+        <ArrowRight class="size-4" />
+      </a>
+
+      <p class="mt-5 text-center text-xs text-white/50">
+        Toma menos de 15 minutos · Sin compromiso
       </p>
-    </form>
+    </div>
   </div>
 </section>
-
-<script>
-  const form = document.querySelector<HTMLFormElement>("#contact-form");
-  const status = document.querySelector<HTMLElement>("#form-status");
-  const contactEmail = form?.dataset.contactEmail ?? "";
-
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-
-    const data = new FormData(form);
-    const subject = `Consulta Velyon — ${data.get("necesidad") ?? "Nueva oportunidad"}`;
-    const body = [
-      `Nombre: ${data.get("nombre") ?? ""}`,
-      `Negocio: ${data.get("negocio") ?? ""}`,
-      `Contacto: ${data.get("contacto") ?? ""}`,
-      `Necesidad: ${data.get("necesidad") ?? ""}`,
-      "",
-      String(data.get("mensaje") ?? ""),
-    ].join("\n");
-
-    status?.classList.remove("hidden");
-    status?.classList.add("flex");
-    window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
-</script>

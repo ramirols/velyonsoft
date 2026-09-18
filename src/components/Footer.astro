@@ -2,6 +2,8 @@
 import { Mail, MapPin } from "@lucide/astro";
 import Logo from "@/components/Logo.astro";
 import { siteConfig, socialNetworks } from "@/lib/site";
+import { solutionLinks } from "@/data/navigation";
+import { sectorLinks } from "@/data/navigation";
 ---
 
 <footer class="bg-[#0b2924] pb-6 pt-[70px] text-white">
@@ -16,34 +18,29 @@ import { siteConfig, socialNetworks } from "@/lib/site";
     </div>
     <div class="grid content-start gap-3">
       <strong class="mb-1 text-xs">Soluciones</strong>
-      <a
-        class="text-[11px] text-white/55 hover:text-velyon-mint"
-        href="/soluciones/presencia-digital">Presencia digital</a
-      >
-      <a
-        class="text-[11px] text-white/55 hover:text-velyon-mint"
-        href="/soluciones/ventas-por-internet">Ventas por internet</a
-      >
-      <a
-        class="text-[11px] text-white/55 hover:text-velyon-mint"
-        href="/soluciones/automatizacion-y-sistemas"
-        >Automatización y sistemas</a
-      >
+      {
+        solutionLinks.slice(1, 7).map((solution) => (
+          <a
+            class="text-[11px] text-white/55 hover:text-velyon-mint"
+            href={solution.href}
+          >
+            {solution.label}
+          </a>
+        ))
+      }
     </div>
     <div class="grid content-start gap-3">
       <strong class="mb-1 text-xs">Sectores</strong>
-      <a
-        class="text-[11px] text-white/55 hover:text-velyon-mint"
-        href="/sectores/educacion">Educación</a
-      >
-      <a
-        class="text-[11px] text-white/55 hover:text-velyon-mint"
-        href="/sectores/salud">Salud</a
-      >
-      <a
-        class="text-[11px] text-white/55 hover:text-velyon-mint"
-        href="/sectores/negocios-y-servicios">Negocios y servicios</a
-      >
+      {
+        sectorLinks.slice(1, 7).map((sector) => (
+          <a
+            class="text-[11px] text-white/55 hover:text-velyon-mint"
+            href={sector.href}
+          >
+            {sector.label}
+          </a>
+        ))
+      }
     </div>
     <div class="grid content-start gap-3">
       <strong class="mb-1 text-xs">Contacto</strong>
