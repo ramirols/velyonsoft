@@ -1,122 +1,290 @@
 export const projects = [
-
     {
         name: "Broko Gamer Shop",
-        description:
-            "Tienda online especializada en tecnología gamer, con una experiencia digital enfocada en catálogo, conversión y ventas online.",
-        category:
-            "Ecommerce",
-        year:
-            "2025",
-        image:
-            "/projects/brokogamershop.webp",
-        url:
-            "https://brokogamershop.com/",
-        featured:
-            true,
+        description: "Tienda online especializada en tecnología gamer, con una experiencia digital enfocada en catálogo, conversión y ventas online.",
+        category: "Ecommerce",
+        year: "2025",
+        image: "/projects/brokogamershop.webp",
+        url: "https://brokogamershop.com/",
+        featured: true,
     },
-
-
     {
         name: "Cursorinitis",
-        description:
-            "Landing page orientada a conversión para presentar una solución digital con una experiencia moderna y enfocada en captación.",
-        category:
-            "Landing Page",
-        year:
-            "2025",
-        image:
-            "/projects/menarini.webp",
-        url:
-            "https://cursorinitis.com/landing",
-        featured:
-            true,
+        description: "Landing page orientada a conversión para presentar una solución digital con una experiencia moderna y enfocada en captación.",
+        category: "Landing Page",
+        year: "2025",
+        image: "/projects/menarini.webp",
+        url: "https://cursorinitis.com/landing",
+        featured: true,
     },
-
-
     {
         name: "Escuela de Negocios Quantum",
-        description:
-            "Plataforma web institucional para una escuela de negocios con estructura enfocada en comunicación y posicionamiento.",
-        category:
-            "Educación",
-        year:
-            "2025",
-        image:
-            "/projects/quantum.webp",
-        url:
-            "https://escueladenegociosquantum.com/inicio",
-        featured:
-            true,
+        description: "Plataforma web institucional para una escuela de negocios con estructura enfocada en comunicación y posicionamiento.",
+        category: "Educación",
+        year: "2025",
+        image: "/projects/quantum.webp",
+        url: "https://escueladenegociosquantum.com/inicio",
+        featured: true,
     },
-
-
-
     {
         name: "AP Bioprocess",
-        description:
-            "Desarrollo web corporativo para una empresa especializada en soluciones biotecnológicas.",
-        category:
-            "Web corporativa",
-        year:
-            "2025",
-        image:
-            "/projects/ap-bioprocess.webp",
-        url:
-            "https://ap-bioprocess.com/",
-        featured:
-            false,
+        description: "Desarrollo web corporativo para una empresa especializada en soluciones biotecnológicas.",
+        category: "Web corporativa",
+        year: "2025",
+        image: "/projects/ap-bioprocess.webp",
+        url: "https://ap-bioprocess.com/",
+        featured: false,
     },
-
-
     {
         name: "Uni Master",
-        description:
-            "Plataforma digital educativa orientada a presentar servicios académicos y formación profesional.",
-        category:
-            "Educación",
-        year:
-            "2025",
-        image:
-            "/projects/unimaster.webp",
-        url:
-            "https://uni-master.net/",
-        featured:
-            false,
+        description: "Plataforma digital educativa orientada a presentar servicios académicos y formación profesional.",
+        category: "Educación",
+        year: "2025",
+        image: "/projects/unimaster.webp",
+        url: "https://uni-master.net/",
+        featured: false,
     },
-
-
     {
         name: "Ibérica Gold",
-        description:
-            "Presencia digital para una empresa enfocada en comunicación comercial y posicionamiento de marca.",
-        category:
-            "Web corporativa",
-        year:
-            "2025",
-        image:
-            "/projects/ibericagold.webp",
-        url:
-            "https://www.ibericagold.com/",
-        featured:
-            false,
+        description: "Presencia digital para una empresa enfocada en comunicación comercial y posicionamiento de marca.",
+        category: "Web corporativa",
+        year: "2025",
+        image: "/projects/ibericagold.webp",
+        url: "https://www.ibericagold.com/",
+        featured: false,
     },
-
-
     {
         name: "Evoke Club",
-        description:
-            "Experiencia digital para marca orientada a comunidad y presencia online.",
-        category:
-            "Landing",
-        year:
-            "2025",
-        image:
-            "/projects/evoke-club.webp",
-        url:
-            "https://evokeclub.com.mx/",
-        featured:
-            false,
+        description: "Experiencia digital para marca orientada a comunidad y presencia online.",
+        category: "Landing",
+        year: "2025",
+        image: "/projects/evoke-club.webp",
+        url: "https://evokeclub.com.mx/",
+        featured: false,
     },
-
+    {
+        name: "Anqayuraq",
+        description: "Desarrollo web corporativo y presencia digital adaptada a la identidad y servicios de la organización.",
+        category: "Web corporativa",
+        year: "2025",
+        image: "/projects/anqayuraq.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Baawaja Expeditions",
+        description: "Plataforma web turística orientada a la promoción de experiencias de aventura, reservas y exploración.",
+        category: "Turismo",
+        year: "2025",
+        image: "/projects/baawaja-expeditions.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "BG Abogados",
+        description: "Sitio web profesional para estudio jurídico, destacando áreas de práctica, asesoría legal y contacto institucional.",
+        category: "Servicios Legales",
+        year: "2025",
+        image: "/projects/bg-abogados.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Bioclin Perú",
+        description: "Plataforma digital para servicios de salud y análisis clínicos, enfocada en la confianza y accesibilidad del paciente.",
+        category: "Salud",
+        year: "2025",
+        image: "/projects/bioclin-peru.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Bronzage",
+        description: "Experiencia digital para marca especializada en estética y cuidado personal, con enfoque en captación y reservas.",
+        category: "Belleza y Bienestar",
+        year: "2025",
+        image: "/projects/bronzage.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Ecumotor",
+        description: "Plataforma web del sector automotriz para la exhibición de catálogo vehicular, especificaciones y contacto comercial.",
+        category: "Automotriz",
+        year: "2025",
+        image: "/projects/ecumotor.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Eduval Law",
+        description: "Solución web institucional para firmas de abogados y asesoría jurídica especializada.",
+        category: "Servicios Legales",
+        year: "2025",
+        image: "/projects/eduval-law.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Green Salud Integral",
+        description: "Portal web orientado a la promoción de la salud integral, bienestar y servicios médicos especializados.",
+        category: "Salud",
+        year: "2025",
+        image: "/projects/green-salud-integral.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Grúas Morales",
+        description: "Sitio web corporativo de servicios de transporte pesado, auxilio mecánico y grúas con atención inmediata.",
+        category: "Servicios Industriales",
+        year: "2025",
+        image: "/projects/gruas-morales.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "IAS",
+        description: "Desarrollo web corporativo para servicios de ingeniería, auditoría o soluciones tecnológicas industriales.",
+        category: "Web corporativa",
+        year: "2025",
+        image: "/projects/ias.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Indalnor",
+        description: "Presencia digital para industria y suministros, enfocada en la exhibición de catálogo B2B y requerimientos comerciales.",
+        category: "Industrial",
+        year: "2025",
+        image: "/projects/indalnor.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Iventys",
+        description: "Plataforma digital para organización de eventos, experiencias corporativas y gestión de producciones.",
+        category: "Entretenimiento",
+        year: "2025",
+        image: "/projects/iventys.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Kids Gram",
+        description: "Plataforma educativa o infantil enfocada en servicios pedagógicos, comunicación y actividades para niños.",
+        category: "Educación",
+        year: "2025",
+        image: "/projects/kids-gram.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Kolabory",
+        description: "Plataforma digital orientada a la colaboración, gestión de equipos y optimización de flujos de trabajo.",
+        category: "SaaS",
+        year: "2025",
+        image: "/projects/kolabory.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Logistics Balast",
+        description: "Sitio web corporativo especializado en soluciones logísticas, transporte y cadena de suministro.",
+        category: "Logística",
+        year: "2025",
+        image: "/projects/logistics-balast.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Metal Supplies Coorp",
+        description: "Portal corporativo B2B para el suministro de materiales metálicos y soluciones industriales.",
+        category: "Industrial",
+        year: "2025",
+        image: "/projects/metalsupplies-coorp.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Norman Domotics",
+        description: "Sitio web enfocado en la automatización del hogar, casas inteligentes y sistemas domóticos avanzados.",
+        category: "Tecnología",
+        year: "2025",
+        image: "/projects/norman-domotics.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Policlínico NSP",
+        description: "Plataforma digital institucional para centro médico, mostrando especialidades, doctores y reserva de citas.",
+        category: "Salud",
+        year: "2025",
+        image: "/projects/policlinico-nsp.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Pronte",
+        description: "Landing page o sitio web de servicios rápidos, financieros o de gestión tecnológica.",
+        category: "Servicios",
+        year: "2025",
+        image: "/projects/pronte.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Super Academy",
+        description: "Plataforma educativa online para cursos especializados, clases en vivo y recursos de aprendizaje.",
+        category: "Educación",
+        year: "2025",
+        image: "/projects/superacademy.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "T Asfalto",
+        description: "Sitio web para empresa de construcción vial, pavimentación y obras civiles.",
+        category: "Construcción",
+        year: "2025",
+        image: "/projects/t-asfalto.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "The Olivar Apartments",
+        description: "Plataforma web inmobiliaria para la presentación y renta/venta de departamentos de alta gama.",
+        category: "Inmobiliaria",
+        year: "2025",
+        image: "/projects/the-olivar-apartments.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "UPSK Tronix",
+        description: "Sitio web tecnológico enfocado en componentes electrónicos, hardware o soluciones de energía.",
+        category: "Tecnología",
+        year: "2025",
+        image: "/projects/upsk-tronix.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Vanguardia QHSE",
+        description: "Plataforma corporativa de consultoría en Calidad, Seguridad, Salud Ocupacional y Medio Ambiente (QHSE).",
+        category: "Consultoría",
+        year: "2025",
+        image: "/projects/vanguardia-qhse.webp",
+        url: "#",
+        featured: false,
+    },
+    {
+        name: "Venva",
+        description: "Experiencia digital orientada a branding, soluciones de marketing o servicios digitales modernos.",
+        category: "Agencia",
+        year: "2025",
+        image: "/projects/venva.webp",
+        url: "#",
+        featured: false,
+    },
 ] as const;
