@@ -204,7 +204,7 @@ const solutions = [
     <p id="message" class="mt-5 hidden text-center text-sm font-semibold"></p>
 </form>
 
-<script define:vars={{ GOOGLE_SCRIPT_URL }}>
+<script is:inline define:vars={{ GOOGLE_SCRIPT_URL }}>
     const form = document.querySelector("#diagnostic-form");
 
     const steps = [...document.querySelectorAll(".form-step")];

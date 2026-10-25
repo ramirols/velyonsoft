@@ -1,59 +1,60 @@
 ---
-import { ArrowRight, Check } from "@lucide/astro";
+import { Check, MessageSquare } from "@lucide/astro";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import { whatsappUrl } from "@/lib/site";
 
 const plans = [
   {
-    type: "Proyecto",
+    type: "Pago único",
     title: "Implementación",
     description:
-      "Para lanzar una web, tienda, automatización o sistema con alcance definido.",
-    prefix: "Desde",
-    price: "S/ 1,200",
-    suffix: "pago por proyecto",
+      "Desarrollo de tiendas online, sistemas o automatizaciones con alcance técnico cerrado y cronograma.",
+    prefix: "Inversión inicial",
+    price: "Desde S/ 1,200",
+    suffix: "pago por proyecto según alcance",
     bullets: [
-      "Diagnóstico y alcance",
-      "Diseño e implementación",
-      "Puesta en funcionamiento",
+      "Diagnóstico técnico y arquitectura",
+      "Desarrollo, pruebas y puesta en producción",
+      "Entrega completa y capacitación de uso",
     ],
-    cta: "Cotizar proyecto",
-    featured: false,
-  },
-  {
-    type: "Mensual",
-    title: "Continuidad",
-    description:
-      "Para mantener la solución estable, segura y acompañada después del lanzamiento.",
-    prefix: "Desde",
-    price: "S/ 149",
-    suffix: "al mes",
-    bullets: [
-      "Hosting y respaldos",
-      "Soporte con alcance claro",
-      "Mantenimiento preventivo",
-    ],
-    cta: "Elegir continuidad",
+    cta: "Cotizar por WhatsApp",
     featured: true,
   },
   {
-    type: "A medida",
-    title: "Evolución",
+    type: "Tu propiedad",
+    title: "Infraestructura",
     description:
-      "Para negocios que necesitan mejoras frecuentes y acompañamiento tecnológico.",
-    prefix: "Inversión",
-    price: "A medida",
-    suffix: "según objetivos",
+      "El dominio, cuentas en la nube y licencias se configuran a nombre del cliente, garantizando control total.",
+    prefix: "Costo directo",
+    price: "Al costo",
+    suffix: "pagado directamente a proveedores",
     bullets: [
-      "Bolsa mensual de mejoras",
-      "Priorización conjunta",
-      "Seguimiento continuo",
+      "Dominio y hosting a nombre de tu empresa",
+      "Sin secuestro tecnológico ni dependencias",
+      "Asesoría para elegir el plan más eficiente",
     ],
-    cta: "Conocer modalidad",
+    cta: "Consultar arquitectura",
+    featured: false,
+  },
+  {
+    type: "Opcional mensual",
+    title: "Soporte y Mejora",
+    description:
+      "Acompañamiento técnico posterior al lanzamiento para monitoreo, respaldos y evolución de la plataforma.",
+    prefix: "Mantenimiento",
+    price: "Desde S/ 149",
+    suffix: "al mes (sin permanencia forzosa)",
+    bullets: [
+      "Monitoreo técnico y copias de seguridad",
+      "Horas mensuales de ajustes y soporte",
+      "Canal directo con el desarrollador",
+    ],
+    cta: "Consultar soporte",
     featured: false,
   },
 ];
@@ -129,18 +130,27 @@ const plans = [
                 class={
                   plan.featured ? "btn-primary w-full" : "btn-outline w-full"
                 }
-                href="#contacto"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {plan.cta} <ArrowRight class="size-4" />
+                <MessageSquare class="size-4" aria-hidden="true" />
+                {plan.cta}
               </a>
             </CardFooter>
           </Card>
         ))
       }
     </div>
-    <p class="mt-5 text-center text-[10px] text-muted-foreground">
-      Precios referenciales. La propuesta final depende del alcance,
-      integraciones y nivel de soporte.
-    </p>
+    <div
+      class="mt-8 rounded-2xl border border-velyon-deep/10 bg-white p-5 text-center text-xs text-muted-foreground shadow-sm"
+    >
+      <p>
+        <strong class="text-velyon-deep">Transparencia técnica:</strong> Los
+        servicios de dominio y hosting son facturados por los proveedores
+        directamente a tu empresa para garantizar tu independencia. El soporte
+        mensual es opcional y con alcance de horas claramente definido.
+      </p>
+    </div>
   </div>
 </section>

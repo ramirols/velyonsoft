@@ -10,12 +10,24 @@ const {
   label = "Animación de tecnología conectada",
   class: className = "",
 } = Astro.props;
+
+const verifiedAnimations = new Set([
+  "/animations/velyon.lottie",
+  "/animations/desarrollo-web.lottie",
+  "/animations/ventas-por-internet.lottie",
+  "/animations/automatizacion-y-sistemas.lottie",
+  "/animations/salud.lottie",
+  "/animations/educacion.lottie",
+  "/animations/negocios-y-servicios.lottie",
+]);
+
+const safeSrc = verifiedAnimations.has(src) ? src : "/animations/velyon.lottie";
 ---
 
 <div
   class:list={["lottie-shell", className]}
   data-lottie
-  data-src={src}
+  data-src={safeSrc}
   role="img"
   aria-label={label}
 >

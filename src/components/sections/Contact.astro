@@ -152,19 +152,30 @@ import { siteConfig, whatsappUrl } from "@/lib/site";
         </div>
       </div>
 
-      <!-- CTA -->
+      <!-- CTAS -->
 
-      <a
-        href="/diagnostico"
-        class="mt-8 flex min-h-14 items-center justify-center gap-3 rounded-xl bg-velyon-mint px-6 text-sm font-extrabold text-velyon-deep transition hover:-translate-y-1 hover:bg-white"
-      >
-        Comenzar diagnóstico gratuito
+      <div class="mt-8 flex flex-col gap-3">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex min-h-14 items-center justify-center gap-3 rounded-xl bg-velyon-mint px-6 text-sm font-extrabold text-velyon-deep transition hover:-translate-y-0.5 hover:bg-white shadow-lg"
+        >
+          <MessageCircle class="size-5" />
+          Conversar por WhatsApp
+        </a>
 
-        <ArrowRight class="size-4" />
-      </a>
+        <a
+          href="/diagnostico"
+          class="flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 text-sm font-bold text-white transition hover:bg-white/20"
+        >
+          O completar diagnóstico en línea
+          <ArrowRight class="size-4" />
+        </a>
+      </div>
 
       <p class="mt-5 text-center text-xs text-white/50">
-        Toma menos de 15 minutos · Sin compromiso
+        Respuesta directa por WhatsApp · Sin compromiso
       </p>
     </div>
   </div>

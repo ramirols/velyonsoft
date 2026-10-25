@@ -1,7 +1,7 @@
 ---
 import { Mail, MapPin } from "@lucide/astro";
 import Logo from "@/components/Logo.astro";
-import { siteConfig, socialNetworks } from "@/lib/site";
+import { siteConfig, socialNetworks, whatsappUrl } from "@/lib/site";
 import { solutionLinks } from "@/data/navigation";
 import { sectorLinks } from "@/data/navigation";
 ---
@@ -53,8 +53,12 @@ import { sectorLinks } from "@/data/navigation";
       </a>
       <a
         class="text-[11px] text-white/55 hover:text-velyon-mint"
-        href="/#contacto">Solicitar diagnóstico</a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
       >
+        Conversar por WhatsApp
+      </a>
       <span class="flex items-center gap-2 text-[11px] text-white/55">
         <MapPin class="size-3.5" />
         {siteConfig.location}
@@ -101,6 +105,6 @@ import { sectorLinks } from "@/data/navigation";
       >© {new Date().getFullYear()} Velyon · {siteConfig.legalName}. Todos los
       derechos reservados.</span
     >
-    <span>Privacidad · Términos</span>
+    <span>Sistemas y automatización para empresas · Lima, Perú</span>
   </div>
 </footer>

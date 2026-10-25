@@ -2,6 +2,8 @@
 import {
   ArrowRight,
   Check,
+  ExternalLink,
+  MessageSquare,
   MonitorSmartphone,
   Smartphone,
   CalendarDays,
@@ -11,6 +13,7 @@ import {
 } from "@lucide/astro";
 
 import { productLinks } from "@/data/navigation";
+import { whatsappUrl } from "@/lib/site";
 
 const product = productLinks.find((item) => item.featured) ?? productLinks.at(0);
 
@@ -29,19 +32,18 @@ const platforms = product?.platforms ?? [];
       <div class="container-velyon">
         <!-- Header -->
         <div class="mx-auto mb-14 max-w-[720px] text-center">
-          <span class="section-label">03 — Producto Velyon</span>
+          <span class="section-label">03 — Software Vertical en Validación</span>
 
           <h2 id="product-spotlight-title" class="section-title">
-            Software propio para problemas que{" "}
+            Software propio para sectores con{" "}
             <span class="font-serif font-medium italic text-velyon-deep">
-              se repiten.
+              necesidades específicas.
             </span>
           </h2>
 
           <p class="mx-auto mt-5 max-w-[640px] text-base leading-7 text-muted-foreground">
-            Creamos productos digitales especializados para sectores específicos,
-            transformando procesos repetitivos en experiencias más simples,
-            rápidas y conectadas.
+            Diseñamos y validamos herramientas digitales para nichos profesionales,
+            resolviendo flujos operativos reales con software moderno antes de escalar comercialmente.
           </p>
         </div>
 
@@ -111,17 +113,45 @@ const platforms = product?.platforms ?? [];
 
             <!-- Acciones -->
             <div class="mt-9 flex flex-wrap items-center gap-3">
-              <a href={product.href} class="btn-primary">
-                Conocer el producto
-                <ArrowRight class="size-4" aria-hidden="true" />
-              </a>
+              {product.demoUrl ? (
+                <>
+                  <a
+                    href={product.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-primary"
+                  >
+                    Ver demo en vivo
+                    <ExternalLink class="size-4" aria-hidden="true" />
+                  </a>
 
-              <a
-                href="/#contacto"
-                class="inline-flex min-h-11 items-center justify-center px-4 text-sm font-bold text-velyon-deep transition-colors hover:text-velyon-indigo"
-              >
-                Solicitar información
-              </a>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-velyon-deep/15 bg-white px-4 text-sm font-bold text-velyon-deep transition-colors hover:bg-velyon-mist hover:text-velyon-indigo"
+                  >
+                    <MessageSquare class="size-4" aria-hidden="true" />
+                    Consultar por este software
+                  </a>
+                </>
+              ) : (
+                <>
+                  <a href={product.href} class="btn-primary">
+                    Conocer el producto
+                    <ArrowRight class="size-4" aria-hidden="true" />
+                  </a>
+
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex min-h-11 items-center justify-center px-4 text-sm font-bold text-velyon-deep transition-colors hover:text-velyon-indigo"
+                  >
+                    Solicitar información
+                  </a>
+                </>
+              )}
             </div>
           </div>
 
@@ -138,7 +168,7 @@ const platforms = product?.platforms ?? [];
                   </div>
 
                   <span class="ml-auto text-[8px] font-bold uppercase tracking-[.14em] text-muted-foreground">
-                    Vista demostrativa
+                    Demostración interactiva
                   </span>
                 </div>
 
@@ -147,7 +177,7 @@ const platforms = product?.platforms ?? [];
                   <div class="flex items-start justify-between">
                     <div>
                       <span class="text-[8px] font-bold uppercase tracking-[.12em] text-muted-foreground">
-                        Producto
+                        Proyecto en validación
                       </span>
 
                       <h4 class="mt-1 font-display text-lg font-bold tracking-[-0.025em] text-velyon-ink">
@@ -156,30 +186,46 @@ const platforms = product?.platforms ?? [];
                     </div>
 
                     <span class="rounded-full bg-velyon-mint-soft px-2.5 py-1 text-[8px] font-extrabold text-velyon-deep">
-                      Activo
+                      {product.status}
                     </span>
                   </div>
 
                   <div class="mt-8 grid gap-3">
                     {product.type === "health" && (
-                      <div class="flex items-center gap-3 rounded-xl border border-border p-4">
-                        <CalendarDays class="size-5 text-velyon-deep" />
+                      <>
+                        <div class="flex items-center gap-3 rounded-xl border border-border p-4">
+                          <CalendarDays class="size-5 text-velyon-deep shrink-0" />
 
-                        <div>
-                          <strong class="block text-sm">
-                            Agenda inteligente
-                          </strong>
+                          <div>
+                            <strong class="block text-sm">
+                              Agenda inteligente semanal
+                            </strong>
 
-                          <span class="text-xs text-muted-foreground">
-                            Citas y seguimiento organizado
-                          </span>
+                            <span class="text-xs text-muted-foreground">
+                              Citas por turnos y control de disponibilidad
+                            </span>
+                          </div>
                         </div>
-                      </div>
+
+                        <div class="flex items-center gap-3 rounded-xl border border-border p-4">
+                          <Workflow class="size-5 text-velyon-deep shrink-0" />
+
+                          <div>
+                            <strong class="block text-sm">
+                              Fichas y notas clínicas
+                            </strong>
+
+                            <span class="text-xs text-muted-foreground">
+                              Historial de sesiones y evolución estructurada
+                            </span>
+                          </div>
+                        </div>
+                      </>
                     )}
 
                     {product.type === "inventory" && (
                       <div class="flex items-center gap-3 rounded-xl border border-border p-4">
-                        <Package class="size-5 text-velyon-deep" />
+                        <Package class="size-5 text-velyon-deep shrink-0" />
 
                         <div>
                           <strong class="block text-sm">
@@ -195,7 +241,7 @@ const platforms = product?.platforms ?? [];
 
                     {product.type === "business" && (
                       <div class="flex items-center gap-3 rounded-xl border border-border p-4">
-                        <Workflow class="size-5 text-velyon-deep" />
+                        <Workflow class="size-5 text-velyon-deep shrink-0" />
 
                         <div>
                           <strong class="block text-sm">
@@ -210,15 +256,15 @@ const platforms = product?.platforms ?? [];
                     )}
 
                     <div class="flex items-center gap-3 rounded-xl bg-velyon-mint-soft p-4">
-                      <UsersRound class="size-5 text-velyon-deep" />
+                      <UsersRound class="size-5 text-velyon-deep shrink-0" />
 
                       <div>
                         <strong class="block text-sm">
-                          Usuarios y operación
+                          Acceso a demostración
                         </strong>
 
                         <span class="text-xs text-muted-foreground">
-                          Información centralizada
+                          Prueba la navegación y flujos sin costo
                         </span>
                       </div>
                     </div>
@@ -227,8 +273,7 @@ const platforms = product?.platforms ?? [];
               </div>
 
               <p class="mt-4 text-[10px] font-semibold text-muted-foreground">
-                Producto desarrollado por VelyonSoft para resolver necesidades
-                reales del mercado.
+                Software vertical desarrollado por VelyonSoft, en proceso de adopción y prueba con consultorios.
               </p>
             </div>
           </div>

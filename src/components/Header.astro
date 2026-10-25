@@ -2,6 +2,7 @@
 import { ArrowRight, ChevronDown, Menu, X } from "@lucide/astro";
 import Logo from "@/components/Logo.astro";
 import { sectorLinks, solutionLinks } from "@/data/navigation";
+import { whatsappUrl } from "@/lib/site";
 ---
 
 <header
@@ -73,9 +74,9 @@ import { sectorLinks, solutionLinks } from "@/data/navigation";
         <li>
           <a
             class="rounded-full px-4 py-2 transition-colors hover:bg-velyon-mist hover:text-foreground"
-            href="/#productos"
+            href="/proyectos"
           >
-            Productos
+            Proyectos
           </a>
         </li>
 
@@ -128,9 +129,11 @@ import { sectorLinks, solutionLinks } from "@/data/navigation";
     <div class="hidden items-center gap-3 lg:flex">
       <a
         class="btn-primary min-h-10 px-5 text-xs font-semibold tracking-wide"
-        href="/#contacto"
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        Conversemos
+        Conversar por WhatsApp
         <ArrowRight class="size-3.5" aria-hidden="true" />
       </a>
     </div>
@@ -204,6 +207,13 @@ import { sectorLinks, solutionLinks } from "@/data/navigation";
 
         <a
           class="rounded-2xl px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-velyon-mist"
+          href="/proyectos"
+        >
+          Proyectos
+        </a>
+
+        <a
+          class="rounded-2xl px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-velyon-mist"
           href="/#planes"
         >
           Planes
@@ -212,9 +222,11 @@ import { sectorLinks, solutionLinks } from "@/data/navigation";
         <div class="mt-4 pt-2">
           <a
             class="btn-primary w-full justify-center py-3 text-sm"
-            href="/#contacto"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Solicitar diagnóstico
+            Conversar por WhatsApp
             <ArrowRight class="size-4" aria-hidden="true" />
           </a>
         </div>
@@ -224,26 +236,33 @@ import { sectorLinks, solutionLinks } from "@/data/navigation";
 </header>
 
 <script>
-  const toggle = document.querySelector<HTMLButtonElement>("#menu-toggle");
-  const nav = document.querySelector<HTMLElement>("#mobile-nav");
-  const openIcon = document.querySelector<HTMLElement>("#menu-open-icon");
-  const closeIcon = document.querySelector<HTMLElement>("#menu-close-icon");
+  const setupHeader = () => {
+    const toggle = document.querySelector<HTMLButtonElement>("#menu-toggle");
+    const nav = document.querySelector<HTMLElement>("#mobile-nav");
+    const openIcon = document.querySelector<HTMLElement>("#menu-open-icon");
+    const closeIcon = document.querySelector<HTMLElement>("#menu-close-icon");
 
-  const setOpen = (open: boolean) => {
-    nav?.classList.toggle("hidden", !open);
-    openIcon?.classList.toggle("hidden", open);
-    closeIcon?.classList.toggle("hidden", !open);
-    toggle?.setAttribute("aria-expanded", String(open));
-    toggle?.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    if (!toggle || !nav) return;
+
+    const setOpen = (open: boolean) => {
+      nav.classList.toggle("hidden", !open);
+      openIcon?.classList.toggle("hidden", open);
+      closeIcon?.classList.toggle("hidden", !open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    };
+
+    toggle.onclick = () => {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    };
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.onclick = () => setOpen(false);
+    });
   };
 
-  toggle?.addEventListener("click", () =>
-    setOpen(toggle.getAttribute("aria-expanded") !== "true"),
-  );
-
-  nav
-    ?.querySelectorAll("a")
-    .forEach((link) => link.addEventListener("click", () => setOpen(false)));
+  setupHeader();
+  document.addEventListener("astro:page-load", setupHeader);
 
   document.addEventListener("click", (event) => {
     const target = event.target as HTMLElement;
@@ -256,7 +275,17 @@ import { sectorLinks, solutionLinks } from "@/data/navigation";
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      setOpen(false);
+      const toggle = document.querySelector<HTMLButtonElement>("#menu-toggle");
+      const nav = document.querySelector<HTMLElement>("#mobile-nav");
+      const openIcon = document.querySelector<HTMLElement>("#menu-open-icon");
+      const closeIcon = document.querySelector<HTMLElement>("#menu-close-icon");
+      if (nav && toggle) {
+        nav.classList.add("hidden");
+        openIcon?.classList.remove("hidden");
+        closeIcon?.classList.add("hidden");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Abrir menú");
+      }
       document.querySelectorAll("details.nav-dropdown").forEach((detail) => {
         detail.removeAttribute("open");
       });

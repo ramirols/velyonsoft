@@ -1,43 +1,57 @@
-export const productLinks = [
+export interface ProductLink {
+    label: string;
+    detail: string;
+    href: string;
+    status: string;
+    featured: boolean;
+    type: "health" | "inventory" | "business";
+    demoUrl?: string;
+    hero: string;
+    platforms: string[];
+    features: string[];
+}
+
+export const productLinks: ProductLink[] = [
     {
-        label: "Velyon Salud",
+        label: "Synkro",
         detail:
-            "Agenda, seguimiento y operación para consultorios.",
+            "Software de gestión clínica, agenda semanal y notas para consultorios psicológicos.",
         href:
             "/productos/sistema-para-consultorios",
         status:
-            "Piloto en desarrollo",
-        featured: false,
+            "En validación comercial",
+        featured: true,
         type: "health",
+        demoUrl: "https://synkro-psicology.vercel.app/demo",
         hero:
-            "Agenda y operación conectadas para una atención más ordenada.",
+            "Software clínico especializado para psicólogos y consultorios.",
         platforms: [
             "Panel web",
-            "Aplicación móvil",
-            "Backend conectado"
+            "Agenda semanal",
+            "Acceso seguro"
         ],
         features: [
-            "Agenda inteligente",
-            "Solicitudes y confirmaciones",
-            "Recordatorios automáticos",
-            "Panel administrativo"
+            "Agenda visual por turnos",
+            "Fichas clínicas digitales",
+            "Notas de sesión estructuradas",
+            "Modo demostración activo"
         ]
     },
     {
         label: "Velyon Inventory",
         detail:
-            "Control de inventario, almacenes y movimientos comerciales en tiempo real.",
+            "Control de stock, almacenes y movimientos comerciales en tiempo real.",
         href:
             "/productos/sistema-inventario",
         status:
-            "Producto en desarrollo",
+            "Prototipo en desarrollo",
         featured: false,
         type: "inventory",
         hero:
             "Controla tus productos, movimientos y stock desde un solo sistema.",
         platforms: [
             "Panel web",
-            "Aplicación móvil"
+            "Módulos conectados"
         ],
         features: [
             "Stock en tiempo real",
@@ -45,30 +59,8 @@ export const productLinks = [
             "Control de almacenes",
             "Reportes comerciales"
         ]
-    },
-    {
-        label: "Plaga Software",
-        detail:
-            "Software empresarial desarrollado por VelyonSoft.",
-        href:
-            "/productos/plaga-software",
-        status:
-            "Producto activo",
-        featured: true,
-        type: "business",
-        hero:
-            "Una plataforma digital para ordenar procesos empresariales.",
-        platforms: [
-            "Aplicación web"
-        ],
-        features: [
-            "Gestión operativa",
-            "Control de procesos",
-            "Automatización",
-            "Panel administrativo"
-        ]
     }
-] as const;
+];
 
 export const sectorLinks = [
     {
@@ -123,7 +115,7 @@ export const sectorLinks = [
         number: "09",
         label: "Restaurantes y comida",
         detail: "Soluciones para restaurantes, cafeterías y negocios de comida",
-        href: "/sectores/restaurantes-comida",
+        href: "/sectores/restaurantes",
     },
 ] as const;
 
