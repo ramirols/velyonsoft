@@ -17,7 +17,7 @@ import { sectorLinks } from "@/data/navigation";
       </p>
     </div>
     <div class="grid content-start gap-3">
-      <strong class="mb-1 text-xs">Soluciones</strong>
+      <p class="mb-1 text-xs font-bold uppercase tracking-wider text-white">Soluciones</p>
       {
         solutionLinks.slice(1, 7).map((solution) => (
           <a
@@ -30,7 +30,7 @@ import { sectorLinks } from "@/data/navigation";
       }
     </div>
     <div class="grid content-start gap-3">
-      <strong class="mb-1 text-xs">Sectores</strong>
+      <p class="mb-1 text-xs font-bold uppercase tracking-wider text-white">Sectores</p>
       {
         sectorLinks.slice(1, 7).map((sector) => (
           <a
@@ -43,7 +43,7 @@ import { sectorLinks } from "@/data/navigation";
       }
     </div>
     <div class="grid content-start gap-3">
-      <strong class="mb-1 text-xs">Contacto</strong>
+      <p class="mb-1 text-xs font-bold uppercase tracking-wider text-white">Contacto</p>
       <a
         class="flex items-center gap-2 text-[11px] text-white/55 hover:text-velyon-mint"
         href={`mailto:${siteConfig.email}`}
@@ -64,7 +64,7 @@ import { sectorLinks } from "@/data/navigation";
         {siteConfig.location}
       </span>
 
-      <strong class="mt-4 block text-xs">Redes Sociales</strong>
+      <p class="mt-4 block text-xs font-bold uppercase tracking-wider text-white">Redes Sociales</p>
       <ul class="mt-2 flex gap-3">
         {
           socialNetworks.map((network) => (

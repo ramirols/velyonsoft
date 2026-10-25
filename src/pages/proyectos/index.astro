@@ -86,9 +86,9 @@ const stats = [
                     {
                         stats.map((stat) => (
                             <div class="flex-1 min-w-[220px] px-8 py-7 max-[700px]:border-b max-[700px]:border-border">
-                                <strong class="font-display text-4xl font-bold tracking-tight text-velyon-deep">
+                                <span class="font-display text-4xl font-bold tracking-tight text-velyon-deep">
                                     {stat.number}
-                                </strong>
+                                </span>
 
                                 <p class="mt-2 text-sm font-semibold text-muted-foreground">
                                     {stat.label}
@@ -128,6 +128,10 @@ const stats = [
                                         <img
                                             src={project.image}
                                             alt={project.name}
+                                            loading="lazy"
+                                            decoding="async"
+                                            width="600"
+                                            height="500"
                                             class="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                                         />
                                     )}
@@ -208,6 +212,10 @@ const stats = [
                                             <img
                                                 src={project.image}
                                                 alt={project.name}
+                                                loading="lazy"
+                                                decoding="async"
+                                                width="400"
+                                                height="250"
                                                 class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                                             />
                                         )}
@@ -250,6 +258,10 @@ const stats = [
                                             <img
                                                 src={project.image}
                                                 alt={project.name}
+                                                loading="lazy"
+                                                decoding="async"
+                                                width="400"
+                                                height="250"
                                                 class="h-full w-full object-cover"
                                             />
                                         )}

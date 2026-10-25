@@ -39,29 +39,33 @@ const safeSrc = verifiedAnimations.has(src) ? src : "/animations/velyon.lottie";
       width="180"
       height="180"
       alt="Velyon"
+      loading="lazy"
+      decoding="async"
     />
   </noscript>
 </div>
 
 <script>
-  import { DotLottie } from "@lottiefiles/dotlottie-web";
-
   function initLotties() {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    document
-      .querySelectorAll<HTMLElement>("[data-lottie]:not([data-ready])")
-      .forEach((container) => {
-        container.dataset.ready = "true";
+    const elements = document.querySelectorAll<HTMLElement>(
+      "[data-lottie]:not([data-ready])",
+    );
+    if (!elements.length) return;
 
-        const canvas = container.querySelector<HTMLCanvasElement>("canvas");
+    async function loadLottie(container: HTMLElement) {
+      if (container.dataset.ready) return;
+      container.dataset.ready = "true";
 
-        const src = container.dataset.src;
+      const canvas = container.querySelector<HTMLCanvasElement>("canvas");
+      const src = container.dataset.src;
+      if (!canvas || !src) return;
 
-        if (!canvas || !src) return;
-
+      try {
+        const { DotLottie } = await import("@lottiefiles/dotlottie-web");
         const player = new DotLottie({
           canvas,
           src,
@@ -72,10 +76,51 @@ const safeSrc = verifiedAnimations.has(src) ? src : "/animations/velyon.lottie";
         if (reduceMotion) {
           player.setFrame(0);
         }
+      } catch (err) {
+        console.warn("Lottie player failed to load", err);
+      }
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      elements.forEach((el) => {
+        if (el.offsetParent !== null) {
+          loadLottie(el);
+        }
       });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target as HTMLElement;
+            if (target.offsetParent !== null) {
+              obs.unobserve(target);
+              loadLottie(target);
+            }
+          }
+        });
+      },
+      { rootMargin: "200px 0px" },
+    );
+
+    elements.forEach((container) => {
+      // Don't observe if display:none (e.g. mobile hidden hero)
+      const isHidden = window.getComputedStyle(container).display === "none";
+      if (isHidden) return;
+      observer.observe(container);
+    });
   }
 
-  initLotties();
+  const scheduleInit = () => {
+    if ("requestIdleCallback" in window) {
+      (window as Window & { requestIdleCallback: (cb: () => void) => number }).requestIdleCallback(() => initLotties());
+    } else {
+      setTimeout(initLotties, 80);
+    }
+  };
 
-  document.addEventListener("astro:page-load", initLotties);
+  scheduleInit();
+  document.addEventListener("astro:page-load", scheduleInit);
 </script>

@@ -19,6 +19,18 @@ export default defineConfig({
       status: 301,
       destination: "/soluciones/software-a-medida",
     },
+    "/sitemap.xml": {
+      status: 301,
+      destination: "/sitemap-index.xml",
+    },
+    "/soluciones/tiendas-online": {
+      status: 301,
+      destination: "/soluciones/ventas-por-internet",
+    },
+    "/soluciones/sistemas-gestion": {
+      status: 301,
+      destination: "/soluciones/automatizacion-de-procesos",
+    },
   },
 
   integrations: [

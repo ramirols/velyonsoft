@@ -54,6 +54,14 @@ const organizationSchema = {
   image: `${siteConfig.url}/og.png`,
   description: siteConfig.description,
   email: siteConfig.email,
+  telephone: `+${siteConfig.whatsappNumber}`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: `+${siteConfig.whatsappNumber}`,
+    contactType: "customer service",
+    availableLanguage: ["es"],
+    areaServed: "PE",
+  },
   areaServed: {
     "@type": "Country",
     name: "Perú",
@@ -87,6 +95,9 @@ const structuredData = [
     />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <title>{title}</title>
 
     <meta property="og:type" content="website" />

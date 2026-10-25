@@ -1,0 +1,53 @@
+# VelyonSoft
+
+> Estudio de desarrollo de software, tiendas online y sistemas de gestión a medida en Lima, Perú. Trato directo con el desarrollador, soluciones sin plantillas prefabricadas, presupuesto cerrado y entrega con dominio, infraestructura y código fuente bajo propiedad exclusiva del cliente.
+
+## Información de la empresa
+- **Nombre comercial**: Velyon / VelyonSoft
+- **Razón o marca registrada**: VelyonSoft
+- **Sitio web oficial**: https://www.velyonsoft.com/
+- **Ubicación**: Lima, Perú (cobertura a nivel nacional e internacional)
+- **Canal de atención y WhatsApp**: +51 997 676 432 (https://wa.me/51997676432)
+- **Correo electrónico**: contacto@velyonsoft.com
+- **Diagnóstico gratuito inicial**: https://www.velyonsoft.com/diagnostico
+
+## Pilares de servicio principales
+
+### 1. Tiendas online y catálogos comerciales
+- **URL**: https://www.velyonsoft.com/soluciones/ventas-por-internet
+- **Descripción**: Catálogos digitales de alta velocidad y tiendas online optimizadas para recibir pedidos directos a WhatsApp o pasarelas de pago, organizando productos, precios y seguimiento de pedidos sin complejidad innecesaria.
+- **Tecnología**: Desarrollo a medida, carga ultrarrápida, diseño responsive mobile-first.
+
+### 2. Sistemas de gestión y automatización de operaciones
+- **URL**: https://www.velyonsoft.com/soluciones/automatizacion-de-procesos
+- **Descripción**: Paneles de administración, CRMs a medida y sistemas de gestión que sustituyen hojas de cálculo manuales, reducen pérdidas de tiempo y centralizan el control operativo diario de la empresa.
+
+### 3. Software a medida e integraciones
+- **URL**: https://www.velyonsoft.com/soluciones/software-a-medida
+- **Descripción**: Desarrollo de aplicaciones y conexión entre plataformas existentes (APIs, facturación, pasarelas de pago, bases de datos), adaptado a la lógica de negocio específica de cada cliente.
+
+### 4. Otras soluciones complementarias
+- **Desarrollo web corporativo**: https://www.velyonsoft.com/soluciones/desarrollo-web
+- **Aplicaciones móviles**: https://www.velyonsoft.com/soluciones/aplicaciones-moviles
+- **Mantenimiento y evolución técnica**: https://www.velyonsoft.com/soluciones/mantenimiento-y-evolucion
+
+## Especialidades por sector empresarial
+- **Educación**: https://www.velyonsoft.com/sectores/educacion — Plataformas de admisión, cobros, comunicación y gestión para colegios y academias.
+- **Salud y Consultorios**: https://www.velyonsoft.com/sectores/salud — Gestión de citas, expedientes clínicos y reservas para profesionales de la salud.
+- **Pymes y Servicios**: https://www.velyonsoft.com/sectores/pymes-y-servicios — Digitalización de ventas y operaciones para pequeñas y medianas empresas.
+- **Restaurantes**: https://www.velyonsoft.com/sectores/restaurantes — Menús interactivos, pedidos por WhatsApp y control de mesas.
+- **Hoteles y Turismo**: https://www.velyonsoft.com/sectores/hoteles-turismo — Motores de reservas directas y catálogos de paquetes turísticos.
+- **Inmobiliarias**: https://www.velyonsoft.com/sectores/inmobiliarias — Portales de propiedades, captación de prospectos y filtros de búsqueda.
+- **Logística y Transporte**: https://www.velyonsoft.com/sectores/logistica-transporte — Seguimiento de envíos, cotizadores y control de despachos.
+- **Agricultura**: https://www.velyonsoft.com/sectores/agricultura — Registro de cosechas, trazabilidad y control de insumos.
+- **Servicios Profesionales**: https://www.velyonsoft.com/sectores/servicios-profesionales — Agendamiento de asesorías y captación de clientes.
+
+## Casos de estudio y portafolio activo
+- **Portafolio general**: https://www.velyonsoft.com/proyectos
+- **Broko Gamer Shop**: Tienda online especializada para ecommerce de productos gamer en Perú, optimizada para pedidos directos.
+- **Norman Domotics**: Plataforma web de presentación técnica y captación comercial para empresa de domótica e ingeniería.
+
+## Modelo de trabajo y transparencia técnica
+- **Presupuesto cerrado**: Se define un alcance técnico y un cronograma antes de iniciar el proyecto.
+- **Propiedad total**: El dominio, los servidores en la nube y las licencias quedan registrados a nombre del cliente. El código fuente es entregado en su totalidad.
+- **Soporte post-lanzamiento**: Modalidad opcional de acompañamiento técnico para mejoras continuas y mantenimiento evolutivo.
