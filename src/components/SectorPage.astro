@@ -27,6 +27,8 @@ interface ProductFeature {
     description: string;
     href: string;
     status: string;
+    ctaText?: string;
+    isExternal?: boolean;
 }
 
 interface Props {
@@ -303,9 +305,11 @@ const schema = [
                                 </p>
                                 <a
                                     href={props.product.href}
-                                    class="mt-8 inline-flex items-center gap-2 text-sm font-extrabold text-velyon-deep"
+                                    target={props.product.isExternal || props.product.href.startsWith("http") ? "_blank" : undefined}
+                                    rel={props.product.isExternal || props.product.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                                    class="mt-8 inline-flex items-center gap-2 text-sm font-extrabold text-velyon-deep transition-colors hover:text-velyon-indigo"
                                 >
-                                    Ver producto{" "}
+                                    {props.product.ctaText ?? (props.product.href.startsWith("http") ? "Conversar sobre esta solución" : "Ver solución")}
                                     <ArrowRight
                                         class="size-4"
                                         aria-hidden="true"

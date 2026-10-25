@@ -14,9 +14,18 @@ export default defineConfig({
 
   adapter: vercel(),
 
+  redirects: {
+    "/productos/plaga-software": {
+      status: 301,
+      destination: "/soluciones/software-a-medida",
+    },
+  },
+
   integrations: [
     react(),
-    sitemap()
+    sitemap({
+      filter: (page) => !page.includes("/productos/plaga-software"),
+    }),
   ],
 
   vite: {

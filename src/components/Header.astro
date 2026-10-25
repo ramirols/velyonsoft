@@ -1,7 +1,7 @@
 ---
 import { ArrowRight, ChevronDown, Menu, X } from "@lucide/astro";
 import Logo from "@/components/Logo.astro";
-import { sectorLinks, solutionLinks } from "@/data/navigation";
+import { mainSectorLinks, solutionLinks } from "@/data/navigation";
 import { whatsappUrl } from "@/lib/site";
 ---
 
@@ -96,7 +96,7 @@ import { whatsappUrl } from "@/lib/site";
             >
               <div class="grid gap-0.5">
                 {
-                  sectorLinks.map((item) => (
+                  mainSectorLinks.map((item) => (
                     <a
                       class="group/item block rounded-xl p-3 transition-all hover:bg-velyon-mist"
                       href={item.href}
@@ -110,6 +110,15 @@ import { whatsappUrl } from "@/lib/site";
                     </a>
                   ))
                 }
+                <div class="my-1 border-t border-border/60 pt-1">
+                  <a
+                    href="/#sectores"
+                    class="group/item flex items-center justify-between rounded-xl px-3 py-2 text-xs font-bold text-velyon-deep transition-all hover:bg-velyon-mist"
+                  >
+                    <span>Ver todos los sectores</span>
+                    <ArrowRight class="size-3.5 transition-transform group-hover/item:translate-x-1" />
+                  </a>
+                </div>
               </div>
             </div>
           </details>
@@ -192,7 +201,7 @@ import { whatsappUrl } from "@/lib/site";
         </p>
         <div class="grid gap-1 pl-2">
           {
-            sectorLinks.map((item) => (
+            mainSectorLinks.map((item) => (
               <a
                 class="rounded-xl px-3 py-2.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-velyon-mist hover:text-foreground"
                 href={item.href}
@@ -201,6 +210,12 @@ import { whatsappUrl } from "@/lib/site";
               </a>
             ))
           }
+          <a
+            class="rounded-xl px-3 py-2 text-xs font-bold text-velyon-deep transition-colors hover:bg-velyon-mist"
+            href="/#sectores"
+          >
+            Ver todos los sectores →
+          </a>
         </div>
 
         <div class="my-1 border-t border-border/50"></div>

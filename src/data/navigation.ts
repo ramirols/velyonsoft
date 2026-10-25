@@ -62,62 +62,68 @@ export const productLinks: ProductLink[] = [
     }
 ];
 
-export const sectorLinks = [
+export const mainSectorLinks = [
     {
         number: "01",
         label: "Salud",
-        detail: "Soluciones para consultorios y centros de salud",
+        detail: "Consultorios, clínicas y gestión de citas",
         href: "/sectores/salud",
     },
     {
         number: "02",
-        label: "Inmobiliarias",
-        detail: "Soluciones para inmobiliarias",
-        href: "/sectores/inmobiliarias",
-    },
-    {
-        number: "03",
-        label: "Agricultura",
-        detail: "Soluciones para agricultura",
-        href: "/sectores/agricultura",
-    },
-    {
-        number: "04",
-        label: "Logística y transporte",
-        detail: "Soluciones para logística y transporte",
-        href: "/sectores/logistica-transporte",
-    },
-    {
-        number: "05",
-        label: "Pymes y servicios",
-        detail: "Sistemas y herramientas para negocios",
-        href: "/sectores/pymes-y-servicios",
-    },
-    {
-        number: "06",
         label: "Educación",
-        detail: "Tecnología para colegios, academias y formación",
+        detail: "Colegios, academias y plataformas de formación",
         href: "/sectores/educacion",
     },
     {
-        number: "07",
-        label: "Servicios profesionales",
-        detail: "Soluciones para profesionales y empresas de servicios",
-        href: "/sectores/servicios-profesionales",
+        number: "03",
+        label: "Comercio y pymes",
+        detail: "Catálogos, tiendas y orden de pedidos",
+        href: "/sectores/pymes-y-servicios",
     },
     {
-        number: "08",
+        number: "04",
+        label: "Servicios profesionales",
+        detail: "Estudios contables, legales y consultoría",
+        href: "/sectores/servicios-profesionales",
+    },
+];
+
+export const allSectorLinks = [
+    ...mainSectorLinks,
+    {
+        number: "05",
+        label: "Restaurantes y comida",
+        detail: "Menús interactivos y pedidos por WhatsApp",
+        href: "/sectores/restaurantes",
+    },
+    {
+        number: "06",
         label: "Hoteles y turismo",
-        detail: "Soluciones para hoteles, hospedajes y operadores turísticos",
+        detail: "Webs para agencias de viaje y hospedajes",
         href: "/sectores/hoteles-turismo",
     },
     {
-        number: "09",
-        label: "Restaurantes y comida",
-        detail: "Soluciones para restaurantes, cafeterías y negocios de comida",
-        href: "/sectores/restaurantes",
+        number: "07",
+        label: "Inmobiliarias",
+        detail: "Catálogos de proyectos y departamentos",
+        href: "/sectores/inmobiliarias",
     },
-] as const;
+    {
+        number: "08",
+        label: "Logística y transporte",
+        detail: "Cotizadores web y registro operativo",
+        href: "/sectores/logistica-transporte",
+    },
+    {
+        number: "09",
+        label: "Agricultura",
+        detail: "Sistemas para comercializadoras agrícolas",
+        href: "/sectores/agricultura",
+    },
+];
+
+export const sectorLinks = allSectorLinks;
 
 export const solutionLinks = [
     {
