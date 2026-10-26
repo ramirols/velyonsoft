@@ -25,4 +25,3 @@ Allow: /
 
 # Sitemaps XML
 Sitemap: https://www.velyonsoft.com/sitemap-index.xml
-Sitemap: https://www.velyonsoft.com/sitemap.xml

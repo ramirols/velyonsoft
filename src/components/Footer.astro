@@ -16,12 +16,12 @@ import { sectorLinks } from "@/data/navigation";
         {siteConfig.tagline}
       </p>
     </div>
-    <div class="grid content-start gap-3">
+    <div class="grid content-start gap-2.5">
       <p class="mb-1 text-xs font-bold uppercase tracking-wider text-white">Soluciones</p>
       {
-        solutionLinks.slice(1, 7).map((solution) => (
+        solutionLinks.map((solution) => (
           <a
-            class="text-[11px] text-white/55 hover:text-velyon-mint"
+            class="text-[11px] text-white/60 transition-colors hover:text-velyon-mint"
             href={solution.href}
           >
             {solution.label}
@@ -29,12 +29,12 @@ import { sectorLinks } from "@/data/navigation";
         ))
       }
     </div>
-    <div class="grid content-start gap-3">
+    <div class="grid content-start gap-2.5">
       <p class="mb-1 text-xs font-bold uppercase tracking-wider text-white">Sectores</p>
       {
-        sectorLinks.slice(1, 7).map((sector) => (
+        sectorLinks.map((sector) => (
           <a
-            class="text-[11px] text-white/55 hover:text-velyon-mint"
+            class="text-[11px] text-white/60 transition-colors hover:text-velyon-mint"
             href={sector.href}
           >
             {sector.label}

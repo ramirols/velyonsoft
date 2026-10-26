@@ -2,146 +2,153 @@
 import SolutionPage from "@/components/SolutionPage.astro";
 
 const outcomes = [
-    {
-        title: "Evita interrupciones que afectan tu negocio",
-        description:
-            "Monitoreamos y prevenimos problemas técnicos para mantener tus páginas web, sistemas y plataformas funcionando correctamente.",
-    },
-    {
-        title: "Protege tu información y tus usuarios",
-        description:
-            "Aplicamos actualizaciones de seguridad, respaldos y buenas prácticas para reducir riesgos tecnológicos.",
-    },
-    {
-        title: "Mejora continua sin empezar desde cero",
-        description:
-            "Tu plataforma puede evolucionar agregando nuevas funciones, mejoras visuales o integraciones según las necesidades del negocio.",
-    },
-    {
-        title: "Un equipo técnico disponible cuando lo necesitas",
-        description:
-            "Nos encargamos de la parte tecnológica para que puedas concentrarte en operar y hacer crecer tu empresa.",
-    },
+  {
+    title: "Modalidades claras: preventivo, correctivo y evolutivo",
+    description:
+      "Definimos con precisión el alcance de cada modalidad: mantenimiento preventivo (seguridad y copias de seguridad), correctivo (atención de caídas y errores urgentes) y evolutivo (desarrollo de nuevas funciones y mejoras continuas).",
+  },
+  {
+    title: "Protección constante contra vulnerabilidades y pérdida de datos",
+    description:
+      "Los sitios y sistemas sin actualizar son el blanco principal de ciberataques. Aplicamos parches de seguridad, renovamos certificados SSL y programamos respaldos periódicos en servidores externos para que tu información nunca se pierda.",
+  },
+  {
+    title: "Resolución rápida de incidencias que detienen tus ventas",
+    description:
+      "Un formulario roto, una pasarela de pago desconfigurada o un error 500 en tu tienda online significa dinero perdido. Cuentas con un canal de atención directa con un desarrollador para resolver fallas técnicas con prioridad.",
+  },
+  {
+    title: "Mejora continua sin tener que rehacer la web cada dos años",
+    description:
+      "En lugar de esperar a que tu plataforma quede obsoleta para reconstruirla desde cero, adaptamos el código, mejoramos tiempos de carga y agregamos nuevas integraciones a medida que tu empresa crece.",
+  },
 ];
 
 const capabilities = [
-    {
-        title: "Soporte técnico continuo",
-        description:
-            "Atención de incidencias, revisión de errores y acompañamiento técnico para mantener tus soluciones digitales operativas.",
-    },
-    {
-        title: "Mantenimiento web y software",
-        description:
-            "Actualización de código, librerías, frameworks y componentes necesarios para evitar problemas futuros.",
-    },
-    {
-        title: "Seguridad y protección digital",
-        description:
-            "Aplicación de parches, revisión de vulnerabilidades, certificados SSL y medidas preventivas.",
-    },
-    {
-        title: "Optimización de velocidad",
-        description:
-            "Mejoramos tiempos de carga, rendimiento y experiencia del usuario en páginas web y sistemas.",
-    },
-    {
-        title: "Copias de seguridad",
-        description:
-            "Configuración de backups periódicos para proteger archivos, bases de datos e información importante.",
-    },
-    {
-        title: "Desarrollo de nuevas funcionalidades",
-        description:
-            "Implementamos mejoras, módulos e integraciones para que tu plataforma siga creciendo.",
-    },
+  {
+    title: "Mantenimiento preventivo y monitoreo de disponibilidad (Uptime)",
+    description:
+      "Supervisión continua para detectar caídas del servidor antes de que tus clientes lo noten, optimizando estabilidad de infraestructura.",
+  },
+  {
+    title: "Copias de seguridad periódicas (Backups externos)",
+    description:
+      "Generación y resguardo seguro de bases de datos y archivos en la nube, listos para restauración inmediata ante cualquier contingencia.",
+  },
+  {
+    title: "Soporte correctivo y resolución de errores",
+    description:
+      "Diagnóstico y corrección de bugs, problemas de visualización en celulares, enlaces caídos y fallas en envío de correos o formularios.",
+  },
+  {
+    title: "Actualización de frameworks, librerías y dependencias",
+    description:
+      "Mantenimiento de tecnologías modernas al día, evitando incompatibilidades de software y reduciendo brechas de seguridad.",
+  },
+  {
+    title: "Optimización continua de velocidad y Core Web Vitals",
+    description:
+      "Depuración periódica de código, optimización de caché, compresión de nuevos archivos multimedia y auditorías de rendimiento.",
+  },
+  {
+    title: "Desarrollo de mejoras evolutivas",
+    description:
+      "Implementación de nuevas páginas de servicios, ajuste de textos comerciales, cambios de diseño y conexión con nuevas herramientas digitales.",
+  },
 ];
 
 const steps = [
-    {
-        title: "Diagnóstico técnico",
-        description:
-            "Analizamos el estado actual de tu página web, sistema o aplicación para identificar riesgos y oportunidades de mejora.",
-    },
-    {
-        title: "Estabilización inicial",
-        description:
-            "Corregimos problemas existentes, configuramos respaldos y dejamos la plataforma preparada para operar correctamente.",
-    },
-    {
-        title: "Mantenimiento continuo",
-        description:
-            "Aplicamos actualizaciones, monitoreo y mejoras periódicas según las necesidades de tu negocio.",
-    },
+  {
+    title: "Auditoría técnica inicial del sitio o sistema",
+    description:
+      "Revisamos el código, la infraestructura, la velocidad, los errores en consola y las vulnerabilidades existentes para conocer el estado real de la plataforma.",
+  },
+  {
+    title: "Estabilización, limpieza y configuración de seguridad",
+    description:
+      "Corregimos los fallos urgentes detectados, configuramos copias de seguridad automatizadas y optimizamos la configuración del servidor.",
+  },
+  {
+    title: "Acompañamiento mensual y evolución programada",
+    description:
+      "Monitoreamos el funcionamiento continuo y ejecutamos una bolsa de horas asignada a mejoras, cambios y soporte técnico directo.",
+  },
 ];
 
 const related = [
-    {
-        title: "Software a medida",
-        description:
-            "Desarrolla sistemas personalizados adaptados a los procesos específicos de tu empresa.",
-        href: "/soluciones/software-a-medida",
-    },
-    {
-        title: "Automatización de procesos",
-        description:
-            "Reduce tareas manuales conectando herramientas digitales y flujos automáticos.",
-        href: "/soluciones/automatizacion-de-procesos",
-    },
-    {
-        title: "Desarrollo web profesional",
-        description:
-            "Crea una página web rápida, moderna y preparada para convertir visitantes en clientes.",
-        href: "/soluciones/desarrollo-web",
-    },
+  {
+    title: "Desarrollo web corporativo",
+    description:
+      "Diseño y construcción de páginas web modernas con código limpio, rápido y preparado para posicionar.",
+    href: "/soluciones/desarrollo-web",
+  },
+  {
+    title: "Software a medida y sistemas web",
+    description:
+      "Sistemas empresariales y paneles administrativos adaptados a la operación real de tu negocio.",
+    href: "/soluciones/software-a-medida",
+  },
+  {
+    title: "Automatización de procesos",
+    description:
+      "Conecta tus herramientas actuales y elimina tareas repetitivas mediante flujos automáticos.",
+    href: "/soluciones/automatizacion-de-procesos",
+  },
 ];
 
 const faqs = [
-    {
-        question: "¿Qué incluye el mantenimiento de una página web o sistema?",
-        answer: "Incluye monitoreo, actualizaciones técnicas, seguridad, respaldos, corrección de errores y mejoras según el plan contratado.",
-    },
-    {
-        question:
-            "¿Pueden mantener un sistema desarrollado por otro proveedor?",
-        answer: "Sí. Primero realizamos una evaluación técnica para conocer el estado del proyecto y definir el plan adecuado de soporte.",
-    },
-    {
-        question:
-            "¿El mantenimiento es necesario después de lanzar un software?",
-        answer: "Sí. Las tecnologías cambian constantemente y un sistema requiere actualizaciones, seguridad y mejoras para mantenerse vigente.",
-    },
-    {
-        question: "¿Puedo solicitar nuevas funciones durante el mantenimiento?",
-        answer: "Sí. Las nuevas funcionalidades pueden desarrollarse dentro del alcance contratado o mediante una propuesta adicional.",
-    },
+  {
+    question: "¿Qué incluye y qué no incluye el servicio de mantenimiento?",
+    answer:
+      "Incluye monitoreo, copias de seguridad periódicas, parches de seguridad, corrección de errores imprevistos y una cantidad mensual acordada de horas para cambios o nuevas funcionalidades. No incluye los costos directos de proveedores de hosting/dominio (que se pagan directamente al proveedor) ni la reconstrucción completa de un sistema desde cero bajo una tarifa básica.",
+  },
+  {
+    question: "¿Pueden mantener una página web o sistema desarrollado por otro programador?",
+    answer:
+      "Sí. Primero realizamos un diagnóstico técnico para evaluar la calidad del código, las tecnologías utilizadas y la arquitectura. Si el sistema es técnicamente viable y seguro, asumimos el soporte y proponemos mejoras prioritarias.",
+  },
+  {
+    question: "¿Es obligatorio contratar un plan mensual después de lanzar un proyecto con Velyon?",
+    answer:
+      "No es obligatorio. En VelyonSoft entregamos código limpio y totalmente documentado, por lo que tu sitio puede operar sin mensualidades forzosas. Sin embargo, muchas empresas prefieren delegarnos el soporte técnico para enfocarse en sus operaciones comerciales con tranquilidad.",
+  },
+  {
+    question: "¿Con qué rapidez atienden una caída o problema urgente?",
+    answer:
+      "Para emergencias críticas (como caídas totales del sitio o fallos en pasarelas de pago), nuestros clientes de mantenimiento cuentan con canales directos en WhatsApp con tiempos de respuesta priorizados en horario laboral.",
+  },
+  {
+    question: "¿Qué ocurre con las horas de soporte que no se utilicen en un mes?",
+    answer:
+      "Las horas pueden utilizarse para tareas de mantenimiento preventivo, revisiones de seguridad, optimización de velocidad o acumularse parcialmente según las condiciones específicas acordadas en la propuesta de servicio.",
+  },
 ];
 ---
 
 <SolutionPage
-    eyebrow="Solución · Mantenimiento web y software"
-    title="Mantén tu software rápido, seguro y"
-    highlight="preparado para crecer."
-    description="Brindamos soporte técnico, mantenimiento web y evolución continua para páginas, sistemas y aplicaciones que necesitan funcionar correctamente hoy y adaptarse a las necesidades del futuro."
-    metaTitle="Mantenimiento web y soporte de software en Perú | Velyon"
-    metaDescription="Servicio de mantenimiento web, soporte técnico y evolución de software en Perú. Seguridad, backups, optimización y mejoras continuas para páginas y sistemas digitales."
-    path="/soluciones/mantenimiento-y-evolucion"
-    lottieSrc="/animations/mantenimiento-evolutivo.lottie"
-    introTitle="Un proyecto digital no termina cuando se publica."
-    intro="Una página web o sistema necesita actualizaciones, seguridad y mejoras constantes para mantenerse funcional. Acompañamos tu plataforma después del lanzamiento para evitar problemas técnicos y permitir que evolucione junto con tu negocio."
-    outcomes={outcomes}
-    capabilities={capabilities}
-    deliverables={[
-        "Auditoría técnica inicial",
-        "Monitoreo de disponibilidad",
-        "Actualizaciones de seguridad",
-        "Copias de seguridad automáticas",
-        "Corrección de errores",
-        "Optimización de rendimiento",
-        "Mejoras funcionales",
-        "Reportes periódicos de estado",
-    ]}
-    steps={steps}
-    related={related}
-    faqs={faqs}
+  eyebrow="Solución · Mantenimiento web y soporte de software"
+  title="Soporte técnico, seguridad y evolución continua para"
+  highlight="páginas web y sistemas."
+  description="Brindamos servicios de mantenimiento preventivo, correctivo y evolutivo para páginas web, tiendas online y sistemas en Perú y Latinoamérica. Mantén tu plataforma rápida, blindada contra caídas y adaptada al crecimiento de tu empresa."
+  metaTitle="Mantenimiento Web y Soporte Continuo de Software en Perú y LATAM | VelyonSoft"
+  metaDescription="Servicio de mantenimiento web, soporte técnico y evolución continua de software para empresas en Perú y Latinoamérica. Seguridad, copias de seguridad, resolución de errores y optimización."
+  path="/soluciones/mantenimiento-y-evolucion"
+  lottieSrc="/animations/mantenimiento-evolutivo.lottie"
+  introTitle="Un proyecto digital en producción requiere cuidado técnico constante para no depreciarse."
+  intro="Al igual que una maquinaria física, un software o sitio web requiere mantenimiento técnico periódico: las librerías se actualizan, los navegadores cambian sus estándares y surgen nuevas amenazas de seguridad. Brindamos un acompañamiento transparente y directo con el desarrollador para que nunca te quedes sin respaldo técnico."
+  outcomes={outcomes}
+  capabilities={capabilities}
+  deliverables={[
+    "Diagnóstico técnico y auditoría inicial de seguridad",
+    "Configuración de monitoreo de disponibilidad 24/7",
+    "Copias de seguridad automáticas y externas",
+    "Canal directo de soporte técnico por WhatsApp",
+    "Resolución prioritaria de errores y bugs",
+    "Optimización de velocidad y Core Web Vitals",
+    "Bolsa mensual de horas para cambios y mejoras",
+    "Reporte mensual de tareas técnicas ejecutadas",
+  ]}
+  steps={steps}
+  related={related}
+  faqs={faqs}
 />

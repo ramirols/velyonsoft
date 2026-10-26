@@ -2,18 +2,24 @@
 import {
   ArrowRight,
   BriefcaseBusiness,
+  Building2,
+  Compass,
   GraduationCap,
   HeartPulse,
+  Scale,
+  Sprout,
+  Truck,
+  UtensilsCrossed,
 } from "@lucide/astro";
 
-const sectors = [
+const featuredSectors = [
   {
     id: "educacion",
     number: "01",
     label: "Sector prioritario",
     title: "Educación",
     description:
-      "Webs, matrículas, pagos, comunicación y gestión para colegios, academias y centros de formación.",
+      "Webs institucionales, plataformas de admisión, matrículas online y comunicación para colegios y academias.",
     icon: GraduationCap,
     featured: true,
     link: "Explorar soluciones educativas",
@@ -25,21 +31,62 @@ const sectors = [
     label: "Próximo vertical",
     title: "Salud",
     description:
-      "Presencia digital, reservas y seguimiento para consultorios y centros especializados.",
+      "Presencia digital profesional, agendamiento de citas y software a medida para consultorios y policlínicos.",
     icon: HeartPulse,
     featured: false,
+    link: "Ver soluciones para salud",
     href: "/sectores/salud",
   },
   {
     id: "negocios",
     number: "03",
-    label: "Soluciones flexibles",
-    title: "Negocios y servicios",
+    label: "Soluciones prácticas",
+    title: "Pymes y comercio",
     description:
-      "Ventas, clientes y operación para pymes que necesitan digitalizarse sin complicarse.",
+      "Ventas por internet, catálogos digitales y orden operativo para empresas que crecen sin complicarse.",
     icon: BriefcaseBusiness,
     featured: false,
+    link: "Ver soluciones para pymes",
     href: "/sectores/pymes-y-servicios",
+  },
+];
+
+const otherSectors = [
+  {
+    title: "Servicios profesionales",
+    detail: "Webs de autoridad y agendamiento para estudios de abogados, consultoras y arquitectos.",
+    href: "/sectores/servicios-profesionales",
+    icon: Scale,
+  },
+  {
+    title: "Restaurantes y gastronomía",
+    detail: "Menús interactivos y pedidos desglosados a WhatsApp sin pagar comisiones por plato.",
+    href: "/sectores/restaurantes",
+    icon: UtensilsCrossed,
+  },
+  {
+    title: "Hoteles y turismo",
+    detail: "Portales de reservas directas y catálogos de tours para hospedajes y agencias de viaje.",
+    href: "/sectores/hoteles-turismo",
+    icon: Compass,
+  },
+  {
+    title: "Inmobiliarias y construcción",
+    detail: "Portales de proyectos con planos, tipologías y captación directa de prospectos.",
+    href: "/sectores/inmobiliarias",
+    icon: Building2,
+  },
+  {
+    title: "Logística y transporte",
+    detail: "Cotizadores web de fletes, grúas y sistemas de seguimiento operativo de carga.",
+    href: "/sectores/logistica-transporte",
+    icon: Truck,
+  },
+  {
+    title: "Agricultura y agroindustria",
+    detail: "Sistemas a medida para acopio, pesaje de cosecha y presencia comercial exportadora.",
+    href: "/sectores/agricultura",
+    icon: Sprout,
   },
 ];
 ---
@@ -57,17 +104,18 @@ const sectors = [
         </h2>
       </div>
       <p class="mb-1 text-[15px] leading-7 text-muted-foreground">
-        Cada sector tiene dinámicas distintas: desde ventas por catálogo hasta
-        gestión de citas o expedientes. Diseñamos soluciones que se adaptan a la
+        Cada sector tiene dinámicas distintas: desde pedidos por catálogo y cotización de fletes hasta
+        agendamiento de citas médicas o admisión escolar. Diseñamos soluciones que se adaptan a la
         operativa real de tu rubro.
       </p>
     </div>
 
+    <!-- 3 sectores destacados -->
     <div
       class="grid grid-cols-[1.25fr_.875fr_.875fr] gap-4 max-[900px]:grid-cols-2 max-[620px]:grid-cols-1"
     >
       {
-        sectors.map((sector) => (
+        featuredSectors.map((sector) => (
           <article
             id={sector.id}
             class:list={[
@@ -104,14 +152,47 @@ const sectors = [
                 class="mt-5 inline-flex items-center gap-2 text-xs font-bold text-velyon-deep"
                 href={sector.href}
               >
-                {sector.link ??
-                  `Ver soluciones para ${sector.title.toLowerCase()}`}{" "}
+                {sector.link}{" "}
                 <ArrowRight class="size-4" />
               </a>
             </div>
           </article>
         ))
       }
+    </div>
+
+    <!-- Otros sectores clave -->
+    <div class="mt-8">
+      <p class="mb-4 text-xs font-extrabold uppercase tracking-widest text-velyon-deep">
+        Más sectores con soluciones a medida
+      </p>
+      <div class="grid grid-cols-3 gap-4 max-[900px]:grid-cols-2 max-[620px]:grid-cols-1">
+        {
+          otherSectors.map((sector) => (
+            <a
+              href={sector.href}
+              class="group flex flex-col justify-between rounded-2xl border border-border bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-velyon-deep/20 hover:shadow-md"
+            >
+              <div>
+                <div class="flex items-center gap-3">
+                  <span class="grid size-9 shrink-0 place-items-center rounded-lg bg-velyon-mist text-velyon-deep transition group-hover:bg-velyon-mint-soft">
+                    <sector.icon class="size-4" />
+                  </span>
+                  <h4 class="font-display text-base font-bold text-foreground transition group-hover:text-velyon-deep">
+                    {sector.title}
+                  </h4>
+                </div>
+                <p class="mt-2.5 text-xs leading-5 text-muted-foreground">
+                  {sector.detail}
+                </p>
+              </div>
+              <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-velyon-deep">
+                Ver sector <ArrowRight class="size-3.5 transition group-hover:translate-x-1" />
+              </span>
+            </a>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>

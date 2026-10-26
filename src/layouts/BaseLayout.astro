@@ -23,8 +23,9 @@ const {
   schema,
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, siteConfig.url);
-const socialImage = new URL(image, siteConfig.url);
+const cleanPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const canonical = new URL(cleanPath, siteConfig.url).href;
+const socialImage = new URL(image, siteConfig.url).href;
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -60,12 +61,18 @@ const organizationSchema = {
     telephone: `+${siteConfig.whatsappNumber}`,
     contactType: "customer service",
     availableLanguage: ["es"],
-    areaServed: "PE",
+    areaServed: ["PE", "Latinoamérica"],
   },
-  areaServed: {
-    "@type": "Country",
-    name: "Perú",
-  },
+  areaServed: [
+    {
+      "@type": "Country",
+      name: "Perú",
+    },
+    {
+      "@type": "AdministrativeArea",
+      name: "Latinoamérica",
+    },
+  ],
   sameAs: socialNetworks.map((network) => network.url),
 };
 

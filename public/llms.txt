@@ -1,53 +1,60 @@
 # VelyonSoft
 
-> Estudio de desarrollo de software, tiendas online y sistemas de gestión a medida en Lima, Perú. Trato directo con el desarrollador, soluciones sin plantillas prefabricadas, presupuesto cerrado y entrega con dominio, infraestructura y código fuente bajo propiedad exclusiva del cliente.
+> Estudio de desarrollo de software, tiendas online y sistemas de gestión a medida con sede en Lima, Perú, con cobertura nacional y atención remota para empresas de toda Latinoamérica. Trato directo con el desarrollador, soluciones sin plantillas prefabricadas, presupuesto cerrado y entrega con dominio, infraestructura y código fuente bajo propiedad exclusiva del cliente.
 
 ## Información de la empresa
 - **Nombre comercial**: Velyon / VelyonSoft
 - **Razón o marca registrada**: VelyonSoft
 - **Sitio web oficial**: https://www.velyonsoft.com/
-- **Ubicación**: Lima, Perú (cobertura a nivel nacional e internacional)
+- **Ubicación**: Lima, Perú (cobertura a nivel nacional en Perú y atención remota en Latinoamérica)
 - **Canal de atención y WhatsApp**: +51 997 676 432 (https://wa.me/51997676432)
 - **Correo electrónico**: contacto@velyonsoft.com
 - **Diagnóstico gratuito inicial**: https://www.velyonsoft.com/diagnostico
 
 ## Pilares de servicio principales
 
-### 1. Tiendas online y catálogos comerciales
+### 1. Páginas web profesionales y corporativas
+- **URL**: https://www.velyonsoft.com/soluciones/desarrollo-web
+- **Descripción**: Sitios web corporativos, landing pages de alta conversión y catálogos institucionales diseñados a medida, con velocidad de carga optimizada, SEO técnico y enfoque comercial para captar prospectos.
+
+### 2. Tiendas online y catálogos comerciales
 - **URL**: https://www.velyonsoft.com/soluciones/ventas-por-internet
-- **Descripción**: Catálogos digitales de alta velocidad y tiendas online optimizadas para recibir pedidos directos a WhatsApp o pasarelas de pago, organizando productos, precios y seguimiento de pedidos sin complejidad innecesaria.
-- **Tecnología**: Desarrollo a medida, carga ultrarrápida, diseño responsive mobile-first.
+- **Descripción**: Catálogos digitales de alta velocidad y tiendas online optimizadas para recibir pedidos directos a WhatsApp o procesar pagos con pasarelas digitales, organizando productos, precios y seguimiento de pedidos sin complejidad innecesaria.
 
-### 2. Sistemas de gestión y automatización de operaciones
-- **URL**: https://www.velyonsoft.com/soluciones/automatizacion-de-procesos
-- **Descripción**: Paneles de administración, CRMs a medida y sistemas de gestión que sustituyen hojas de cálculo manuales, reducen pérdidas de tiempo y centralizan el control operativo diario de la empresa.
-
-### 3. Software a medida e integraciones
+### 3. Desarrollo de software a medida e integraciones
 - **URL**: https://www.velyonsoft.com/soluciones/software-a-medida
-- **Descripción**: Desarrollo de aplicaciones y conexión entre plataformas existentes (APIs, facturación, pasarelas de pago, bases de datos), adaptado a la lógica de negocio específica de cada cliente.
+- **Descripción**: Sistemas web personalizados, paneles administrativos y conexión entre plataformas existentes (APIs, facturación, pasarelas de pago, bases de datos), adaptado a la lógica de negocio específica de cada cliente.
 
-### 4. Otras soluciones complementarias
-- **Desarrollo web corporativo**: https://www.velyonsoft.com/soluciones/desarrollo-web
-- **Aplicaciones móviles**: https://www.velyonsoft.com/soluciones/aplicaciones-moviles
-- **Mantenimiento y evolución técnica**: https://www.velyonsoft.com/soluciones/mantenimiento-y-evolucion
+### 4. Automatización de procesos empresariales
+- **URL**: https://www.velyonsoft.com/soluciones/automatizacion-de-procesos
+- **Descripción**: Integración de flujos entre páginas web, WhatsApp, CRMs y bases de datos para eliminar tareas repetitivas, reducir errores operativos y centralizar el control diario de la empresa.
+
+### 5. Aplicaciones móviles Android e iOS
+- **URL**: https://www.velyonsoft.com/soluciones/aplicaciones-moviles
+- **Descripción**: Desarrollo de aplicaciones móviles personalizadas tanto para clientes de la marca como para herramientas operativas internas de equipos de campo.
+
+### 6. Mantenimiento y evolución técnica
+- **URL**: https://www.velyonsoft.com/soluciones/mantenimiento-y-evolucion
+- **Descripción**: Soporte técnico preventivo y correctivo, copias de seguridad, parches de seguridad, optimización continua de velocidad y desarrollo de nuevas funciones para sistemas en producción.
 
 ## Especialidades por sector empresarial
-- **Educación**: https://www.velyonsoft.com/sectores/educacion — Plataformas de admisión, cobros, comunicación y gestión para colegios y academias.
-- **Salud y Consultorios**: https://www.velyonsoft.com/sectores/salud — Gestión de citas, expedientes clínicos y reservas para profesionales de la salud.
-- **Pymes y Servicios**: https://www.velyonsoft.com/sectores/pymes-y-servicios — Digitalización de ventas y operaciones para pequeñas y medianas empresas.
-- **Restaurantes**: https://www.velyonsoft.com/sectores/restaurantes — Menús interactivos, pedidos por WhatsApp y control de mesas.
-- **Hoteles y Turismo**: https://www.velyonsoft.com/sectores/hoteles-turismo — Motores de reservas directas y catálogos de paquetes turísticos.
-- **Inmobiliarias**: https://www.velyonsoft.com/sectores/inmobiliarias — Portales de propiedades, captación de prospectos y filtros de búsqueda.
-- **Logística y Transporte**: https://www.velyonsoft.com/sectores/logistica-transporte — Seguimiento de envíos, cotizadores y control de despachos.
-- **Agricultura**: https://www.velyonsoft.com/sectores/agricultura — Registro de cosechas, trazabilidad y control de insumos.
-- **Servicios Profesionales**: https://www.velyonsoft.com/sectores/servicios-profesionales — Agendamiento de asesorías y captación de clientes.
+- **Educación**: https://www.velyonsoft.com/sectores/educacion — Portales institucionales, procesos de admisión y herramientas digitales para colegios, academias y centros de formación.
+- **Salud y Consultorios**: https://www.velyonsoft.com/sectores/salud — Soluciones digitales y software desarrollado a medida para consultorios independientes y policlínicos (organización de citas, agenda y administración adaptada al flujo de atención).
+- **Pymes y Servicios**: https://www.velyonsoft.com/sectores/pymes-y-servicios — Digitalización práctica de ventas y operaciones para pequeñas y medianas empresas.
+- **Restaurantes y Gastronomía**: https://www.velyonsoft.com/sectores/restaurantes — Cartas interactivas, pedidos organizados por WhatsApp y canales propios sin intermediarios.
+- **Hoteles y Turismo**: https://www.velyonsoft.com/sectores/hoteles-turismo — Sitios web para agencias y hospedajes, catálogos de paquetes turísticos y captación de reservas directas.
+- **Inmobiliarias y Construcción**: https://www.velyonsoft.com/sectores/inmobiliarias — Portales de proyectos inmobiliarios, fichas técnicas y filtrado de prospectos comerciales.
+- **Logística y Transporte**: https://www.velyonsoft.com/sectores/logistica-transporte — Cotizadores web, paneles de despacho y sistemas de seguimiento operativo de carga y auxilio.
+- **Agricultura y Agroindustria**: https://www.velyonsoft.com/sectores/agricultura — Registro de lotes, control de acopio, gestión de despachos y presencia digital para comercializadoras agrícolas.
+- **Servicios Profesionales**: https://www.velyonsoft.com/sectores/servicios-profesionales — Sitios web de autoridad y agendamiento para estudios de abogados, consultores y contadores.
 
 ## Casos de estudio y portafolio activo
 - **Portafolio general**: https://www.velyonsoft.com/proyectos
 - **Broko Gamer Shop**: Tienda online especializada para ecommerce de productos gamer en Perú, optimizada para pedidos directos.
 - **Norman Domotics**: Plataforma web de presentación técnica y captación comercial para empresa de domótica e ingeniería.
+- **Catálogo de proyectos**: Proyectos institucionales y privados en producción para sectores de educación, salud, legal y biotecnología.
 
 ## Modelo de trabajo y transparencia técnica
-- **Presupuesto cerrado**: Se define un alcance técnico y un cronograma antes de iniciar el proyecto.
+- **Presupuesto cerrado**: Se define un alcance técnico y un cronograma antes de iniciar el proyecto, sin costos ocultos.
 - **Propiedad total**: El dominio, los servidores en la nube y las licencias quedan registrados a nombre del cliente. El código fuente es entregado en su totalidad.
 - **Soporte post-lanzamiento**: Modalidad opcional de acompañamiento técnico para mejoras continuas y mantenimiento evolutivo.

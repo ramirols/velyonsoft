@@ -2,149 +2,153 @@
 import SolutionPage from "@/components/SolutionPage.astro";
 
 const outcomes = [
-    {
-        title: "Conecta tu negocio con tus clientes desde el celular",
-        description:
-            "Creamos aplicaciones móviles que permiten ofrecer servicios, vender productos o mejorar la comunicación con tus usuarios.",
-    },
-    {
-        title: "Digitaliza procesos que ocurren fuera de la oficina",
-        description:
-            "Permite que equipos comerciales, técnicos o de campo registren información y trabajen desde cualquier lugar.",
-    },
-    {
-        title: "Mejora la experiencia del usuario",
-        description:
-            "Diseñamos aplicaciones rápidas e intuitivas que facilitan tareas frecuentes y generan una mejor interacción.",
-    },
-    {
-        title: "Construcción por etapas",
-        description:
-            "Iniciamos con una primera versión funcional y evolucionamos la aplicación según resultados y necesidades reales.",
-    },
+  {
+    title: "Diferenciación clara: Apps para clientes vs. Herramientas para equipos",
+    description:
+      "Desarrollamos tanto aplicaciones para clientes finales (canales de compra directa, agendamiento de citas, programas de fidelización) como herramientas operativas para personal de campo (técnicos, supervisores, choferes o vendedores en ruta).",
+  },
+  {
+    title: "Operación en campo sin depender de computadoras o escritorios",
+    description:
+      "Digitaliza procesos que ocurren fuera de la oficina: registrar entregas con firma digital, tomar fotos de evidencias en inspecciones, reportar estados de servicio o consultar stock desde cualquier lugar.",
+  },
+  {
+    title: "Sincronización total con tus sistemas web existentes",
+    description:
+      "Tu aplicación móvil se conecta en tiempo real con tu panel administrativo web, bases de datos y software de gestión. Toda acción registrada en el celular se refleja de inmediato en la oficina central.",
+  },
+  {
+    title: "Desarrollo multiplataforma eficiente (Android e iOS)",
+    description:
+      "Construimos aplicaciones nativas o híbridas de alto rendimiento que funcionan con una sola base de código para Google Play y Apple App Store, optimizando costos de desarrollo y tiempos de entrega.",
+  },
 ];
 
 const capabilities = [
-    {
-        title: "Aplicaciones Android e iOS",
-        description:
-            "Desarrollo de aplicaciones móviles personalizadas para usuarios, clientes o equipos internos.",
-    },
-    {
-        title: "Aplicaciones empresariales",
-        description:
-            "Soluciones móviles para gestionar operaciones, ventas, servicios y procesos internos.",
-    },
-    {
-        title: "Integración con sistemas existentes",
-        description:
-            "Conectamos la aplicación con bases de datos, plataformas web y herramientas actuales mediante integraciones seguras.",
-    },
-    {
-        title: "Notificaciones y comunicación",
-        description:
-            "Implementamos avisos, recordatorios y mensajes automáticos para mejorar la interacción.",
-    },
-    {
-        title: "Funcionamiento sin conexión",
-        description:
-            "Diseñamos experiencias que permiten registrar información incluso en lugares con conectividad limitada.",
-    },
-    {
-        title: "Panel administrativo",
-        description:
-            "Creamos herramientas web para gestionar usuarios, información, contenido y métricas de la aplicación.",
-    },
+  {
+    title: "Aplicaciones móviles para clientes y usuarios finales",
+    description:
+      "Canales propios para presentar productos o servicios, gestionar perfiles de usuario, enviar notificaciones push y facilitar compras o pagos recurrentes.",
+  },
+  {
+    title: "Herramientas móviles operativas para personal de campo",
+    description:
+      "Módulos para choferes de reparto, técnicos de mantenimiento o inspectores: captura de firmas, fotografías, geolocalización y checklist de tareas.",
+  },
+  {
+    title: "Funcionamiento con soporte sin conexión (Modo offline)",
+    description:
+      "Arquitectura diseñada para que el usuario pueda registrar información en zonas de baja cobertura celular y sincronizar automáticamente al recuperar señal.",
+  },
+  {
+    title: "Lectura de códigos de barras, QR y uso de cámara",
+    description:
+      "Integración de sensores del teléfono para agilizar el control de inventario en almacenes, validación de tickets de acceso o escaneo de guías.",
+  },
+  {
+    title: "Panel web administrativo para control centralizado",
+    description:
+      "Plataforma de escritorio donde los administradores gestionan usuarios, permisos, envían notificaciones masivas y revisan reportes de uso.",
+  },
+  {
+    title: "Publicación y mantenimiento en Google Play y App Store",
+    description:
+      "Acompañamiento integral en las cuentas de desarrollador de Google y Apple, cumplimiento de políticas, certificados y despliegue oficial.",
+  },
 ];
 
 const steps = [
-    {
-        title: "Definimos la idea y objetivos",
-        description:
-            "Analizamos usuarios, necesidades y procesos para determinar qué tipo de aplicación realmente necesita tu negocio.",
-    },
-    {
-        title: "Diseño y desarrollo inicial",
-        description:
-            "Creamos la experiencia visual y construimos una primera versión funcional preparada para pruebas.",
-    },
-    {
-        title: "Publicación y crecimiento",
-        description:
-            "Lanzamos la aplicación, analizamos su uso y agregamos mejoras según la evolución del proyecto.",
-    },
+  {
+    title: "Definición del caso de uso y usuarios objetivos",
+    description:
+      "Determinamos si el proyecto requiere una app para clientes o una herramienta operativa interna, definiendo requerimientos clave y arquitectura técnica.",
+  },
+  {
+    title: "Diseño UI/UX móvil y desarrollo funcional",
+    description:
+      "Diseñamos pantallas fluidas e intuitivas adaptadas a los estándares de Android e iOS, construyendo una primera versión para pruebas reales en dispositivos.",
+  },
+  {
+    title: "Pruebas en dispositivos, publicación y soporte",
+    description:
+      "Probamos en diferentes marcas y tamaños de pantalla, publicamos en las tiendas oficiales y brindamos soporte para actualizaciones continuas.",
+  },
 ];
 
 const related = [
-    {
-        title: "Software a medida",
-        description:
-            "Construimos sistemas personalizados para gestionar operaciones internas y procesos empresariales.",
-        href: "/soluciones/software-a-medida",
-    },
-    {
-        title: "Automatización de procesos",
-        description:
-            "Conecta herramientas digitales y elimina tareas manuales dentro de tu negocio.",
-        href: "/soluciones/automatizacion-de-procesos",
-    },
-    {
-        title: "Ventas online",
-        description:
-            "Crea canales digitales para mostrar productos y recibir pedidos de clientes.",
-        href: "/soluciones/ventas-por-internet",
-    },
+  {
+    title: "Software a medida y sistemas web",
+    description:
+      "Crea el panel administrativo y base de datos central que alimenta tu aplicación móvil.",
+    href: "/soluciones/software-a-medida",
+  },
+  {
+    title: "Automatización de procesos",
+    description:
+      "Conecta las acciones de la app móvil con notificaciones automáticas y actualización de sistemas.",
+    href: "/soluciones/automatizacion-de-procesos",
+  },
+  {
+    title: "Desarrollo web corporativo",
+    description:
+      "Complementa tu app móvil con una página web profesional que atraiga nuevos usuarios.",
+    href: "/soluciones/desarrollo-web",
+  },
 ];
 
 const faqs = [
-    {
-        question: "¿Qué tipo de aplicaciones móviles desarrollan?",
-        answer: "Creamos aplicaciones para empresas, servicios, comercios, equipos internos, plataformas de clientes y soluciones personalizadas según cada necesidad.",
-    },
-    {
-        question: "¿La aplicación funciona para Android y iPhone?",
-        answer: "Sí. Analizamos el proyecto para definir la mejor estrategia de desarrollo considerando usuarios, presupuesto y objetivos del negocio.",
-    },
-    {
-        question: "¿Cuánto demora crear una aplicación móvil?",
-        answer: "El tiempo depende de la complejidad y funcionalidades necesarias. Recomendamos comenzar con una primera versión funcional para validar antes de ampliar el proyecto.",
-    },
-    {
-        question: "¿Pueden conectar la app con mi sistema actual?",
-        answer: "Sí. Podemos integrar la aplicación con sistemas existentes mediante APIs, bases de datos u otras soluciones tecnológicas.",
-    },
-    {
-        question: "¿También ayudan a publicar la aplicación?",
-        answer: "Sí. Acompañamos la configuración y publicación en Google Play y App Store para dejar la aplicación lista para los usuarios.",
-    },
+  {
+    question: "¿Cuándo necesita una empresa una aplicación móvil en vez de una página web responsive?",
+    answer:
+      "Una web responsive es ideal para captar nuevos visitantes desde Google. Una aplicación móvil conviene cuando necesitas funciones nativas del teléfono (notificaciones push, escáner de cámara, GPS en segundo plano, trabajo sin internet) o cuando el usuario utiliza el servicio de forma recurrente y cotidiana, como clientes fidelizados o personal operativo de campo.",
+  },
+  {
+    question: "¿La aplicación se desarrolla para Android y para iPhone?",
+    answer:
+      "Sí. Utilizamos tecnologías multiplataforma modernas que permiten lanzar la aplicación tanto en Google Play (Android) como en App Store (iOS), manteniendo una experiencia nativa y reduciendo notablemente los costos de desarrollo y mantenimiento.",
+  },
+  {
+    question: "¿Qué costos adicionales implica tener una app en las tiendas oficiales?",
+    answer:
+      "Las tiendas de aplicaciones cobran membresías directas a sus plataformas: Google Play cobra un pago único de $25 USD por la cuenta de desarrollador, y Apple cobra una suscripción anual de $99 USD. En VelyonSoft te asesoramos paso a paso para abrir las cuentas a nombre de tu empresa.",
+  },
+  {
+    question: "¿Puedo conectar la aplicación con el sistema que mi empresa ya tiene?",
+    answer:
+      "Sí. Si tu empresa ya cuenta con una base de datos o sistema web, conectamos la aplicación móvil mediante APIs REST seguras para que compartan la misma información en tiempo real.",
+  },
+  {
+    question: "¿Cómo se define el tiempo y presupuesto de una app móvil?",
+    answer:
+      "Depende de la cantidad de pantallas, si requiere trabajo offline, las integraciones con pasarelas de pago o sensores del dispositivo, y si ya existe una base de datos previa o debe desarrollarse el panel backend completo.",
+  },
 ];
 ---
 
 <SolutionPage
-    eyebrow="Solución · Desarrollo de aplicaciones móviles"
-    title="Creamos aplicaciones móviles para"
-    highlight="conectar tu negocio."
-    description="Diseñamos y desarrollamos aplicaciones Android e iOS personalizadas para empresas que necesitan mejorar la experiencia de sus clientes, digitalizar procesos o crear nuevos canales de servicio."
-    metaTitle="Desarrollo de aplicaciones móviles en Perú | Apps Android e iOS | Velyon"
-    metaDescription="Desarrollo de aplicaciones móviles personalizadas en Perú para empresas y negocios. Creamos apps Android e iOS, aplicaciones empresariales e integraciones digitales."
-    path="/soluciones/aplicaciones-moviles"
-    lottieSrc="/animations/apps-moviles.lottie"
-    introTitle="Una aplicación debe resolver una necesidad real."
-    intro="Antes de desarrollar una app analizamos el problema, los usuarios y el objetivo del negocio. Creamos soluciones móviles enfocadas en utilidad, facilidad de uso y crecimiento futuro."
-    outcomes={outcomes}
-    capabilities={capabilities}
-    deliverables={[
-        "Análisis funcional de la aplicación",
-        "Diseño UX/UI móvil",
-        "Desarrollo Android e iOS",
-        "Integración con APIs",
-        "Sistema de usuarios",
-        "Notificaciones push",
-        "Panel administrativo",
-        "Publicación en tiendas",
-        "Documentación técnica",
-    ]}
-    steps={steps}
-    related={related}
-    faqs={faqs}
+  eyebrow="Solución · Desarrollo de aplicaciones móviles"
+  title="Aplicaciones móviles a medida para conectar con clientes y"
+  highlight="digitalizar tu equipo."
+  description="Desarrollamos aplicaciones móviles personalizadas en Android e iOS para empresas en Perú y Latinoamérica. Creamos apps para clientes y herramientas operativas para personal de campo, conectadas a tus sistemas centrales."
+  metaTitle="Desarrollo de Aplicaciones Móviles Android e iOS en Perú y LATAM | VelyonSoft"
+  metaDescription="Desarrollo de aplicaciones móviles personalizadas para empresas en Perú y Latinoamérica. Apps para clientes y herramientas móviles para equipos de campo en Android e iOS."
+  path="/soluciones/aplicaciones-moviles"
+  lottieSrc="/animations/aplicaciones-moviles.lottie"
+  introTitle="Una app debe resolver un problema recurrente del usuario o agilizar una operación en campo."
+  intro="Crear una aplicación móvil requiere un propósito claro: no se trata de replicar una página web en una pantalla chica, sino de aprovechar las capacidades del teléfono para mejorar la relación con tus clientes o dotar a tu equipo de trabajo de una herramienta rápida que funcione incluso sin cobertura."
+  outcomes={outcomes}
+  capabilities={capabilities}
+  deliverables={[
+    "Diseño de interfaces móviles UI/UX",
+    "Desarrollo multiplataforma para Android e iOS",
+    "Arquitectura backend y base de datos API",
+    "Panel web administrativo de gestión",
+    "Integración de notificaciones push",
+    "Soporte de lectura QR / cámara / GPS",
+    "Configuración y publicación en Google Play y App Store",
+    "Garantía técnica y código fuente del proyecto",
+  ]}
+  steps={steps}
+  related={related}
+  faqs={faqs}
 />

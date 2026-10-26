@@ -2,8 +2,11 @@
 import {
   ArrowRight,
   Check,
+  Globe,
   MonitorSmartphone,
+  ShieldCheck,
   ShoppingBag,
+  Smartphone,
   Workflow,
 } from "@lucide/astro";
 
@@ -63,6 +66,27 @@ const solutions = [
     href: "/soluciones/software-a-medida",
   },
 ];
+
+const additionalSolutions = [
+  {
+    title: "Desarrollo web corporativo",
+    description: "Sitios web profesionales y landing pages con SEO técnico para captar prospectos.",
+    href: "/soluciones/desarrollo-web",
+    icon: Globe,
+  },
+  {
+    title: "Aplicaciones móviles Android e iOS",
+    description: "Apps para clientes finales y herramientas operativas para personal de campo.",
+    href: "/soluciones/aplicaciones-moviles",
+    icon: Smartphone,
+  },
+  {
+    title: "Mantenimiento y evolución continua",
+    description: "Monitoreo 24/7, copias de seguridad, seguridad y soporte directo con el desarrollador.",
+    href: "/soluciones/mantenimiento-y-evolucion",
+    icon: ShieldCheck,
+  },
+];
 ---
 
 <section id="soluciones" class="bg-velyon-mist py-[120px] max-[640px]:py-20">
@@ -74,15 +98,16 @@ const solutions = [
         <span class="section-label">02 — Soluciones</span><h2
           class="section-title"
         >
-          Una oferta simple, organizada por resultados.
+          Una oferta simple, organizada por resultados comerciales.
         </h2>
       </div>
       <p class="mb-1 text-[15px] leading-7 text-muted-foreground">
-        No necesitas saber qué herramienta usar. Primero entendemos el objetivo
-        y después diseñamos la solución adecuada.
+        No necesitas saber qué herramienta usar. Primero entendemos el objetivo de tu negocio
+        y después diseñamos la solución tecnológica adecuada.
       </p>
     </div>
 
+    <!-- Tarjetas de soluciones principales -->
     <div
       class="grid grid-cols-3 gap-4 max-[900px]:mx-auto max-[900px]:max-w-[620px] max-[900px]:grid-cols-1"
     >
@@ -159,6 +184,33 @@ const solutions = [
               <ArrowRight class="size-4" aria-hidden="true" />
             </a>
           </article>
+        ))
+      }
+    </div>
+
+    <!-- Soluciones complementarias para cobertura integral de enlazado -->
+    <div class="mt-6 grid grid-cols-3 gap-4 max-[900px]:mx-auto max-[900px]:max-w-[620px] max-[900px]:grid-cols-1">
+      {
+        additionalSolutions.map((item) => (
+          <a
+            href={item.href}
+            class="group flex items-center justify-between rounded-2xl border border-border bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-velyon-deep/20 hover:shadow-md"
+          >
+            <div class="flex items-center gap-3.5">
+              <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-velyon-mist text-velyon-deep transition group-hover:bg-velyon-mint-soft">
+                <item.icon class="size-5" />
+              </span>
+              <div>
+                <span class="block text-sm font-bold text-foreground transition group-hover:text-velyon-deep">
+                  {item.title}
+                </span>
+                <p class="text-xs text-muted-foreground line-clamp-1">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+            <ArrowRight class="size-4 shrink-0 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-velyon-deep" />
+          </a>
         ))
       }
     </div>

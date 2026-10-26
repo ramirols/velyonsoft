@@ -3,147 +3,151 @@ import SolutionPage from "@/components/SolutionPage.astro";
 
 const outcomes = [
   {
-    title: "Un canal digital para vender todos los días",
+    title: "Catálogo digital a WhatsApp o tienda con pasarela según tu etapa",
     description:
-      "Transformamos tus productos en una experiencia de compra online donde tus clientes pueden conocer, consultar y comprar con mayor facilidad.",
+      "Si tu cliente prefiere cerrar el trato por chat, creamos catálogos interactivos que envían el pedido desglosado a WhatsApp. Si necesitas cobrar automáticamente, implementamos ecommerce con carrito y pasarelas como Yape, Plin, Mercado Pago, Niubiz o Stripe.",
   },
   {
-    title: "Menos desorden en la gestión de pedidos",
+    title: "Menos desorden en la gestión diaria de pedidos",
     description:
-      "Centraliza productos, clientes, solicitudes y estados de compra para reducir errores y mejorar la atención.",
+      "Evita perder ventas entre chats no leídos y capturas de transferencias sin validar. Centraliza productos, datos de entrega, montos y estados de compra para despachar con rapidez y sin errores humanos.",
   },
   {
-    title: "Mayor confianza para tus clientes",
+    title: "Mayor confianza para comprar en tu marca",
     description:
-      "Creamos una presencia digital profesional con información clara, procesos simples y elementos que generan seguridad al comprar.",
+      "Diseño a medida con identidad corporativa sólida, fichas de producto con especificaciones claras, políticas transparentes y procesos de pago intuitivos que eliminan la fricción y transmiten seriedad profesional.",
   },
   {
-    title: "Una plataforma preparada para crecer",
+    title: "Propiedad total de tu canal sin pagar comisiones por venta",
     description:
-      "Construimos soluciones escalables que pueden evolucionar desde un catálogo digital hasta un ecommerce completo.",
+      "Tu tienda online te pertenece al 100%. Sin mensualidades obligatorias por plataforma ni porcentajes retenidos por cada transacción propia. Código fuente y dominio a tu nombre.",
   },
 ];
 
 const capabilities = [
   {
-    title: "Tiendas online completas",
+    title: "Catálogos interactivos con pedido a WhatsApp",
     description:
-      "Ecommerce personalizados con catálogo, productos, carrito, pagos y gestión de pedidos.",
+      "Ideal para negocios mayoristas o venta asistida: el cliente navega productos, selecciona variantes y genera un mensaje estructurado con el resumen exacto de su compra.",
   },
   {
-    title: "Catálogos digitales inteligentes",
+    title: "Tiendas online completas con carrito y checkout",
     description:
-      "Muestra tus productos y recibe pedidos mediante formularios, WhatsApp o flujos personalizados.",
+      "Plataformas ecommerce independientes con cálculo de envíos, registro de clientes, gestión de cupones y confirmación automatizada por correo o mensaje.",
   },
   {
-    title: "Integración de pagos",
+    title: "Integración de pasarelas de pago locales e internacionales",
     description:
-      "Configuración de métodos de pago digitales adaptados a las necesidades del negocio.",
+      "Configuración segura de cobros con tarjetas de débito/crédito y billeteras móviles (Yape, Plin, Mercado Pago, Niubiz, Stripe, PayPal).",
   },
   {
-    title: "Gestión de productos",
+    title: "Administración de stock y catálogo de productos",
     description:
-      "Administración de inventario, categorías, precios, promociones y disponibilidad.",
+      "Paneles sencillos y rápidos para actualizar precios, fotos, categorías, inventario disponible y promociones sin depender de un programador para cada cambio.",
   },
   {
-    title: "Automatización comercial",
+    title: "Conexión con facturación y sistemas internos",
     description:
-      "Conecta formularios, WhatsApp, correos y herramientas externas para agilizar ventas.",
+      "Enlace con sistemas de inventario, hojas de control o facturación electrónica para emitir boletas y facturas de cada venta confirmada.",
   },
   {
-    title: "Analítica y mejora continua",
+    title: "Medición comercial y analítica de conversiones",
     description:
-      "Medición del comportamiento de usuarios para optimizar conversiones y decisiones.",
+      "Configuración de Google Analytics 4, eventos de compra y seguimiento de visitas para saber qué productos despiertan más interés y optimizar tu inversión comercial.",
   },
 ];
 
 const steps = [
   {
-    title: "Análisis del negocio",
+    title: "Modelo de venta y catálogo",
     description:
-      "Evaluamos productos, clientes, procesos actuales de venta, logística y objetivos comerciales.",
+      "Definimos si tu negocio requiere catálogo asistido por WhatsApp o checkout automatizado, organizando estructura de categorías y métodos de despacho.",
   },
   {
-    title: "Diseño y construcción",
+    title: "Diseño UX y construcción técnica",
     description:
-      "Creamos la experiencia digital, estructura de productos, funcionalidades e integraciones necesarias.",
+      "Desarrollamos una interfaz rápida, adaptada a celulares, con carga instantánea de imágenes y flujo de compra claro de inicio a fin.",
   },
   {
-    title: "Lanzamiento y optimización",
+    title: "Pruebas de cobro, lanzamiento y entrega",
     description:
-      "Publicamos la solución, analizamos resultados y realizamos mejoras según datos reales.",
+      "Validamos flujos de compra reales, pasarelas de pago y entrega de accesos con capacitación para administrar productos y pedidos.",
   },
 ];
 
 const related = [
   {
+    title: "Desarrollo web corporativo",
+    description:
+      "Páginas web profesionales para fortalecer tu marca y captar clientes que buscan servicios en Google.",
+    href: "/soluciones/desarrollo-web",
+  },
+  {
     title: "Automatización de procesos",
     description:
-      "Reduce tareas repetitivas conectando herramientas digitales y flujos automáticos.",
+      "Conecta pedidos online con notificaciones automáticas por WhatsApp, correos y actualización de hojas de cálculo.",
     href: "/soluciones/automatizacion-de-procesos",
   },
   {
     title: "Software a medida",
     description:
-      "Construye sistemas internos para administrar ventas, clientes e información.",
+      "Sistemas personalizados para administrar almacén, despachos, proveedores y clientes en un panel central.",
     href: "/soluciones/software-a-medida",
-  },
-  {
-    title: "Marketing digital",
-    description:
-      "Atrae clientes y convierte visitas en oportunidades comerciales.",
-    href: "/soluciones/marketing-digital",
   },
 ];
 
 const faqs = [
   {
-    question: "¿Necesito una tienda online completa para comenzar a vender?",
+    question: "¿Qué me conviene más: un catálogo por WhatsApp o una tienda con carrito?",
     answer:
-      "No siempre. Algunos negocios pueden iniciar con un catálogo digital conectado a WhatsApp y evolucionar posteriormente hacia un ecommerce completo.",
+      "Depende de cómo compran tus clientes. Si vendes productos personalizados, al por mayor o donde se negocia flete y disponibilidad antes de pagar, un catálogo conectado a WhatsApp agiliza la venta. Si manejas stock fijo con precios estandarizados y envíos definidos, una tienda con carrito y pasarela de pago te permite vender en automático las 24 horas.",
   },
   {
-    question: "¿Pueden integrar pagos y métodos de entrega?",
+    question: "¿Qué pasarelas de pago se pueden integrar en Perú y Latinoamérica?",
     answer:
-      "Sí. Podemos integrar soluciones disponibles según el país, proveedor y necesidades específicas del negocio.",
+      "Integramos opciones locales como Mercado Pago, Niubiz, Culqi, además de transferencias y códigos QR directos de Yape y Plin para Perú, y plataformas globales como Stripe y PayPal para clientes internacionales.",
   },
   {
-    question: "¿La tienda online funciona para cualquier tipo de negocio?",
+    question: "¿Tendré que pagar comisiones mensuales a Velyon por cada venta?",
     answer:
-      "Puede adaptarse a diferentes sectores siempre que exista una necesidad de mostrar productos, recibir pedidos o mejorar el proceso comercial.",
+      "No. En VelyonSoft desarrollamos tu solución a presupuesto cerrado. La tienda y el código te pertenecen sin comisiones por transacción cobradas por nosotros. Solo aplican las comisiones bancarias estándar de la pasarela de pago que decidas utilizar.",
   },
   {
-    question: "¿Incluyen mantenimiento después del lanzamiento?",
+    question: "¿Podré agregar y editar productos por mi cuenta?",
     answer:
-      "Podemos complementar la implementación con soporte, seguridad, mejoras y evolución continua según el crecimiento del negocio.",
+      "Sí. Te entregamos un panel de administración intuitivo y te capacitamos para que tú o tu equipo puedan crear productos, cambiar precios, actualizar fotos y controlar el stock en cualquier momento.",
+  },
+  {
+    question: "¿Qué factores determinan el presupuesto de una tienda online?",
+    answer:
+      "El costo varía según la cantidad inicial de productos a cargar, si requiere pasarela de pago bancaria o solo recepción por WhatsApp, las integraciones con facturación electrónica o ERP, y si se necesitan funciones avanzadas como cálculo dinámico de envíos por zona.",
   },
 ];
 ---
 
 <SolutionPage
-  eyebrow="Solución · Tiendas online y ventas digitales"
+  eyebrow="Solución · Tiendas online y comercio digital"
   title="Convierte tu catálogo en un canal de"
-  highlight="ventas online."
-  description="Creamos tiendas virtuales y experiencias digitales que conectan productos, clientes, pagos y pedidos para ayudarte a vender de forma más organizada."
-  metaTitle="Tiendas online y ecommerce en Perú | Desarrollo web para vender más | Velyon"
-  metaDescription="Diseñamos tiendas online, catálogos digitales y ecommerce personalizados en Perú. Integramos productos, pagos, pedidos, WhatsApp y herramientas comerciales."
+  highlight="ventas online ordenado."
+  description="Creamos tiendas virtuales y catálogos digitales a medida en Perú y Latinoamérica. Conecta productos, pedidos directos por WhatsApp, pasarelas de pago y control de despachos sin comisiones por venta."
+  metaTitle="Creación de Tiendas Online y Catálogos Digitales en Perú y LATAM | VelyonSoft"
+  metaDescription="Diseñamos tiendas online y catálogos digitales a medida para negocios en Perú y Latinoamérica. Conexión directa a WhatsApp, pasarelas de pago y gestión de pedidos sin comisiones por venta."
   path="/soluciones/ventas-por-internet"
   lottieSrc="/animations/ventas-por-internet.lottie"
-  introTitle="Vender por internet no es solo publicar productos."
-  intro="Diseñamos soluciones digitales enfocadas en cómo funciona realmente tu negocio: cómo recibes pedidos, cómo gestionas clientes, cómo entregas productos y cómo puedes mejorar la conversión."
+  introTitle="Vender por internet no es solo publicar fotos: es ordenar el proceso de compra."
+  intro="Muchos negocios pierden clientes por responder tarde en WhatsApp, tener catálogos pesados en PDF o usar tiendas prediseñadas lentas que cobran mensualidades eternas. Diseñamos plataformas web ultrarrápidas, pensadas para celulares y orientadas a que el comprador encuentre lo que busca y complete su pedido en segundos."
   outcomes={outcomes}
   capabilities={capabilities}
   deliverables={[
-    "Arquitectura ecommerce",
-    "Diseño UX/UI",
-    "Catálogo de productos",
-    "Carrito de compra",
-    "Pedidos online",
-    "Integración WhatsApp",
-    "Pasarelas de pago",
-    "Configuración analítica",
-    "Optimización inicial SEO",
-    "Soporte y mejoras",
+    "Arquitectura ecommerce personalizada",
+    "Diseño UX/UI responsive mobile-first",
+    "Catálogo estructurado por categorías",
+    "Flujo de pedido desglosado a WhatsApp",
+    "Carrito y checkout con pasarelas de pago",
+    "Panel de autogestión de productos y stock",
+    "Integración con Google Analytics 4",
+    "Optimización SEO técnico y velocidad",
+    "Capacitación de uso y soporte inicial",
   ]}
   steps={steps}
   related={related}

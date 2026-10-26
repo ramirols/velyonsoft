@@ -2,126 +2,125 @@
 import SectorPage from "@/components/SectorPage.astro";
 
 const challenges = [
-    {
-        title: "Dependencia de plataformas externas",
-        description:
-            "Muchos negocios turísticos dependen completamente de intermediarios y pierden oportunidades de construir una relación directa con sus clientes.",
-    },
-    {
-        title: "Consultas repetitivas de visitantes",
-        description:
-            "Preguntas sobre disponibilidad, servicios, ubicación y reservas consumen tiempo del equipo de atención.",
-    },
-    {
-        title: "Proceso de reserva poco optimizado",
-        description:
-            "Los clientes necesitan una experiencia sencilla para conocer opciones, solicitar información y confirmar servicios.",
-    },
-    {
-        title: "Información turística dispersa",
-        description:
-            "Habitaciones, experiencias, paquetes y servicios requieren una presentación clara y actualizada.",
-    },
+  {
+    title: "Dependencia asfixiante de OTAs (Booking, Airbnb, Expedia)",
+    description:
+      "Las agencias de viajes online cobran comisiones del 15% al 25% por cada noche reservada, reduciendo drásticamente la rentabilidad del hotel y bloqueando el contacto directo con el huésped.",
+  },
+  {
+    title: "Sitio web lento o poco atractivo para turistas exigentes",
+    description:
+      "Los viajeros investigan minuciosamente fotos de habitaciones, servicios y opiniones antes de reservar. Una web anticuada o lenta hace que el usuario regrese a Booking para asegurar su estadía.",
+  },
+  {
+    title: "Itinerarios y paquetes turísticos difíciles de cotizar",
+    description:
+      "Las agencias de viaje pierden horas respondiendo mensajes con preguntas básicas sobre qué incluye el tour, qué días sale o qué tipo de transporte se utiliza.",
+  },
+  {
+    title: "Falta de pasarelas de pago para viajeros internacionales",
+    description:
+      "No disponer de métodos de pago seguros con tarjeta de crédito en moneda local y dólares dificulta cerrar reservas anticipadas de turistas del extranjero.",
+  },
 ];
 
 const solutions = [
-    {
-        title: "Desarrollo web",
-        description:
-            "Sitios profesionales para hoteles, alojamientos y operadores turísticos con información clara y experiencia visual atractiva.",
-        href: "/soluciones/desarrollo-web",
-        label: "Presencia",
-    },
-    {
-        title: "Ventas por internet",
-        description:
-            "Sistemas de reservas, solicitudes y canales digitales para convertir visitantes en clientes.",
-        href: "/soluciones/ventas-por-internet",
-        label: "Reservas",
-    },
-    {
-        title: "Automatización de procesos",
-        description:
-            "Confirmaciones, mensajes y seguimiento automático para mejorar atención antes y después de la reserva.",
-        href: "/soluciones/automatizacion-de-procesos",
-        label: "Atención",
-    },
+  {
+    title: "Desarrollo web para hoteles y hospedajes",
+    description:
+      "Sitios web visualmente impactantes, con galerías optimizadas de habitaciones, ubicación precisa y llamadas a la acción directas para reservar sin intermediarios.",
+    href: "/soluciones/desarrollo-web",
+    label: "Reservas directas",
+  },
+  {
+    title: "Catálogos de paquetes turísticos y tours",
+    description:
+      "Páginas detalladas por itinerario con mapa de ruta, qué incluye, qué no incluye, recomendaciones y botón de consulta o compra.",
+    href: "/soluciones/ventas-por-internet",
+    label: "Venta de experiencias",
+  },
+  {
+    title: "Automatización de confirmaciones y traslados",
+    description:
+      "Envío automático de voucher de reserva, indicaciones de llegada y recomendaciones turísticas previas al check-in por WhatsApp o correo.",
+    href: "/soluciones/automatizacion-de-procesos",
+    label: "Experiencia del huésped",
+  },
 ];
 
 const principles = [
-    {
-        title: "Experiencia del visitante",
-        description:
-            "Diseñamos soluciones pensando en facilitar la decisión de compra y la comunicación con el cliente.",
-    },
-    {
-        title: "Canales digitales propios",
-        description:
-            "Ayudamos a construir una relación directa con clientes reduciendo dependencia de terceros.",
-    },
-    {
-        title: "Información clara y actualizada",
-        description:
-            "Organizamos servicios, precios, disponibilidad y experiencias para mejorar la conversión.",
-    },
-    {
-        title: "Mejora continua",
-        description:
-            "Las soluciones pueden evolucionar incorporando nuevas funcionalidades según las necesidades del negocio.",
-    },
+  {
+    title: "Maximizar el margen de reservas directas",
+    description:
+      "Diseñamos incentivos claros en la web (mejor tarifa garantizada, beneficios exclusivos) para motivar al viajero a reservar directo en tu sitio.",
+  },
+  {
+    title: "Velocidad de carga global para turistas extranjeros",
+    description:
+      "Alojamos y optimizamos tu sitio con redes de distribución de contenido (CDN) para que cargue instantáneamente desde Europa, Norteamérica o cualquier país.",
+  },
+  {
+    title: "Diseño optimizado para celulares",
+    description:
+      "La mayoría de viajeros buscan hoteles y actividades de último minuto directamente desde su smartphone mientras viajan.",
+  },
+  {
+    title: "Autonomía en tarifas y promociones",
+    description:
+      "Administra fotos de habitaciones, disponibilidad y promociones de temporada baja sin complicaciones técnicas.",
+  },
 ];
 
 const faqs = [
-    {
-        question: "¿Desarrollan páginas web para hoteles?",
-        answer: "Sí. Creamos páginas web para hoteles, hospedajes y negocios turísticos con información de servicios, ubicación, habitaciones y canales de contacto.",
-    },
-    {
-        question: "¿Pueden crear sistemas de reservas?",
-        answer: "Sí. Podemos desarrollar soluciones para solicitudes, reservas, confirmaciones e integración con herramientas externas según el proyecto.",
-    },
-    {
-        question: "¿Ayudan a automatizar la atención al cliente?",
-        answer: "Sí. Podemos automatizar mensajes, confirmaciones, recordatorios y procesos de comunicación con visitantes.",
-    },
-    {
-        question: "¿Trabajan con pequeños hospedajes o solo hoteles grandes?",
-        answer: "Trabajamos con diferentes tipos de negocios turísticos, adaptando la solución según tamaño, necesidades y objetivos.",
-    },
+  {
+    question: "¿Cómo ayuda una página web a reducir la dependencia de Booking o Airbnb?",
+    answer:
+      "Muchos viajeros descubren tu hotel en Booking y luego buscan tu sitio web oficial para verificar si existe una mejor tarifa o beneficios directos. Un sitio web oficial profesional, con motor de reserva o contacto directo a WhatsApp, te permite capturar esa reserva sin pagar el 18% o 20% de comisión.",
+  },
+  {
+    question: "¿Pueden integrar pasarelas de pago para cobrar a turistas extranjeros?",
+    answer:
+      "Sí. Integramos pasarelas internacionales como Stripe, PayPal o Niubiz que permiten cobrar en dólares o moneda local con tarjetas Visa, Mastercard y American Express de cualquier país.",
+  },
+  {
+    question: "¿Sirve para operadores turísticos que venden tours y excursiones?",
+    answer:
+      "Sí. Diseñamos catálogos de experiencias donde cada tour cuenta con su ficha completa: horarios, fotos, niveles de dificultad, preguntas frecuentes y botón de reserva inmediata.",
+  },
+  {
+    question: "¿Se puede conectar la web con nuestro motor de reservas actual (Channel Manager)?",
+    answer:
+      "Sí. Si ya utilizas un motor de reservas o Channel Manager (como Cloudbeds, Sirvoy u otros), podemos integrarlo dentro del diseño de tu página web para que las fechas y disponibilidad se sincronicen en automático.",
+  },
 ];
 ---
 
 <SectorPage
-    sector="Hoteles y turismo"
-    title="Soluciones digitales para hoteles y negocios turísticos que buscan"
-    highlight="más reservas."
-    description="Creamos páginas web, sistemas de reservas y automatizaciones para hoteles, alojamientos y empresas turísticas que necesitan mejorar ventas y experiencia del cliente."
-    metaTitle="Soluciones digitales para hoteles y turismo en Perú | Velyon"
-    metaDescription="Desarrollamos páginas web para hoteles, sistemas de reservas y automatizaciones para negocios turísticos en Perú. Mejora ventas y atención al cliente."
-    path="/sectores/hoteles-turismo"
-    lottieSrc="/animations/hoteles-turismo.lottie"
-    audiences={[
-        "Hoteles",
-        "Hospedajes",
-        "Operadores turísticos",
-        "Agencias de viaje",
-    ]}
-    {challenges}
-    {solutions}
-    {principles}
-    product={{
-        eyebrow: "Solución para turismo",
-
-        title: "Páginas web y captación directa para operadores turísticos.",
-
-        description:
-            "Sitios web atractivos y de alta velocidad para agencias de viaje y hospedajes, con itinerarios, galerías y solicitudes directas a WhatsApp.",
-
-        href: "/soluciones/desarrollo-web",
-
-        status: "Desarrollo web y reservas",
-
-        ctaText: "Ver desarrollo web para turismo",
-    }}
-    {faqs}
+  sector="Hoteles y turismo"
+  title="Sitios web y motores de contacto directo para"
+  highlight="hoteles y empresas turísticas."
+  description="Desarrollamos páginas web para hoteles, lodges, hospedajes y agencias de turismo en Perú y Latinoamérica. Aumenta tus reservas directas, reduce comisiones de plataformas intermediarias y presenta tus paquetes turísticos con excelencia visual."
+  metaTitle="Páginas Web y Sistemas de Reserva para Hoteles y Turismo | VelyonSoft"
+  metaDescription="Desarrollo web para hoteles, lodges y agencias de turismo en Perú y Latinoamérica. Captación de reservas directas sin comisiones de OTAs y catálogos de tours."
+  path="/sectores/hoteles-turismo"
+  lottieSrc="/animations/hoteles-turismo.lottie"
+  audiences={[
+    "Hoteles boutique y lodges",
+    "Hospedajes y alojamientos turísticos",
+    "Agencias de viajes y operadores de tours",
+    "Empresas de transporte turístico",
+  ]}
+  {challenges}
+  {solutions}
+  {principles}
+  product={{
+    eyebrow: "Solución para hotelería y tours",
+    title: "Portales de captación y reservas directas para turismo.",
+    description:
+      "Sitios web de alta velocidad diseñados para mostrar habitaciones, tours y paisajes con la máxima fidelidad visual, conectando al viajero directo con tu WhatsApp o pasarela.",
+    href: "/soluciones/desarrollo-web",
+    status: "Desarrollo web y reservas",
+    ctaText: "Ver desarrollo web para turismo",
+  }}
+  {faqs}
 />

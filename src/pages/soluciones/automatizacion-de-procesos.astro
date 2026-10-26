@@ -2,144 +2,153 @@
 import SolutionPage from "@/components/SolutionPage.astro";
 
 const outcomes = [
-    {
-        title: "Menos tiempo en tareas manuales",
-        description:
-            "Automatizamos procesos repetitivos para que tu equipo pueda enfocarse en actividades que generan más valor para el negocio.",
-    },
-    {
-        title: "Procesos más rápidos y ordenados",
-        description:
-            "Conectamos herramientas y eliminamos pasos innecesarios para mejorar la velocidad de operación.",
-    },
-    {
-        title: "Menos errores por trabajo manual",
-        description:
-            "Reducimos problemas causados por copiar información, registrar datos varias veces o depender de procesos manuales.",
-    },
-    {
-        title: "Tus sistemas trabajando juntos",
-        description:
-            "Integramos páginas web, formularios, WhatsApp, CRM, bases de datos y otras plataformas en un mismo flujo.",
-    },
+  {
+    title: "Ahorro directo de horas operativas en tareas repetitivas",
+    description:
+      "Automatizamos tareas cotidianas como copiar datos entre programas, enviar confirmaciones de pedidos, notificar a vendedores o actualizar registros de clientes, permitiendo que tu equipo se concentre en actividades comerciales de alto valor.",
+  },
+  {
+    title: "Conexión fluida entre plataformas que hoy trabajan aisladas",
+    description:
+      "Integramos tu página web, WhatsApp, hojas de cálculo, sistemas de facturación y CRM mediante APIs y Webhooks para que la información viaje de forma instantánea y segura entre todas tus herramientas de trabajo.",
+  },
+  {
+    title: "Cero errores por digitación manual y datos duplicados",
+    description:
+      "Elimina los errores humanos al transcribir números de teléfono, direcciones de envío o montos de pago. Cada dato ingresado por el cliente se valida y se registra automáticamente en el sistema correspondiente.",
+  },
+  {
+    title: "Atención y seguimiento comercial inmediato las 24 horas",
+    description:
+      "Cuando un cliente solicita una cotización o envía un pedido, recibe respuesta estructurada al instante. Ningún prospecto queda olvidado por falta de tiempo o demoras del equipo.",
+  },
 ];
 
 const capabilities = [
-    {
-        title: "Automatización de tareas repetitivas",
-        description:
-            "Digitalizamos procesos frecuentes como registros, notificaciones, seguimiento de clientes y actualización de información.",
-    },
-    {
-        title: "Integración de sistemas",
-        description:
-            "Conectamos diferentes herramientas para que compartan información automáticamente y trabajen como un solo ecosistema.",
-    },
-    {
-        title: "Automatización con WhatsApp y correo",
-        description:
-            "Creamos respuestas, avisos y seguimientos automáticos para clientes y equipos internos.",
-    },
-    {
-        title: "Flujos comerciales automáticos",
-        description:
-            "Automatizamos procesos de captación, seguimiento de oportunidades y gestión de clientes.",
-    },
-    {
-        title: "Sincronización de información",
-        description:
-            "Mantenemos actualizados tus datos entre plataformas evitando duplicidad y pérdida de información.",
-    },
-    {
-        title: "Automatización con inteligencia artificial",
-        description:
-            "Aplicamos IA para clasificación de información, análisis de mensajes y asistencia en procesos internos.",
-    },
+  {
+    title: "Automatización con WhatsApp Business y mensajería",
+    description:
+      "Respuestas automáticas, recordatorios de citas, confirmaciones de despacho y notificaciones de pago conectadas a tus sistemas sin intervención manual.",
+  },
+  {
+    title: "Sincronización de leads y prospección comercial",
+    description:
+      "Conexión inmediata de formularios web y campañas de anuncios (Meta Ads, Google Ads) con tu CRM o bases de datos, asignando prospectos a tus asesores en segundos.",
+  },
+  {
+    title: "Integración entre plataformas web, ERPs y facturación",
+    description:
+      "Conectores personalizados vía API y Webhooks para comunicar tiendas online con inventarios, sistemas contables o pasarelas de cobro.",
+  },
+  {
+    title: "Alertas y notificaciones operativas en tiempo real",
+    description:
+      "Disparadores automáticos por correo o chat ante eventos clave: bajo stock en almacén, pagos recibidos, solicitudes urgentes o estados de servicio.",
+  },
+  {
+    title: "Generación automatizada de reportes y documentos",
+    description:
+      "Creación periódica de resúmenes de ventas, cotizaciones en PDF y cuadros de control enviados directamente a los responsables del negocio.",
+  },
+  {
+    title: "Automatización con modelos de lenguaje e IA aplicada",
+    description:
+      "Clasificación automática de consultas frecuentes, extracción de datos desde comprobantes y asistencia en la redacción de propuestas comerciales.",
+  },
 ];
 
 const steps = [
-    {
-        title: "Analizamos tu proceso actual",
-        description:
-            "Identificamos tareas repetitivas, puntos de demora, herramientas utilizadas y oportunidades de mejora.",
-    },
-    {
-        title: "Diseñamos la automatización",
-        description:
-            "Definimos reglas, conexiones y flujos para que las herramientas trabajen automáticamente.",
-    },
-    {
-        title: "Implementamos y optimizamos",
-        description:
-            "Probamos los escenarios reales, monitoreamos resultados y ajustamos el sistema para mejorar continuamente.",
-    },
+  {
+    title: "Mapeo de tareas manuales y cuellos de botella",
+    description:
+      "Identificamos exactamente qué actividades consumen más tiempo a tu equipo y qué herramientas deben conectarse para lograr el mayor impacto operativo.",
+  },
+  {
+    title: "Diseño y configuración de flujos automáticos",
+    description:
+      "Construimos las conexiones técnicas, reglas lógicas, validaciones y filtros necesarios mediante código limpio y APIs estables.",
+  },
+  {
+    title: "Pruebas de estrés, monitoreo y puesta en marcha",
+    description:
+      "Probamos todos los escenarios posibles (datos incompletos, caídas de conexión) y dejamos la automatización funcionando con alertas de control.",
+  },
 ];
 
 const related = [
-    {
-        title: "Software a medida",
-        description:
-            "Construye plataformas personalizadas para administrar procesos internos y operaciones.",
-        href: "/soluciones/software-a-medida",
-    },
-    {
-        title: "Mantenimiento y evolución",
-        description:
-            "Mantén tus sistemas seguros, actualizados y preparados para crecer.",
-        href: "/soluciones/mantenimiento-y-evolucion",
-    },
-    {
-        title: "Tiendas online y ventas digitales",
-        description:
-            "Conecta ventas, pedidos, clientes y herramientas comerciales.",
-        href: "/soluciones/ventas-por-internet",
-    },
+  {
+    title: "Software a medida y sistemas web",
+    description:
+      "Centraliza tus operaciones en una plataforma propia diseñada a la medida de tu negocio.",
+    href: "/soluciones/software-a-medida",
+  },
+  {
+    title: "Tiendas online y catálogos digitales",
+    description:
+      "Conecta pedidos online con tus canales de atención y gestión de cobros en automático.",
+    href: "/soluciones/ventas-por-internet",
+  },
+  {
+    title: "Mantenimiento y soporte técnico",
+    description:
+      "Garantiza que tus integraciones y APIs sigan funcionando sin interrupciones con el tiempo.",
+    href: "/soluciones/mantenimiento-y-evolucion",
+  },
 ];
 
 const faqs = [
-    {
-        question: "¿Qué procesos se pueden automatizar en una empresa?",
-        answer: "Se pueden automatizar tareas como envío de mensajes, registro de clientes, seguimiento comercial, generación de reportes, actualización de datos y conexión entre diferentes plataformas.",
-    },
-    {
-        question: "¿Necesito cambiar mis sistemas actuales para automatizar?",
-        answer: "No necesariamente. Primero evaluamos las herramientas que ya utilizas y buscamos integrarlas antes de reemplazarlas.",
-    },
-    {
-        question: "¿La automatización funciona para pequeñas empresas?",
-        answer: "Sí. Las pequeñas empresas también pueden beneficiarse automatizando tareas administrativas, ventas, atención al cliente y procesos repetitivos.",
-    },
-    {
-        question: "¿Puedo incorporar inteligencia artificial en mis procesos?",
-        answer: "Sí. Evaluamos dónde la inteligencia artificial puede aportar valor, por ejemplo en análisis de información, clasificación de consultas o asistencia interna.",
-    },
+  {
+    question: "¿Qué tipo de tareas se pueden automatizar en un negocio?",
+    answer:
+      "Ejemplos reales: registrar prospectos de formularios web en un CRM, enviar avisos de pago o citas por WhatsApp, notificar al almacén cuando entra un pedido pagado, generar cotizaciones en PDF automáticamente y enviar reportes semanales de ventas a gerencia.",
+  },
+  {
+    question: "¿Necesito cambiar los programas que mi empresa ya utiliza?",
+    answer:
+      "No. Nuestro objetivo principal es conectar las herramientas que ya utilizas (WhatsApp, Google Sheets, correos, bases de datos o sistemas contables) para que compartan información sin que tengas que cambiar de software ni capacitar a tu personal desde cero.",
+  },
+  {
+    question: "¿La automatización por WhatsApp puede suspender mi número?",
+    answer:
+      "Trabajamos con buenas prácticas e integraciones oficiales a través de WhatsApp Business API o flujos consentidos por los usuarios para evitar spam y proteger la reputación de tu línea comercial.",
+  },
+  {
+    question: "¿La automatización es rentable para una pequeña o mediana empresa?",
+    answer:
+      "Es especialmente rentable para pymes porque permite atender más clientes y gestionar más pedidos sin necesidad de contratar personal adicional solo para tareas repetitivas de digitación o seguimiento.",
+  },
+  {
+    question: "¿Qué pasa si una de las plataformas externas actualiza su sistema?",
+    answer:
+      "Diseñamos las integraciones con manejo de errores y alertas preventivas. Además, a través de nuestro soporte técnico monitoreamos que las conexiones API se mantengan actualizadas ante cualquier cambio de los proveedores externos.",
+  },
 ];
 ---
 
 <SolutionPage
-    eyebrow="Solución · Automatización empresarial"
-    title="Automatiza procesos de tu negocio y"
-    highlight="ahorra tiempo operativo."
-    description="Diseñamos automatizaciones que conectan tus herramientas, eliminan tareas repetitivas y permiten que tu equipo trabaje de forma más rápida y eficiente."
-    metaTitle="Automatización de procesos empresariales en Perú | Velyon"
-    metaDescription="Automatización de procesos para empresas en Perú. Integramos sistemas, WhatsApp, correos, APIs e inteligencia artificial para ahorrar tiempo y reducir tareas manuales."
-    path="/soluciones/automatizacion-de-procesos"
-    lottieSrc="/animations/automatizacion-y-sistemas.lottie"
-    introTitle="Tu equipo debería crear valor, no repetir tareas."
-    intro="Analizamos las actividades repetitivas de tu negocio para diseñar flujos automáticos que reduzcan trabajo manual, conecten herramientas digitales y mejoren la eficiencia operativa."
-    outcomes={outcomes}
-    capabilities={capabilities}
-    deliverables={[
-        "Análisis de procesos actuales",
-        "Diseño de flujos automatizados",
-        "Integración entre plataformas",
-        "Automatización de WhatsApp y correo",
-        "Conexión mediante APIs",
-        "Sincronización de datos",
-        "Automatización con IA",
-        "Monitoreo y documentación",
-    ]}
-    steps={steps}
-    related={related}
-    faqs={faqs}
+  eyebrow="Solución · Automatización e integración de sistemas"
+  title="Automatiza procesos operativos y ahorra horas de"
+  highlight="trabajo repetitivo en tu empresa."
+  description="Conectamos tus páginas web, WhatsApp, CRMs y sistemas internos para eliminar tareas manuales repetitivas en empresas de Perú y Latinoamérica. Reduce errores, agiliza respuestas comerciales y optimiza la productividad diaria de tu equipo."
+  metaTitle="Automatización de Procesos Empresariales e Integración en Perú y LATAM | VelyonSoft"
+  metaDescription="Automatización de procesos y conexión de sistemas para empresas en Perú y Latinoamérica. Conecta WhatsApp, CRMs, formularios y bases de datos para ahorrar horas de trabajo manual."
+  path="/soluciones/automatizacion-de-procesos"
+  lottieSrc="/animations/automatizacion-y-sistemas.lottie"
+  introTitle="Tu equipo debería dedicar tiempo a vender y crear valor, no a copiar y pegar datos."
+  intro="En muchas empresas, horas valiosas de la jornada laboral se pierden pasando datos de WhatsApp a Excel, enviando correos de confirmación uno a uno o avisando manualmente sobre el estado de un pedido. Diseñamos automatizaciones a medida que unen tus herramientas actuales en un flujo continuo y confiable."
+  outcomes={outcomes}
+  capabilities={capabilities}
+  deliverables={[
+    "Mapeo de flujos y diagramas de automatización",
+    "Integración con WhatsApp Business",
+    "Conexión de formularios y campañas de leads",
+    "Sincronización bidireccional de datos",
+    "Disparadores y webhooks seguros",
+    "Gestión y registro de errores con alertas",
+    "Reportes automáticos por correo o mensajería",
+    "Documentación técnica de los flujos implementados",
+  ]}
+  steps={steps}
+  related={related}
+  faqs={faqs}
 />

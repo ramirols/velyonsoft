@@ -3,130 +3,124 @@ import SectorPage from "@/components/SectorPage.astro";
 
 const challenges = [
   {
-    title: "Procesos comerciales desordenados",
+    title: "Ventas y cotizaciones perdidas en chats de WhatsApp",
     description:
-      "Muchas empresas gestionan clientes, cotizaciones y pedidos mediante diferentes canales sin un flujo centralizado.",
+      "Muchos negocios gestionan consultas comerciales entre varios celulares o conversaciones personales, lo que provoca demoras en cotizar, prospectos olvidados y ventas que se van con la competencia.",
   },
   {
-    title: "Demasiadas tareas manuales",
+    title: "Tareas manuales que saturan al dueño y al equipo",
     description:
-      "El equipo pierde tiempo realizando actividades repetitivas como registrar información, responder consultas o actualizar datos.",
+      "El personal invierte horas pasando datos a mano, revisando transferencias bancarias, actualizando listas de precios en Excel y respondiendo una y otra vez las mismas dudas básicas de clientes.",
   },
   {
-    title: "Información difícil de controlar",
+    title: "Falta de control centralizado sobre el negocio",
     description:
-      "Los datos importantes del negocio pueden estar dispersos entre hojas de cálculo, mensajes y diferentes herramientas.",
+      "A medida que la pyme crece, el dueño no tiene visibilidad clara de cuánto se vendió en la semana, qué pedidos faltan despachar o cuánto stock real queda disponible en almacén.",
   },
   {
-    title: "Crecimiento sin estructura digital",
+    title: "Presencia digital precaria o inexistente",
     description:
-      "A medida que aumenta la cantidad de clientes, la operación necesita procesos más ordenados y herramientas adecuadas.",
+      "Depender únicamente de una página de Facebook o Instagram genera desconfianza en compras de mayor valor y limita el alcance frente a empresas con páginas web profesionales.",
   },
 ];
 
 const solutions = [
   {
-    title: "Desarrollo web",
+    title: "Desarrollo web profesional para pymes",
     description:
-      "Páginas profesionales para mostrar servicios, captar clientes y fortalecer la presencia digital del negocio.",
+      "Sitios web modernos que posicionan a tu empresa en Google, transmiten confianza comercial y generan consultas directas a tu equipo de ventas.",
     href: "/soluciones/desarrollo-web",
-    label: "Presencia",
+    label: "Captación de clientes",
   },
   {
-    title: "Ventas por internet",
+    title: "Catálogos digitales y tiendas online",
     description:
-      "Catálogos digitales y tiendas online para convertir productos y servicios en nuevos canales comerciales.",
+      "Exhibe tus productos organizados por categorías con precios actualizados y pedidos desglosados directamente a WhatsApp.",
     href: "/soluciones/ventas-por-internet",
-    label: "Ventas",
+    label: "Ventas ordenadas",
   },
   {
-    title: "Automatización de procesos",
+    title: "Sistemas de gestión operativa y CRM a medida",
     description:
-      "Conecta herramientas, reduce tareas repetitivas y mejora la eficiencia operativa.",
-    href: "/soluciones/automatizacion-de-procesos",
-    label: "Eficiencia",
+      "Paneles sencillos para controlar clientes, pedidos, cotizaciones, stock y cuentas por cobrar sin complicar a tu personal.",
+    href: "/soluciones/software-a-medida",
+    label: "Control diario",
   },
 ];
 
 const principles = [
   {
-    title: "Soluciones según la etapa del negocio",
+    title: "Tecnología práctica, no burocracia digital",
     description:
-      "Comenzamos por las necesidades más importantes sin implementar tecnología innecesaria.",
+      "Creamos herramientas intuitivas que cualquier empleado aprende a usar en 15 minutos, sin pantallas recargadas ni pasos innecesarios.",
   },
   {
-    title: "Resultados antes que complejidad",
+    title: "Retorno de inversión antes que complejidad",
     description:
-      "Priorizamos herramientas que tengan impacto real en ventas, operación y atención.",
+      "Comenzamos resolviendo el problema que más dinero o tiempo te hace perder hoy, ya sea ordenar pedidos o captar clientes en Google.",
   },
   {
-    title: "Crecimiento progresivo",
+    title: "Presupuesto cerrado sin sorpresas",
     description:
-      "Diseñamos soluciones que puedan evolucionar conforme aumenta la necesidad del negocio.",
+      "Sabes con exactitud cuánto vas a invertir y qué vas a recibir antes de iniciar, sin cobros mensuales ocultos por licenciamiento.",
   },
   {
-    title: "Tecnología fácil de usar",
+    title: "Trato directo con el desarrollador",
     description:
-      "Creamos herramientas pensadas para equipos reales, no únicamente para usuarios técnicos.",
+      "Hablas directamente con la persona que programa tu solución técnica, garantizando agilidad y comprensión real de tu negocio.",
   },
 ];
 
 const faqs = [
   {
-    question: "¿Trabajan con pequeñas y medianas empresas?",
+    question: "¿Es necesario contratar un software costoso para digitalizar una pyme?",
     answer:
-      "Sí. Diseñamos soluciones digitales para pymes y negocios de servicios que necesitan mejorar su presencia, ventas u operación.",
+      "No. La mayoría de pymes fracasan al intentar implementar softwares gigantes y caros que nadie en el equipo sabe usar. Es mucho más efectivo construir herramientas a medida con los 2 o 3 módulos clave que tu negocio necesita (por ejemplo: catálogo web + pedidos WhatsApp + control de cobros).",
   },
   {
-    question: "¿Necesito contratar todos los servicios?",
+    question: "¿Pueden ayudar a un negocio que actualmente solo trabaja con Excel y libreta?",
     answer:
-      "No. Analizamos el principal problema del negocio y recomendamos comenzar con la solución que genere mayor impacto.",
+      "Por supuesto. La mayoría de nuestros clientes comenzaron con hojas de cálculo. Diseñamos la transición paso a paso para que tu equipo migre de forma natural y sin estrés operativo.",
   },
   {
-    question:
-      "¿Pueden ayudar a digitalizar un negocio que todavía trabaja manualmente?",
+    question: "¿Qué resultados comerciales puede esperar una pequeña empresa?",
     answer:
-      "Sí. Podemos empezar con herramientas básicas como una web profesional y evolucionar hacia automatizaciones o sistemas personalizados.",
+      "Una presencia web profesional permite aparecer en búsquedas comerciales de Google cuando clientes buscan tus productos o servicios, mientras que un catálogo ordenado reduce drásticamente el tiempo que tardas en atender y cerrar una venta.",
   },
   {
-    question: "¿Trabajan con proyectos pequeños?",
+    question: "¿Cómo coordinamos si mi empresa está en provincia o fuera de Lima?",
     answer:
-      "Sí. La implementación puede comenzar con una primera solución enfocada y crecer según los resultados obtenidos.",
+      "Trabajamos con empresas de todo el Perú y Latinoamérica de forma 100% remota mediante reuniones breves por Google Meet y coordinación fluida por WhatsApp y correo.",
   },
 ];
 ---
 
 <SectorPage
-  sector="Pymes y negocios de servicios"
-  title="Tecnología práctica para hacer crecer tu"
-  highlight="negocio."
-  description="Creamos soluciones digitales para pequeñas y medianas empresas que necesitan conseguir más clientes, ordenar sus procesos y trabajar con mayor eficiencia."
-  metaTitle="Soluciones digitales para pymes en Perú | Velyon"
-  metaDescription="Desarrollo web, automatización, tiendas online y software para pymes en Perú. Digitalizamos negocios para mejorar ventas, procesos y atención al cliente."
+  sector="Pymes y comercio"
+  title="Tecnología práctica para que pequeñas y medianas empresas vendan y"
+  highlight="crezcan con orden."
+  description="Soluciones digitales y desarrollo a medida para pequeñas y medianas empresas en Perú y Latinoamérica. Páginas web comerciales, catálogos online y sistemas de gestión para captar clientes y ordenar tu operación diaria."
+  metaTitle="Digitalización y Software Práctico para Pymes en Perú y LATAM | VelyonSoft"
+  metaDescription="Desarrollo web, catálogos online, automatización y software a medida para pymes en Perú y Latinoamérica. Digitaliza ventas y operaciones sin sistemas complicados."
   path="/sectores/pymes-y-servicios"
   lottieSrc="/animations/negocios-y-servicios.lottie"
   audiences={[
-    "Pequeñas empresas",
-    "Negocios familiares",
-    "Empresas de servicios",
-    "Emprendedores",
+    "Pequeñas y medianas empresas (Pymes)",
+    "Negocios comerciales y distribuidores",
+    "Empresas familiares en crecimiento",
+    "Emprendimientos con equipo propio",
   ]}
   {challenges}
   {solutions}
   {principles}
   product={{
-    eyebrow: "Solución para pymes",
-
-    title: "Sistemas de gestión operativa y control de procesos.",
-
+    eyebrow: "Solución práctica para pymes",
+    title: "Sistemas web de gestión de pedidos y control de clientes.",
     description:
-      "Herramientas digitales a medida para centralizar pedidos, clientes, stock y tareas diarias sin depender de hojas de cálculo dispersas.",
-
-    href: "/soluciones/automatizacion-de-procesos",
-
-    status: "Automatización y sistemas",
-
-    ctaText: "Ver sistemas de gestión",
+      "Paneles sencillos y personalizados para sustituir hojas de cálculo caóticas y centralizar ventas, cobranzas y tareas operativas.",
+    href: "/soluciones/software-a-medida",
+    status: "Desarrollo a medida",
+    ctaText: "Ver sistemas a medida para pymes",
   }}
   {faqs}
 />

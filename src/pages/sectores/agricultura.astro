@@ -2,126 +2,125 @@
 import SectorPage from "@/components/SectorPage.astro";
 
 const challenges = [
-    {
-        title: "Información de campo dispersa",
-        description:
-            "Los datos de producción, campañas, lotes y actividades agrícolas suelen manejarse en diferentes registros difíciles de consultar.",
-    },
-    {
-        title: "Seguimiento manual de procesos",
-        description:
-            "La planificación, control de actividades y comunicación entre equipos puede depender de procesos manuales.",
-    },
-    {
-        title: "Dificultad para controlar trazabilidad",
-        description:
-            "Productores y empresas necesitan conocer mejor el origen, estado y evolución de sus productos.",
-    },
-    {
-        title: "Desconexión entre producción y venta",
-        description:
-            "La información comercial y productiva muchas veces no está integrada para tomar mejores decisiones.",
-    },
+  {
+    title: "Registros de acopio y pesaje en papel difíciles de consolidar",
+    description:
+      "En centros de acopio y almacenes agrícolas, anotar ingresos de cosecha en boletas físicas genera errores de cálculo, pérdida de comprobantes y demoras en liquidar pagos a los productores.",
+  },
+  {
+    title: "Falta de trazabilidad por lote y procedencia",
+    description:
+      "Los clientes industriales y mercados de exportación exigen saber con exactitud de qué parcela o productor proviene cada lote, variedad, fecha de cosecha y parámetros de calidad.",
+  },
+  {
+    title: "Descontrol en inventario de insumos agrícolas y semillas",
+    description:
+      "Manejar fertilizantes, agroquímicos y herramientas con fechas de vencimiento en múltiples almacenes provoca pérdidas económicas por productos caducados o faltantes imprevistos.",
+  },
+  {
+    title: "Ausencia de una presencia digital corporativa ante compradores mayoristas",
+    description:
+      "Comercializadoras y exportadoras que no cuentan con un sitio web profesional pierden oportunidades de cerrar contratos de suministro con supermercados o clientes del extranjero.",
+  },
 ];
 
 const solutions = [
-    {
-        title: "Software a medida",
-        description:
-            "Sistemas personalizados para gestionar producción, clientes, inventarios, campañas y operaciones agrícolas.",
-        href: "/soluciones/software-a-medida",
-        label: "Gestión",
-    },
-    {
-        title: "Desarrollo web",
-        description:
-            "Páginas y plataformas digitales para empresas agrícolas, productores y comercializadoras.",
-        href: "/soluciones/desarrollo-web",
-        label: "Presencia",
-    },
-    {
-        title: "Automatización de procesos",
-        description:
-            "Reduce tareas administrativas mediante integración de herramientas y flujos automáticos.",
-        href: "/soluciones/automatizacion-de-procesos",
-        label: "Eficiencia",
-    },
+  {
+    title: "Software a medida para acopio y liquidación agrícola",
+    description:
+      "Sistemas personalizados para registrar ingresos de cosecha por lote, pesaje, descuentos por humedad/impurezas y generación de liquidaciones de pago.",
+    href: "/soluciones/software-a-medida",
+    label: "Control de acopio",
+  },
+  {
+    title: "Páginas web corporativas para agroexportadoras",
+    description:
+      "Sitios web profesionales en español e inglés para presentar líneas de cultivo, certificaciones internacionales (GlobalGAP, Orgánico) y catálogo de exportación.",
+    href: "/soluciones/desarrollo-web",
+    label: "Mercado y exportación",
+  },
+  {
+    title: "Automatización de reportes y despachos",
+    description:
+      "Generación automática de guías, reportes de stock consolidado y notificaciones de embarque para clientes mayoristas.",
+    href: "/soluciones/automatizacion-de-procesos",
+    label: "Eficiencia comercial",
+  },
 ];
 
 const principles = [
-    {
-        title: "Tecnología adaptada al campo",
-        description:
-            "Diseñamos soluciones considerando procesos reales de producción, comercialización y gestión agrícola.",
-    },
-    {
-        title: "Información para mejores decisiones",
-        description:
-            "Convertimos datos operativos en información organizada para facilitar la planificación.",
-    },
-    {
-        title: "Implementación progresiva",
-        description:
-            "Comenzamos con procesos prioritarios antes de construir plataformas más complejas.",
-    },
-    {
-        title: "Conexión entre producción y mercado",
-        description:
-            "Buscamos unir información productiva, comercial y administrativa en un mismo ecosistema digital.",
-    },
+  {
+    title: "Software adaptado a la realidad del campo",
+    description:
+      "Interfaces con botones grandes, rápidas y pensadas para operadores de balanza y personal de almacén en zonas rurales.",
+  },
+  {
+    title: "Trazabilidad completa de la cosecha",
+    description:
+      "Estructuramos datos desde la recepción del productor hasta el despacho final al cliente mayorista o contenedor de exportación.",
+  },
+  {
+    title: "Información centralizada para la gerencia",
+    description:
+      "Accede desde cualquier lugar a los balances diarios de acopio, precios promedio pagados y stock disponible sin esperar reportes manuales.",
+  },
+  {
+    title: "Independencia técnica y seguridad",
+    description:
+      "Tu sistema y tus bases de datos de proveedores y clientes agrícolas quedan registrados bajo la propiedad exclusiva de tu empresa.",
+  },
 ];
 
 const faqs = [
-    {
-        question: "¿Desarrollan software para empresas agrícolas?",
-        answer: "Sí. Creamos soluciones digitales para empresas agrícolas, productores organizados, comercializadoras y negocios relacionados con el sector agro.",
-    },
-    {
-        question: "¿Pueden crear sistemas para controlar producción agrícola?",
-        answer: "Sí. Podemos desarrollar herramientas para registrar actividades, gestionar información productiva, controlar procesos y visualizar indicadores.",
-    },
-    {
-        question: "¿La tecnología agrícola solo sirve para grandes empresas?",
-        answer: "No. También puede aplicarse en negocios pequeños y medianos cuando existe una necesidad concreta de ordenar información y mejorar procesos.",
-    },
-    {
-        question: "¿Pueden integrar información de diferentes áreas?",
-        answer: "Sí. Podemos conectar procesos productivos, comerciales y administrativos mediante sistemas personalizados.",
-    },
+  {
+    question: "¿Para qué tipo de negocios agrícolas desarrollan software?",
+    answer:
+      "Desarrollamos soluciones para comercializadoras de productos agrícolas (café, cacao, palta, frutas, hortalizas, granos), empresas acopiadoras, distribuidoras de agroquímicos e insumos y empresas agroexportadoras.",
+  },
+  {
+    question: "¿El sistema puede calcular descuentos por calidad o merma?",
+    answer:
+      "Sí. Al ser desarrollo a medida, programamos tus fórmulas exactas de liquidación: descuentos por humedad, descarte, merma de peso y bonificaciones por calidad pactadas con los agricultores.",
+  },
+  {
+    question: "¿Puede funcionar en zonas con internet inestable?",
+    answer:
+      "Diseñamos plataformas optimizadas para bajo consumo de datos que cargan con rapidez incluso con conexiones móviles rurales o redes satelitales.",
+  },
+  {
+    question: "¿Pueden crear una página web para promocionar nuestros productos agrícolas en el extranjero?",
+    answer:
+      "Sí. Creamos portales web de alta velocidad que presentan tus variedades agrícolas, calendarios de disponibilidad estacional, fichas técnicas de exportación y certificaciones para compradores internacionales.",
+  },
 ];
 ---
 
 <SectorPage
-    sector="Agricultura y agroindustria"
-    title="Tecnología para empresas agrícolas que buscan"
-    highlight="producir mejor."
-    description="Creamos soluciones digitales para agroempresas, productores y negocios agrícolas que necesitan organizar información, mejorar procesos y conectar producción con mercado."
-    metaTitle="Software agrícola y soluciones digitales para agroempresas en Perú | Velyon"
-    metaDescription="Desarrollamos software agrícola, sistemas personalizados y automatizaciones para empresas agroindustriales en Perú. Digitaliza producción, gestión y ventas."
-    path="/sectores/agricultura"
-    lottieSrc="/animations/agricultura.lottie"
-    audiences={[
-        "Agroempresas",
-        "Productores organizados",
-        "Comercializadoras agrícolas",
-        "Empresas de semillas",
-    ]}
-    {challenges}
-    {solutions}
-    {principles}
-    product={{
-        eyebrow: "Solución para agroindustria",
-
-        title: "Software a medida para gestión comercial y productiva.",
-
-        description:
-            "Sistemas personalizados para comercializadoras y productores que buscan centralizar registros de clientes, proveedores, lotes y despachos.",
-
-        href: "/soluciones/software-a-medida",
-
-        status: "Desarrollo a medida",
-
-        ctaText: "Ver software a medida para agro",
-    }}
-    {faqs}
+  sector="Agricultura y agroindustria"
+  title="Sistemas a medida y herramientas digitales para el"
+  highlight="sector agroindustrial."
+  description="Desarrollamos software a medida y páginas web corporativas para comercializadoras agrícolas, acopiadoras y empresas del sector agro en Perú y Latinoamérica. Optimiza el control de acopio, trazabilidad de cosechas y presencia comercial."
+  metaTitle="Software a Medida y Soluciones Digitales para Agroempresas | VelyonSoft"
+  metaDescription="Desarrollo de software y páginas web para comercializadoras agrícolas, acopiadoras y agroexportadoras en Perú y Latinoamérica. Trazabilidad, acopio y gestión comercial."
+  path="/sectores/agricultura"
+  lottieSrc="/animations/agricultura.lottie"
+  audiences={[
+    "Comercializadoras agrícolas y acopiadoras",
+    "Empresas agroexportadoras",
+    "Distribuidoras de insumos y fertilizantes",
+    "Asociaciones y cooperativas de productores",
+  ]}
+  {challenges}
+  {solutions}
+  {principles}
+  product={{
+    eyebrow: "Solución para agroindustria",
+    title: "Software a medida para acopio, pesaje y despacho de cosecha.",
+    description:
+      "Sistemas personalizados para registrar ingresos de campo, liquidaciones a productores y trazabilidad de lotes agrícolas sin hojas de cálculo dispersas.",
+    href: "/soluciones/software-a-medida",
+    status: "Desarrollo a medida",
+    ctaText: "Ver software a medida para agro",
+  }}
+  {faqs}
 />
