@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from "@/lib/site";
+
 const GOOGLE_SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbyaE_YZ0gJ9aj3FJJqhs_nTnBASkH8VHXjj_oweCaTiIY3wEXnnark2Z6DPbhQAN8aFHA/exec";
 
@@ -204,7 +206,7 @@ const solutions = [
     <p id="message" class="mt-5 hidden text-center text-sm font-semibold"></p>
 </form>
 
-<script is:inline define:vars={{ GOOGLE_SCRIPT_URL }}>
+<script is:inline define:vars={{ GOOGLE_SCRIPT_URL, whatsappNumber: siteConfig.whatsappNumber }}>
     const form = document.querySelector("#diagnostic-form");
 
     const steps = [...document.querySelectorAll(".form-step")];
@@ -391,7 +393,7 @@ ${payload.presupuesto}
 
             setTimeout(() => {
                 window.open(
-                    `https://wa.me/51997676432?text=${encodeURIComponent(whatsapp)}`,
+                    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsapp)}`,
                     "_blank",
                 );
             }, 800);

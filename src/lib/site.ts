@@ -9,7 +9,7 @@ export const siteConfig = {
   url: "https://www.velyonsoft.com",
   email: "contacto@velyonsoft.com",
   location: "Lima, Perú",
-  whatsappNumber: "51997676432",
+  whatsappNumber: "51900083518",
   whatsappMessage:
     "Hola Velyon, quisiera conversar sobre una solución para mi negocio.",
 } as const;
@@ -17,18 +17,13 @@ export const siteConfig = {
 export const socialNetworks = [
   {
     name: "Instagram",
-    url: "https://instagram.com/velyonsoft",
+    url: "https://www.instagram.com/velyonsoft",
     icon: "instagram",
   },
   {
     name: "Facebook",
-    url: "https://facebook.com/velyonsoft",
+    url: "https://www.facebook.com/velyonsoft",
     icon: "facebook",
-  },
-  {
-    name: "LinkedIn",
-    url: "https://linkedin.com/in/velyonsoft",
-    icon: "linkedin",
   },
 ];
 
